@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pandemalawi Sounds</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #f0f0f0;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .song {
+      background: #fff;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 20px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .song img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .info {
+      margin-top: 10px;
+    }
+    .info h3 {
+      margin: 5px 0;
+    }
+    .info p {
+      margin: 4px 0;
+      font-size: 0.95em;
+    }
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+    .download {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 12px;
+      background: #2980b9;
+      color: #fff;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pandemalawi Sounds</h1>
+  <p style="text-align: center;">Discover fresh Malawian music. Stream or download directly.</p>
+
+  <!-- SONG CARD -->
+  <div class="song">
+    <img src="covers/song1.jpg" alt="Song Cover">
+    <div class="info">
+      <h3>Nthawi Yanga</h3>
+      <p><strong>Artist:</strong> John Mvula</p>
+      <p><strong>About:</strong> Afro-pop artist from Blantyre with soulful vibes.</p>
+      <p><strong>Contact:</strong> WhatsApp: +265 999 123 456</p>
+    </div>
+    <audio controls>
+      <source src="audio/song1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <br>
+    <a class="download" href="audio/song1.mp3" download>Download</a>
+  </div>
+  <!-- /SONG CARD -->
+
+</body>
+</html>
