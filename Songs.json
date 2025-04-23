@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Song Title 1",
+    "artist": "Artist Name",
+    "url": "https://example.com/song1.mp3"
+  },
+  {
+    "title": "Song Title 2",
+    "artist": "Another Artist",
+    "url": "https://example.com/song2.mp3"
+  }
+]
