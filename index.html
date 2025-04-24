@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pandemalawi Sounds</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     body {
       margin: 0;
@@ -92,7 +93,7 @@
     }
     .likes button {
       margin-left: 5px;
-      background: #transparent;
+      background: transparent;
       color: #000;
       border: none;
       padding: 0.2rem 0.5rem;
@@ -113,17 +114,58 @@
       font-size: 1rem;
       margin-bottom: 1rem;
     }
-    .share-buttons a, .share-buttons button {
-      display: inline-block;
-      margin: 5px 10px 5px 0;
-      padding: 0.4rem 0.8rem;
-      font-size: 0.9rem;
-      border-radius: 6px;
-      border: none;
-      cursor: pointer;
-      background-color: #transparent;
-      color: #000;
+
+    /* Share buttons styles */
+    .share-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .share-buttons a {
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      font-size: 18px;
+      color: #fff;
       text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .share-buttons a:hover {
+      transform: scale(1.2);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .whatsapp { background: #25D366; }
+    .facebook { background: #1877F2; }
+    .twitter  { background: #1DA1F2; }
+    .tiktok   { background: #000000; }
+    .copy     { background: #888888; }
+
+    .share-buttons a::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      bottom: -25px;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      padding: 3px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      opacity: 0;
+      transform: translateY(5px);
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      pointer-events: none;
+    }
+
+    .share-buttons a:hover::after {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
@@ -137,8 +179,8 @@
   </header>
 
   <div class="hero">
-    <h2>Explore music from malawi and beyond.</h2>
-    <p>upload your music with Pandemalawisounds at a fair price and advertise your business with us nthawi yokwanilisa maloto anu yakwana!!!!!!.</p>
+    <h2>Explore music from Malawi and beyond.</h2>
+    <p>Upload your music with Pandemalawisounds at a fair price and advertise your business with us. Nthawi yokwanilisa maloto anu yakwana!</p>
   </div>
 
   <div class="section search">
@@ -159,11 +201,21 @@
             👎 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
           </div>
           <div class="share-buttons">
-            <a href="https://wa.me/?text=Listen%20to%20By%20My%20Side%20on%20Pandemalawi%20Sounds%20https://yourdomain.com" target="_white">WhatsApp</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_white">Facebook</a>
-            <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=Listen%20to%20By%20My%20Side!" target="_white">Twitter</a>
-            <a href="https://www.tiktok.com/" target="_white">TikTok</a>
-            <button onclick="copyShareLink('https://yourdomain.com')">Copy Link</button>
+            <a class="whatsapp" href="https://wa.me/?text=Listen%20to%20By%20My%20Side%20on%20Pandemalawi%20Sounds%20https://yourdomain.com" target="_blank" data-tooltip="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_blank" data-tooltip="Facebook">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a class="twitter" href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=Listen%20to%20By%20My%20Side!" target="_blank" data-tooltip="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a class="tiktok" href="https://www.tiktok.com/@yourusername" target="_blank" data-tooltip="TikTok">
+              <i class="fab fa-tiktok"></i>
+            </a>
+            <a class="copy" onclick="copyShareLink('https://yourdomain.com')" data-tooltip="Copy Link">
+              <i class="fas fa-link"></i>
+            </a>
           </div>
           <div class="socials">
             <a href="#">Instagram</a>
