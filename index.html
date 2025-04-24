@@ -3,85 +3,114 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pandemalawi Sounds</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
-      color: #222;
+      font-family: 'Outfit', sans-serif;
+      background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
     }
     header {
-      background: #fff;
-      padding: 1rem;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      backdrop-filter: blur(5px);
     }
     header h1 {
+      font-size: 1.8rem;
       margin: 0;
-      font-size: 1.5rem;
-      color: #333;
+      color: #ffffff;
     }
     nav a {
-      margin-left: 15px;
+      color: #00d1ff;
       text-decoration: none;
-      color: #007bff;
+      margin-left: 20px;
+      font-weight: 500;
     }
     .hero {
-      background: linear-gradient(to right, #e3f2fd, #fff);
-      padding: 2rem;
       text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(0,0,0,0.5);
     }
     .hero h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
     }
     .section {
-      padding: 2rem 1rem;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.6);
+      border-radius: 20px;
+      margin: 2rem auto;
+      width: 90%;
+      max-width: 900px;
     }
     .song-card {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      margin-bottom: 1.5rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 15px;
+      margin-bottom: 2rem;
       padding: 1rem;
+      transition: transform 0.2s;
     }
-    .song-card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 10px;
+    .song-card:hover {
+      transform: translateY(-5px);
     }
     .song-info {
       display: flex;
       gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .song-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
     }
     .song-details {
       flex: 1;
+      color: #fff;
     }
-    .socials a, .share a {
-      margin-right: 8px;
+    .song-details a {
+      color: #00d1ff;
       text-decoration: none;
-      color: #007bff;
+      margin-right: 10px;
     }
-    .likes {
-      margin-top: 10px;
+    .likes button {
+      margin-left: 5px;
+      background: #00d1ff;
+      color: #000;
+      border: none;
+      padding: 0.2rem 0.5rem;
+      border-radius: 5px;
+      cursor: pointer;
     }
     .ads img {
       width: 100%;
-      max-height: 150px;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      border-radius: 10px;
-    }
-    .search {
-      margin: 1rem 0;
-      text-align: center;
+      border-radius: 12px;
+      margin-top: 1rem;
     }
     .search input {
-      padding: 0.5rem;
-      width: 80%;
+      padding: 0.6rem;
+      border-radius: 10px;
+      border: none;
+      width: 100%;
       max-width: 400px;
       font-size: 1rem;
+      margin-bottom: 1rem;
     }
   </style>
 </head>
@@ -95,22 +124,20 @@
   </header>  <div class="hero">
     <h2>Stream. Download. Vibe.</h2>
     <p>Discover Malawian music and support local talent.</p>
-  </div>  <div class="search">
+  </div>  <div class="section search">
     <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
   </div>  <div class="section" id="songs">
     <h3>Most Liked Songs</h3><div class="song-card" data-title="Sauti Yanga" data-artist="Young Vibe">
   <div class="song-info">
     <img src="artist1.jpg" alt="Artist Image">
     <div class="song-details">
-      <strong>Sauti Yanga - Young Vibe</strong>
-      <br>
-      <audio controls src="sauti-yanga.mp3"></audio>
-      <br>
+      <strong>Sauti Yanga - Young Vibe</strong><br>
+      <audio controls src="sauti-yanga.mp3"></audio><br>
       <a href="sauti-yanga.mp3" download>⬇️ Download</a>
       <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">► Watch on YouTube</a>
       <div class="likes">
-        ❤️ <span id="likes1">0</span> <button onclick="like('likes1')">Like</button>
-        💔 <span id="dislikes1">0</span> <button onclick="dislike('dislikes1')">Dislike</button>
+        ❤️ <span id="likes1">0</span><button onclick="like('likes1')">Like</button>
+        💔 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
       </div>
       <div class="socials">
         <a href="#">Instagram</a>
@@ -123,8 +150,6 @@
     </div>
   </div>
 </div>
-
-<!-- More song cards can be added here -->
 
   </div>  <div class="section" id="artists">
     <h3>Featured Artists</h3>
@@ -176,4 +201,4 @@
       });
     }
   </script></body>
-        </html>
+  </html>
