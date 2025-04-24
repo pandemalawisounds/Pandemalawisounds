@@ -112,6 +112,18 @@
       font-size: 1rem;
       margin-bottom: 1rem;
     }
+    .share-buttons a, .share-buttons button {
+      display: inline-block;
+      margin: 5px 10px 5px 0;
+      padding: 0.4rem 0.8rem;
+      font-size: 0.9rem;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      background-color: #00d1ff;
+      color: #000;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -139,13 +151,17 @@
         ❤️ <span id="likes1">0</span><button onclick="like('likes1')">Like</button>
         💔 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
       </div>
+      <div class="share-buttons">
+        <a href="https://wa.me/?text=Listen%20to%20Sauti%20Yanga%20on%20Pandemalawi%20Sounds%20https://yourdomain.com" target="_blank">WhatsApp</a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_blank">Facebook</a>
+        <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=Listen%20to%20Sauti%20Yanga!" target="_blank">Twitter</a>
+        <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
+        <button onclick="copyShareLink('https://yourdomain.com')">Copy Link</button>
+      </div>
       <div class="socials">
         <a href="#">Instagram</a>
         <a href="#">Facebook</a>
         <a href="#">YouTube</a>
-      </div>
-      <div class="share">
-        <a href="https://wa.me/?text=Listen%20to%20Sauti%20Yanga%20on%20Pandemalawi%20Sounds" target="_blank">Share on WhatsApp</a>
       </div>
     </div>
   </div>
@@ -157,8 +173,8 @@
       <div class="song-info">
         <img src="artist1.jpg" alt="Artist">
         <div class="song-details">
-          <strong>Young Vibe</strong>
-          <p>Genre: Afro Beats</p>
+          <strong>pboy_halla_ft_Denje</strong>
+          <p>Genre: Afro hiphop</p>
           <div class="socials">
             <a href="#">Instagram</a>
             <a href="#">Facebook</a>
@@ -177,7 +193,8 @@
   </div>  <div class="section" id="contact">
     <h3>Contact Us</h3>
     <p>Email: pandemalawisounds@gmail.com</p>
-    <p>WhatsApp: +2659xxxxxxx</p>
+    <p>WhatsApp: +265996275575</p>
+    <p>Facebook: pandemalawisounds</p>
   </div>  <script>
     function like(id) {
       const el = document.getElementById(id);
@@ -199,6 +216,11 @@
           card.style.display = 'none';
         }
       });
+    }
+    function copyShareLink(link) {
+      navigator.clipboard.writeText(link)
+        .then(() => alert("Link copied!"))
+        .catch(err => alert("Failed to copy link."));
     }
   </script></body>
   </html>
