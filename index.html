@@ -147,22 +147,21 @@
 
   <div class="section" id="songs">
     <h3>Most Liked Songs</h3>
-    <div class="song-card" data-title="Sauti Yanga" data-artist="Young Vibe">
+    <div class="song-card" data-title="By My Side" data-artist="Pboy Halla ft Denje">
       <div class="song-info">
-        <img src="artist1.jpg" alt="Artist Image">
+        <img src="covers/song1.jpg" alt="By My Side Cover">
         <div class="song-details">
-          <strong>Sauti Yanga - Young Vibe</strong><br>
-          <audio controls src="sauti-yanga.mp3"></audio><br>
-          <a href="sauti-yanga.mp3" download>⬇️ Download</a>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">► Watch on YouTube</a>
+          <strong>By My Side - Pboy Halla ft Denje</strong><br>
+          <audio controls src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp"></audio><br>
+          <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>⬇️ Download</a>
           <div class="likes">
             👍 <span id="likes1">0</span><button onclick="like('likes1')">Like</button>
             👎 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
           </div>
           <div class="share-buttons">
-            <a href="https://wa.me/?text=Listen%20to%20Sauti%20Yanga%20on%20Pandemalawi%20Sounds%20https://yourdomain.com" target="_blank">WhatsApp</a>
+            <a href="https://wa.me/?text=Listen%20to%20By%20My%20Side%20on%20Pandemalawi%20Sounds%20https://yourdomain.com" target="_blank">WhatsApp</a>
             <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_blank">Facebook</a>
-            <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=Listen%20to%20Sauti%20Yanga!" target="_blank">Twitter</a>
+            <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=Listen%20to%20By%20My%20Side!" target="_blank">Twitter</a>
             <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
             <button onclick="copyShareLink('https://yourdomain.com')">Copy Link</button>
           </div>
@@ -225,8 +224,8 @@
       const input = document.getElementById('searchBar').value.toLowerCase();
       const cards = document.querySelectorAll('.song-card');
       cards.forEach(card => {
-        const title = card.dataset.title.toLowerCase();
-        const artist = card.dataset.artist.toLowerCase();
+        const title = card.dataset.title?.toLowerCase() || '';
+        const artist = card.dataset.artist?.toLowerCase() || '';
         if (title.includes(input) || artist.includes(input)) {
           card.style.display = 'block';
         } else {
@@ -241,4 +240,4 @@
     }
   </script>
 </body>
-            </html>
+</html>
