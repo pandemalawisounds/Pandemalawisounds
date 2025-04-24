@@ -1,0 +1,12 @@
+{
+  "artists": [
+    {
+      "name": "Young Vibe",
+      "genre": "Afrobeat",
+      "image": "artist1.jpg",
+      "instagram": "https://instagram.com/youngvibe",
+      "facebook": "https://facebook.com/youngvibe",
+      "youtube": "https://youtube.com/youngvibe"
+    }
+  ]
+}
