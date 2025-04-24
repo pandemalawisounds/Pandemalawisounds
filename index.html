@@ -45,7 +45,7 @@
   <script>
     async function loadSongs() {
       try {
-        const songsRes = await fetch("songs.json");
+        const songsRes = await fetch("https://pandemalawisounds.github.io/songs.json");
         const artistsRes = await fetch("artists.json");
 
         const songs = await songsRes.json();
