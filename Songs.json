@@ -2,20 +2,6 @@
   "songs": [
     {
       "id": 1,
-      "title": "Sauti Yanga",
-      "artist": "Young Vibe",
-      "artist_image": "artist1.jpg",
-      "audio_url": "sauti-yanga.mp3",
-      "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-      "likes": 5,
-      "dislikes": 0
-    }
-  ]
-}
-{
-  "songs": [
-    {
-      "id": 1,
       "title": "By_my_side_produced_by_tymdee(Thaxy)",
       "artist": "Pboy_halla_ft_Denje",
       "artist_image": "Covers/your-cover.jpg",
