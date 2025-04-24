@@ -1,89 +1,179 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pandemalawi Sounds</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      font-family: sans-serif;
-      padding: 20px;
-      background: #f0f0f0;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      color: #222;
+    }
+    header {
+      background: #fff;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.5rem;
       color: #333;
     }
-    h1 {
+    nav a {
+      margin-left: 15px;
+      text-decoration: none;
+      color: #007bff;
+    }
+    .hero {
+      background: linear-gradient(to right, #e3f2fd, #fff);
+      padding: 2rem;
       text-align: center;
-      color: #2c3e50;
     }
-    .song {
+    .hero h2 {
+      font-size: 2rem;
+    }
+    .section {
+      padding: 2rem 1rem;
+    }
+    .song-card {
       background: #fff;
-      border-radius: 12px;
-      padding: 15px;
-      margin: 20px 0;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      margin-bottom: 1.5rem;
+      padding: 1rem;
     }
-    .song img {
-      width: 100%;
-      max-height: 220px;
-      object-fit: cover;
+    .song-card img {
+      width: 100px;
+      height: 100px;
       border-radius: 10px;
     }
-    .info {
-      margin-top: 10px;
+    .song-info {
+      display: flex;
+      gap: 1rem;
     }
-    .info h3 {
-      margin: 5px 0;
+    .song-details {
+      flex: 1;
     }
-    .info p {
-      margin: 4px 0;
-      font-size: 0.95em;
-    }
-    audio {
-      width: 100%;
-      margin-top: 10px;
-    }
-    .download {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 6px 12px;
-      background: #2980b9;
-      color: #fff;
-      border-radius: 6px;
+    .socials a, .share a {
+      margin-right: 8px;
       text-decoration: none;
-      font-weight: bold;
+      color: #007bff;
+    }
+    .likes {
+      margin-top: 10px;
+    }
+    .ads img {
+      width: 100%;
+      max-height: 150px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border-radius: 10px;
+    }
+    .search {
+      margin: 1rem 0;
+      text-align: center;
+    }
+    .search input {
+      padding: 0.5rem;
+      width: 80%;
+      max-width: 400px;
+      font-size: 1rem;
     }
   </style>
 </head>
 <body>
-  <h1>Pandemalawi Sounds</h1>
-  <p style="text-align: center;">Discover fresh Malawian music. Stream or download directly.</p>
-
-  <!-- SONG CARD -->
-  <div class="song">
-    <img src="covers/song1.jpg" alt="Song Cover">
-    <div class="info">
-      <h3>By_my_side</h3>
-      <p><strong>Artist:</strong> pboy_halla_ft_Denje</p>
-      <p><strong>About:</strong> Afro-pop artist from Blantyre with soulful vibes a duo proced by .</p>
-      <p><strong>Contact:</strong> WhatsApp: +265 996275575</p>
+  <header>
+    <h1>Pandemalawi Sounds</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>  <div class="hero">
+    <h2>Stream. Download. Vibe.</h2>
+    <p>Discover Malawian music and support local talent.</p>
+  </div>  <div class="search">
+    <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
+  </div>  <div class="section" id="songs">
+    <h3>Most Liked Songs</h3><div class="song-card" data-title="Sauti Yanga" data-artist="Young Vibe">
+  <div class="song-info">
+    <img src="artist1.jpg" alt="Artist Image">
+    <div class="song-details">
+      <strong>Sauti Yanga - Young Vibe</strong>
+      <br>
+      <audio controls src="sauti-yanga.mp3"></audio>
+      <br>
+      <a href="sauti-yanga.mp3" download>⬇️ Download</a>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">► Watch on YouTube</a>
+      <div class="likes">
+        ❤️ <span id="likes1">0</span> <button onclick="like('likes1')">Like</button>
+        💔 <span id="dislikes1">0</span> <button onclick="dislike('dislikes1')">Dislike</button>
+      </div>
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">Facebook</a>
+        <a href="#">YouTube</a>
+      </div>
+      <div class="share">
+        <a href="https://wa.me/?text=Listen%20to%20Sauti%20Yanga%20on%20Pandemalawi%20Sounds" target="_blank">Share on WhatsApp</a>
+      </div>
     </div>
-    <audio controls>
-      <source src="audio/pboy_halla_by_my_side_ft_denje.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
-    <br>
-    <a class="download" href="audio/pboy_halla_by_my_side_ft_denje.mp3" download>Download</a>
   </div>
-  <div>
-  <h3>Song Title - Artist Name</h3>
-  <audio controls>
-    <source src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <br>
-  <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>Download</a>
-  </div>
-  <!-- /SONG CARD -->
+</div>
 
-</body>
-</html>
+<!-- More song cards can be added here -->
+
+  </div>  <div class="section" id="artists">
+    <h3>Featured Artists</h3>
+    <div class="song-card">
+      <div class="song-info">
+        <img src="artist1.jpg" alt="Artist">
+        <div class="song-details">
+          <strong>Young Vibe</strong>
+          <p>Genre: Afro Beats</p>
+          <div class="socials">
+            <a href="#">Instagram</a>
+            <a href="#">Facebook</a>
+            <a href="#">YouTube</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>  <div class="section ads">
+    <h3>Sponsored Ads</h3>
+    <img src="ad1.jpg" alt="Advert 1">
+    <img src="ad2.jpg" alt="Advert 2">
+  </div>  <div class="section" id="about">
+    <h3>About Pandemalawi Sounds</h3>
+    <p>Pandemalawi Sounds is a platform dedicated to promoting Malawian music and artists by making their work accessible to everyone. We also offer space for local business promotions.</p>
+  </div>  <div class="section" id="contact">
+    <h3>Contact Us</h3>
+    <p>Email: pandemalawisounds@gmail.com</p>
+    <p>WhatsApp: +2659xxxxxxx</p>
+  </div>  <script>
+    function like(id) {
+      const el = document.getElementById(id);
+      el.innerText = parseInt(el.innerText) + 1;
+    }
+    function dislike(id) {
+      const el = document.getElementById(id);
+      el.innerText = parseInt(el.innerText) + 1;
+    }
+    function searchSongs() {
+      const input = document.getElementById('searchBar').value.toLowerCase();
+      const cards = document.querySelectorAll('.song-card');
+      cards.forEach(card => {
+        const title = card.dataset.title.toLowerCase();
+        const artist = card.dataset.artist.toLowerCase();
+        if (title.includes(input) || artist.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script></body>
+        </html>
