@@ -1,42 +1,14 @@
-[
-  {
-    "id": "song001",
-    "title": "Love War",
-    "artist": "Pboy Halla",
-    "cover": "https://yourusername.github.io/pandemalawisounds/images/love-war.jpg",
-    "stream_url": "https://yourusername.github.io/pandemalawisounds/music/love-war.mp3",
-    "download_url": "https://yourusername.github.io/pandemalawisounds/music/love-war.mp3",
-    "featured": true,
-    "uploaded": "2025-04-24"
-  },
-  {
-    "id": "song002",
-    "title": "Nditula",
-    "artist": "Pboy Halla",
-    "cover": "https://yourusername.github.io/pandemalawisounds/images/nditula.jpg",
-    "stream_url": "https://yourusername.github.io/pandemalawisounds/music/nditula.mp3",
-    "download_url": "https://yourusername.github.io/pandemalawisounds/music/nditula.mp3",
-    "featured": false,
-    "uploaded": "2025-04-24"
-  },
-  {
-    "id": "song003",
-    "title": "Bench",
-    "artist": "Pboy Halla",
-    "cover": "https://yourusername.github.io/pandemalawisounds/images/bench.jpg",
-    "stream_url": "https://yourusername.github.io/pandemalawisounds/music/bench.mp3",
-    "download_url": "https://yourusername.github.io/pandemalawisounds/music/bench.mp3",
-    "featured": false,
-    "uploaded": "2025-04-24"
-  },
-  {
-    "id": "song004",
-    "title": "Somebody",
-    "artist": "Pboy Halla",
-    "cover": "https://yourusername.github.io/pandemalawisounds/images/somebody.jpg",
-    "stream_url": "https://yourusername.github.io/pandemalawisounds/music/somebody.mp3",
-    "download_url": "https://yourusername.github.io/pandemalawisounds/music/somebody.mp3",
-    "featured": true,
-    "uploaded": "2025-04-24"
-  }
-]
+{
+  "songs": [
+    {
+      "id": 1,
+      "title": "Sauti Yanga",
+      "artist": "Young Vibe",
+      "artist_image": "artist1.jpg",
+      "audio_url": "sauti-yanga.mp3",
+      "youtube_url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      "likes": 5,
+      "dislikes": 0
+    }
+  ]
+}
