@@ -1,86 +1,254 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pandemalawi Sounds</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
       margin: 0;
-      padding: 0;
+      font-family: 'Outfit', sans-serif;
+      background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
     }
-    header, footer {
-      background-color: #222;
-      color: white;
-      padding: 15px;
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      color: #ffffff;
+    }
+    nav a {
+      color: #00ffd5;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+    .hero {
       text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(0,0,0,0.5);
     }
-    .container {
-      padding: 20px;
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .section {
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.6);
+      border-radius: 20px;
+      margin: 2rem auto;
+      width: 90%;
+      max-width: 1100px;
+    }
+    .search input {
+      padding: 0.6rem;
+      border-radius: 10px;
+      border: none;
+      width: 100%;
+      max-width: 400px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    #songs .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
     }
     .song-card {
-      background: white;
-      padding: 15px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 15px;
+      padding: 1rem;
+      transition: transform 0.2s;
     }
-    .share-buttons {
-      margin-top: 10px;
+    .song-card:hover {
+      transform: translateY(-5px);
+    }
+    .song-info {
       display: flex;
-      gap: 10px;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    .share-buttons a img {
-      width: 24px;
-      height: 24px;
-      border-radius: 4px;
+    .song-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
     }
-    .share-buttons a.fb img { background-color: #1877F2; padding: 4px; }
-    .share-buttons a.wa img { background-color: #25D366; padding: 4px; }
-    .share-buttons a.tg img { background-color: #0088cc; padding: 4px; }
-    .share-buttons a.x img  { background-color: #000000; padding: 4px; }
+    .song-details {
+      flex: 1;
+      color: #fff;
+    }
+    .song-details a {
+      color: #00ffd5;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    .song-details .download-btn {
+      background: #00ff6a;
+      color: #000;
+      padding: 5px 10px;
+      border-radius: 8px;
+      display: inline-block;
+      margin-top: 5px;
+      text-decoration: none;
+    }
+    .likes button {
+      margin-left: 5px;
+      background: #00ffd5;
+      color: #000;
+      border: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .share-buttons i {
+      font-size: 1.2rem;
+      color: #00ffd5;
+      margin-right: 10px;
+    }
+    .share-buttons button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #00ffd5;
+    }
+    .socials i {
+      margin-right: 10px;
+      font-size: 1.2rem;
+      color: #00ffd5;
+    }
+    #artists .song-card {
+      margin-bottom: 1rem;
+    }
+    .ads img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>Pandemalawi Sounds</h1>
-    <p>Stream and Download Your Favorite Malawian Hits</p>
-  </header>
-
-  <div class="container">
-    <section id="most-liked">
-      <h2>Most Liked Songs</h2>
-      <div class="song-card">
-        <h3>By My Side - Pboy Halla ft Denje</h3>
-        <audio controls>
-          <source src="songs/by-my-side.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-        </audio>
-
-        <div class="share-buttons">
-          <a href="https://www.facebook.com/sharer/sharer.php?u=https://pandemalawisounds.github.io/songs/by-my-side.mp3" target="_blank" title="Share on Facebook" class="fb">
-            <img src="icons/facebook.svg" alt="Facebook" />
-          </a>
-          <a href="https://api.whatsapp.com/send?text=Check%20this%20song:%20https://pandemalawisounds.github.io/songs/by-my-side.mp3" target="_blank" title="Share on WhatsApp" class="wa">
-            <img src="icons/whatsapp.svg" alt="WhatsApp" />
-          </a>
-          <a href="https://t.me/share/url?url=https://pandemalawisounds.github.io/songs/by-my-side.mp3" target="_blank" title="Share on Telegram" class="tg">
-            <img src="icons/telegram.svg" alt="Telegram" />
-          </a>
-          <a href="https://x.com/intent/tweet?url=https://pandemalawisounds.github.io/songs/by-my-side.mp3&text=Check%20out%20this%20song!" target="_blank" title="Share on X" class="x">
-            <img src="icons/x.svg" alt="X (Twitter)" />
-          </a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>  <div class="hero">
+    <h2>Stream. Download. Vibe.</h2>
+    <p>Discover Malawian music and support local talent.</p>
+  </div>  <div class="section search">
+    <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
+  </div>  <div class="section" id="songs">
+    <h3>Most Liked Songs</h3>
+    <div class="grid">
+      <!-- START OF A SONG CARD -->
+      <div class="song-card" data-title="Sauti Yanga" data-artist="Young Vibe">
+        <div class="song-info">
+          <img src="artist1.jpg" alt="Artist Image">
+          <div class="song-details">
+            <strong>Sauti Yanga - Young Vibe</strong><br>
+            <audio controls src="sauti-yanga.mp3"></audio><br>
+            <a href="sauti-yanga.mp3" download class="download-btn">Download</a>
+            <div class="likes">
+              👍 <span id="likes1">0</span><button onclick="like('likes1')">Like</button>
+              👎 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
+            </div>
+            <div class="share-buttons">
+              <a href="https://wa.me/?text=Listen%20to%20Sauti%20Yanga" target="_blank"><i class="fab fa-whatsapp"></i></a>
+              <a href="https://facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_blank"><i class="fab fa-facebook"></i></a>
+              <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com" target="_blank"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
+              <button onclick="copyShareLink('https://yourdomain.com')"><i class="fas fa-link"></i></button>
+            </div>
+            <div class="socials">
+              <i class="fab fa-instagram"></i>
+              <i class="fab fa-facebook"></i>
+              <i class="fab fa-youtube"></i>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-  </div>
-
-  <footer>
-    <p>&copy; 2025 Pandemalawi Sounds. All rights reserved.</p>
-  </footer>
-</body>
+      <!-- TO ADD ANOTHER SONG, COPY FROM "START OF A SONG CARD" TO THIS LINE -->
+    </div>
+  </div>  <div class="section" id="artists">
+    <h3>Featured Songs</h3>
+    <!-- START OF A FEATURED SONG -->
+    <div class="song-card">
+      <div class="song-info">
+        <img src="artist1.jpg" alt="Artist">
+        <div class="song-details">
+          <strong>pboy_halla_ft_Denje</strong><br>
+          Genre: Afro hiphop<br>
+          <audio controls src="by-my-side.mp3"></audio><br>
+          <a href="by-my-side.mp3" download class="download-btn">Download</a>
+          <div class="socials">
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-youtube"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- TO ADD ANOTHER FEATURED SONG, COPY FROM "START OF A FEATURED SONG" TO THIS LINE -->
+  </div>  <div class="section ads">
+    <h3>Sponsored Ads</h3>
+    <img src="ad1.jpg" alt="Advert 1">
+    <img src="ad2.jpg" alt="Advert 2">
+  </div>  <div class="section" id="about">
+    <h3>About Pandemalawi Sounds</h3>
+    <p>Pandemalawi Sounds is a platform dedicated to promoting Malawian music and artists by making their work accessible to everyone. We also offer space for local business promotions.</p>
+  </div>  <div class="section" id="contact">
+    <h3>Contact Us</h3>
+    <p>Email: pandemalawisounds@gmail.com</p>
+    <p>WhatsApp: +265996275575</p>
+    <p>Facebook: pandemalawisounds</p>
+  </div>  <script>
+    function like(id) {
+      const el = document.getElementById(id);
+      el.innerText = parseInt(el.innerText) + 1;
+    }
+    function dislike(id) {
+      const el = document.getElementById(id);
+      el.innerText = parseInt(el.innerText) + 1;
+    }
+    function searchSongs() {
+      const input = document.getElementById('searchBar').value.toLowerCase();
+      const cards = document.querySelectorAll('.song-card');
+      cards.forEach(card => {
+        const title = card.dataset.title ? card.dataset.title.toLowerCase() : '';
+        const artist = card.dataset.artist ? card.dataset.artist.toLowerCase() : '';
+        if (title.includes(input) || artist.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+    function copyShareLink(link) {
+      navigator.clipboard.writeText(link)
+        .then(() => alert("Link copied!"))
+        .catch(err => alert("Failed to copy link."));
+    }
+  </script></body>
 </html>
-
