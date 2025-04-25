@@ -167,6 +167,15 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* Like and Dislike Button Styles */
+    .likes button.active-like {
+      background-color: #3498db;
+    }
+
+    .likes button.active-dislike {
+      background-color: #e74c3c;
+    }
   </style>
 </head>
 <body>
@@ -187,190 +196,47 @@
     <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
   </div>
 
-  <<div class="section" id="songs">
-  <h3>Trending Songs</h3>
-  <div class="song-grid">
-    <!-- Song 1 -->
-    <div class="song-card" data-title="By My Side" data-artist="Pboy Halla ft Denje">
-      <div class="song-info">
-        <img src="covers/song1.jpg" alt="By My Side Cover" style="width: 100%; max-width: 200px; border-radius: 10px;">
-        <div class="song-details">
-          <strong>By My Side - Pboy Halla ft Denje</strong><br>
-          <audio controls src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp"></audio><br>
-          <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>
-            <b><u>⬇️ Download</u></b>
+  <div class="section" id="songs">
+    <h3>Trending Songs</h3>
+    <div class="song-grid">
+      <!-- Song 1 -->
+      <div class="song-card" data-title="By My Side" data-artist="Pboy Halla ft Denje">
+        <div class="song-info">
+          <img src="covers/song1.jpg" alt="By My Side Cover" style="width: 100%; max-width: 200px; border-radius: 10px;">
+          <div class="song-details">
+            <strong>By My Side - Pboy Halla ft Denje</strong><br>
+            <audio controls src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp"></audio><br>
+            <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>
+              <b><u>⬇️ Download</u></b>
+            </a>
+          </div>
+        </div>
+        <div class="likes">
+          👍 <span id="likes1">0</span><button onclick="like('likes1')">Like</button>
+          👎 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
+        </div>
+        <!-- Share Buttons -->
+        <div class="share-buttons">
+          <a class="whatsapp" href="https://wa.me/?text=Listen%20to%20By%20My%20Side%20on%20Pandemalawi%20Sounds%20https://yourdomain.com" target="_blank" data-tooltip="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+          <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_blank" data-tooltip="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a class="twitter" href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=Listen%20to%20By%20My%20Side!" target="_blank" data-tooltip="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a class="tiktok" href="https://www.tiktok.com/@yourusername" target="_blank" data-tooltip="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a class="copy" onclick="copyShareLink('https://yourdomain.com')" data-tooltip="Copy Link">
+            <i class="fas fa-link"></i>
           </a>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- CSS for Grid Layout -->
-<style>
-  /* Basic styling for the grid */
-  .song-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjust the minimum size of the cards */
-    gap: 20px;
-    margin-top: 20px;
-  }
-
-  /* Song card styling */
-  .song-card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  /* Song info styling */
-  .song-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .song-info img {
-    width: 100%;
-    max-width: 200px;
-    border-radius: 10px;
-  }
-
-  .song-details {
-    text-align: center;
-  }
-
-  .song-details audio {
-    margin: 10px 0;
-  }
-
-  .song-details a {
-    color: #4CAF50;
-    text-decoration: none;
-    font-weight: bold;
-  }
-
-  .song-details a:hover {
-    text-decoration: underline;
-  }
-</style>
-
-    <!-- More song cards can be added similarly -->
-  </div>
-</div>
-          <div class="likes">
-            👍 <span id="likes1">0</span><button onclick="like('likes1')">Like</button>
-            👎 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
-          </div>
-          <div class="share-buttons">
-            <a class="whatsapp" href="https://wa.me/?text=Listen%20to%20By%20My%20Side%20on%20Pandemalawi%20Sounds%20https://yourdomain.com" target="_blank" data-tooltip="WhatsApp">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_blank" data-tooltip="Facebook">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a class="twitter" href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=Listen%20to%20By%20My%20Side!" target="_blank" data-tooltip="Twitter">
-              <i class="fab fa-twitter"></i>
-            </a>
-            <a class="tiktok" href="https://www.tiktok.com/@yourusername" target="_blank" data-tooltip="TikTok">
-              <i class="fab fa-tiktok"></i>
-            </a>
-            <a class="copy" onclick="copyShareLink('https://yourdomain.com')" data-tooltip="Copy Link">
-              <i class="fas fa-link"></i>
-            </a>
-          </div>
-          <div class="socials" style="margin-top: 15px;">
-  <a href="#" title="Instagram"><i class="fab fa-instagram" style="color: #fff; font-size: 20px; margin-right: 10px;"></i></a>
-  <a href="#" title="YouTube"><i class="fab fa-youtube" style="color: #fff; font-size: 20px;"></i></a>
-</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-<div class="section" id="artists">
-  <h3>Song list</h3>
-  <div class="song-card">
-    <!-- Song 1 -->
-    <div class="song" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
-      <div style="flex: 1;">
-        <img src="covers/Song2.png" 
-             alt="Happy Birthday by Pboy ft Denje" 
-             style="width: 100%; max-width: 150px; border-radius: 10px; display: block; margin-right: 20px;">
-      </div>
-      <div style="flex: 3;">
-        <h3>Happy Birthday</h3>
-        <p>Artist: Pboy ft Denje</p>
-      </div>
-      <div style="flex: 1; text-align: right;">
-        <a href="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" download>
-          <span style="background-color: #4CAF50; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; display: inline-block;">
-            📥 Download Song
-          </span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Add more songs here with the same structure -->
-  </div>
-</div>
-          <div class="socials">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="section ads">
-    <h3>Sponsored Ads</h3>
-    <img src="ad1.jpg" alt="Advert 1">
-    <img src="ad2.jpg" alt="Advert 2">
-  </div>
 
   <div class="section" id="about">
     <h3>About Pandemalawi Sounds</h3>
-    <p>Pandemalawi Sounds is a platform dedicated to promoting Malawian music and artists by making their work accessible to everyone. We also offer space for local business promotions. Advertise with us.</p>
-  </div>
-
-  <div class="section" id="contact">
-    <h3>Contact Us</h3>
-    <p>Email: pandemalawisounds@gmail.com</p>
-    <p>WhatsApp: +265996275575</p>
-    <p>Facebook: pandemalawisounds</p>
-  </div>
-
-  <script>
-    function like(id) {
-      const el = document.getElementById(id);
-      el.innerText = parseInt(el.innerText) + 1;
-    }
-    function dislike(id) {
-      const el = document.getElementById(id);
-      el.innerText = parseInt(el.innerText) + 1;
-    }
-    function searchSongs() {
-      const input = document.getElementById('searchBar').value.toLowerCase();
-      const cards = document.querySelectorAll('.song-card');
-      cards.forEach(card => {
-        const title = card.dataset.title?.toLowerCase() || '';
-        const artist = card.dataset.artist?.toLowerCase() || '';
-        if (title.includes(input) || artist.includes(input)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-    function copyShareLink(link) {
-      navigator.clipboard.writeText(link)
-        .then(() => alert("Link copied!"))
-        .catch(err => alert("Failed to copy link."));
-    }
-  </script>
-</body>
-</html>
+    <p>Pandemalawi Sounds is
