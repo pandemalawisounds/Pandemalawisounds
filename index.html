@@ -125,6 +125,24 @@
       color: #000;
       text-decoration: none;
     }
+    .socials a {
+      margin-right: 10px;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    /* Grid layout for Most Liked Songs */
+    .song-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    /* Social media icons style */
+    .socials i {
+      font-size: 1.2rem;
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
@@ -145,37 +163,51 @@
     <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
   </div>
 
+  <!-- Most Liked Songs Section -->
   <div class="section" id="songs">
     <h3>Most Liked Songs</h3>
-    <div class="song-card" data-title="Sauti Yanga" data-artist="Young Vibe">
-      <div class="song-info">
-        <img src="artist1.jpg" alt="Artist Image">
-        <div class="song-details">
-          <strong>Sauti Yanga - Young Vibe</strong><br>
-          <audio controls src="sauti-yanga.mp3"></audio><br>
-          <a href="sauti-yanga.mp3" download>⬇️ Download</a>
-          <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">► Watch on YouTube</a>
-          <div class="likes">
-            👍 <span id="likes1">0</span><button onclick="like('likes1')">Like</button>
-            👎 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
-          </div>
-          <div class="share-buttons">
-            <a href="https://wa.me/?text=Listen%20to%20Sauti%20Yanga%20on%20Pandemalawi%20Sounds%20https://yourdomain.com" target="_blank">WhatsApp</a>
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_blank">Facebook</a>
-            <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=Listen%20to%20Sauti%20Yanga!" target="_blank">Twitter</a>
-            <a href="https://www.tiktok.com/" target="_blank">TikTok</a>
-            <button onclick="copyShareLink('https://yourdomain.com')">Copy Link</button>
-          </div>
-          <div class="socials">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
+    <div class="song-grid">
+      <!-- Song 1: Example -->
+      <div class="song-card" data-title="Sauti Yanga" data-artist="Young Vibe">
+        <div class="song-info">
+          <img src="artist1.jpg" alt="Artist Image">
+          <div class="song-details">
+            <strong>Sauti Yanga - Young Vibe</strong><br>
+            <audio controls src="sauti-yanga.mp3"></audio><br>
+            <a href="sauti-yanga.mp3" class="download-btn">⬇️ Download</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">► Watch on YouTube</a>
+            <div class="likes">
+              👍 <span id="likes1">0</span><button onclick="like('likes1')">Like</button>
+              👎 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
+            </div>
+            <div class="share-buttons">
+              <a href="https://wa.me/?text=Listen%20to%20Sauti%20Yanga%20on%20Pandemalawi%20Sounds%20https://yourdomain.com" target="_blank">
+                <i class="fa fa-whatsapp"></i> WhatsApp
+              </a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_blank">
+                <i class="fa fa-facebook"></i> Facebook
+              </a>
+              <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com&text=Listen%20to%20Sauti%20Yanga!" target="_blank">
+                <i class="fa fa-twitter"></i> Twitter
+              </a>
+              <a href="https://www.tiktok.com/" target="_blank">
+                <i class="fa fa-tiktok"></i> TikTok
+              </a>
+              <button onclick="copyShareLink('https://yourdomain.com')">Copy Link</button>
+            </div>
+            <div class="socials">
+              <a href="#">Instagram</a>
+              <a href="#">Facebook</a>
+              <a href="#">YouTube</a>
+            </div>
           </div>
         </div>
       </div>
+      <!-- Add another song here (copy the code above and change the details) -->
     </div>
   </div>
 
+  <!-- Featured Artists Section -->
   <div class="section" id="artists">
     <h3>Featured Artists</h3>
     <div class="song-card">
@@ -185,15 +217,17 @@
           <strong>pboy_halla_ft_Denje</strong>
           <p>Genre: Afro hiphop</p>
           <div class="socials">
-            <a href="#">Instagram</a>
-            <a href="#">Facebook</a>
-            <a href="#">YouTube</a>
+            <i class="fa fa-instagram"></i>
+            <i class="fa fa-facebook"></i>
+            <i class="fa fa-youtube"></i>
           </div>
         </div>
       </div>
     </div>
+    <!-- Add another featured artist here (copy the code above and change the details) -->
   </div>
 
+  <!-- Sponsored Ads Section -->
   <div class="section ads">
     <h3>Sponsored Ads</h3>
     <img src="ad1.jpg" alt="Advert 1">
