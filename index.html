@@ -112,19 +112,19 @@
       margin-top: 5px;
       text-decoration: none;
     }
-    .likes button {
-      margin-left: 5px;
-margin-top: 10px;
-      background: #none;
-      color: #none;
-      border: none;
-      padding: 0.3rem 0.7rem;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+.likes button {
+  margin-left: 5px;
+  margin-top: 10px;
+  background: transparent;  /* Set the background to transparent */
+  color: white;             /* Set the text color to white */
+  border: none;
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
     .share-buttons i {
       font-size: 1.2rem;
-      color: #25D366;
+      color:dodgerblue;
       margin-right: 10px;
 margin-top: 10px
     }
@@ -159,21 +159,36 @@ margin-top: 10px
       <a href="#contact">Contact</a>
     </nav>
   </header>  <div class="hero">
-    <h2>Stream. Download. Vibe.</h2>
+    <h2>Stream. Download.</h2>
     <p>Discover Malawian music and support local talent.</p>
   </div>  <div class="section search">
     <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
-  </div>  <div class="section" id="songs">
-    <h3>Most Liked Songs</h3>
-    <div class="grid">
-      <!-- START OF A SONG CARD -->
-      <div class="song-card" data-title="Sauti Yanga" data-artist="Young Vibe">
-        <div class="song-info">
-          <img src="artist1.jpg" alt="Artist Image">
-          <div class="song-details">
-            <strong>Sauti Yanga - Young Vibe</strong><br>
-            <audio controls src="sauti-yanga.mp3"></audio><br>
-            <a href="sauti-yanga.mp3" download class="download-btn">Download</a>
+<div class="section" id="songs">
+  <h3>Trending songs</h3>
+  <div class="grid">
+    <!-- START OF A SONG CARD -->
+    <div class="song-card" data-title="By_My_Side" data-artist="Pboy_Halla_ft_Denje">
+      <div class="song-info">
+        <!-- Cover Image -->
+        <img src="path_to_cover_image.jpg" alt="By My Side Cover">
+        <div class="song-details">
+          <!-- Song Title and Artist -->
+          <strong>By My Side - Pboy Halla ft Denje</strong><br>
+          
+          <!-- Audio Player (Google Drive Link) -->
+          <audio controls>
+            <source src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio><br>
+          
+          <!-- Download Link (Google Drive Link) -->
+          <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download class="download-btn">Download</a>
+        </div>
+      </div>
+    </div>
+    <!-- END OF A SONG CARD -->
+  </div>
+</div>
             <div class="likes">
               👍 <span id="likes1">0</span><button onclick="like('likes1')">Like</button>
               👎 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
@@ -196,24 +211,35 @@ margin-top: 10px
       <!-- TO ADD ANOTHER SONG, COPY FROM "START OF A SONG CARD" TO THIS LINE -->
     </div>
   </div>  <div class="section" id="artists">
-    <h3>Featured Songs</h3>
+    <h3>Trending songs</h3>
     <!-- START OF A FEATURED SONG -->
-    <div class="song-card">
+    <<div class="section" id="songs">
+  <h3>Most Liked Songs</h3>
+  <div class="grid">
+    <!-- START OF A SONG CARD -->
+    <div class="song-card" data-title="Happy_Birthday" data-artist="Pboy_Halla_ft_Denje">
       <div class="song-info">
-        <img src="artist1.jpg" alt="Artist">
+        <!-- Cover Image -->
+        <img src="path_to_cover_image.jpg" alt="Happy Birthday Cover">
+        
         <div class="song-details">
-          <strong>pboy_halla_ft_Denje</strong><br>
-          Genre: Afro hiphop<br>
-          <audio controls src="by-my-side.mp3"></audio><br>
-          <a href="by-my-side.mp3" download class="download-btn">Download</a>
-          <div class="socials">
-            <i class="fab fa-instagram"></i>
-            <i class="fab fa-facebook"></i>
-            <i class="fab fa-youtube"></i>
-          </div>
+          <!-- Song Title and Artist -->
+          <strong>Happy Birthday - Pboy Halla ft Denje</strong><br>
+          
+          <!-- Audio Player (Google Drive Link) -->
+          <audio controls>
+            <source src="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" type="audio/mp3">
+            Your browser does not support the audio element.
+          </audio><br>
+          
+          <!-- Download Link (Google Drive Link) -->
+          <a href="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" download class="download-btn">Download</a>
         </div>
       </div>
     </div>
+    <!-- END OF A SONG CARD -->
+  </div>
+</div>
     <!-- TO ADD ANOTHER FEATURED SONG, COPY FROM "START OF A FEATURED SONG" TO THIS LINE -->
   </div>  <div class="section ads">
     <h3>Sponsored Ads</h3>
