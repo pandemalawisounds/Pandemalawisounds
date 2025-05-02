@@ -1,58 +1,117 @@
-<!DOCTYPE html><html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Stream and download Malawian music from emerging and popular artists on Pandemalawi Sounds.">
-    <title>Pandemalawi Sounds</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-        header, footer {
-            background-color: #333;
-            color: white;
-            padding: 15px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 10px;
-            text-decoration: none;
-        }
-        .section {
-            padding: 20px;
-        }
-        .artist-section {
-            margin-top: 40px;
-        }
-    </style>
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pandemalawi Sounds</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: -1;
+    }
+    header {
+      background: rgba(0, 0, 0, 0.6);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      backdrop-filter: blur(5px);
+    }
+    header h1 {
+      font-size: 1.8rem;
+      margin: 0;
+      color: #ffffff;
+    }
+    nav a {
+      color: #00ffd5;
+      text-decoration: none;
+      margin-left: 20px;
+      font-weight: 500;
+    }
+    .hero {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .section {
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      background: rgba(0,0,0,0.6);
+      border-radius: 20px;
+      margin: 2rem auto;
+      width: 90%;
+      max-width: 1100px;
+    }
+    .search input {
+      padding: 0.6rem;
+      border-radius: 10px;
+      border: none;
+      width: 100%;
+      max-width: 400px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+    .ads img {
+      width: 100%;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Pandemalawi Sounds</h1>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#artists">Artists</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header><main>
-    <section id="intro" class="section">
-        <h2>Welcome to Pandemalawi Sounds</h2>
-        <p>Discover and stream the latest music from Malawi's rising and established artists. Explore artist profiles and download your favorite tracks.</p>
-    </section>
-
-    <!-- Artist pages will be added below this comment -->
-
-</main>
-
-<footer>
-    <p>&copy; 2025 Pandemalawi Sounds. All rights reserved.</p>
-</footer>
-
-</body>
+  <header>
+    <h1>Pandemalawi Sounds</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>  <div class="hero">
+    <h2>we are here for you.</h2>
+    <p>welcome to pandemalawisounds explore music from Malawi and beyond</p>
+  </div>  <div class="section search">
+    <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
+  </div>  <div class="section ads">
+    <h3>Sponsored Ads</h3>
+    <img src="covers/Ads.jpg" alt="Advert 1">
+    <img src="covers/Ads2.png" alt="Advert 2">
+  </div>  <div class="section" id="about">
+    <h3>About Pandemalawi Sounds</h3>
+    <p>Pandemalawi Sounds is a platform dedicated to promoting Malawian music and artists by making their work accessible to everyone. We also offer space for local business promotions.</p>
+  </div>  <div class="section" id="contact">
+    <h3>Contact Us</h3>
+    <p>Email: pandemalawisounds@gmail.com</p>
+    <p>WhatsApp: +265996275575</p>
+    <p>Facebook: pandemalawisounds</p>
+  </div>  <script>
+    function searchSongs() {
+      const input = document.getElementById('searchBar').value.toLowerCase();
+      const cards = document.querySelectorAll('.song-card');
+      cards.forEach(card => {
+        const title = card.dataset.title ? card.dataset.title.toLowerCase() : '';
+        const artist = card.dataset.artist ? card.dataset.artist.toLowerCase() : '';
+        if (title.includes(input) || artist.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script></body>
 </html>
