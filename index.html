@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -112,15 +113,15 @@
       margin-top: 5px;
       text-decoration: none;
     }
-.likes button {
-  margin-left: 5px;
-  background: transparent;  /* Set the background to transparent */
-  color: white;             /* Set the text color to white */
-  border: none;
-  padding: 0.3rem 0.7rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .likes button {
+      margin-left: 5px;
+      background: transparent;
+      color: white;
+      border: none;
+      padding: 0.3rem 0.7rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
     .share-buttons i {
       font-size: 1.2rem;
       color:dodgerblue;
@@ -154,100 +155,48 @@
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </nav>
-  </header>  <div class="hero">
+  </header>
+
+  <div class="hero">
     <h2>we are here for you.</h2>
     <p>welcome to pandemalawisounds explore music from Malawi and beyond</p>
-  </div>  <div class="section search">
+  </div>
+
+  <div class="section search">
     <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
-<div class="section" id="songs">
-  <h3>Trending songs</h3>
-  <div class="grid">
-    <!-- START OF A SONG CARD -->
-    <div class="song-card" data-title="By_My_Side" data-artist="Pboy_Halla_ft_Denje">
-      <div class="song-info">
-        <!-- Cover Image -->
-        <img src="covers/Song3.png" alt="By My Side Cover">
-        <div class="song-details">
-          <!-- Song Title and Artist -->
-          <strong>By My Side - Pboy Halla ft Denje</strong><br>
-          
-          <!-- Audio Player (Google Drive Link) -->
-          <audio controls>
-            <source src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" type="audio/mp3">
-            Your browser does not support the audio element.
-          </audio><br>
-          
-          <!-- Download Link (Google Drive Link) -->
-          <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download class="download-btn">Download</a>
-        </div>
-      </div>
-    </div>
-         <div class="likes">
-              👍 <span id="likes1">0</span><button onclick="like('likes1')">Like</button>
-              👎 <span id="dislikes1">0</span><button onclick="dislike('dislikes1')">Dislike</button>
-            </div>
-            <div class="share-buttons">
-              <a href="https://wa.me/?text=Listen%20to%20Sauti%20Yanga" target="_blank"><i class="fab fa-whatsapp"></i></a>
-              <a href="https://facebook.com/sharer/sharer.php?u=https://yourdomain.com" target="_blank"><i class="fab fa-facebook"></i></a>
-              <a href="https://twitter.com/intent/tweet?url=https://yourdomain.com" target="_blank"><i class="fab fa-twitter"></i></a>
-              <a href="https://www.tiktok.com/" target="_blank"><i class="fab fa-tiktok"></i></a>
-              <button onclick="copyShareLink('https://yourdomain.com')"><i class="fas fa-link"></i></button>
-            </div>
-            <div class="socials">
-              <i class="fab fa-instagram"></i>
-              <i class="fab fa-youtube"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    <!-- END OF A SONG CARD -->
   </div>
-</div>
-       
-      <!-- TO ADD ANOTHER SONG, COPY FROM "START OF A SONG CARD" TO THIS LINE -->
-  </div>  <div class="section" id="artists">
-    <!-- START OF A FEATURED SONG -->
-    <<div class="section" id="songs">
-  <h3>song list</h3>
-  <div class="grid">
-    <!-- START OF A SONG CARD -->
-    <div class="song-card" data-title="Happy_Birthday" data-artist="Pboy_Halla_ft_Denje">
-      <div class="song-info">
-        <!-- Cover Image -->
-        <img src="covers/song2.png" alt="Happy Birthday Cover">
-        
-        <div class="song-details">
-          <!-- Song Title and Artist -->
-          <strong>Happy Birthday - Pboy Halla ft Denje</strong><br>
-          
-          <!-- Audio Player (Google Drive Link) -->
-          <audio controls>
-            <source src="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" type="audio/mp3">
-            Your browser does not support the audio element.
-          </audio><br>
-          
-          <!-- Download Link (Google Drive Link) -->
-          <a href="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" download class="download-btn">Download</a>
-        </div>
-      </div>
-    </div>
-    <!-- END OF A SONG CARD -->
-  </div>
-</div>
-    <!-- TO ADD ANOTHER FEATURED SONG, COPY FROM "START OF A FEATURED SONG" TO THIS LINE -->
-  </div>  <div class="section ads">
+
+  <!-- ===================== PLACE TO ADD NEW ARTIST PAGES ===================== -->
+  <!-- Example: <a href="artistname.html">Go to Artist Page</a> -->
+  <!-- Add links to your artist pages below this comment -->
+
+  <!-- ===================== END OF ARTIST PAGE LINKS SECTION ================== -->
+
+  <!-- ===================== FUTURE SONG LISTS OR ALBUMS GO HERE ============== -->
+  <!-- You can copy your song card structure and paste it here in the future -->
+  <!-- Make sure to wrap them in a <div class="section" id="songs"> if needed -->
+
+  <!-- ===================== END OF FUTURE SONG SECTION ======================== -->
+
+  <div class="section ads">
     <h3>Sponsored Ads</h3>
     <img src="covers/Ads.jpg" alt="Advert 1">
     <img src="covers/Ads2.png" alt="Advert 2">
-  </div>  <div class="section" id="about">
+  </div>
+
+  <div class="section" id="about">
     <h3>About Pandemalawi Sounds</h3>
     <p>Pandemalawi Sounds is a platform dedicated to promoting Malawian music and artists by making their work accessible to everyone. We also offer space for local business promotions.</p>
-  </div>  <div class="section" id="contact">
+  </div>
+
+  <div class="section" id="contact">
     <h3>Contact Us</h3>
     <p>Email: pandemalawisounds@gmail.com</p>
     <p>WhatsApp: +265996275575</p>
     <p>Facebook: pandemalawisounds</p>
-  </div>  <script>
+  </div>
+
+  <script>
     function like(id) {
       const el = document.getElementById(id);
       el.innerText = parseInt(el.innerText) + 1;
@@ -274,5 +223,6 @@
         .then(() => alert("Link copied!"))
         .catch(err => alert("Failed to copy link."));
     }
-  </script></body>
-               </html>
+  </script>
+</body>
+  </html>
