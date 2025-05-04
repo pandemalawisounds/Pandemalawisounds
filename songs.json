@@ -106,3 +106,83 @@
     }
     .comment-box button {
       margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #00ffd5;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pboy Halla</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Songs</a>
+      <a href="#">About</a>
+    </nav>
+  </header>
+
+  <!-- SONG SECTION START -->
+  <section class="section">
+
+    <!-- SONG CARD: By My Side -->
+    <div class="song-card">
+      <h2>By My Side - Pboy Halla ft Denje</h2>
+      <div class="song-details">
+        <audio controls>
+          <source src="your-song-file.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <a class="download-btn" href="your-song-file.mp3" download>Download</a>
+        <div class="likes">
+          <button><i class="fa fa-thumbs-up"></i> Like</button>
+        </div>
+        <div class="share-buttons">
+          <button><i class="fab fa-facebook"></i></button>
+          <button><i class="fab fa-twitter"></i></button>
+        </div>
+        <div class="bio">
+          <p>Pboy Halla is an artist from Malawi known for his vibrant and soulful tracks.</p>
+        </div>
+        <div class="comment-box">
+          <textarea placeholder="Leave a comment..."></textarea>
+          <button>Submit</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD MORE SONGS BELOW THIS LINE -->
+    <!-- COPY FROM HERE -->
+    <div class="song-card">
+      <h2>New Song Title - Artist Name</h2>
+      <div class="song-details">
+        <audio controls>
+          <source src="new-song-file.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+        </audio>
+        <a class="download-btn" href="new-song-file.mp3" download>Download</a>
+        <div class="likes">
+          <button><i class="fa fa-thumbs-up"></i> Like</button>
+        </div>
+        <div class="share-buttons">
+          <button><i class="fab fa-facebook"></i></button>
+          <button><i class="fab fa-twitter"></i></button>
+        </div>
+        <div class="bio">
+          <p>Write something about this artist or song here.</p>
+        </div>
+        <div class="comment-box">
+          <textarea placeholder="Leave a comment..."></textarea>
+          <button>Submit</button>
+        </div>
+      </div>
+    </div>
+    <!-- COPY UNTIL HERE -->
+
+  </section>
+  <!-- SONG SECTION END -->
+</body>
+</html>
