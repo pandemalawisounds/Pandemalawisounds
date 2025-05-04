@@ -1,1 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pboy Halla - Artist Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background: #111;
+      color: #fff;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1rem;
+    }
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #222;
+      margin-bottom: 1rem;
+    }
+    .artist-cover {
+      width: 100%;
+      border-radius: 15px;
+    }
+    .song-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    audio {
+      width: 100%;
+      margin: 10px 0;
+    }
+    .like-dislike {
+      margin: 0.5rem 0;
+    }
+    .like-dislike button {
+      background: none;
+      border: none;
+      color: white;
+      margin-right: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .share-buttons {
+      margin-top: 0.5rem;
+    }
+    .share-buttons button {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .comment-box {
+      margin-top: 0.5rem;
+    }
+    .comment-box textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 8px;
+      border: none;
+      resize: vertical;
+    }
+    .comment-box button {
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background-color: #00ffd5;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Pboy Halla</h1>
+  </header>
 
+  <div class="container">
+    <img class="artist-cover" src="your-artist-image.jpg" alt="Pboy Halla Cover" />
+
+    <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
+
+    <!-- START SONG 1 -->
+    <div class="song-card">
+      <h2>By My Side ft Denje</h2>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg" />
+        Your browser does not support audio.
+      </audio>
+      <div class="like-dislike">
+        <button><i class="fa fa-thumbs-up"></i></button>
+        <button><i class="fa fa-thumbs-down"></i></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareSong('By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareSong('By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="shareSong('By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareSong('By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-instagram"></i></button>
+        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fa fa-link"></i></button>
+      </div>
+      <div class="comment-box">
+        <textarea placeholder="Leave a comment..."></textarea>
+        <button>Submit</button>
+      </div>
+    </div>
+
+    <!-- COPY BELOW FOR MORE SONGS -->
+
+    <div class="song-card">
+      <h2>Street Gospel</h2>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" type="audio/mpeg" />
+      </audio>
+      <div class="like-dislike">
+        <button><i class="fa fa-thumbs-up"></i></button>
+        <button><i class="fa fa-thumbs-down"></i></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareSong('Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareSong('Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="shareSong('Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareSong('Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-instagram"></i></button>
+        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fa fa-link"></i></button>
+      </div>
+      <div class="comment-box">
+        <textarea placeholder="Leave a comment..."></textarea>
+        <button>Submit</button>
+      </div>
+    </div>
+
+    <div class="song-card">
+      <h2>Reality Check</h2>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_3" type="audio/mpeg" />
+      </audio>
+      <div class="like-dislike">
+        <button><i class="fa fa-thumbs-up"></i></button>
+        <button><i class="fa fa-thumbs-down"></i></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareSong('Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareSong('Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="shareSong('Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareSong('Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-instagram"></i></button>
+        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fa fa-link"></i></button>
+      </div>
+      <div class="comment-box">
+        <textarea placeholder="Leave a comment..."></textarea>
+        <button>Submit</button>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Pandemalawi Sounds</p>
+  </footer>
+
+  <script>
+    function shareSong(title, link) {
+      const encodedTitle = encodeURIComponent(title);
+      const encodedLink = encodeURIComponent(link);
+      const fb = `https://www.facebook.com/sharer/sharer.php?u=${encodedLink}`;
+      const wa = `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedLink}`;
+      const twitter = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedLink}`;
+
+      // You can open the one you want or let user choose
+      window.open(fb, '_blank');
+    }
+
+    function copyLink(link) {
+      navigator.clipboard.writeText(link).then(() => {
+        alert("Link copied!");
+      });
+    }
+  </script>
+</body>
+          </html>
