@@ -41,7 +41,7 @@
       color: #00ffd5;
       text-decoration: none;
       margin-left: 20px;
-      font-weight: 500;
+      font-weight: 450;
     }
     .section {
       padding: 2rem;
