@@ -58,24 +58,17 @@
       font-size: 1.3rem;
       margin-right: 10px;
       cursor: pointer;
+      color: #00ffd5;
     }
-    .comment-box {
+    .download-btn {
       margin-top: 0.5rem;
-    }
-    .comment-box textarea {
-      width: 100%;
-      padding: 0.5rem;
-      border-radius: 8px;
-      border: none;
-      resize: vertical;
-    }
-    .comment-box button {
-      margin-top: 0.5rem;
+      display: inline-block;
       padding: 0.5rem 1rem;
       background-color: #00ffd5;
       border: none;
       border-radius: 8px;
-      cursor: pointer;
+      text-decoration: none;
+      color: #111;
       font-weight: bold;
     }
   </style>
@@ -90,76 +83,62 @@
 
     <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
 
-    <!-- START SONG 1 -->
-    <div class="song-card">
+    <!-- SONG 1 -->
+    <div class="song-card" id="song1">
       <h2>By My Side ft Denje</h2>
       <audio controls>
         <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg" />
-        Your browser does not support audio.
       </audio>
+      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" download>Download</a>
       <div class="like-dislike">
         <button><i class="fa fa-thumbs-up"></i></button>
         <button><i class="fa fa-thumbs-down"></i></button>
       </div>
       <div class="share-buttons">
-        <button onclick="shareSong('By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareSong('By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
-        <button onclick="shareSong('By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="shareSong('By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-instagram"></i></button>
+        <button onclick="shareTo('facebook', 'By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareTo('whatsapp', 'By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareTo('tiktok', 'By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
         <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fa fa-link"></i></button>
-      </div>
-      <div class="comment-box">
-        <textarea placeholder="Leave a comment..."></textarea>
-        <button>Submit</button>
       </div>
     </div>
 
-    <!-- COPY BELOW FOR MORE SONGS -->
-
-    <div class="song-card">
+    <!-- SONG 2 -->
+    <div class="song-card" id="song2">
       <h2>Street Gospel</h2>
       <audio controls>
         <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" type="audio/mpeg" />
       </audio>
+      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" download>Download</a>
       <div class="like-dislike">
         <button><i class="fa fa-thumbs-up"></i></button>
         <button><i class="fa fa-thumbs-down"></i></button>
       </div>
       <div class="share-buttons">
-        <button onclick="shareSong('Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareSong('Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-tiktok"></i></button>
-        <button onclick="shareSong('Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="shareSong('Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-instagram"></i></button>
+        <button onclick="shareTo('facebook', 'Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareTo('whatsapp', 'Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareTo('tiktok', 'Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-tiktok"></i></button>
         <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fa fa-link"></i></button>
-      </div>
-      <div class="comment-box">
-        <textarea placeholder="Leave a comment..."></textarea>
-        <button>Submit</button>
       </div>
     </div>
 
-    <div class="song-card">
+    <!-- SONG 3 -->
+    <div class="song-card" id="song3">
       <h2>Reality Check</h2>
       <audio controls>
         <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_3" type="audio/mpeg" />
       </audio>
+      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_3" download>Download</a>
       <div class="like-dislike">
         <button><i class="fa fa-thumbs-up"></i></button>
         <button><i class="fa fa-thumbs-down"></i></button>
       </div>
       <div class="share-buttons">
-        <button onclick="shareSong('Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareSong('Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-tiktok"></i></button>
-        <button onclick="shareSong('Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="shareSong('Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-instagram"></i></button>
+        <button onclick="shareTo('facebook', 'Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareTo('whatsapp', 'Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareTo('tiktok', 'Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-tiktok"></i></button>
         <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fa fa-link"></i></button>
       </div>
-      <div class="comment-box">
-        <textarea placeholder="Leave a comment..."></textarea>
-        <button>Submit</button>
-      </div>
     </div>
-
   </div>
 
   <footer>
@@ -167,15 +146,22 @@
   </footer>
 
   <script>
-    function shareSong(title, link) {
+    function shareTo(platform, title, link) {
       const encodedTitle = encodeURIComponent(title);
       const encodedLink = encodeURIComponent(link);
-      const fb = `https://www.facebook.com/sharer/sharer.php?u=${encodedLink}`;
-      const wa = `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedLink}`;
-      const twitter = `https://twitter.com/intent/tweet?text=${encodedTitle}&url=${encodedLink}`;
 
-      // You can open the one you want or let user choose
-      window.open(fb, '_blank');
+      let url = "";
+
+      if (platform === "facebook") {
+        url = `https://www.facebook.com/sharer/sharer.php?u=${encodedLink}`;
+      } else if (platform === "whatsapp") {
+        url = `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedLink}`;
+      } else if (platform === "tiktok") {
+        alert("TikTok sharing is only available via the TikTok app.");
+        return;
+      }
+
+      window.open(url, '_blank');
     }
 
     function copyLink(link) {
@@ -185,4 +171,4 @@
     }
   </script>
 </body>
-          </html>
+                                                                                                                         </html>
