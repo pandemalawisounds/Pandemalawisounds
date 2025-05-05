@@ -49,27 +49,27 @@
       font-size: 1.2rem;
       cursor: pointer;
     }
-    .share-buttons {
+    .like-count, .dislike-count {
+      font-size: 0.9rem;
+      margin-left: 5px;
+    }
+    .share-buttons, .download-btn {
       margin-top: 0.5rem;
     }
-    .share-buttons button {
+    .share-buttons button, .download-btn a {
       background: none;
       border: none;
       font-size: 1.3rem;
       margin-right: 10px;
       cursor: pointer;
-      color: #00ffd5;
+      color: white;
     }
-    .download-btn {
-      margin-top: 0.5rem;
-      display: inline-block;
-      padding: 0.5rem 1rem;
-      background-color: #00ffd5;
-      border: none;
-      border-radius: 8px;
+    .download-btn a {
       text-decoration: none;
-      color: #111;
       font-weight: bold;
+      background: #00ffd5;
+      padding: 6px 12px;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -83,62 +83,30 @@
 
     <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
 
-    <!-- SONG 1 -->
-    <div class="song-card" id="song1">
+    <!-- SONG CARD START -->
+    <div class="song-card" data-songid="song1">
       <h2>By My Side ft Denje</h2>
       <audio controls>
         <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg" />
       </audio>
-      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" download>Download</a>
+
       <div class="like-dislike">
-        <button><i class="fa fa-thumbs-up"></i></button>
-        <button><i class="fa fa-thumbs-down"></i></button>
+        <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song1-like">0</span></button>
+        <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song1-dislike">0</span></button>
       </div>
+
+      <div class="download-btn">
+        <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" download>Download</a>
+      </div>
+
       <div class="share-buttons">
-        <button onclick="shareTo('facebook', 'By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareTo('whatsapp', 'By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="shareTo('tiktok', 'By My Side', 'https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
-        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fa fa-link"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
       </div>
     </div>
 
-    <!-- SONG 2 -->
-    <div class="song-card" id="song2">
-      <h2>Street Gospel</h2>
-      <audio controls>
-        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" type="audio/mpeg" />
-      </audio>
-      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" download>Download</a>
-      <div class="like-dislike">
-        <button><i class="fa fa-thumbs-up"></i></button>
-        <button><i class="fa fa-thumbs-down"></i></button>
-      </div>
-      <div class="share-buttons">
-        <button onclick="shareTo('facebook', 'Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareTo('whatsapp', 'Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="shareTo('tiktok', 'Street Gospel', 'https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-tiktok"></i></button>
-        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fa fa-link"></i></button>
-      </div>
-    </div>
-
-    <!-- SONG 3 -->
-    <div class="song-card" id="song3">
-      <h2>Reality Check</h2>
-      <audio controls>
-        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_3" type="audio/mpeg" />
-      </audio>
-      <a class="download-btn" href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_3" download>Download</a>
-      <div class="like-dislike">
-        <button><i class="fa fa-thumbs-up"></i></button>
-        <button><i class="fa fa-thumbs-down"></i></button>
-      </div>
-      <div class="share-buttons">
-        <button onclick="shareTo('facebook', 'Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareTo('whatsapp', 'Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="shareTo('tiktok', 'Reality Check', 'https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-tiktok"></i></button>
-        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fa fa-link"></i></button>
-      </div>
-    </div>
+    <!-- COPY THIS SONG-CARD FOR MORE SONGS, JUST CHANGE IDs -->
   </div>
 
   <footer>
@@ -146,29 +114,28 @@
   </footer>
 
   <script>
-    function shareTo(platform, title, link) {
-      const encodedTitle = encodeURIComponent(title);
-      const encodedLink = encodeURIComponent(link);
+    // Load stored votes
+    window.onload = function () {
+      document.querySelectorAll('.song-card').forEach(card => {
+        const id = card.dataset.songid;
+        document.getElementById(id + '-like').textContent = localStorage.getItem(id + '-like') || 0;
+        document.getElementById(id + '-dislike').textContent = localStorage.getItem(id + '-dislike') || 0;
+      });
+    };
 
-      let url = "";
-
-      if (platform === "facebook") {
-        url = `https://www.facebook.com/sharer/sharer.php?u=${encodedLink}`;
-      } else if (platform === "whatsapp") {
-        url = `https://api.whatsapp.com/send?text=${encodedTitle}%20${encodedLink}`;
-      } else if (platform === "tiktok") {
-        alert("TikTok sharing is only available via the TikTok app.");
-        return;
-      }
-
-      window.open(url, '_blank');
+    // Voting logic
+    function vote(songID, type) {
+      const key = `${songID}-${type}`;
+      let count = parseInt(localStorage.getItem(key)) || 0;
+      count += 1;
+      localStorage.setItem(key, count);
+      document.getElementById(`${songID}-${type}`).textContent = count;
     }
 
-    function copyLink(link) {
-      navigator.clipboard.writeText(link).then(() => {
-        alert("Link copied!");
-      });
+    // Share function
+    function shareLink(link) {
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(link)}`, '_blank');
     }
   </script>
 </body>
-                                                                                                                         </html>
+</html>
