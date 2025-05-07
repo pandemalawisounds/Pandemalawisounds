@@ -128,6 +128,30 @@
         <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
       </div>
     </div>
+    <div class="song-card" data-songid="song2">
+  <h2 class="song-title">happy_Birthday</h2>
+  <div class="song-row">
+    <img src="covers/song2.jpg" alt="Song Image" />
+    <div class="download-btn">
+      <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" download>Download</a>
+    </div>
+  </div>
+
+  <audio controls>
+    <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" type="audio/mpeg" />
+  </audio>
+
+  <div class="like-dislike">
+    <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song2-like">0</span></button>
+    <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song2-dislike">0</span></button>
+  </div>
+
+  <div class="share-buttons">
+    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-facebook"></i></button>
+    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-whatsapp"></i></button>
+    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-tiktok"></i></button>
+  </div>
+    </div>
     <!-- Repeat song-card block for more songs -->
   </div>
 
