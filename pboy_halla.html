@@ -34,6 +34,14 @@
       padding: 1rem;
       margin: 1rem 0;
     }
+    .song-card img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+      border: 2px solid #00ffd5;
+    }
     audio {
       width: 100%;
       margin: 10px 0;
@@ -79,21 +87,12 @@
   </header>
 
   <div class="container">
-    <img src="covers/Pboy1.jpg" alt="Pboy Halla Cover" />
+    <img src="covers/Pboy1.jpg" alt="Pboy Halla Cover" class="artist-cover"/>
 
     <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
 
     <!-- SONG CARD START -->
     <div class="song-card" data-songid="song1">
-      </style>
-      .song-card img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-  border: 2px solid #00ffd5;
-}</style>
       <h2>By My Side ft Denje</h2>
       <img src="covers/Song3.png" alt="Pboy Halla Cover Image">
       <audio controls>
@@ -115,7 +114,6 @@
         <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
       </div>
     </div>
-
     <!-- COPY THIS SONG-CARD FOR MORE SONGS, JUST CHANGE IDs -->
   </div>
 
@@ -148,4 +146,4 @@
     }
   </script>
 </body>
-</html>
+  </html>
