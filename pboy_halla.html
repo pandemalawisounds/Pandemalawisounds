@@ -33,32 +33,39 @@
       border-radius: 10px;
       padding: 1rem;
       margin: 1rem 0;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-    .song-card img {
-      width: 120px;
-      height: 120px;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
-      border: 2px solid #00ffd5;
-      flex-shrink: 0;
-    }
-    .song-info {
-      flex: 1;
     }
     .song-title {
       font-size: 1.2rem;
-      margin: 0 0 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .song-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .song-row img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #00ffd5;
+      box-shadow: 0 0 8px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+    }
+    .download-btn {
+      margin-left: auto;
+    }
+    .download-btn a {
+      text-decoration: none;
+      font-weight: bold;
+      background: #00ffd5;
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: #000;
+      white-space: nowrap;
     }
     audio {
       width: 100%;
-      margin: 10px 0;
-    }
-    .like-dislike {
       margin: 0.5rem 0;
     }
     .like-dislike button {
@@ -73,27 +80,16 @@
       font-size: 0.9rem;
       margin-left: 5px;
     }
-    .share-buttons, .download-btn {
+    .share-buttons {
       margin-top: 0.5rem;
     }
-    .share-buttons button, .download-btn a {
+    .share-buttons button {
       background: none;
       border: none;
       font-size: 1.3rem;
       margin-right: 10px;
       cursor: pointer;
       color: white;
-    }
-    .download-btn {
-      margin-left: auto;
-    }
-    .download-btn a {
-      text-decoration: none;
-      font-weight: bold;
-      background: #00ffd5;
-      padding: 6px 12px;
-      border-radius: 8px;
-      color: #000;
     }
   </style>
 </head>
@@ -107,31 +103,32 @@
 
     <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
 
-    <!-- SONG CARD START -->
+    <!-- SONG CARD -->
     <div class="song-card" data-songid="song1">
-      <img src="covers/Song3.png" alt="Pboy Halla Cover Image">
-      <div class="song-info">
-        <h2 class="song-title">By My Side ft Denje</h2>
-        <audio controls>
-          <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg" />
-        </audio>
-
-        <div class="like-dislike">
-          <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song1-like">0</span></button>
-          <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song1-dislike">0</span></button>
-        </div>
-
-        <div class="share-buttons">
-          <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
-          <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
-          <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
+      <h2 class="song-title">By My Side ft Denje</h2>
+      <div class="song-row">
+        <img src="covers/Song3.png" alt="Song Image" />
+        <div class="download-btn">
+          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" download>Download</a>
         </div>
       </div>
-      <div class="download-btn">
-        <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" download>Download</a>
+
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg" />
+      </audio>
+
+      <div class="like-dislike">
+        <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song1-like">0</span></button>
+        <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song1-dislike">0</span></button>
+      </div>
+
+      <div class="share-buttons">
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
       </div>
     </div>
-    <!-- COPY THIS SONG-CARD FOR MORE SONGS, JUST CHANGE IDs -->
+    <!-- Repeat song-card block for more songs -->
   </div>
 
   <footer>
@@ -148,7 +145,6 @@
       });
     };
 
-    // Voting logic
     function vote(songID, type) {
       const key = `${songID}-${type}`;
       let count = parseInt(localStorage.getItem(key)) || 0;
@@ -157,10 +153,9 @@
       document.getElementById(`${songID}-${type}`).textContent = count;
     }
 
-    // Share function
     function shareLink(link) {
       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(link)}`, '_blank');
     }
   </script>
 </body>
-  </html>
+</html>
