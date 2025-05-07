@@ -33,14 +33,26 @@
       border-radius: 10px;
       padding: 1rem;
       margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
     .song-card img {
-      width: 100px;
-      height: 100px;
+      width: 120px;
+      height: 120px;
       object-fit: cover;
       border-radius: 12px;
       box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
       border: 2px solid #00ffd5;
+      flex-shrink: 0;
+    }
+    .song-info {
+      flex: 1;
+    }
+    .song-title {
+      font-size: 1.2rem;
+      margin: 0 0 0.5rem;
     }
     audio {
       width: 100%;
@@ -72,12 +84,16 @@
       cursor: pointer;
       color: white;
     }
+    .download-btn {
+      margin-left: auto;
+    }
     .download-btn a {
       text-decoration: none;
       font-weight: bold;
       background: #00ffd5;
       padding: 6px 12px;
       border-radius: 8px;
+      color: #000;
     }
   </style>
 </head>
@@ -87,31 +103,32 @@
   </header>
 
   <div class="container">
-    <img src="covers/Pboy1.jpg" alt="Pboy Halla Cover" class="artist-cover"/>
+    <img class="artist-cover" src="covers/Pboy1.jpg" alt="Pboy Halla Cover" />
 
     <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
 
     <!-- SONG CARD START -->
     <div class="song-card" data-songid="song1">
-      <h2>By My Side ft Denje</h2>
       <img src="covers/Song3.png" alt="Pboy Halla Cover Image">
-      <audio controls>
-        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg" />
-      </audio>
+      <div class="song-info">
+        <h2 class="song-title">By My Side ft Denje</h2>
+        <audio controls>
+          <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg" />
+        </audio>
 
-      <div class="like-dislike">
-        <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song1-like">0</span></button>
-        <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song1-dislike">0</span></button>
+        <div class="like-dislike">
+          <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song1-like">0</span></button>
+          <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song1-dislike">0</span></button>
+        </div>
+
+        <div class="share-buttons">
+          <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
+          <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
+          <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
+        </div>
       </div>
-
       <div class="download-btn">
         <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" download>Download</a>
-      </div>
-
-      <div class="share-buttons">
-        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
       </div>
     </div>
     <!-- COPY THIS SONG-CARD FOR MORE SONGS, JUST CHANGE IDs -->
