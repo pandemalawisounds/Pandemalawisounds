@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Rick Fabs - Artist Page</title>
+  <title>Pboy Halla - Artist Page</title>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
@@ -95,82 +95,134 @@
 </head>
 <body>
   <header>
-    <h1>Rick Fabs</h1>
+    <h1>Pboy Halla</h1>
   </header>
 
   <div class="container">
-    <img class="artist-cover" src="covers/RickFabs.jpg" alt="Rick Fabs Cover" />
+    <img class="artist-cover" src="covers/Pboy1.jpg" alt="Pboy Halla Cover" />
 
-    <p><strong>Bio:</strong> Rick Fabs is a Malawian artist who blends raw emotion with modern rhythms, delivering heartfelt vibes and bold musical expression.</p>
+    <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
 
-    <!-- SONG: Insecure -->
+    <!-- SONG CARD -->
     <div class="song-card" data-songid="song1">
-      <h2 class="song-title">Insecure</h2>
+      <h2 class="song-title">By My Side ft Denje</h2>
       <div class="song-row">
-        <img src="covers/Insecure.png" alt="Insecure Cover" />
+        <img src="covers/Song3.png" alt="Song Image" />
         <div class="download-btn">
-          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_INSECURE" download>Download</a>
+          <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>Download</a>
         </div>
       </div>
+
       <audio controls>
-        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_INSECURE" type="audio/mpeg" />
+        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg" />
       </audio>
+
       <div class="like-dislike">
         <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song1-like">0</span></button>
         <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song1-dislike">0</span></button>
       </div>
+
       <div class="share-buttons">
-        <button onclick="shareLink('https://pandemalawisounds.github.io/artist-rick-fabs.html#song1')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareLink('https://wa.me/?text=https://pandemalawisounds.github.io/artist-rick-fabs.html#song1')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="copyToClipboard('https://pandemalawisounds.github.io/artist-rick-fabs.html#song1')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
       </div>
     </div>
-
-    <!-- SONG: Vibe -->
     <div class="song-card" data-songid="song2">
-      <h2 class="song-title">Vibe</h2>
-      <div class="song-row">
-        <img src="covers/Vibe.png" alt="Vibe Cover" />
-        <div class="download-btn">
-          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_VIBE" download>Download</a>
-        </div>
-      </div>
-      <audio controls>
-        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_VIBE" type="audio/mpeg" />
-      </audio>
-      <div class="like-dislike">
-        <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song2-like">0</span></button>
-        <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song2-dislike">0</span></button>
-      </div>
-      <div class="share-buttons">
-        <button onclick="shareLink('https://pandemalawisounds.github.io/artist-rick-fabs.html#song2')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareLink('https://wa.me/?text=https://pandemalawisounds.github.io/artist-rick-fabs.html#song2')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="copyToClipboard('https://pandemalawisounds.github.io/artist-rick-fabs.html#song2')"><i class="fab fa-tiktok"></i></button>
-      </div>
+  <h2 class="song-title">happy_Birthday</h2>
+  <div class="song-row">
+    <img src="covers/Song2.png" alt="Song Image" />
+    <div class="download-btn">
+      <a href="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" download>Download</a>
     </div>
+  </div>
 
-    <!-- SONG: Ben10 -->
-    <div class="song-card" data-songid="song3">
-      <h2 class="song-title">Ben10</h2>
-      <div class="song-row">
-        <img src="covers/Ben10.png" alt="Ben10 Cover" />
-        <div class="download-btn">
-          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_BEN10" download>Download</a>
-        </div>
-      </div>
-      <audio controls>
-        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_BEN10" type="audio/mpeg" />
-      </audio>
-      <div class="like-dislike">
-        <button onclick="vote('song3','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song3-like">0</span></button>
-        <button onclick="vote('song3','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song3-dislike">0</span></button>
-      </div>
-      <div class="share-buttons">
-        <button onclick="shareLink('https://pandemalawisounds.github.io/artist-rick-fabs.html#song3')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareLink('https://wa.me/?text=https://pandemalawisounds.github.io/artist-rick-fabs.html#song3')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="copyToClipboard('https://pandemalawisounds.github.io/artist-rick-fabs.html#song3')"><i class="fab fa-tiktok"></i></button>
-      </div>
+  <audio controls>
+    <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_2" type="audio/mpeg" />
+  </audio>
+
+  <div class="like-dislike">
+    <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song2-like">0</span></button>
+    <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song2-dislike">0</span></button>
+  </div>
+
+  <div class="share-buttons">
+    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-facebook"></i></button>
+    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-whatsapp"></i></button>
+    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-tiktok"></i></button>
+  </div>
     </div>
+    <div class="song-card" data-songid="song2">
+  <h2 class="song-title">Tenga</h2>
+  <div class="song-row">
+    <img src="covers/Tenga.png" alt="Song Image" />
+    <div class="download-btn">
+      <a href="https://drive.google.com/uc?export=download&id=1BrF9ZMeXooK3alLQP1aZkMlyLYJPs9tO" download>Download</a>
+    </div>
+  </div>
+
+  <audio controls>
+    <source src="https://drive.google.com/uc?export=download&id=1BrF9ZMeXooK3alLQP1aZkMlyLYJPs9tO" type="audio/mpeg" />
+  </audio>
+
+  <div class="like-dislike">
+    <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song2-like">0</span></button>
+    <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song2-dislike">0</span></button>
+  </div>
+
+  <div class="share-buttons">
+    <!-- Facebook -->
+    <button onclick="shareLink('https://www.facebook.com/sharer/sharer.php?u=https://pandemalawisounds.github.io/artist-pboy-halla.html#song2')">
+      <i class="fab fa-facebook"></i>
+    </button>
+    <!-- WhatsApp -->
+    <button onclick="shareLink('https://wa.me/?text=https://pandemalawisounds.github.io/artist-pboy-halla.html#song2')">
+      <i class="fab fa-whatsapp"></i>
+    </button>
+    <!-- TikTok (copy to clipboard) -->
+    <button onclick="copyToClipboard('https://pandemalawisounds.github.io/artist-pboy-halla.html#song2')">
+      <i class="fab fa-tiktok"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Add these scripts once in your HTML -->
+<script>
+  function shareLink(url) {
+    window.open(url, '_blank');
+  }
+
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Link copied to clipboard!");
+    });
+  }
+</script>
+    <div class="song-card" data-songid="song3">
+  <h2 class="song-title">Mtima wanga ukupweteka</h2>
+  <div class="song-row">
+    <img src="covers/Ukupweteka.png" alt="Song Image" />
+    <div class="download-btn">
+      <a href="https://drive.google.com/uc?export=download&id=1-xakof7tF4LqE4qRFdoMJ3k70Dgi8hqj" download>Download</a>
+    </div>
+  </div>
+
+  <audio controls>
+    <source src="https://drive.google.com/uc?export=download&id=1-xakof7tF4LqE4qRFdoMJ3k70Dgi8hqj" type="audio/mpeg" />
+  </audio>
+
+  <div class="like-dislike">
+    <button onclick="vote('song3','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song3-like">0</span></button>
+    <button onclick="vote('song3','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song3-dislike">0</span></button>
+  </div>
+
+  <div class="share-buttons">
+    <button onclick="shareLink('https://pandemalawisounds.github.io/artist-pboy-halla.html#song3')"><i class="fab fa-facebook"></i></button>
+    <button onclick="shareLink('https://wa.me/?text=https://pandemalawisounds.github.io/artist-pboy-halla.html#song3')"><i class="fab fa-whatsapp"></i></button>
+    <button onclick="copyToClipboard('https://pandemalawisounds.github.io/artist-pboy-halla.html#song3')"><i class="fab fa-tiktok"></i></button>
+  </div>
+    </div>
+    <!-- Repeat song-card block for more songs -->
   </div>
 
   <footer>
@@ -178,6 +230,7 @@
   </footer>
 
   <script>
+    // Load stored votes
     window.onload = function () {
       document.querySelectorAll('.song-card').forEach(card => {
         const id = card.dataset.songid;
@@ -196,12 +249,6 @@
 
     function shareLink(link) {
       window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(link)}`, '_blank');
-    }
-
-    function copyToClipboard(text) {
-      navigator.clipboard.writeText(text).then(() => {
-        alert("Link copied to clipboard!");
-      });
     }
   </script>
 </body>
