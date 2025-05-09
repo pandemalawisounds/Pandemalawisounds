@@ -152,6 +152,52 @@
     <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-tiktok"></i></button>
   </div>
     </div>
+    <div class="song-card" data-songid="song2">
+  <h2 class="song-title">Tenga</h2>
+  <div class="song-row">
+    <img src="covers/Tenga.png" alt="Song Image" />
+    <div class="download-btn">
+      <a href="https://drive.google.com/uc?export=download&id=1BrF9ZMeXooK3alLQP1aZkMlyLYJPs9tO" download>Download</a>
+    </div>
+  </div>
+
+  <audio controls>
+    <source src="https://drive.google.com/uc?export=download&id=1BrF9ZMeXooK3alLQP1aZkMlyLYJPs9tO" type="audio/mpeg" />
+  </audio>
+
+  <div class="like-dislike">
+    <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song2-like">0</span></button>
+    <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song2-dislike">0</span></button>
+  </div>
+
+  <div class="share-buttons">
+    <!-- Facebook -->
+    <button onclick="shareLink('https://www.facebook.com/sharer/sharer.php?u=https://pandemalawisounds.github.io/artist-pboy-halla.html#song2')">
+      <i class="fab fa-facebook"></i>
+    </button>
+    <!-- WhatsApp -->
+    <button onclick="shareLink('https://wa.me/?text=https://pandemalawisounds.github.io/artist-pboy-halla.html#song2')">
+      <i class="fab fa-whatsapp"></i>
+    </button>
+    <!-- TikTok (copy to clipboard) -->
+    <button onclick="copyToClipboard('https://pandemalawisounds.github.io/artist-pboy-halla.html#song2')">
+      <i class="fab fa-tiktok"></i>
+    </button>
+  </div>
+</div>
+
+<!-- Add these scripts once in your HTML -->
+<script>
+  function shareLink(url) {
+    window.open(url, '_blank');
+  }
+
+  function copyToClipboard(text) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Link copied to clipboard!");
+    });
+  }
+</script>
     <!-- Repeat song-card block for more songs -->
   </div>
 
