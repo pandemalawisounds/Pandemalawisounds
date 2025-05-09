@@ -198,6 +198,30 @@
     });
   }
 </script>
+    <div class="song-card" data-songid="song3">
+  <h2 class="song-title">Mtima wanga ukupweteka</h2>
+  <div class="song-row">
+    <img src="covers/Ukupweteka.png" alt="Song Image" />
+    <div class="download-btn">
+      <a href="https://drive.google.com/uc?export=download&id=1-xakof7tF4LqE4qRFdoMJ3k70Dgi8hqj" download>Download</a>
+    </div>
+  </div>
+
+  <audio controls>
+    <source src="https://drive.google.com/uc?export=download&id=1-xakof7tF4LqE4qRFdoMJ3k70Dgi8hqj" type="audio/mpeg" />
+  </audio>
+
+  <div class="like-dislike">
+    <button onclick="vote('song3','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song3-like">0</span></button>
+    <button onclick="vote('song3','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song3-dislike">0</span></button>
+  </div>
+
+  <div class="share-buttons">
+    <button onclick="shareLink('https://pandemalawisounds.github.io/artist-pboy-halla.html#song3')"><i class="fab fa-facebook"></i></button>
+    <button onclick="shareLink('https://wa.me/?text=https://pandemalawisounds.github.io/artist-pboy-halla.html#song3')"><i class="fab fa-whatsapp"></i></button>
+    <button onclick="copyToClipboard('https://pandemalawisounds.github.io/artist-pboy-halla.html#song3')"><i class="fab fa-tiktok"></i></button>
+  </div>
+    </div>
     <!-- Repeat song-card block for more songs -->
   </div>
 
