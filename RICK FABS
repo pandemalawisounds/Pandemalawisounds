@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Rick Fabs - Artist Page</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background: #111;
+      color: #fff;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1rem;
+    }
+    header, footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #222;
+      margin-bottom: 1rem;
+    }
+    .artist-cover {
+      width: 100%;
+      border-radius: 15px;
+    }
+    .song-card {
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    .song-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    .song-row {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+    }
+    .song-row img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #00ffd5;
+      box-shadow: 0 0 8px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+    }
+    .download-btn {
+      margin-left: auto;
+    }
+    .download-btn a {
+      text-decoration: none;
+      font-weight: bold;
+      background: #00ffd5;
+      padding: 6px 12px;
+      border-radius: 8px;
+      color: #000;
+      white-space: nowrap;
+    }
+    audio {
+      width: 100%;
+      margin: 0.5rem 0;
+    }
+    .like-dislike button {
+      background: none;
+      border: none;
+      color: white;
+      margin-right: 10px;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+    .like-count, .dislike-count {
+      font-size: 0.9rem;
+      margin-left: 5px;
+    }
+    .share-buttons {
+      margin-top: 0.5rem;
+    }
+    .share-buttons button {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      margin-right: 10px;
+      cursor: pointer;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Rick Fabs</h1>
+  </header>
+
+  <div class="container">
+    <img class="artist-cover" src="covers/RickFabs.jpg" alt="Rick Fabs Cover" />
+
+    <p><strong>Bio:</strong> Rick Fabs is a Malawian artist who blends raw emotion with modern rhythms, delivering heartfelt vibes and bold musical expression.</p>
+
+    <!-- SONG: Insecure -->
+    <div class="song-card" data-songid="song1">
+      <h2 class="song-title">Insecure</h2>
+      <div class="song-row">
+        <img src="covers/Insecure.png" alt="Insecure Cover" />
+        <div class="download-btn">
+          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_INSECURE" download>Download</a>
+        </div>
+      </div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_INSECURE" type="audio/mpeg" />
+      </audio>
+      <div class="like-dislike">
+        <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song1-like">0</span></button>
+        <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song1-dislike">0</span></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareLink('https://pandemalawisounds.github.io/artist-rick-fabs.html#song1')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://wa.me/?text=https://pandemalawisounds.github.io/artist-rick-fabs.html#song1')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="copyToClipboard('https://pandemalawisounds.github.io/artist-rick-fabs.html#song1')"><i class="fab fa-tiktok"></i></button>
+      </div>
+    </div>
+
+    <!-- SONG: Vibe -->
+    <div class="song-card" data-songid="song2">
+      <h2 class="song-title">Vibe</h2>
+      <div class="song-row">
+        <img src="covers/Vibe.png" alt="Vibe Cover" />
+        <div class="download-btn">
+          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_VIBE" download>Download</a>
+        </div>
+      </div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_VIBE" type="audio/mpeg" />
+      </audio>
+      <div class="like-dislike">
+        <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song2-like">0</span></button>
+        <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song2-dislike">0</span></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareLink('https://pandemalawisounds.github.io/artist-rick-fabs.html#song2')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://wa.me/?text=https://pandemalawisounds.github.io/artist-rick-fabs.html#song2')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="copyToClipboard('https://pandemalawisounds.github.io/artist-rick-fabs.html#song2')"><i class="fab fa-tiktok"></i></button>
+      </div>
+    </div>
+
+    <!-- SONG: Ben10 -->
+    <div class="song-card" data-songid="song3">
+      <h2 class="song-title">Ben10</h2>
+      <div class="song-row">
+        <img src="covers/Ben10.png" alt="Ben10 Cover" />
+        <div class="download-btn">
+          <a href="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_BEN10" download>Download</a>
+        </div>
+      </div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_BEN10" type="audio/mpeg" />
+      </audio>
+      <div class="like-dislike">
+        <button onclick="vote('song3','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song3-like">0</span></button>
+        <button onclick="vote('song3','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song3-dislike">0</span></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareLink('https://pandemalawisounds.github.io/artist-rick-fabs.html#song3')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://wa.me/?text=https://pandemalawisounds.github.io/artist-rick-fabs.html#song3')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="copyToClipboard('https://pandemalawisounds.github.io/artist-rick-fabs.html#song3')"><i class="fab fa-tiktok"></i></button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Pandemalawi Sounds</p>
+  </footer>
+
+  <script>
+    window.onload = function () {
+      document.querySelectorAll('.song-card').forEach(card => {
+        const id = card.dataset.songid;
+        document.getElementById(id + '-like').textContent = localStorage.getItem(id + '-like') || 0;
+        document.getElementById(id + '-dislike').textContent = localStorage.getItem(id + '-dislike') || 0;
+      });
+    };
+
+    function vote(songID, type) {
+      const key = `${songID}-${type}`;
+      let count = parseInt(localStorage.getItem(key)) || 0;
+      count += 1;
+      localStorage.setItem(key, count);
+      document.getElementById(`${songID}-${type}`).textContent = count;
+    }
+
+    function shareLink(link) {
+      window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(link)}`, '_blank');
+    }
+
+    function copyToClipboard(text) {
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Link copied to clipboard!");
+      });
+    }
+  </script>
+</body>
+</html>
