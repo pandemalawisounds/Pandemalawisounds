@@ -1,74 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pboy Halla | Pandemalawi Sounds</title>
-  <!-- Font Awesome for icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pboy Halla - Pandemalawi Sounds</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    /* General Styles */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
       margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #2b2d42;
-      color: white;
-      padding: 20px;
-      text-align: center;
+      font-family: Arial, sans-serif;
+      background: url('file_00000000d39c622fa42365e8830ef40e_conversation_id=681a18ad-95f8-8005-aee3-51d75118b8f0&message_id=1d0dee6d-1a19-449f-8be1-210410525f32.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
     }
 
     .container {
-      max-width: 1000px;
-      margin: 20px auto;
+      max-width: 900px;
+      margin: auto;
       padding: 20px;
-      background-color: white;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.6); /* transparent black background */
+      border-radius: 15px;
     }
 
-    h1 {
-      font-size: 2rem;
+    .artist-header {
+      text-align: center;
+    }
+
+    .artist-header img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
     }
 
     .song-card {
-      display: flex;
-      flex-wrap: wrap;
-      background-color: #ffffff;
-      margin-bottom: 20px;
+      margin-top: 30px;
       padding: 15px;
+      background-color: rgba(255, 255, 255, 0.05); /* subtle transparency */
       border-radius: 10px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 5px rgba(255,255,255,0.1);
     }
 
-    .song-card img {
+    .song-title {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .song-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .song-row img {
       width: 100px;
-      height: 100px;
-      border-radius: 8px;
-      margin-right: 20px;
-    }
-
-    .song-card h2 {
-      font-size: 1.5rem;
+      border-radius: 10px;
       margin-bottom: 10px;
     }
 
-    .song-card .download-btn a {
+    .download-btn a {
+      display: inline-block;
+      background: #1db954;
+      padding: 10px 15px;
+      color: #fff;
       text-decoration: none;
-      padding: 10px;
-      background-color: #008cba;
-      color: white;
-      border-radius: 5px;
-      font-size: 1rem;
+      border-radius: 8px;
+      font-weight: bold;
     }
 
-    .song-card .download-btn a:hover {
-      background-color: #005f7a;
+    audio {
+      width: 100%;
+      margin-top: 10px;
     }
 
     .like-dislike {
@@ -78,123 +81,160 @@
     .like-dislike button {
       background: none;
       border: none;
-      color: #555;
-      font-size: 1.2rem;
+      color: #fff;
+      font-size: 1.2em;
       margin-right: 10px;
       cursor: pointer;
+    }
+
+    .share-buttons {
+      margin-top: 10px;
     }
 
     .share-buttons button {
       background: none;
       border: none;
-      color: #555;
-      font-size: 1.5rem;
+      color: #fff;
+      font-size: 1.5em;
       margin-right: 10px;
       cursor: pointer;
     }
 
     footer {
       text-align: center;
-      padding: 10px;
-      background-color: #2b2d42;
-      color: white;
       margin-top: 40px;
+      font-size: 0.9em;
+      opacity: 0.8;
     }
 
-    /* Responsive Design */
-    @media screen and (max-width: 768px) {
-      .song-card {
+    @media (max-width: 600px) {
+      .song-row {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
+      }
+
+      .song-row img {
+        margin-bottom: 10px;
       }
     }
   </style>
 </head>
-
 <body>
-  <header>
-    <h1>Pboy Halla - Pandemalawi Sounds</h1>
-  </header>
-
   <div class="container">
-    <section class="artist-info">
-      <h2>Pboy Halla</h2>
+    <div class="artist-header">
+      <h1>Pboy Halla</h1>
+      <img src="covers/Pboy_Halla_Cover.png" alt="Pboy Halla Cover">
       <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
-    </section>
+    </div>
 
-    <!-- SONG CARDS -->
-
-    <div class="song-card" data-songid="song1">
+    <!-- SONG 1 -->
+    <div class="song-card" id="song1">
       <h2 class="song-title">By My Side ft Denje</h2>
       <div class="song-row">
-        <img src="covers/Song3.png" alt="Song Image" />
+        <img src="covers/Song3.png" alt="Song Image">
         <div class="download-btn">
           <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>Download</a>
         </div>
       </div>
-
       <audio controls>
-        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg" />
+        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg">
       </audio>
-
       <div class="like-dislike">
-        <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span class="like-count" id="song1-like">0</span></button>
-        <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span class="dislike-count" id="song1-dislike">0</span></button>
+        <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span id="song1-like">0</span></button>
+        <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song1-dislike">0</span></button>
       </div>
-
       <div class="share-buttons">
         <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
         <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
         <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fa fa-link"></i></button>
       </div>
     </div>
 
-    <!-- More Songs -->
-    <div class="song-card" data-songid="song2">
+    <!-- Add more songs below using the same format -->
+    <!-- SONG 2 -->
+    <div class="song-card" id="song2">
       <h2 class="song-title">Happy Birthday</h2>
-      <img src="covers/Song4.png" alt="Song Image" />
-      <div class="download-btn">
-        <a href="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" download>Download</a>
+      <div class="song-row">
+        <img src="covers/song-placeholder.png" alt="Song Image">
+        <div class="download-btn">
+          <a href="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" download>Download</a>
+        </div>
+      </div>
+      <div class="like-dislike">
+        <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span id="song2-like">0</span></button>
+        <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song2-dislike">0</span></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fa fa-link"></i></button>
       </div>
     </div>
 
-    <div class="song-card" data-songid="song3">
+    <!-- SONG 3 -->
+    <div class="song-card" id="song3">
       <h2 class="song-title">Tenga</h2>
-      <img src="covers/Song5.png" alt="Song Image" />
-      <div class="download-btn">
-        <a href="https://drive.google.com/uc?export=download&id=1BrF9ZMeXooK3alLQP1aZkMlyLYJPs9tO" download>Download</a>
+      <div class="song-row">
+        <img src="covers/song-placeholder.png" alt="Song Image">
+        <div class="download-btn">
+          <a href="https://drive.google.com/uc?export=download&id=1BrF9ZMeXooK3alLQP1aZkMlyLYJPs9tO" download>Download</a>
+        </div>
+      </div>
+      <div class="like-dislike">
+        <button onclick="vote('song3','like')"><i class="fa fa-thumbs-up"></i> <span id="song3-like">0</span></button>
+        <button onclick="vote('song3','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song3-dislike">0</span></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fa fa-link"></i></button>
       </div>
     </div>
 
-    <div class="song-card" data-songid="song4">
-      <h2 class="song-title">Mtima Wanga Ukupweteka</h2>
-      <img src="covers/Song6.png" alt="Song Image" />
-      <div class="download-btn">
-        <a href="https://drive.google.com/uc?export=download&id=1-xakof7tF4LqE4qRFdoMJ3k70Dgi8hqj" download>Download</a>
+    <!-- SONG 4 -->
+    <div class="song-card" id="song4">
+      <h2 class="song-title">Mtima wanga ukupweteka</h2>
+      <div class="song-row">
+        <img src="covers/song-placeholder.png" alt="Song Image">
+        <div class="download-btn">
+          <a href="https://drive.google.com/uc?export=download&id=1-xakof7tF4LqE4qRFdoMJ3k70Dgi8hqj" download>Download</a>
+        </div>
+      </div>
+      <div class="like-dislike">
+        <button onclick="vote('song4','like')"><i class="fa fa-thumbs-up"></i> <span id="song4-like">0</span></button>
+        <button onclick="vote('song4','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song4-dislike">0</span></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fa fa-link"></i></button>
       </div>
     </div>
+
+    <footer>
+      &copy; 2025 Pandemalawi Sounds
+    </footer>
   </div>
 
-  <footer>
-    <p>© 2025 Pandemalawi Sounds</p>
-  </footer>
-
   <script>
-    function shareLink(link) {
-      navigator.clipboard.writeText(link);
-      alert("Link copied to clipboard!");
+    function vote(songId, type) {
+      const countSpan = document.getElementById(`${songId}-${type}`);
+      let count = parseInt(countSpan.textContent);
+      countSpan.textContent = count + 1;
     }
 
-    function vote(songId, type) {
-      const likeSpan = document.getElementById(`${songId}-like`);
-      const dislikeSpan = document.getElementById(`${songId}-dislike`);
-      if (type === 'like') {
-        likeSpan.textContent = parseInt(likeSpan.textContent) + 1;
-      } else {
-        dislikeSpan.textContent = parseInt(dislikeSpan.textContent) + 1;
-      }
+    function shareLink(url) {
+      window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
+    }
+
+    function copyLink(url) {
+      navigator.clipboard.writeText(url);
+      alert("Link copied to clipboard!");
     }
   </script>
 </body>
-
   </html>
