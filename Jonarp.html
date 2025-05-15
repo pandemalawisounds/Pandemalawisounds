@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jonarp- Pandemalawi Sounds</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('file_00000000d39c622fa42365e8830ef40e_conversation_id=681a18ad-95f8-8005-aee3-51d75118b8f0&message_id=1d0dee6d-1a19-449f-8be1-210410525f32.png') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.6); /* transparent black background */
+      border-radius: 15px;
+    }
+
+    .artist-header {
+      text-align: center;
+    }
+
+    .artist-header img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 20px;
+    }
+
+    .song-card {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: rgba(255, 255, 255, 0.05); /* subtle transparency */
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(255,255,255,0.1);
+    }
+
+    .song-title {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .song-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .song-row img {
+      width: 100px;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .download-btn a {
+      display: inline-block;
+      background: #1db954;
+      padding: 10px 15px;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .like-dislike {
+      margin-top: 10px;
+    }
+
+    .like-dislike button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.2em;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .share-buttons {
+      margin-top: 10px;
+    }
+
+    .share-buttons button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.5em;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 600px) {
+      .song-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .song-row img {
+        margin-bottom: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="artist-header">
+      <h1>Pboy Halla</h1>
+      <img src="covers/Jonarp.jpg" alt="Pboy Halla Cover">
+      <p><strong>Bio:</strong>  Jonarp is a Malawian musician known for his Trap hip-hop, bringing  his unique style in the industry.</p>
+    </div>
+
+    <!-- SONG 1 -->
+    <div class="song-card" id="song1">
+      <h2 class="song-title">Dolo</h2>
+      <div class="song-row">
+        <img src="covers/Jonarp.jpg" alt="Song Image">
+        <div class="download-btn">
+          <a href="https://drive.google.com/uc?export=download&id=1dKreGxFol4p2MHkxYVuDjJrN-NJyGxv5" download>Download</a>
+        </div>
+      </div>
+      <audio controls>
+        <source src="https://drive.google.com/uc?export=download&id=YOUR_FILE_ID_1" type="audio/mpeg">
+      </audio>
+      <div class="like-dislike">
+        <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span id="song1-like">0</span></button>
+        <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song1-dislike">0</span></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song1')"><i class="fa fa-link"></i></button>
+      </div>
+    </div>
+
+    <!-- Add more songs below using the same format -->
+    <!-- SONG 2 -->
+    <div class="song-card" id="song2">
+      <h2 class="song-title">dziko</h2>
+      <div class="song-row">
+        <img src="covers/jonarp.png" alt="Song Image">
+        <div class="download-btn">
+          <a href="https://drive.google.com/uc?export=download&id=1g_MhOFqgATHlOJekBJVtFS1m9StV3q6_" download>Download</a>
+        </div>
+      </div>
+      <div class="like-dislike">
+        <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span id="song2-like">0</span></button>
+        <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song2-dislike">0</span></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fa fa-link"></i></button>
+      </div>
+    </div>
+
+    <!-- SONG 3 -->
+    <div class="song-card" id="song3">
+      <h2 class="song-title">Master</h2>
+      <div class="song-row">
+        <img src="covers/Jonarp.png" alt="Song Image">
+        <div class="download-btn">
+          <a href="https://drive.google.com/uc?export=download&id=1dV3HiMA1tjYwjeCO-Fnm6g-9XmHXjXSu" download>Download</a>
+        </div>
+      </div>
+      <div class="like-dislike">
+        <button onclick="vote('song3','like')"><i class="fa fa-thumbs-up"></i> <span id="song3-like">0</span></button>
+        <button onclick="vote('song3','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song3-dislike">0</span></button>
+      </div>
+      <div class="share-buttons">
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-facebook"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-whatsapp"></i></button>
+        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-tiktok"></i></button>
+        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fa fa-link"></i></button>
+      </div>
+    </div>
+
+    <!-- SONG 4 -->
+   
+    <!--add another song card-->
+
+    <footer>
+      &copy; 2025 Pandemalawi Sounds
+    </footer>
+  </div>
+
+  <script>
+    function vote(songId, type) {
+      const countSpan = document.getElementById(`${songId}-${type}`);
+      let count = parseInt(countSpan.textContent);
+      countSpan.textContent = count + 1;
+    }
+
+    function shareLink(url) {
+      window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
+    }
+
+    function copyLink(url) {
+      navigator.clipboard.writeText(url);
+      alert("Link copied to clipboard!");
+    }
+  </script>
+</body>
+  </html>
