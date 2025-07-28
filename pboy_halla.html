@@ -180,12 +180,27 @@
         <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song2-dislike">0</span></button>
       </div>
       <div class="share-buttons">
-        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-whatsapp"></i></button>
-        <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fab fa-tiktok"></i></button>
-        <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song2')"><i class="fa fa-link"></i></button>
+  <!-- Facebook Share -->
+  <button onclick="shareToFacebook('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')">
+    <i class="fab fa-facebook"></i>
+  </button>
+
+  <!-- WhatsApp Share -->
+  <button onclick="shareToWhatsApp('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')">
+    <i class="fab fa-whatsapp"></i>
+  </button>
+
+  <!-- TikTok (optional link only, not real sharing) -->
+  <a href="https://www.tiktok.com" target="_blank">
+    <button><i class="fab fa-tiktok"></i></button>
+  </a>
+
+  <!-- Copy Link -->
+  <button onclick="copySongLink('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')">
+    <i class="fa fa-link"></i>
+  </button>
       </div>
-    </div>
+
 
     <!-- SONG 3 -->
     <div class="song-card" id="song3">
