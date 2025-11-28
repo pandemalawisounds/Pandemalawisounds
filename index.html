@@ -21,11 +21,11 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.35); /* lighter overlay */
       z-index: -1;
     }
     header {
-      background: rgba(0, 0, 0, 0.6);
+      background: rgba(0, 0, 0, 0.35);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -46,7 +46,7 @@
     .hero {
       text-align: center;
       padding: 4rem 2rem;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0,0,0,0.25);
     }
     .hero h2 {
       font-size: 2.5rem;
@@ -54,8 +54,8 @@
     }
     .section {
       padding: 2rem;
-      backdrop-filter: blur(10px);
-      background: rgba(0,0,0,0.6);
+      backdrop-filter: blur(5px); 
+      background: rgba(0,0,0,0.25);
       border-radius: 20px;
       margin: 2rem auto;
       width: 90%;
@@ -70,81 +70,114 @@
       font-size: 1rem;
       margin-bottom: 1rem;
     }
-    #songs .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-    .song-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 15px;
-      padding: 1rem;
-      transition: transform 0.2s;
-    }
-    .song-card:hover {
-      transform: translateY(-5px);
-    }
-    .song-info {
+
+    /* ================= FEATURED ARTISTS STYLES ================= */
+    .artist-container {
       display: flex;
+      flex-direction: column;
       gap: 1rem;
+    }
+
+    .artist-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      overflow: hidden;
+      transition: all 0.4s ease;
       flex-wrap: wrap;
     }
-    .song-card img {
-      width: 100px;
-      height: 100px;
-      border-radius: 12px;
+
+    .artist-box img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 15px;
+      transition: all 0.4s ease;
     }
-    .song-details {
+
+    .artist-info {
       flex: 1;
+    }
+
+    .artist-name {
+      font-size: 18px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .artist-bio {
+      font-size: 12px;
+      color: rgba(255,255,255,0.85);
+      overflow: hidden;
+      max-height: 30px;
+      transition: all 0.4s ease;
+    }
+
+    .songs {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .songs li {
+      font-size: 14px;
+      color: #fff;
+      margin: 3px 0;
+    }
+
+    .more-link {
+      color: #00ffd5;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 5px;
+      display: inline-block;
+    }
+
+    /* Expanded State */
+    .expanded {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      background: rgba(255,255,255,0.12); /* brighter expanded background */
+      box-shadow: 0 0 20px rgba(0,255,255,0.2);
+    }
+
+    .expanded img {
+      margin: 0 0 10px 0;
+      width: 150px;
+      height: 150px;
+    }
+
+    .expanded .artist-bio {
+      max-height: 500px;
       color: #fff;
     }
-    .song-details a {
-      color: #00ffd5;
-      text-decoration: none;
-      margin-right: 10px;
+
+    .expanded .songs {
+      display: block;
     }
-    .song-details .download-btn {
-      background: #00ff6a;
-      color: #000;
-      padding: 5px 10px;
-      border-radius: 8px;
-      display: inline-block;
-      margin-top: 5px;
-      text-decoration: none;
+
+    .artist-box:hover {
+      background: rgba(255,255,255,0.1);
+      box-shadow: 0 0 15px rgba(0,255,255,0.15);
+      transform: translateY(-2px);
     }
-    .likes button {
-      margin-left: 5px;
-      background: transparent;
-      color: white;
-      border: none;
-      padding: 0.3rem 0.7rem;
-      border-radius: 5px;
-      cursor: pointer;
+
+    /* ================= FLASHING ADS ================= */
+    @keyframes flash {
+      0%, 50%, 100% { opacity: 1; transform: scale(1); }
+      25% { opacity: 0.7; transform: scale(1.05); }
+      75% { opacity: 0.7; transform: scale(1.05); }
     }
-    .share-buttons i {
-      font-size: 1.2rem;
-      color:dodgerblue;
-      margin-right: 10px;
-    }
-    .share-buttons button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #1877F2;
-    }
-    .socials i {
-      margin-right: 10px;
-      font-size: 1.2rem;
-      color: #1DA1F2;
-    }
-    #artists .song-card {
-      margin-bottom: 1rem;
-    }
+
     .ads img {
       width: 100%;
       border-radius: 12px;
       margin-top: 1rem;
+      animation: flash 1s infinite;
     }
   </style>
 </head>
@@ -166,68 +199,100 @@
     <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
   </div>
 
-  <!-- ===================== PLACE TO ADD NEW ARTIST PAGES ===================== -->
-  <!-- Example: <a href="artistname.html">Go to Artist Page</a> -->
-  <!-- Add links to your artist pages below this comment -->
-
+  <!-- ===================== FEATURED ARTISTS ===================== -->
   <div class="section" id="artists">
     <h3>Featured Artists</h3>
+    <div class="artist-container">
+      <!-- Pboy Halla -->
+      <div class="artist-box" onclick="toggleArtist(this)">
+        <img src="covers/Pboy1.jpg" alt="Pboy Halla">
+        <div class="artist-info">
+          <p class="artist-name">Pboy Halla</p>
+          <p class="artist-bio">Malawian artist known for urban music and afrobeat vibes.</p>
+          <ul class="songs">
+            <li>By My Side</li>
+            <li>Song 2</li>
+            <li>Song 3</li>
+            <li>Song 4</li>
+            <li>Song 5</li>
+            <li>Song 6</li>
+            <li>Song 7</li>
+            <li>Song 8</li>
+            <li>Song 9</li>
+            <li>Song 10</li>
+          </ul>
+          <span class="more-link" onclick="goToArtistPage(event,'pboy_halla.html')">More</span>
+        </div>
+      </div>
 
-    <!-- Pboy Halla Card -->
-<div class="song-card" data-title="Pboy Halla" data-artist="Pboy Halla">
-  <div class="song-info">
-    <img src="covers/Pboy1.jpg" alt="Pboy Halla">
-    <div class="song-details">
-      <h4>Pboy Halla</h4>
-      <p>Malawian artist known for urban music and afrobeat vibes.</p>
-      <a href="pboy_halla.html" class="download-btn">Visit Page</a>
+      <!-- Hot Denje -->
+      <div class="artist-box" onclick="toggleArtist(this)">
+        <img src="covers/Hot denje.jpg" alt="Hot Denje">
+        <div class="artist-info">
+          <p class="artist-name">Hot Denje</p>
+          <p class="artist-bio">Malawian RnB afro artist known for his unique style. Listen to a song called Denje then you will appreciate the rest.</p>
+          <ul class="songs">
+            <li>Denje</li>
+            <li>Song 2</li>
+            <li>Song 3</li>
+            <li>Song 4</li>
+            <li>Song 5</li>
+            <li>Song 6</li>
+            <li>Song 7</li>
+            <li>Song 8</li>
+            <li>Song 9</li>
+            <li>Song 10</li>
+          </ul>
+          <span class="more-link" onclick="goToArtistPage(event,'Hot_Denje.html')">More</span>
+        </div>
+      </div>
+
+      <!-- Ric Fabs -->
+      <div class="artist-box" onclick="toggleArtist(this)">
+        <img src="covers/Rickfabs.jpg" alt="Ric Fabs">
+        <div class="artist-info">
+          <p class="artist-name">Ric Fabs</p>
+          <p class="artist-bio">Versatile Malawian rapper and songwriter with a passion for afro-pop and rap music.</p>
+          <ul class="songs">
+            <li>Song 1</li>
+            <li>Song 2</li>
+            <li>Song 3</li>
+            <li>Song 4</li>
+            <li>Song 5</li>
+            <li>Song 6</li>
+            <li>Song 7</li>
+            <li>Song 8</li>
+            <li>Song 9</li>
+            <li>Song 10</li>
+          </ul>
+          <span class="more-link" onclick="goToArtistPage(event,'Ric_fabs.html')">More</span>
+        </div>
+      </div>
+
+      <!-- Jonarp -->
+      <div class="artist-box" onclick="toggleArtist(this)">
+        <img src="covers/Jonarp.jpg" alt="Jonarp">
+        <div class="artist-info">
+          <p class="artist-name">Jonarp</p>
+          <p class="artist-bio">Malawian Trapper known for his unique style.</p>
+          <ul class="songs">
+            <li>Song 1</li>
+            <li>Song 2</li>
+            <li>Song 3</li>
+            <li>Song 4</li>
+            <li>Song 5</li>
+            <li>Song 6</li>
+            <li>Song 7</li>
+            <li>Song 8</li>
+            <li>Song 9</li>
+            <li>Song 10</li>
+          </ul>
+          <span class="more-link" onclick="goToArtistPage(event,'Jonarp.html')">More</span>
+        </div>
+      </div>
     </div>
   </div>
-</div>
-    
-    <!-- Hot Denje card-->
-<div class="song-card" data-title="Hot_Denje" data-artist="Jonarp">
-  <div class="song-info">
-    <img src="covers/Hot denje.jpg" alt="Hot_denje">
-    <div class="song-details">
-      <h4>Hot Denje</h4>
-      <p>Malawian RnB afro artist known fpr his unique style.listen to a song called Denje then you will appreciate the rest</p>
-      <a href="Hot_Denje.html" class="download-btn">Visit Page</a>
-    </div>
-  </div>
-</div>
-
-<!-- Ric Fabs Card -->
-<div class="song-card" data-title="Ric Fabs" data-artist="Ric Fabs">
-  <div class="song-info">
-    <img src="covers/Rickfabs.jpg" alt="Ric Fabs">
-    <div class="song-details">
-      <h4>Ric Fabs</h4>
-      <p>Versatile Malawian rapper and songwriter with a passion for afro-pop and rap music.</p>
-      <a href="Ric_fabs.html" class="download-btn">Visit Page</a>
-    </div>
-  </div>
-</div>
-
-<!-- Jonarp Card -->
-<div class="song-card" data-title="Jonarp" data-artist="Jonarp">
-  <div class="song-info">
-    <img src="covers/Jonarp.jpg" alt="Jonarp">
-    <div class="song-details">
-      <h4>Jonarp</h4>
-      <p>Malawian Trapper known for his unique style</p>
-      <a href="Jonarp.html" class="download-btn">Visit Page</a>
-    </div>
-  </div>
-  </div>
-  
-  <!-- ===================== END OF ARTIST PAGE LINKS SECTION ================== -->
-
-  <!-- ===================== FUTURE SONG LISTS OR ALBUMS GO HERE ============== -->
-  <!-- You can copy your song card structure and paste it here in the future -->
-  <!-- Make sure to wrap them in a <div class="section" id="songs"> if needed -->
-
-  <!-- ===================== END OF FUTURE SONG SECTION ======================== -->
+  <!-- ===================== END FEATURED ARTISTS ===================== -->
 
   <div class="section ads">
     <h3>Sponsored Ads</h3>
@@ -248,32 +313,23 @@
   </div>
 
   <script>
-    function like(id) {
-      const el = document.getElementById(id);
-      el.innerText = parseInt(el.innerText) + 1;
-    }
-    function dislike(id) {
-      const el = document.getElementById(id);
-      el.innerText = parseInt(el.innerText) + 1;
-    }
+    // Existing functions
+    function like(id) { const el = document.getElementById(id); el.innerText = parseInt(el.innerText)+1; }
+    function dislike(id) { const el = document.getElementById(id); el.innerText = parseInt(el.innerText)+1; }
     function searchSongs() {
       const input = document.getElementById('searchBar').value.toLowerCase();
       const cards = document.querySelectorAll('.song-card');
       cards.forEach(card => {
         const title = card.dataset.title ? card.dataset.title.toLowerCase() : '';
         const artist = card.dataset.artist ? card.dataset.artist.toLowerCase() : '';
-        if (title.includes(input) || artist.includes(input)) {
-          card.style.display = 'block';
-        } else {
-          card.style.display = 'none';
-        }
+        card.style.display = (title.includes(input) || artist.includes(input)) ? 'block' : 'none';
       });
     }
-    function copyShareLink(link) {
-      navigator.clipboard.writeText(link)
-        .then(() => alert("Link copied!"))
-        .catch(err => alert("Failed to copy link."));
-    }
+    function copyShareLink(link) { navigator.clipboard.writeText(link).then(()=>alert("Link copied!")).catch(()=>alert("Failed to copy link.")); }
+
+    // Featured Artists functions
+    function toggleArtist(box) { box.classList.toggle('expanded'); }
+    function goToArtistPage(event,url) { event.stopPropagation(); window.location.href=url; }
   </script>
 </body>
-  </html>
+</html>
