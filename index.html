@@ -24,6 +24,7 @@
       background: rgba(0, 0, 0, 0.35);  
       z-index: -1;  
     }  
+
     header {  
       background: rgba(0, 0, 0, 0.35);  
       padding: 1rem 2rem;  
@@ -31,6 +32,7 @@
       justify-content: space-between;  
       align-items: center;  
       backdrop-filter: blur(5px);  
+      flex-wrap: wrap;
     }  
     header h1 {  
       font-size: 1.8rem;  
@@ -44,139 +46,23 @@
       font-weight: 500;  
     }  
 
-    /* HERO: now motto + Latest uploads + Trending (no big "we are here for you") */  
-    .hero {  
-      display: flex;  
-      gap: 1rem;  
-      justify-content: center;  
-      align-items: flex-start;  
-      padding: 1.5rem 1rem;  
-      background: rgba(0,0,0,0.25);  
-      flex-wrap: wrap;  
-    }  
-    .motto {  
-      min-width: 220px;  
-      max-width: 350px;  
-      background: rgba(0,0,0,0.45);  
-      border-radius: 14px;  
-      padding: 1rem;  
-      text-align: center;  
-      border: 1px solid rgba(255,255,255,0.08);  
-      backdrop-filter: blur(4px);  
-    }  
-    .motto h2 {  
-      font-size: 1.2rem;  
-      margin: 0 0 0.25rem 0;  
-      color: #fff;  
-    }  
-    .motto p {  
-      margin: 0;  
-      font-size: 0.9rem;  
-      color: rgba(255,255,255,0.85);  
-    }  
+    /* Small container under header for motto + welcome text */
+    .hero-top {
+      padding: 1rem 2rem 0.5rem 2rem;
+    }
+    .hero-top h2 {
+      margin: 0 0 0.2rem 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .hero-top p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
 
-    /* Latest uploads slideshow box */  
-    .latest-uploads {  
-      width: 540px;  
-      max-width: calc(100% - 40px);  
-      background: rgba(0,0,0,0.45);  
-      border-radius: 14px;  
-      padding: 12px;  
-      border: 1px solid rgba(255,255,255,0.08);  
-    }  
-    .latest-header {  
-      display:flex;  
-      justify-content:space-between;  
-      align-items:center;  
-      margin-bottom:8px;  
-    }  
-    .latest-header h3 { margin:0; font-size:1rem; color:#fff; }  
-    .latest-header .small-note { font-size:0.78rem; color:rgba(255,255,255,0.75); }  
-
-    .slide-wrap {  
-      position: relative;  
-      height: 220px;  
-      border-radius: 10px;  
-      overflow: hidden;  
-      cursor: pointer;  
-    }  
-    .slide-img {  
-      position: absolute;  
-      top: 0; left: 0; width: 100%; height: 100%;  
-      object-fit: cover;  
-      transition: opacity 0.6s ease;  
-      opacity: 0;  
-    }  
-    .slide-img.active { opacity: 1; }  
-
-    .dots { text-align:center; margin-top:8px; }  
-    .dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.35); margin:0 4px; }  
-    .dot.active { background:#00ffd5; width:10px; height:10px; }  
-
-    .latest-list {  
-      display: none;  
-      margin-top:10px;  
-      background: rgba(255,255,255,0.03);  
-      padding: 8px;  
-      border-radius:8px;  
-      max-height: 260px;  
-      overflow-y: auto;  
-    }  
-    .latest-list li {  
-      color:#fff;  
-      margin:6px 0;  
-      font-size:0.95rem;  
-      display:flex;  
-      justify-content:space-between;  
-      align-items:center;  
-      gap:8px;  
-    }  
-    .latest-list .meta {  
-      color:rgba(255,255,255,0.75);  
-      font-size:0.82rem;  
-    }  
-
-    /* TRENDING section inside the same box */  
-    .trending {  
-      margin-top:12px;  
-      background: rgba(0,0,0,0.25);  
-      padding:8px;  
-      border-radius:10px;  
-    }  
-    .trending h4 {  
-      margin:0 0 6px 0;  
-      font-size:0.95rem;  
-    }  
-    .trending .trends-list {  
-      display:none;  
-      background: rgba(255,255,255,0.03);  
-      padding:8px;  
-      border-radius:8px;  
-      margin-top:8px;  
-    }  
-    .trending .trend-item {  
-      color:#fff;  
-      margin:6px 0;  
-      font-size:0.9rem;  
-      display:flex;  
-      justify-content:space-between;  
-      align-items:center;  
-      gap:8px;  
-    }  
-
-    /* GENERAL SECTIONS (same as your code) */  
-    .section {  
-      padding: 2rem;  
-      backdrop-filter: blur(5px);  
-      background: rgba(0,0,0,0.25);  
-      border-radius: 20px;  
-      margin: 2rem auto;  
-      width: 90%;  
-      max-width: 1100px;  
-    }  
-
-    /* SEARCH BAR (unchanged) */  
+    /* SEARCH BAR MOVED UP UNDER HERO-TOP */
     .search {  
+      padding: 0 2rem 1rem 2rem;  
       display: flex;  
       justify-content: center;  
       align-items: center;  
@@ -192,7 +78,17 @@
       box-shadow: 0 0 8px rgba(0,0,0,0.2);  
     }  
 
-    /* FLASHING ADS (unchanged) */  
+    .section {  
+      padding: 2rem;  
+      backdrop-filter: blur(5px);  
+      background: rgba(0,0,0,0.25);  
+      border-radius: 20px;  
+      margin: 2rem auto;  
+      width: 90%;  
+      max-width: 1100px;  
+    }  
+
+    /* FLASHING ADS (style kept same) */  
     .ad-strip {  
       display: grid;  
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));  
@@ -246,7 +142,75 @@
       }  
     }  
 
-    /* FEATURED ARTISTS (unchanged) */  
+    /* ========== SLIDESHOW SECTIONS: TRENDING + LATEST ========== */
+    /* Wrapper so images cover entire box (no visible margin) */
+    .slideshow-section {
+      position: relative;
+      width: 90%;
+      max-width: 1100px;
+      margin: 1.5rem auto;
+      border-radius: 20px;
+      overflow: hidden; /* hides edges so images fill smoothly */
+      backdrop-filter: blur(5px);
+      background: rgba(0,0,0,0.25);
+    }
+
+    /* Title on top of images */
+    .slideshow-title {
+      position: absolute;
+      top: 10px;
+      left: 15px;
+      z-index: 2;
+      margin: 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-shadow: 1px 1px 6px #000;
+    }
+
+    .slideshow-container {
+      display: flex;
+      width: 100%;
+      height: 180px; /* same size for Trending & Latest */
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide {
+      min-width: 100%;
+      transition: transform 0.5s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;  /* makes image fully cover */
+      display: block;
+    }
+
+    /* List that drops down for songs (backend for you to edit) */
+    .slide-song-list {
+      display: none; /* hidden by default, shown when tapped */
+      padding: 0.8rem 1.2rem 1rem 1.2rem;
+      font-size: 0.9rem;
+    }
+    .slide-song-list ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .slide-song-list li {
+      margin: 3px 0;
+    }
+
+    .tap-to-view {
+      font-size: 0.85rem;
+      padding: 0 1.2rem 0.6rem 1.2rem;
+      opacity: 0.9;
+    }
+
+    /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
     .artist-container {  
       display: flex;  
       flex-direction: column;  
@@ -326,7 +290,7 @@
       display: block;  
     }  
 
-    /* PAYMENT SECTION – restored exactly as in your code */  
+    /* ========== PAYMENT SECTION (unchanged) ========== */  
     .payment-section {  
       background: rgba(255,255,255,0.95);  
       color: #111;  
@@ -412,7 +376,7 @@
       font-size: 0.8rem;  
     }  
 
-    /* CONTACT LINKS – restored as in your code */  
+    /* CONTACT LINKS (unchanged) */  
     #contact a {  
       color: #00ffd5;  
       text-decoration: none;  
@@ -421,93 +385,120 @@
     #contact a:hover {  
       text-decoration: underline;  
     }  
-
-    @media (max-width: 800px) {  
-      .hero {  
-        flex-direction: column;  
-        align-items: center;  
-      }  
-      .latest-uploads {  
-        width: 100%;  
-      }  
-      .motto {  
-        width: 100%;  
-      }  
-    }  
   </style>  
 </head>  
 <body>  
   <header>  
-    <h1>Pandemalawi Sounds</h1>  
+    <h1>Pande malawi Sounds</h1>  
     <nav>  
       <a href="#about">About</a>  
       <a href="#contact">Contact</a>  
     </nav>  
   </header>  
 
-  <!-- HERO with motto + Latest uploads + Trending -->  
-  <div class="hero">  
-    <!-- small motto box (you can change text inside only) -->  
-    <div class="motto">  
-      <h2>Pandemalawi Sounds</h2>  
-      <p>Local beats. Real vibes. Upload • Promote • Share</p>  
-    </div>  
+  <!-- SHORT HERO TEXT (replaces 'we are here for you') -->
+  <div class="hero-top">
+    <h2>Upload. Download. Promote. share.</h2>
+  </div>
 
-    <!-- Latest uploads + Trending block -->  
-    <div class="latest-uploads" id="latestUploadsSection">  
-      <div class="latest-header">  
-        <h3>Latest uploads</h3>  
-        <!-- user text: just "Tap to view list" (no mention of max 10) -->  
-        <div class="small-note">Tap slide to view list</div>  
-      </div>  
-
-      <!-- slideshow area -->  
-      <div class="slide-wrap" id="slideWrap" title="Tap to expand latest uploads">  
-        <!-- slides added by JS -->  
-      </div>  
-
-      <!-- dots -->  
-      <div class="dots" id="slideDots"></div>  
-
-      <!-- dropdown list for latest uploads -->  
-      <ul class="latest-list" id="latestList"></ul>  
-
-      <!-- TRENDING SECTION -->  
-      <div class="trending" id="trendingSection">  
-        <h4>Trending</h4>  
-        <div class="trends-header" style="display:flex; justify-content:space-between; align-items:center;">  
-          <!-- simple button; no "Editable" wording -->  
-          <button onclick="toggleTrending()" style="background:#00ffd5;border:none;padding:6px 10px;border-radius:999px;cursor:pointer;font-weight:700;">Toggle Trending</button>  
-        </div>  
-        <div class="trends-list" id="trendsList"></div>  
-      </div>  
-    </div>  
+  <!-- SEARCH BAR UNDER HERO TEXT -->
+  <div class="search">  
+    <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">  
   </div>  
 
-  <!-- HERO ADS (unchanged) -->  
-  <div class="hero" style="padding-top:0; padding-bottom:1rem;">  
-    <div class="ad-strip" style="width:100%; max-width:1100px;">  
+  <!-- 1️⃣ AD AFTER SEARCH (Business Ad) -->
+  <div class="section">
+    <div class="ad-strip">  
       <div class="ad-box">  
         <div class="ad-title">Business Ad</div>  
         <div class="ad-text">Advertise your business on Pandemalawi Sounds and reach more ears.</div>  
         <div class="ad-price">K2,000 per day</div>  
         <span class="ad-cta">Book this space</span>  
       </div>  
+    </div>  
+  </div>
+
+  <!-- 2️⃣ TRENDING SONGS SECTION -->
+  <!-- Same size style as Latest Uploads, with slideshow + dropdown -->
+  <div class="slideshow-section" id="trendingSection">
+    <h3 class="slideshow-title">Trending songs</h3>
+    <div class="slideshow-container" id="trendingSlides">
+      <!-- Slide 1 (you can change image + text) -->
+      <div class="slide" onclick="toggleSlideList('trendingList')">
+        <img src="covers/Trending1.jpg" alt="Trending song artwork 1">
+      </div>
+      <!-- Slide 2 -->
+      <div class="slide" onclick="toggleSlideList('trendingList')">
+        <img src="covers/Trending2.jpg" alt="Trending song artwork 2">
+      </div>
+      <!-- Slide 3 -->
+      <div class="slide" onclick="toggleSlideList('trendingList')">
+        <img src="covers/Trending3.jpg" alt="Trending song artwork 3">
+      </div>
+    </div>
+    <p class="tap-to-view">Tap to view trending songs</p>
+    <div class="slide-song-list" id="trendingList">
+      <!-- NOTE: This list is for you to edit manually (max 5 songs recommended) -->
+      <ul>
+        <li>Club Banger – Artist X</li>
+        <li>Track 2 – Artist Y</li>
+        <li>Track 3 – Artist Z</li>
+        <li>Track 4 – Artist A</li>
+        <li>Track 5 – Artist B</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3️⃣ P&E TECHO AD -->
+  <div class="section">
+    <div class="ad-strip">  
       <div class="ad-box">  
         <div class="ad-title">P&E Techo</div>  
         <div class="ad-text">P&E Techo: Carpentry, furniture, electrical & tech services in Malawi.</div>  
         <span class="ad-cta">Contact P&E Techo</span>  
       </div>  
     </div>  
-  </div>  
+  </div>
 
-  <!-- SEARCH BAR SECTION -->  
-  <div class="section search">  
-    <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">  
-  </div>  
+  <!-- 4️⃣ LATEST UPLOADS SECTION -->
+  <!-- Same style as Trending, but max 10 songs (for your backend) -->
+  <div class="slideshow-section" id="latestSection">
+    <h3 class="slideshow-title">Latest uploads</h3>
+    <div class="slideshow-container" id="latestSlides">
+      <!-- Slide 1 -->
+      <div class="slide" onclick="toggleSlideList('latestList')">
+        <img src="covers/Latest1.jpg" alt="Latest upload artwork 1">
+      </div>
+      <!-- Slide 2 -->
+      <div class="slide" onclick="toggleSlideList('latestList')">
+        <img src="covers/Latest2.jpg" alt="Latest upload artwork 2">
+      </div>
+      <!-- Slide 3 -->
+      <div class="slide" onclick="toggleSlideList('latestList')">
+        <img src="covers/Latest3.jpg" alt="Latest upload artwork 3">
+      </div>
+    </div>
+    <p class="tap-to-view">Tap to view latest songs</p>
+    <div class="slide-song-list" id="latestList">
+      <!-- NOTE: Your rule – show only 10 latest songs here.
+           When you add 11th song, remove the 1st one manually. -->
+      <ul>
+        <li>Track 1 – Artist 1</li>
+        <li>Track 2 – Artist 2</li>
+        <li>Track 3 – Artist 3</li>
+        <li>Track 4 – Artist 4</li>
+        <li>Track 5 – Artist 5</li>
+        <li>Track 6 – Artist 6</li>
+        <li>Track 7 – Artist 7</li>
+        <li>Track 8 – Artist 8</li>
+        <li>Track 9 – Artist 9</li>
+        <li>Track 10 – Artist 10</li>
+      </ul>
+    </div>
+  </div>
 
-  <!-- 2 BUSINESS ADS AFTER SEARCH BAR (unchanged) -->  
-  <div class="section">  
+  <!-- 5️⃣ AD AFTER LATEST UPLOADS -->
+  <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
         <div class="ad-title">Business Ad</div>  
@@ -515,16 +506,10 @@
         <div class="ad-price">K2,000 per day</div>  
         <span class="ad-cta">Advertise now</span>  
       </div>  
-      <div class="ad-box">  
-        <div class="ad-title">Business Ad</div>  
-        <div class="ad-text">Special offers, events, or music releases – get seen on Pandemalawi Sounds.</div>  
-        <div class="ad-price">K2,000 per day</div>  
-        <span class="ad-cta">Reserve slot</span>  
-      </div>  
     </div>  
-  </div>  
+  </div>
 
-  <!-- FEATURED ARTISTS (unchanged) -->  
+  <!-- 6️⃣ FEATURED ARTISTS (YOUR ORIGINAL SECTION, KEPT) -->  
   <div class="section" id="artists">  
     <h3>Featured Artists</h3>  
     <div class="artist-container">  
@@ -618,7 +603,7 @@
     </div>  
   </div>  
 
-  <!-- ORIGINAL ADS SPOT – 1 BUSINESS + 1 P&E TECHO -->  
+  <!-- 7️⃣ SPONSORED ADS (same as your original "Sponsored Ads" section) -->  
   <div class="section ads">  
     <h3>Sponsored Ads</h3>  
     <div class="ad-strip">  
@@ -636,11 +621,10 @@
     </div>  
   </div>  
 
-  <!-- PAYMENT SECTION (unchanged) -->  
+  <!-- 8️⃣ PAYMENT SECTION (unchanged) -->  
   <div class="payment-section" id="payments">  
     <h3>Upload & Promotion Payments</h3>  
     <p class="payment-sub">Choose a package for your song uploads. After payment, send proof via WhatsApp.</p>  
-
     <div class="payment-grid">  
       <div class="payment-card">  
         <h4>Single Song</h4>  
@@ -677,11 +661,25 @@
     </div>  
   </div>  
 
+  <!-- 9️⃣ ABOUT SECTION (unchanged) -->  
   <div class="section" id="about">  
     <h3>About Pandemalawi Sounds</h3>  
     <p>Pandemalawi Sounds is a platform dedicated to promoting Malawian music and artists by making their work accessible to everyone. We also offer space for local business promotions.</p>  
   </div>  
 
+  <!-- 🔟 AD AFTER ABOUT -->  
+  <div class="section">
+    <div class="ad-strip">  
+      <div class="ad-box">  
+        <div class="ad-title">Business Ad</div>  
+        <div class="ad-text">Special offers, events, or music releases – get seen on Pandemalawi Sounds.</div>  
+        <div class="ad-price">K2,000 per day</div>  
+        <span class="ad-cta">Reserve slot</span>  
+      </div>  
+    </div>  
+  </div>
+
+  <!-- 1️⃣1️⃣ CONTACT US (unchanged styles) -->  
   <div class="section" id="contact">  
     <h3>Contact Us</h3>  
     <p>Email:  
@@ -699,6 +697,7 @@
         +265893499227  
       </a>  
     </p>  
+    <!-- Facebook Link Section -->  
     <p>Follow us on Facebook:   
       <a href="https://www.facebook.com/profile.php?id=61575245505301" target="_blank">  
         pandemalawisounds  
@@ -707,7 +706,6 @@
   </div>  
 
   <script>  
-    /******** EXISTING FUNCTIONS (unchanged) ********/  
     function like(id) {  
       const el = document.getElementById(id);  
       el.innerText = parseInt(el.innerText) + 1;  
@@ -716,6 +714,7 @@
       const el = document.getElementById(id);  
       el.innerText = parseInt(el.innerText) + 1;  
     }  
+
     function searchSongs() {  
       const input = document.getElementById('searchBar').value.toLowerCase();  
       const cards = document.querySelectorAll('.artist-box');  
@@ -727,211 +726,28 @@
         card.style.display = (name.includes(input) || bio.includes(input)) ? 'flex' : 'none';  
       });  
     }  
+
     function copyShareLink(link) {  
       navigator.clipboard.writeText(link)  
         .then(() => alert("Link copied!"))  
         .catch(() => alert("Failed to copy link."));  
     }  
+
     function toggleArtist(box) {  
       box.classList.toggle('expanded');  
     }  
+
     function goToArtistPage(event,url) {  
       event.stopPropagation();  
       window.location.href=url;  
     }  
 
-    /******** NEW: Latest uploads + Trending backend ********/  
-
-    // latest uploads data (max 10 in backend)  
-    let latestUploads = [  
-      { title: "By My Side", artist: "Pboy Halla", img: "covers/Pboy1.jpg", link: "pboy_halla.html#bymyside" },  
-      { title: "Denje", artist: "Hot Denje", img: "covers/Hot denje.jpg", link: "Hot_Denje.html#denje" }  
-      // add more here using same pattern  
-    ];  
-
-    // trending data (max 5 in backend, manually controlled)  
-    let trending = [  
-      { title: "By My Side", artist: "Pboy Halla", img: "covers/Pboy1.jpg", link: "pboy_halla.html#bymyside" },  
-      { title: "Denje", artist: "Hot Denje", img: "covers/Hot denje.jpg", link: "Hot_Denje.html#denje" }  
-      // add more trending songs here  
-    ];  
-
-    const LATEST_LIMIT = 10;  
-    const TREND_LIMIT = 5;  
-
-    const slideWrap = document.getElementById('slideWrap');  
-    const slideDots = document.getElementById('slideDots');  
-    const latestList = document.getElementById('latestList');  
-    const trendsList = document.getElementById('trendsList');  
-
-    function renderSlides() {  
-      slideWrap.innerHTML = '';  
-      slideDots.innerHTML = '';  
-
-      latestUploads.forEach((s, idx) => {  
-        const img = document.createElement('img');  
-        img.src = s.img || 'covers/default.jpg';  
-        img.alt = s.title + " — " + s.artist;  
-        img.className = 'slide-img' + (idx === 0 ? ' active' : '');  
-        img.dataset.index = idx;  
-        img.addEventListener('click', () => toggleLatestList());  
-        slideWrap.appendChild(img);  
-
-        const dot = document.createElement('span');  
-        dot.className = 'dot' + (idx === 0 ? ' active' : '');  
-        dot.dataset.index = idx;  
-        dot.addEventListener('click', (e) => {  
-          e.stopPropagation();  
-          goToSlide(parseInt(dot.dataset.index));  
-        });  
-        slideDots.appendChild(dot);  
-      });  
-
-      renderLatestList();  
-    }  
-
-    function renderLatestList() {  
-      latestList.innerHTML = '';  
-      const array = [...latestUploads].reverse(); // newest first  
-      array.forEach((s) => {  
-        const li = document.createElement('li');  
-        const left = document.createElement('div');  
-        left.innerHTML = `<strong>${s.title}</strong> <span class="meta">by ${s.artist}</span>`;  
-
-        const right = document.createElement('div');  
-        right.style.display = 'flex';  
-        right.style.gap = '8px';  
-
-        const openBtn = document.createElement('button');  
-        openBtn.textContent = 'Open';  
-        openBtn.style.cursor = 'pointer';  
-        openBtn.style.border = 'none';  
-        openBtn.style.background = '#00ffd5';  
-        openBtn.style.borderRadius = '8px';  
-        openBtn.style.padding = '4px 8px';  
-        openBtn.onclick = () => { window.location.href = s.link || '#'; };  
-
-        right.appendChild(openBtn);  
-
-        li.appendChild(left);  
-        li.appendChild(right);  
-        latestList.appendChild(li);  
-      });  
-
-      if (array.length === 0) {  
-        latestList.innerHTML = '<li style="color:rgba(255,255,255,0.8)">No latest uploads yet</li>';  
-      }  
-    }  
-
-    function renderTrendingList() {  
-      trendsList.innerHTML = '';  
-      if (trending.length === 0) {  
-        trendsList.innerHTML = '<div style="color:rgba(255,255,255,0.8)">No trending songs set</div>';  
-        return;  
-      }  
-      trending.forEach((s) => {  
-        const div = document.createElement('div');  
-        div.className = 'trend-item';  
-        const left = document.createElement('div');  
-        left.innerHTML = `<strong>${s.title}</strong> <span class="meta">by ${s.artist}</span>`;  
-
-        const right = document.createElement('div');  
-        right.style.display = 'flex';  
-        right.style.gap = '8px';  
-        const openBtn = document.createElement('button');  
-        openBtn.textContent = 'Open';  
-        openBtn.style.cursor = 'pointer';  
-        openBtn.style.border = 'none';  
-        openBtn.style.background = '#00ffd5';  
-        openBtn.style.borderRadius = '8px';  
-        openBtn.style.padding = '4px 8px';  
-        openBtn.onclick = () => { window.location.href = s.link || '#'; };  
-
-        right.appendChild(openBtn);  
-
-        div.appendChild(left);  
-        div.appendChild(right);  
-        trendsList.appendChild(div);  
-      });  
-
-      if (trending.length > TREND_LIMIT) trending = trending.slice(0, TREND_LIMIT);  
-    }  
-
-    let currentSlide = 0;  
-    let slideInterval = null;  
-    const SLIDE_DELAY = 3000;  
-
-    function startSlideShow() {  
-      stopSlideShow();  
-      slideInterval = setInterval(() => {  
-        const imgs = document.querySelectorAll('.slide-img');  
-        if (!imgs.length) return;  
-        const next = (currentSlide + 1) % imgs.length;  
-        goToSlide(next);  
-      }, SLIDE_DELAY);  
-    }  
-
-    function stopSlideShow() {  
-      if (slideInterval) {  
-        clearInterval(slideInterval);  
-        slideInterval = null;  
-      }  
-    }  
-
-    function goToSlide(index) {  
-      const imgs = document.querySelectorAll('.slide-img');  
-      const dots = document.querySelectorAll('.dot');  
-      if (!imgs.length) return;  
-      imgs.forEach(img => img.classList.remove('active'));  
-      dots.forEach(d => d.classList.remove('active'));  
-      const idx = Math.max(0, Math.min(index, imgs.length - 1));  
-      imgs[idx].classList.add('active');  
-      dots[idx].classList.add('active');  
-      currentSlide = idx;  
-    }  
-
-    slideWrap.addEventListener('mouseenter', stopSlideShow);  
-    slideWrap.addEventListener('mouseleave', startSlideShow);  
-
-    let latestExpanded = false;  
-    function toggleLatestList() {  
-      latestExpanded = !latestExpanded;  
-      latestList.style.display = latestExpanded ? 'block' : 'none';  
-    }  
-
-    let trendingExpanded = false;  
-    function toggleTrending() {  
-      trendingExpanded = !trendingExpanded;  
-      trendsList.style.display = trendingExpanded ? 'block' : 'none';  
-      if (trendingExpanded) renderTrendingList();  
-    }  
-
-    // backend helper functions (just for you in code, not visible in UI)  
-    function addLatestUpload(song) {  
-      latestUploads.push(song);  
-      if (latestUploads.length > LATEST_LIMIT) {  
-        latestUploads.shift(); // remove oldest (this is the 10 limit in backend)  
-      }  
-      renderSlides();  
-      startSlideShow();  
-    }  
-
-    function addTrending(song) {  
-      trending.push(song);  
-      if (trending.length > TREND_LIMIT) {  
-        trending = trending.slice(0, TREND_LIMIT);  
-      }  
-      renderTrendingList();  
-    }  
-
-    // init  
-    renderSlides();  
-    renderTrendingList();  
-    startSlideShow();  
-
-    // Comments for you:  
-    // addLatestUpload({title:"New Song", artist:"Name", img:"covers/image.jpg", link:"artist.html#song"});  
-    // addTrending({title:"Hot Song", artist:"Name", img:"covers/image.jpg", link:"artist.html#song"});  
+    // Toggle dropdown lists for Trending and Latest when slide is tapped
+    function toggleSlideList(listId) {
+      const el = document.getElementById(listId);
+      if (!el) return;
+      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    }
   </script>  
 </body>  
-  </html>
+</html>
