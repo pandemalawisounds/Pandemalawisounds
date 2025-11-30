@@ -712,50 +712,79 @@
       </a>  
     </p>  
   </div>  
+<script>  
+  // LIKE / DISLIKE FUNCTIONS
+  function like(id) {  
+    const el = document.getElementById(id);  
+    el.innerText = parseInt(el.innerText) + 1;  
+  }  
+  function dislike(id) {  
+    const el = document.getElementById(id);  
+    el.innerText = parseInt(el.innerText) + 1;  
+  }  
 
-  <script>  
-    function like(id) {  
-      const el = document.getElementById(id);  
-      el.innerText = parseInt(el.innerText) + 1;  
-    }  
-    function dislike(id) {  
-      const el = document.getElementById(id);  
-      el.innerText = parseInt(el.innerText) + 1;  
-    }  
+  // SEARCH FUNCTION
+  function searchSongs() {  
+    const input = document.getElementById('searchBar').value.toLowerCase();  
+    const cards = document.querySelectorAll('.artist-box');  
+    cards.forEach(card => {  
+      const nameEl = card.querySelector('.artist-name');  
+      const bioEl = card.querySelector('.artist-bio');  
+      const name = nameEl ? nameEl.textContent.toLowerCase() : '';  
+      const bio = bioEl ? bioEl.textContent.toLowerCase() : '';  
+      card.style.display = (name.includes(input) || bio.includes(input)) ? 'flex' : 'none';  
+    });  
+  }  
 
-    function searchSongs() {  
-      const input = document.getElementById('searchBar').value.toLowerCase();  
-      const cards = document.querySelectorAll('.artist-box');  
-      cards.forEach(card => {  
-        const nameEl = card.querySelector('.artist-name');  
-        const bioEl = card.querySelector('.artist-bio');  
-        const name = nameEl ? nameEl.textContent.toLowerCase() : '';  
-        const bio = bioEl ? bioEl.textContent.toLowerCase() : '';  
-        card.style.display = (name.includes(input) || bio.includes(input)) ? 'flex' : 'none';  
-      });  
-    }  
+  // COPY LINK FUNCTION
+  function copyShareLink(link) {  
+    navigator.clipboard.writeText(link)  
+      .then(() => alert("Link copied!"))  
+      .catch(() => alert("Failed to copy link."));  
+  }  
 
-    function copyShareLink(link) {  
-      navigator.clipboard.writeText(link)  
-        .then(() => alert("Link copied!"))  
-        .catch(() => alert("Failed to copy link."));  
-    }  
+  // TOGGLE ARTIST BOX
+  function toggleArtist(box) {  
+    box.classList.toggle('expanded');  
+  }  
 
-    function toggleArtist(box) {  
-      box.classList.toggle('expanded');  
-    }  
+  function goToArtistPage(event,url) {  
+    event.stopPropagation();  
+    window.location.href=url;  
+  }  
 
-    function goToArtistPage(event,url) {  
-      event.stopPropagation();  
-      window.location.href=url;  
-    }  
+  // TOGGLE DROPDOWN LIST
+  function toggleSlideList(listId) {
+    const el = document.getElementById(listId);
+    if (!el) return;
+    el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+  }
 
-    // Toggle dropdown lists for Trending and Latest when slide is tapped
-    function toggleSlideList(listId) {
-      const el = document.getElementById(listId);
-      if (!el) return;
-      el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+  // ====== SLIDESHOW FUNCTION ======
+  function initSlideshow(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const slides = container.getElementsByClassName('slide');
+    let index = 0;
+
+    function showNextSlide() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      index++;
+      if (index > slides.length) index = 1;
+      slides[index - 1].style.display = 'block';
+      setTimeout(showNextSlide, 3000); // change every 3 seconds
     }
-  </script>  
+
+    showNextSlide();
+  }
+
+  // INIT SLIDESHOWS WHEN PAGE LOADS
+  document.addEventListener("DOMContentLoaded", function() {
+    initSlideshow('trendingSlides');
+    initSlideshow('latestSlides');
+  });
+</script>  
 </body>  
 </html>
