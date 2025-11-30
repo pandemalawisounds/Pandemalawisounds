@@ -158,9 +158,9 @@
     /* Title on top of images */
     .slideshow-title {
       position: absolute;
-      top: 10px;
+      bottom: 10px;
       left: 15px;
-      z-index: 2;
+      z-index: 5;
       margin: 0;
       font-size: 1.2rem;
       font-weight: 600;
@@ -170,7 +170,7 @@
     .slideshow-container {
       display: flex;
       width: 100%;
-      height: 180px; /* same size for Trending & Latest */
+      height: 140px; /* same size for Trending & Latest */
       border-radius: 20px;
       overflow: hidden;
       position: relative;
@@ -185,7 +185,7 @@
 
     .slide img {
       width: 100%;
-      height: 180px;
+      height: 140px;
       object-fit: cover;  /* makes image fully cover */
       display: block;
     }
@@ -208,6 +208,19 @@
       font-size: 0.85rem;
       padding: 0 1.2rem 0.6rem 1.2rem;
       opacity: 0.9;
+    }
+    .slide-caption {
+  position: absolute;
+  bottom: 10px;          /* bottom-left of the slide */
+  left: 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-shadow: 1px 1px 5px #000;
+  background: rgba(0,0,0,0.25); /* optional semi-transparent bg for readability */
+  padding: 2px 6px;
+  border-radius: 5px;
+  z-index: 5;             /* ensure caption is above the image */
     }
 
     /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
@@ -418,45 +431,47 @@
     </div>  
   </div>
 
-  <!-- 2️⃣ TRENDING SONGS SECTION -->
-  <!-- Same size style as Latest Uploads, with slideshow + dropdown -->
-  <div class="slideshow-section" id="trendingSection">
-    <h3 class="slideshow-title">Trending songs</h3>
-    <div class="slideshow-container" id="trendingSlides">
-      <!-- Slide 1 (you can change image + text) -->
-      <div class="slide" onclick="toggleSlideList('trendingList')">
-        <img src="covers/Nata.png" alt="Nataria pboy n Denje">
-      </div>
-      <!-- Slide 2 -->
-      <div class="slide" onclick="toggleSlideList('trendingList')">
-        <img src="covers/Lovewar.png" alt="Love war pboy n Denje">
-      </div>
-      <!-- Slide 3 -->
-      <div class="slide" onclick="toggleSlideList('trendingList')">
-        <img src="covers/Something.png" alt="something for you">
-      </div>
-      <!-- Slide 2 -->
-      <div class="slide" onclick="toggleSlideList('trendingList')">
-        <img src="covers/Benchi.png" alt="Benchi pboy n rick fabs">
-      </div>
-      <!-- Slide 3 -->
-      <div class="slide" onclick="toggleSlideList('trendingList')">
-        <img src="covers/Jonarp.jpg" alt="Trending song artwork 3">
-      </div>
+  <!-- TRENDING SONGS SECTION -->
+<div class="slideshow-section" id="trendingSection">
+  <div class="slideshow-container" id="trendingSlides">
+    <!-- Slide 1 -->
+    <div class="slide" onclick="toggleSlideList('trendingList')">
+      <img src="covers/Nata.png" alt="Nataria pboy n Denje">
+      <div class="slide-caption">Nataria pboy n Denje</div>
     </div>
-    <p class="tap-to-view">Tap to view trending songs</p>
-    <div class="slide-song-list" id="trendingList">
-      <!-- NOTE: This list is for you to edit manually (max 5 songs recommended) -->
-      <ul>
-        <li>Club Banger – Artist X</li>
-        <li>Track 2 – Artist Y</li>
-        <li>Track 3 – Artist Z</li>
-        <li>Track 4 – Artist A</li>
-        <li>Track 5 – Artist B</li>
-      </ul>
+    <!-- Slide 2 -->
+    <div class="slide" onclick="toggleSlideList('trendingList')">
+      <img src="covers/Lovewar.png" alt="Love war pboy n Denje">
+      <div class="slide-caption">Love war pboy n Denje</div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="slide" onclick="toggleSlideList('trendingList')">
+      <img src="covers/Something.png" alt="Something for you">
+      <div class="slide-caption">Something for you</div>
+    </div>
+    <!-- Slide 4 -->
+    <div class="slide" onclick="toggleSlideList('trendingList')">
+      <img src="covers/Benchi.png" alt="Benchi pboy n Rick Fabs">
+      <div class="slide-caption">Benchi pboy n Rick Fabs</div>
+    </div>
+    <!-- Slide 5 -->
+    <div class="slide" onclick="toggleSlideList('trendingList')">
+      <img src="covers/Jonarp.jpg" alt="Trending song artwork 3">
+      <div class="slide-caption">Trending song artwork 3</div>
     </div>
   </div>
 
+  <p class="tap-to-view">Tap to view trending songs</p>
+  <div class="slide-song-list" id="trendingList">
+    <ul>
+      <li>Club Banger – Artist X</li>
+      <li>Track 2 – Artist Y</li>
+      <li>Track 3 – Artist Z</li>
+      <li>Track 4 – Artist A</li>
+      <li>Track 5 – Artist B</li>
+    </ul>
+  </div>
+</div>
   <!-- 3️⃣ P&E TECHO AD -->
   <div class="section">
     <div class="ad-strip">  
@@ -467,44 +482,42 @@
       </div>  
     </div>  
   </div>
-
-  <!-- 4️⃣ LATEST UPLOADS SECTION -->
-  <!-- Same style as Trending, but max 10 songs (for your backend) -->
-  <div class="slideshow-section" id="latestSection">
-    <h3 class="slideshow-title">Latest uploads</h3>
-    <div class="slideshow-container" id="latestSlides">
-      <!-- Slide 1 -->
-      <div class="slide" onclick="toggleSlideList('latestList')">
-        <img src="covers/Ubalikiwe.png" alt="Latest upload artwork 1">
-      </div>
-      <!-- Slide 2 -->
-      <div class="slide" onclick="toggleSlideList('latestList')">
-        <img src="covers/Tenga.png" alt="Latest upload artwork 2">
-      </div>
-      <!-- Slide 3 -->
-      <div class="slide" onclick="toggleSlideList('latestList')">
-        <img src="covers/Ukupweteka" alt="Latest upload artwork 3">
-      </div>
+<!-- LATEST UPLOADS SECTION -->
+<div class="slideshow-section" id="latestSection">
+  <div class="slideshow-container" id="latestSlides">
+    <!-- Slide 1 -->
+    <div class="slide" onclick="toggleSlideList('latestList')">
+      <img src="covers/Ubalikiwe.png" alt="Latest upload artwork 1">
+      <div class="slide-caption">Latest upload artwork 1</div>
     </div>
-    <p class="tap-to-view">Tap to view latest songs</p>
-    <div class="slide-song-list" id="latestList">
-      <!-- NOTE: Your rule – show only 10 latest songs here.
-           When you add 11th song, remove the 1st one manually. -->
-      <ul>
-        <li>Track 1 – Artist 1</li>
-        <li>Track 2 – Artist 2</li>
-        <li>Track 3 – Artist 3</li>
-        <li>Track 4 – Artist 4</li>
-        <li>Track 5 – Artist 5</li>
-        <li>Track 6 – Artist 6</li>
-        <li>Track 7 – Artist 7</li>
-        <li>Track 8 – Artist 8</li>
-        <li>Track 9 – Artist 9</li>
-        <li>Track 10 – Artist 10</li>
-      </ul>
+    <!-- Slide 2 -->
+    <div class="slide" onclick="toggleSlideList('latestList')">
+      <img src="covers/Tenga.png" alt="Latest upload artwork 2">
+      <div class="slide-caption">Latest upload artwork 2</div>
+    </div>
+    <!-- Slide 3 -->
+    <div class="slide" onclick="toggleSlideList('latestList')">
+      <img src="covers/Ukupweteka.png" alt="Latest upload artwork 3">
+      <div class="slide-caption">Latest upload artwork 3</div>
     </div>
   </div>
 
+  <p class="tap-to-view">Tap to view latest songs</p>
+  <div class="slide-song-list" id="latestList">
+    <ul>
+      <li>Track 1 – Artist 1</li>
+      <li>Track 2 – Artist 2</li>
+      <li>Track 3 – Artist 3</li>
+      <li>Track 4 – Artist 4</li>
+      <li>Track 5 – Artist 5</li>
+      <li>Track 6 – Artist 6</li>
+      <li>Track 7 – Artist 7</li>
+      <li>Track 8 – Artist 8</li>
+      <li>Track 9 – Artist 9</li>
+      <li>Track 10 – Artist 10</li>
+    </ul>
+  </div>
+  </div>
   <!-- 5️⃣ AD AFTER LATEST UPLOADS -->
   <div class="section">
     <div class="ad-strip">  
