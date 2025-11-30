@@ -1,586 +1,937 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pandemalawi Sounds</title>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Outfit', sans-serif;
-      background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
-    }
-    body::before {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.35);
-      z-index: -1;
-    }
-    header {
-      background: rgba(0, 0, 0, 0.35);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      backdrop-filter: blur(5px);
-    }
-    header h1 {
-      font-size: 1.8rem;
-      margin: 0;
-      color: #ffffff;
-    }
-    nav a {
-      color: #00ffd5;
-      text-decoration: none;
-      margin-left: 20px;
-      font-weight: 500;
-    }
-    .hero {
-      text-align: center;
-      padding: 4rem 2rem;
-      background: rgba(0,0,0,0.25);
-    }
-    .hero h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
-    }
-    .section {
-      padding: 2rem;
-      backdrop-filter: blur(5px);
-      background: rgba(0,0,0,0.25);
-      border-radius: 20px;
-      margin: 2rem auto;
-      width: 90%;
-      max-width: 1100px;
-    }
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>Pandemalawi Sounds</title>  
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />  
+  <style>  
+    body {  
+      margin: 0;  
+      font-family: 'Outfit', sans-serif;  
+      background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') no-repeat center center fixed;  
+      background-size: cover;  
+      color: #fff;  
+    }  
+    body::before {  
+      content: "";  
+      position: fixed;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      background: rgba(0, 0, 0, 0.35);  
+      z-index: -1;  
+    }  
+    header {  
+      background: rgba(0, 0, 0, 0.35);  
+      padding: 1rem 2rem;  
+      display: flex;  
+      justify-content: space-between;  
+      align-items: center;  
+      backdrop-filter: blur(5px);  
+    }  
+    header h1 {  
+      font-size: 1.8rem;  
+      margin: 0;  
+      color: #ffffff;  
+    }  
+    nav a {  
+      color: #00ffd5;  
+      text-decoration: none;  
+      margin-left: 20px;  
+      font-weight: 500;  
+    }  
 
-    /* SEARCH BAR */
-    .search {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .search input {
-      padding: 0.6rem 1rem;
-      border-radius: 999px;
-      border: none;
-      width: 100%;
-      max-width: 450px;
-      font-size: 1rem;
-      outline: none;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
-    }
+    /* HERO: now motto + Latest uploads + Trending (no big "we are here for you") */  
+    .hero {  
+      display: flex;  
+      gap: 1rem;  
+      justify-content: center;  
+      align-items: flex-start;  
+      padding: 1.5rem 1rem;  
+      background: rgba(0,0,0,0.25);  
+      flex-wrap: wrap;  
+    }  
+    .motto {  
+      min-width: 220px;  
+      max-width: 350px;  
+      background: rgba(0,0,0,0.45);  
+      border-radius: 14px;  
+      padding: 1rem;  
+      text-align: center;  
+      border: 1px solid rgba(255,255,255,0.08);  
+      backdrop-filter: blur(4px);  
+    }  
+    .motto h2 {  
+      font-size: 1.2rem;  
+      margin: 0 0 0.25rem 0;  
+      color: #fff;  
+    }  
+    .motto p {  
+      margin: 0;  
+      font-size: 0.9rem;  
+      color: rgba(255,255,255,0.85);  
+    }  
 
-    /* FLASHING ADS */
-    .ad-strip {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .ad-box {
-      background: rgba(0,0,0,0.45);
-      border-radius: 15px;
-      padding: 0.8rem 1rem;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.4);
-      box-shadow: 0 0 10px rgba(0,255,255,0.3);
-      animation: pulseGlow 1.8s infinite alternate;
-    }
-    .ad-title {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 0.3rem;
-      color: #00ffd5;
-    }
-    .ad-text {
-      font-size: 0.9rem;
-    }
-    .ad-price {
-      margin-top: 0.3rem;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #ffeb3b;
-    }
-    .ad-cta {
-      margin-top: 0.4rem;
-      display: inline-block;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: #00ffd5;
-      color: #000;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-decoration: none;
-    }
+    /* Latest uploads slideshow box */  
+    .latest-uploads {  
+      width: 540px;  
+      max-width: calc(100% - 40px);  
+      background: rgba(0,0,0,0.45);  
+      border-radius: 14px;  
+      padding: 12px;  
+      border: 1px solid rgba(255,255,255,0.08);  
+    }  
+    .latest-header {  
+      display:flex;  
+      justify-content:space-between;  
+      align-items:center;  
+      margin-bottom:8px;  
+    }  
+    .latest-header h3 { margin:0; font-size:1rem; color:#fff; }  
+    .latest-header .small-note { font-size:0.78rem; color:rgba(255,255,255,0.75); }  
 
-    @keyframes pulseGlow {
-      0% {
-        box-shadow: 0 0 5px rgba(0,255,255,0.1);
-        transform: translateY(0);
-      }
-      100% {
-        box-shadow: 0 0 18px rgba(0,255,255,0.7);
-        transform: translateY(-2px);
-      }
-    }
+    .slide-wrap {  
+      position: relative;  
+      height: 220px;  
+      border-radius: 10px;  
+      overflow: hidden;  
+      cursor: pointer;  
+    }  
+    .slide-img {  
+      position: absolute;  
+      top: 0; left: 0; width: 100%; height: 100%;  
+      object-fit: cover;  
+      transition: opacity 0.6s ease;  
+      opacity: 0;  
+    }  
+    .slide-img.active { opacity: 1; }  
 
-    /* FEATURED ARTISTS */
-    .artist-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
-    .artist-box {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255,255,255,0.15);
-      padding: 10px;
-      display: flex;
-      align-items: center;
-      cursor: pointer;
-      overflow: hidden;
-      transition: all 0.4s ease;
-      flex-wrap: wrap;
-    }
-    .artist-box img {
-      width: 80px;
-      height: 80px;
-      object-fit: cover;
-      border-radius: 8px;
-      margin-right: 15px;
-      transition: all 0.4s ease;
-    }
-    .artist-info {
-      flex: 1;
-    }
-    .artist-name {
-      font-size: 18px;
-      font-weight: bold;
-      margin: 0;
-    }
-    .artist-bio {
-      font-size: 12px;
-      color: rgba(255,255,255,0.85);
-      overflow: hidden;
-      max-height: 30px;
-      transition: all 0.4s ease;
-    }
-    .songs {
-      display: none;
-      margin-top: 10px;
-      padding-left: 18px;
-    }
-    .songs li {
-      font-size: 14px;
-      color: #fff;
-      margin: 3px 0;
-    }
-    .more-link {
-      color: #00ffd5;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 5px;
-      display: inline-block;
-    }
-    .artist-box:hover {
-      background: rgba(255,255,255,0.1);
-      box-shadow: 0 0 15px rgba(0,255,255,0.15);
-      transform: translateY(-2px);
-    }
+    .dots { text-align:center; margin-top:8px; }  
+    .dot { display:inline-block; width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.35); margin:0 4px; }  
+    .dot.active { background:#00ffd5; width:10px; height:10px; }  
 
-    /* Expanded state */
-    .expanded {
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-    .expanded img {
-      margin: 0 0 10px 0;
-      width: 150px;
-      height: 150px;
-    }
-    .expanded .artist-bio {
-      max-height: 500px;
-      color: #fff;
-    }
-    .expanded .songs {
-      display: block;
-    }
+    .latest-list {  
+      display: none;  
+      margin-top:10px;  
+      background: rgba(255,255,255,0.03);  
+      padding: 8px;  
+      border-radius:8px;  
+      max-height: 260px;  
+      overflow-y: auto;  
+    }  
+    .latest-list li {  
+      color:#fff;  
+      margin:6px 0;  
+      font-size:0.95rem;  
+      display:flex;  
+      justify-content:space-between;  
+      align-items:center;  
+      gap:8px;  
+    }  
+    .latest-list .meta {  
+      color:rgba(255,255,255,0.75);  
+      font-size:0.82rem;  
+    }  
 
-    /* SMALLER PAYMENT SECTION */
-    .payment-section {
-      background: rgba(255,255,255,0.95);
-      color: #111;
-      border-radius: 16px;
-      padding: 0.8rem 1rem;
-      max-width: 650px;
-      margin: 1rem auto;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-      font-size: 0.85rem;
-    }
-    .payment-section h3 {
-      margin-top: 0;
-      margin-bottom: 0.3rem;
-      font-size: 1.05rem;
-      color: #212121;
-    }
-    .payment-sub {
-      font-size: 0.75rem;
-      color: #555;
-      margin-bottom: 0.6rem;
-    }
-    .payment-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 0.5rem;
-      margin-bottom: 0.7rem;
-    }
-    .payment-card {
-      border-radius: 10px;
-      padding: 0.5rem 0.6rem;
-      background: linear-gradient(135deg, #f5f5f5, #ffffff);
-      border: 1px solid #ddd;
-    }
-    .payment-card h4 {
-      margin: 0 0 0.2rem 0;
-      font-size: 0.85rem;
-      color: #1f2933;
-    }
-    .payment-card p {
-      margin: 0;
-      font-size: 0.75rem;
-      color: #444;
-    }
-    .payment-highlight {
-      font-weight: 700;
-      color: #e91e63;
-      margin-top: 0.15rem;
-      font-size: 0.8rem;
-    }
-    .pay-methods {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 0.5rem;
-      margin-top: 0.3rem;
-    }
-    .pay-box {
-      border-radius: 10px;
-      padding: 0.5rem 0.6rem;
-      border: 1px solid #ddd;
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      color: #fff;
-      font-size: 0.8rem;
-    }
-    .pay-box.airtel {
-      background: linear-gradient(135deg, #b71c1c, #f44336);
-    }
-    .pay-box.tnm {
-      background: linear-gradient(135deg, #1b5e20, #4caf50);
-    }
-    .pay-logo {
-      font-weight: 700;
-      font-size: 0.85rem;
-      display: flex;
-      align-items: center;
-      gap: 0.3rem;
-    }
-    .pay-logo i {
-      font-size: 1rem;
-    }
-    .pay-detail {
-      font-size: 0.8rem;
-    }
+    /* TRENDING section inside the same box */  
+    .trending {  
+      margin-top:12px;  
+      background: rgba(0,0,0,0.25);  
+      padding:8px;  
+      border-radius:10px;  
+    }  
+    .trending h4 {  
+      margin:0 0 6px 0;  
+      font-size:0.95rem;  
+    }  
+    .trending .trends-list {  
+      display:none;  
+      background: rgba(255,255,255,0.03);  
+      padding:8px;  
+      border-radius:8px;  
+      margin-top:8px;  
+    }  
+    .trending .trend-item {  
+      color:#fff;  
+      margin:6px 0;  
+      font-size:0.9rem;  
+      display:flex;  
+      justify-content:space-between;  
+      align-items:center;  
+      gap:8px;  
+    }  
 
-    /* CONTACT LINKS */
-    #contact a {
-      color: #00ffd5;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    #contact a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>Pandemalawi Sounds</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    /* GENERAL SECTIONS (same as your code) */  
+    .section {  
+      padding: 2rem;  
+      backdrop-filter: blur(5px);  
+      background: rgba(0,0,0,0.25);  
+      border-radius: 20px;  
+      margin: 2rem auto;  
+      width: 90%;  
+      max-width: 1100px;  
+    }  
 
-  <!-- HERO -->
-  <div class="hero">
-    <h2>we are here for you.</h2>
-    <p>welcome to pandemalawisounds explore music from Malawi and beyond</p>
+    /* SEARCH BAR (unchanged) */  
+    .search {  
+      display: flex;  
+      justify-content: center;  
+      align-items: center;  
+    }  
+    .search input {  
+      padding: 0.6rem 1rem;  
+      border-radius: 999px;  
+      border: none;  
+      width: 100%;  
+      max-width: 450px;  
+      font-size: 1rem;  
+      outline: none;  
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);  
+    }  
 
-    <!-- 1 BUSINESS + 1 P&E TECHO AD RIGHT AFTER HERO TEXT -->
-    <div class="ad-strip">
-      <div class="ad-box">
-        <div class="ad-title">Business Ad</div>
-        <div class="ad-text">Advertise your business on Pandemalawi Sounds and reach more ears.</div>
-        <div class="ad-price">K2,000 per day</div>
-        <span class="ad-cta">Book this space</span>
-      </div>
-      <div class="ad-box">
-        <div class="ad-title">P&E Techo</div>
-        <div class="ad-text">P&E Techo: Carpentry, furniture, electrical & tech services in Malawi.</div>
-        <span class="ad-cta">Contact P&E Techo</span>
-      </div>
-    </div>
-  </div>
+    /* FLASHING ADS (unchanged) */  
+    .ad-strip {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));  
+      gap: 1rem;  
+      margin-top: 1rem;  
+    }  
+    .ad-box {  
+      background: rgba(0,0,0,0.45);  
+      border-radius: 15px;  
+      padding: 0.8rem 1rem;  
+      text-align: center;  
+      border: 1px solid rgba(255,255,255,0.4);  
+      box-shadow: 0 0 10px rgba(0,255,255,0.3);  
+      animation: pulseGlow 1.8s infinite alternate;  
+    }  
+    .ad-title {  
+      font-size: 0.8rem;  
+      text-transform: uppercase;  
+      letter-spacing: 1px;  
+      margin-bottom: 0.3rem;  
+      color: #00ffd5;  
+    }  
+    .ad-text {  
+      font-size: 0.9rem;  
+    }  
+    .ad-price {  
+      margin-top: 0.3rem;  
+      font-size: 0.85rem;  
+      font-weight: 700;  
+      color: #ffeb3b;  
+    }  
+    .ad-cta {  
+      margin-top: 0.4rem;  
+      display: inline-block;  
+      padding: 4px 10px;  
+      border-radius: 999px;  
+      background: #00ffd5;  
+      color: #000;  
+      font-size: 0.8rem;  
+      font-weight: 600;  
+      text-decoration: none;  
+    }  
+    @keyframes pulseGlow {  
+      0% {  
+        box-shadow: 0 0 5px rgba(0,255,255,0.1);  
+        transform: translateY(0);  
+      }  
+      100% {  
+        box-shadow: 0 0 18px rgba(0,255,255,0.7);  
+        transform: translateY(-2px);  
+      }  
+    }  
 
-  <!-- SEARCH BAR SECTION -->
-  <div class="section search">
-    <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
-  </div>
+    /* FEATURED ARTISTS (unchanged) */  
+    .artist-container {  
+      display: flex;  
+      flex-direction: column;  
+      gap: 1rem;  
+    }  
+    .artist-box {  
+      background: rgba(255, 255, 255, 0.05);  
+      border: 1px solid rgba(255,255,255,0.15);  
+      padding: 10px;  
+      display: flex;  
+      align-items: center;  
+      cursor: pointer;  
+      overflow: hidden;  
+      transition: all 0.4s ease;  
+      flex-wrap: wrap;  
+    }  
+    .artist-box img {  
+      width: 80px;  
+      height: 80px;  
+      object-fit: cover;  
+      border-radius: 8px;  
+      margin-right: 15px;  
+      transition: all 0.4s ease;  
+    }  
+    .artist-info {  
+      flex: 1;  
+    }  
+    .artist-name {  
+      font-size: 18px;  
+      font-weight: bold;  
+      margin: 0;  
+    }  
+    .artist-bio {  
+      font-size: 12px;  
+      color: rgba(255,255,255,0.85);  
+      overflow: hidden;  
+      max-height: 30px;  
+      transition: all 0.4s ease;  
+    }  
+    .songs {  
+      display: none;  
+      margin-top: 10px;  
+      padding-left: 18px;  
+    }  
+    .songs li {  
+      font-size: 14px;  
+      color: #fff;  
+      margin: 3px 0;  
+    }  
+    .more-link {  
+      color: #00ffd5;  
+      font-weight: bold;  
+      cursor: pointer;  
+      margin-top: 5px;  
+      display: inline-block;  
+    }  
+    .artist-box:hover {  
+      background: rgba(255,255,255,0.1);  
+      box-shadow: 0 0 15px rgba(0,255,255,0.15);  
+      transform: translateY(-2px);  
+    }  
+    .expanded {  
+      flex-direction: column;  
+      align-items: center;  
+      text-align: center;  
+    }  
+    .expanded img {  
+      margin: 0 0 10px 0;  
+      width: 150px;  
+      height: 150px;  
+    }  
+    .expanded .artist-bio {  
+      max-height: 500px;  
+      color: #fff;  
+    }  
+    .expanded .songs {  
+      display: block;  
+    }  
 
-  <!-- 2 BUSINESS ADS AFTER SEARCH BAR -->
-  <div class="section">
-    <div class="ad-strip">
-      <div class="ad-box">
-        <div class="ad-title">Business Ad</div>
-        <div class="ad-text">Your advert can be here: promote your brand, shop or service.</div>
-        <div class="ad-price">K2,000 per day</div>
-        <span class="ad-cta">Advertise now</span>
-      </div>
-      <div class="ad-box">
-        <div class="ad-title">Business Ad</div>
-        <div class="ad-text">Special offers, events, or music releases – get seen on Pandemalawi Sounds.</div>
-        <div class="ad-price">K2,000 per day</div>
-        <span class="ad-cta">Reserve slot</span>
-      </div>
-    </div>
-  </div>
+    /* PAYMENT SECTION – restored exactly as in your code */  
+    .payment-section {  
+      background: rgba(255,255,255,0.95);  
+      color: #111;  
+      border-radius: 16px;  
+      padding: 0.8rem 1rem;  
+      max-width: 650px;  
+      margin: 1rem auto;  
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);  
+      font-size: 0.85rem;  
+    }  
+    .payment-section h3 {  
+      margin-top: 0;  
+      margin-bottom: 0.3rem;  
+      font-size: 1.05rem;  
+      color: #212121;  
+    }  
+    .payment-sub {  
+      font-size: 0.75rem;  
+      color: #555;  
+      margin-bottom: 0.6rem;  
+    }  
+    .payment-grid {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));  
+      gap: 0.5rem;  
+      margin-bottom: 0.7rem;  
+    }  
+    .payment-card {  
+      border-radius: 10px;  
+      padding: 0.5rem 0.6rem;  
+      background: linear-gradient(135deg, #f5f5f5, #ffffff);  
+      border: 1px solid #ddd;  
+    }  
+    .payment-card h4 {  
+      margin: 0 0 0.2rem 0;  
+      font-size: 0.85rem;  
+      color: #1f2933;  
+    }  
+    .payment-card p {  
+      margin: 0;  
+      font-size: 0.75rem;  
+      color: #444;  
+    }  
+    .payment-highlight {  
+      font-weight: 700;  
+      color: #e91e63;  
+      margin-top: 0.15rem;  
+      font-size: 0.8rem;  
+    }  
+    .pay-methods {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
+      gap: 0.5rem;  
+      margin-top: 0.3rem;  
+    }  
+    .pay-box {  
+      border-radius: 10px;  
+      padding: 0.5rem 0.6rem;  
+      border: 1px solid #ddd;  
+      display: flex;  
+      flex-direction: column;  
+      gap: 0.25rem;  
+      color: #fff;  
+      font-size: 0.8rem;  
+    }  
+    .pay-box.airtel {  
+      background: linear-gradient(135deg, #b71c1c, #f44336);  
+    }  
+    .pay-box.tnm {  
+      background: linear-gradient(135deg, #1b5e20, #4caf50);  
+    }  
+    .pay-logo {  
+      font-weight: 700;  
+      font-size: 0.85rem;  
+      display: flex;  
+      align-items: center;  
+      gap: 0.3rem;  
+    }  
+    .pay-logo i {  
+      font-size: 1rem;  
+    }  
+    .pay-detail {  
+      font-size: 0.8rem;  
+    }  
 
-  <!-- FEATURED ARTISTS -->
-  <div class="section" id="artists">
-    <h3>Featured Artists</h3>
-    <div class="artist-container">
-      <!-- Pboy Halla -->
-      <div class="artist-box" onclick="toggleArtist(this)">
-        <img src="covers/Pboy1.jpg" alt="Pboy Halla">
-        <div class="artist-info">
-          <p class="artist-name">Pboy Halla</p>
-          <p class="artist-bio">Malawian artist known for urban music and afrobeat vibes.</p>
-          <ul class="songs">
-            <li>By My Side</li>
-            <li>Song 2</li>
-            <li>Song 3</li>
-            <li>Song 4</li>
-            <li>Song 5</li>
-            <li>Song 6</li>
-            <li>Song 7</li>
-            <li>Song 8</li>
-            <li>Song 9</li>
-            <li>Song 10</li>
-          </ul>
-          <span class="more-link" onclick="goToArtistPage(event,'pboy_halla.html')">More</span>
-        </div>
-      </div>
+    /* CONTACT LINKS – restored as in your code */  
+    #contact a {  
+      color: #00ffd5;  
+      text-decoration: none;  
+      font-weight: 500;  
+    }  
+    #contact a:hover {  
+      text-decoration: underline;  
+    }  
 
-      <!-- Hot Denje -->
-      <div class="artist-box" onclick="toggleArtist(this)">
-        <img src="covers/Hot denje.jpg" alt="Hot Denje">
-        <div class="artist-info">
-          <p class="artist-name">Hot Denje</p>
-          <p class="artist-bio">Malawian RnB afro artist known for his unique style. Listen to a song called Denje then you will appreciate the rest.</p>
-          <ul class="songs">
-            <li>Denje</li>
-            <li>Song 2</li>
-            <li>Song 3</li>
-            <li>Song 4</li>
-            <li>Song 5</li>
-            <li>Song 6</li>
-            <li>Song 7</li>
-            <li>Song 8</li>
-            <li>Song 9</li>
-            <li>Song 10</li>
-          </ul>
-          <span class="more-link" onclick="goToArtistPage(event,'Hot_Denje.html')">More</span>
-        </div>
-      </div>
+    @media (max-width: 800px) {  
+      .hero {  
+        flex-direction: column;  
+        align-items: center;  
+      }  
+      .latest-uploads {  
+        width: 100%;  
+      }  
+      .motto {  
+        width: 100%;  
+      }  
+    }  
+  </style>  
+</head>  
+<body>  
+  <header>  
+    <h1>Pandemalawi Sounds</h1>  
+    <nav>  
+      <a href="#about">About</a>  
+      <a href="#contact">Contact</a>  
+    </nav>  
+  </header>  
 
-      <!-- Ric Fabs -->
-      <div class="artist-box" onclick="toggleArtist(this)">
-        <img src="covers/Rickfabs.jpg" alt="Ric Fabs">
-        <div class="artist-info">
-          <p class="artist-name">Ric Fabs</p>
-          <p class="artist-bio">Versatile Malawian rapper and songwriter with a passion for afro-pop and rap music.</p>
-          <ul class="songs">
-            <li>Song 1</li>
-            <li>Song 2</li>
-            <li>Song 3</li>
-            <li>Song 4</li>
-            <li>Song 5</li>
-            <li>Song 6</li>
-            <li>Song 7</li>
-            <li>Song 8</li>
-            <li>Song 9</li>
-            <li>Song 10</li>
-          </ul>
-          <span class="more-link" onclick="goToArtistPage(event,'Ric_fabs.html')">More</span>
-        </div>
-      </div>
+  <!-- HERO with motto + Latest uploads + Trending -->  
+  <div class="hero">  
+    <!-- small motto box (you can change text inside only) -->  
+    <div class="motto">  
+      <h2>Pandemalawi Sounds</h2>  
+      <p>Local beats. Real vibes. Upload • Promote • Share</p>  
+    </div>  
 
-      <!-- Jonarp -->
-      <div class="artist-box" onclick="toggleArtist(this)">
-        <img src="covers/Jonarp.jpg" alt="Jonarp">
-        <div class="artist-info">
-          <p class="artist-name">Jonarp</p>
-          <p class="artist-bio">Malawian Trapper known for his unique style.</p>
-          <ul class="songs">
-            <li>Song 1</li>
-            <li>Song 2</li>
-            <li>Song 3</li>
-            <li>Song 4</li>
-            <li>Song 5</li>
-            <li>Song 6</li>
-            <li>Song 7</li>
-            <li>Song 8</li>
-            <li>Song 9</li>
-            <li>Song 10</li>
-          </ul>
-          <span class="more-link" onclick="goToArtistPage(event,'Jonarp.html')">More</span>
-        </div>
-      </div>
-    </div>
-  </div>
+    <!-- Latest uploads + Trending block -->  
+    <div class="latest-uploads" id="latestUploadsSection">  
+      <div class="latest-header">  
+        <h3>Latest uploads</h3>  
+        <!-- user text: just "Tap to view list" (no mention of max 10) -->  
+        <div class="small-note">Tap slide to view list</div>  
+      </div>  
 
-  <!-- ORIGINAL ADS SPOT – 1 BUSINESS + 1 P&E TECHO -->
-  <div class="section ads">
-    <h3>Sponsored Ads</h3>
-    <div class="ad-strip">
-      <div class="ad-box">
-        <div class="ad-title">Business Ad</div>
-        <div class="ad-text">Promote your product, shop, or event on Pandemalawi Sounds.</div>
-        <div class="ad-price">K2,000 per day</div>
-        <span class="ad-cta">Book now</span>
-      </div>
-      <div class="ad-box">
-        <div class="ad-title">P&E Techo</div>
-        <div class="ad-text">P&E Techo – Quality carpentry, furniture and electrical solutions.</div>
-        <span class="ad-cta">View services</span>
-      </div>
-    </div>
-  </div>
+      <!-- slideshow area -->  
+      <div class="slide-wrap" id="slideWrap" title="Tap to expand latest uploads">  
+        <!-- slides added by JS -->  
+      </div>  
 
-  <!-- PAYMENT SECTION (now below Sponsored Ads) -->
-  <div class="payment-section" id="payments">
-    <h3>Upload & Promotion Payments</h3>
-    <p class="payment-sub">Choose a package for your song uploads. After payment, send proof via WhatsApp.</p>
+      <!-- dots -->  
+      <div class="dots" id="slideDots"></div>  
 
-    <div class="payment-grid">
-      <div class="payment-card">
-        <h4>Single Song</h4>
-        <p>Upload 1 song to Pandemalawi Sounds.</p>
-        <p class="payment-highlight">K3,000 per song</p>
-      </div>
-      <div class="payment-card">
-        <h4>Bundle of 5 Songs</h4>
-        <p>Save more when you upload 5 tracks at once.</p>
-        <p class="payment-highlight">K12,000 per 5 songs</p>
-      </div>
-      <div class="payment-card">
-        <h4>Bundle of 10 Songs</h4>
-        <p>Best for projects, EPs or albums.</p>
-        <p class="payment-highlight">K25,000 per 10 songs</p>
-      </div>
-    </div>
+      <!-- dropdown list for latest uploads -->  
+      <ul class="latest-list" id="latestList"></ul>  
 
-    <div class="pay-methods">
-      <div class="pay-box airtel">
-        <div class="pay-logo">
-          <i class="fa-solid fa-sim-card"></i>
-          <span>Airtel Money</span>
-        </div>
-        <div class="pay-detail">Number: <strong>+265996275575</strong></div>
-      </div>
-      <div class="pay-box tnm">
-        <div class="pay-logo">
-          <i class="fa-solid fa-mobile-screen-button"></i>
-          <span>TNM Mpamba</span>
-        </div>
-        <div class="pay-detail">Withdraw code: <strong>4213104</strong></div>
-      </div>
-    </div>
-  </div>
+      <!-- TRENDING SECTION -->  
+      <div class="trending" id="trendingSection">  
+        <h4>Trending</h4>  
+        <div class="trends-header" style="display:flex; justify-content:space-between; align-items:center;">  
+          <!-- simple button; no "Editable" wording -->  
+          <button onclick="toggleTrending()" style="background:#00ffd5;border:none;padding:6px 10px;border-radius:999px;cursor:pointer;font-weight:700;">Toggle Trending</button>  
+        </div>  
+        <div class="trends-list" id="trendsList"></div>  
+      </div>  
+    </div>  
+  </div>  
 
-  <div class="section" id="about">
-    <h3>About Pandemalawi Sounds</h3>
-    <p>Pandemalawi Sounds is a platform dedicated to promoting Malawian music and artists by making their work accessible to everyone. We also offer space for local business promotions.</p>
-  </div>
+  <!-- HERO ADS (unchanged) -->  
+  <div class="hero" style="padding-top:0; padding-bottom:1rem;">  
+    <div class="ad-strip" style="width:100%; max-width:1100px;">  
+      <div class="ad-box">  
+        <div class="ad-title">Business Ad</div>  
+        <div class="ad-text">Advertise your business on Pandemalawi Sounds and reach more ears.</div>  
+        <div class="ad-price">K2,000 per day</div>  
+        <span class="ad-cta">Book this space</span>  
+      </div>  
+      <div class="ad-box">  
+        <div class="ad-title">P&E Techo</div>  
+        <div class="ad-text">P&E Techo: Carpentry, furniture, electrical & tech services in Malawi.</div>  
+        <span class="ad-cta">Contact P&E Techo</span>  
+      </div>  
+    </div>  
+  </div>  
 
-  <div class="section" id="contact">
-    <h3>Contact Us</h3>
-    <p>Email:
-      <a href="mailto:pandemalawisounds@gmail.com">
-        pandemalawisounds@gmail.com
-      </a>
-    </p>
-    <p>WhatsApp:
-      <a href="https://wa.me/265996275575" target="_blank">
-        +265996275575
-      </a>
-    </p>
-    <p>Calls:
-      <a href="tel:+265893499227">
-        +265893499227
-      </a>
-    </p>
-    <!-- Facebook Link Section -->
-<p>Follow us on Facebook: 
-  <a href="https://www.facebook.com/profile.php?id=61575245505301" target="_blank">
-    pandemalawisounds
-  </a>
-</p>
-  </div>
+  <!-- SEARCH BAR SECTION -->  
+  <div class="section search">  
+    <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">  
+  </div>  
 
-  <script>
-    function like(id) {
-      const el = document.getElementById(id);
-      el.innerText = parseInt(el.innerText) + 1;
-    }
-    function dislike(id) {
-      const el = document.getElementById(id);
-      el.innerText = parseInt(el.innerText) + 1;
-    }
-    function searchSongs() {
-      const input = document.getElementById('searchBar').value.toLowerCase();
-      const cards = document.querySelectorAll('.artist-box');
-      cards.forEach(card => {
-        const nameEl = card.querySelector('.artist-name');
-        const bioEl = card.querySelector('.artist-bio');
-        const name = nameEl ? nameEl.textContent.toLowerCase() : '';
-        const bio = bioEl ? bioEl.textContent.toLowerCase() : '';
-        card.style.display = (name.includes(input) || bio.includes(input)) ? 'flex' : 'none';
-      });
-    }
-    function copyShareLink(link) {
-      navigator.clipboard.writeText(link)
-        .then(() => alert("Link copied!"))
-        .catch(() => alert("Failed to copy link."));
-    }
-    function toggleArtist(box) {
-      box.classList.toggle('expanded');
-    }
-    function goToArtistPage(event,url) {
-      event.stopPropagation();
-      window.location.href=url;
-    }
-  </script>
-</body>
-    </html>
+  <!-- 2 BUSINESS ADS AFTER SEARCH BAR (unchanged) -->  
+  <div class="section">  
+    <div class="ad-strip">  
+      <div class="ad-box">  
+        <div class="ad-title">Business Ad</div>  
+        <div class="ad-text">Your advert can be here: promote your brand, shop or service.</div>  
+        <div class="ad-price">K2,000 per day</div>  
+        <span class="ad-cta">Advertise now</span>  
+      </div>  
+      <div class="ad-box">  
+        <div class="ad-title">Business Ad</div>  
+        <div class="ad-text">Special offers, events, or music releases – get seen on Pandemalawi Sounds.</div>  
+        <div class="ad-price">K2,000 per day</div>  
+        <span class="ad-cta">Reserve slot</span>  
+      </div>  
+    </div>  
+  </div>  
+
+  <!-- FEATURED ARTISTS (unchanged) -->  
+  <div class="section" id="artists">  
+    <h3>Featured Artists</h3>  
+    <div class="artist-container">  
+      <!-- Pboy Halla -->  
+      <div class="artist-box" onclick="toggleArtist(this)">  
+        <img src="covers/Pboy1.jpg" alt="Pboy Halla">  
+        <div class="artist-info">  
+          <p class="artist-name">Pboy Halla</p>  
+          <p class="artist-bio">Malawian artist known for urban music and afrobeat vibes.</p>  
+          <ul class="songs">  
+            <li>By My Side</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
+          <span class="more-link" onclick="goToArtistPage(event,'pboy_halla.html')">More</span>  
+        </div>  
+      </div>  
+
+      <!-- Hot Denje -->  
+      <div class="artist-box" onclick="toggleArtist(this)">  
+        <img src="covers/Hot denje.jpg" alt="Hot Denje">  
+        <div class="artist-info">  
+          <p class="artist-name">Hot Denje</p>  
+          <p class="artist-bio">Malawian RnB afro artist known for his unique style. Listen to a song called Denje then you will appreciate the rest.</p>  
+          <ul class="songs">  
+            <li>Denje</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
+          <span class="more-link" onclick="goToArtistPage(event,'Hot_Denje.html')">More</span>  
+        </div>  
+      </div>  
+
+      <!-- Ric Fabs -->  
+      <div class="artist-box" onclick="toggleArtist(this)">  
+        <img src="covers/Rickfabs.jpg" alt="Ric Fabs">  
+        <div class="artist-info">  
+          <p class="artist-name">Ric Fabs</p>  
+          <p class="artist-bio">Versatile Malawian rapper and songwriter with a passion for afro-pop and rap music.</p>  
+          <ul class="songs">  
+            <li>Song 1</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
+          <span class="more-link" onclick="goToArtistPage(event,'Ric_fabs.html')">More</span>  
+        </div>  
+      </div>  
+
+      <!-- Jonarp -->  
+      <div class="artist-box" onclick="toggleArtist(this)">  
+        <img src="covers/Jonarp.jpg" alt="Jonarp">  
+        <div class="artist-info">  
+          <p class="artist-name">Jonarp</p>  
+          <p class="artist-bio">Malawian Trapper known for his unique style.</p>  
+          <ul class="songs">  
+            <li>Song 1</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
+          <span class="more-link" onclick="goToArtistPage(event,'Jonarp.html')">More</span>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <!-- ORIGINAL ADS SPOT – 1 BUSINESS + 1 P&E TECHO -->  
+  <div class="section ads">  
+    <h3>Sponsored Ads</h3>  
+    <div class="ad-strip">  
+      <div class="ad-box">  
+        <div class="ad-title">Business Ad</div>  
+        <div class="ad-text">Promote your product, shop, or event on Pandemalawi Sounds.</div>  
+        <div class="ad-price">K2,000 per day</div>  
+        <span class="ad-cta">Book now</span>  
+      </div>  
+      <div class="ad-box">  
+        <div class="ad-title">P&E Techo</div>  
+        <div class="ad-text">P&E Techo – Quality carpentry, furniture and electrical solutions.</div>  
+        <span class="ad-cta">View services</span>  
+      </div>  
+    </div>  
+  </div>  
+
+  <!-- PAYMENT SECTION (unchanged) -->  
+  <div class="payment-section" id="payments">  
+    <h3>Upload & Promotion Payments</h3>  
+    <p class="payment-sub">Choose a package for your song uploads. After payment, send proof via WhatsApp.</p>  
+
+    <div class="payment-grid">  
+      <div class="payment-card">  
+        <h4>Single Song</h4>  
+        <p>Upload 1 song to Pandemalawi Sounds.</p>  
+        <p class="payment-highlight">K3,000 per song</p>  
+      </div>  
+      <div class="payment-card">  
+        <h4>Bundle of 5 Songs</h4>  
+        <p>Save more when you upload 5 tracks at once.</p>  
+        <p class="payment-highlight">K12,000 per 5 songs</p>  
+      </div>  
+      <div class="payment-card">  
+        <h4>Bundle of 10 Songs</h4>  
+        <p>Best for projects, EPs or albums.</p>  
+        <p class="payment-highlight">K25,000 per 10 songs</p>  
+      </div>  
+    </div>  
+
+    <div class="pay-methods">  
+      <div class="pay-box airtel">  
+        <div class="pay-logo">  
+          <i class="fa-solid fa-sim-card"></i>  
+          <span>Airtel Money</span>  
+        </div>  
+        <div class="pay-detail">Number: <strong>+265996275575</strong></div>  
+      </div>  
+      <div class="pay-box tnm">  
+        <div class="pay-logo">  
+          <i class="fa-solid fa-mobile-screen-button"></i>  
+          <span>TNM Mpamba</span>  
+        </div>  
+        <div class="pay-detail">Withdraw code: <strong>4213104</strong></div>  
+      </div>  
+    </div>  
+  </div>  
+
+  <div class="section" id="about">  
+    <h3>About Pandemalawi Sounds</h3>  
+    <p>Pandemalawi Sounds is a platform dedicated to promoting Malawian music and artists by making their work accessible to everyone. We also offer space for local business promotions.</p>  
+  </div>  
+
+  <div class="section" id="contact">  
+    <h3>Contact Us</h3>  
+    <p>Email:  
+      <a href="mailto:pandemalawisounds@gmail.com">  
+        pandemalawisounds@gmail.com  
+      </a>  
+    </p>  
+    <p>WhatsApp:  
+      <a href="https://wa.me/265996275575" target="_blank">  
+        +265996275575  
+      </a>  
+    </p>  
+    <p>Calls:  
+      <a href="tel:+265893499227">  
+        +265893499227  
+      </a>  
+    </p>  
+    <p>Follow us on Facebook:   
+      <a href="https://www.facebook.com/profile.php?id=61575245505301" target="_blank">  
+        pandemalawisounds  
+      </a>  
+    </p>  
+  </div>  
+
+  <script>  
+    /******** EXISTING FUNCTIONS (unchanged) ********/  
+    function like(id) {  
+      const el = document.getElementById(id);  
+      el.innerText = parseInt(el.innerText) + 1;  
+    }  
+    function dislike(id) {  
+      const el = document.getElementById(id);  
+      el.innerText = parseInt(el.innerText) + 1;  
+    }  
+    function searchSongs() {  
+      const input = document.getElementById('searchBar').value.toLowerCase();  
+      const cards = document.querySelectorAll('.artist-box');  
+      cards.forEach(card => {  
+        const nameEl = card.querySelector('.artist-name');  
+        const bioEl = card.querySelector('.artist-bio');  
+        const name = nameEl ? nameEl.textContent.toLowerCase() : '';  
+        const bio = bioEl ? bioEl.textContent.toLowerCase() : '';  
+        card.style.display = (name.includes(input) || bio.includes(input)) ? 'flex' : 'none';  
+      });  
+    }  
+    function copyShareLink(link) {  
+      navigator.clipboard.writeText(link)  
+        .then(() => alert("Link copied!"))  
+        .catch(() => alert("Failed to copy link."));  
+    }  
+    function toggleArtist(box) {  
+      box.classList.toggle('expanded');  
+    }  
+    function goToArtistPage(event,url) {  
+      event.stopPropagation();  
+      window.location.href=url;  
+    }  
+
+    /******** NEW: Latest uploads + Trending backend ********/  
+
+    // latest uploads data (max 10 in backend)  
+    let latestUploads = [  
+      { title: "By My Side", artist: "Pboy Halla", img: "covers/Pboy1.jpg", link: "pboy_halla.html#bymyside" },  
+      { title: "Denje", artist: "Hot Denje", img: "covers/Hot denje.jpg", link: "Hot_Denje.html#denje" }  
+      // add more here using same pattern  
+    ];  
+
+    // trending data (max 5 in backend, manually controlled)  
+    let trending = [  
+      { title: "By My Side", artist: "Pboy Halla", img: "covers/Pboy1.jpg", link: "pboy_halla.html#bymyside" },  
+      { title: "Denje", artist: "Hot Denje", img: "covers/Hot denje.jpg", link: "Hot_Denje.html#denje" }  
+      // add more trending songs here  
+    ];  
+
+    const LATEST_LIMIT = 10;  
+    const TREND_LIMIT = 5;  
+
+    const slideWrap = document.getElementById('slideWrap');  
+    const slideDots = document.getElementById('slideDots');  
+    const latestList = document.getElementById('latestList');  
+    const trendsList = document.getElementById('trendsList');  
+
+    function renderSlides() {  
+      slideWrap.innerHTML = '';  
+      slideDots.innerHTML = '';  
+
+      latestUploads.forEach((s, idx) => {  
+        const img = document.createElement('img');  
+        img.src = s.img || 'covers/default.jpg';  
+        img.alt = s.title + " — " + s.artist;  
+        img.className = 'slide-img' + (idx === 0 ? ' active' : '');  
+        img.dataset.index = idx;  
+        img.addEventListener('click', () => toggleLatestList());  
+        slideWrap.appendChild(img);  
+
+        const dot = document.createElement('span');  
+        dot.className = 'dot' + (idx === 0 ? ' active' : '');  
+        dot.dataset.index = idx;  
+        dot.addEventListener('click', (e) => {  
+          e.stopPropagation();  
+          goToSlide(parseInt(dot.dataset.index));  
+        });  
+        slideDots.appendChild(dot);  
+      });  
+
+      renderLatestList();  
+    }  
+
+    function renderLatestList() {  
+      latestList.innerHTML = '';  
+      const array = [...latestUploads].reverse(); // newest first  
+      array.forEach((s) => {  
+        const li = document.createElement('li');  
+        const left = document.createElement('div');  
+        left.innerHTML = `<strong>${s.title}</strong> <span class="meta">by ${s.artist}</span>`;  
+
+        const right = document.createElement('div');  
+        right.style.display = 'flex';  
+        right.style.gap = '8px';  
+
+        const openBtn = document.createElement('button');  
+        openBtn.textContent = 'Open';  
+        openBtn.style.cursor = 'pointer';  
+        openBtn.style.border = 'none';  
+        openBtn.style.background = '#00ffd5';  
+        openBtn.style.borderRadius = '8px';  
+        openBtn.style.padding = '4px 8px';  
+        openBtn.onclick = () => { window.location.href = s.link || '#'; };  
+
+        right.appendChild(openBtn);  
+
+        li.appendChild(left);  
+        li.appendChild(right);  
+        latestList.appendChild(li);  
+      });  
+
+      if (array.length === 0) {  
+        latestList.innerHTML = '<li style="color:rgba(255,255,255,0.8)">No latest uploads yet</li>';  
+      }  
+    }  
+
+    function renderTrendingList() {  
+      trendsList.innerHTML = '';  
+      if (trending.length === 0) {  
+        trendsList.innerHTML = '<div style="color:rgba(255,255,255,0.8)">No trending songs set</div>';  
+        return;  
+      }  
+      trending.forEach((s) => {  
+        const div = document.createElement('div');  
+        div.className = 'trend-item';  
+        const left = document.createElement('div');  
+        left.innerHTML = `<strong>${s.title}</strong> <span class="meta">by ${s.artist}</span>`;  
+
+        const right = document.createElement('div');  
+        right.style.display = 'flex';  
+        right.style.gap = '8px';  
+        const openBtn = document.createElement('button');  
+        openBtn.textContent = 'Open';  
+        openBtn.style.cursor = 'pointer';  
+        openBtn.style.border = 'none';  
+        openBtn.style.background = '#00ffd5';  
+        openBtn.style.borderRadius = '8px';  
+        openBtn.style.padding = '4px 8px';  
+        openBtn.onclick = () => { window.location.href = s.link || '#'; };  
+
+        right.appendChild(openBtn);  
+
+        div.appendChild(left);  
+        div.appendChild(right);  
+        trendsList.appendChild(div);  
+      });  
+
+      if (trending.length > TREND_LIMIT) trending = trending.slice(0, TREND_LIMIT);  
+    }  
+
+    let currentSlide = 0;  
+    let slideInterval = null;  
+    const SLIDE_DELAY = 3000;  
+
+    function startSlideShow() {  
+      stopSlideShow();  
+      slideInterval = setInterval(() => {  
+        const imgs = document.querySelectorAll('.slide-img');  
+        if (!imgs.length) return;  
+        const next = (currentSlide + 1) % imgs.length;  
+        goToSlide(next);  
+      }, SLIDE_DELAY);  
+    }  
+
+    function stopSlideShow() {  
+      if (slideInterval) {  
+        clearInterval(slideInterval);  
+        slideInterval = null;  
+      }  
+    }  
+
+    function goToSlide(index) {  
+      const imgs = document.querySelectorAll('.slide-img');  
+      const dots = document.querySelectorAll('.dot');  
+      if (!imgs.length) return;  
+      imgs.forEach(img => img.classList.remove('active'));  
+      dots.forEach(d => d.classList.remove('active'));  
+      const idx = Math.max(0, Math.min(index, imgs.length - 1));  
+      imgs[idx].classList.add('active');  
+      dots[idx].classList.add('active');  
+      currentSlide = idx;  
+    }  
+
+    slideWrap.addEventListener('mouseenter', stopSlideShow);  
+    slideWrap.addEventListener('mouseleave', startSlideShow);  
+
+    let latestExpanded = false;  
+    function toggleLatestList() {  
+      latestExpanded = !latestExpanded;  
+      latestList.style.display = latestExpanded ? 'block' : 'none';  
+    }  
+
+    let trendingExpanded = false;  
+    function toggleTrending() {  
+      trendingExpanded = !trendingExpanded;  
+      trendsList.style.display = trendingExpanded ? 'block' : 'none';  
+      if (trendingExpanded) renderTrendingList();  
+    }  
+
+    // backend helper functions (just for you in code, not visible in UI)  
+    function addLatestUpload(song) {  
+      latestUploads.push(song);  
+      if (latestUploads.length > LATEST_LIMIT) {  
+        latestUploads.shift(); // remove oldest (this is the 10 limit in backend)  
+      }  
+      renderSlides();  
+      startSlideShow();  
+    }  
+
+    function addTrending(song) {  
+      trending.push(song);  
+      if (trending.length > TREND_LIMIT) {  
+        trending = trending.slice(0, TREND_LIMIT);  
+      }  
+      renderTrendingList();  
+    }  
+
+    // init  
+    renderSlides();  
+    renderTrendingList();  
+    startSlideShow();  
+
+    // Comments for you:  
+    // addLatestUpload({title:"New Song", artist:"Name", img:"covers/image.jpg", link:"artist.html#song"});  
+    // addTrending({title:"Hot Song", artist:"Name", img:"covers/image.jpg", link:"artist.html#song"});  
+  </script>  
+</body>  
+  </html>
