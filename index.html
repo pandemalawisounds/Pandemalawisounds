@@ -744,18 +744,22 @@
     el.innerText = parseInt(el.innerText) + 1;  
   }  
 
-  // SEARCH FUNCTION
-  function searchSongs() {  
-    const input = document.getElementById('searchBar').value.toLowerCase();  
-    const cards = document.querySelectorAll('.artist-box');  
-    cards.forEach(card => {  
-      const nameEl = card.querySelector('.artist-name');  
-      const bioEl = card.querySelector('.artist-bio');  
-      const name = nameEl ? nameEl.textContent.toLowerCase() : '';  
-      const bio = bioEl ? bioEl.textContent.toLowerCase() : '';  
-      card.style.display = (name.includes(input) || bio.includes(input)) ? 'flex' : 'none';  
-    });  
-  }  
+  // POWERFUL SEARCH FUNCTION (works with current HTML & CSS)
+function searchSongs() {
+  const input = document.getElementById('searchBar').value.trim().toLowerCase();
+  const cards = document.querySelectorAll('.artist-box');
+
+  cards.forEach(card => {
+    const nameEl = card.querySelector('.artist-name');
+    const bioEl = card.querySelector('.artist-bio');
+
+    const name = nameEl ? nameEl.textContent.toLowerCase() : '';
+    const bio = bioEl ? bioEl.textContent.toLowerCase() : '';
+
+    // Show card if name or bio includes input
+    card.style.display = (name.includes(input) || bio.includes(input)) ? 'flex' : 'none';
+  });
+  }
 
   // COPY LINK FUNCTION
   function copyShareLink(link) {  
