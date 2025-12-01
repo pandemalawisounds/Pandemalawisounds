@@ -60,44 +60,56 @@
       font-size: 0.95rem;
     }
 
-/* SEARCH BAR */
+/* 🔹 SEARCH BAR CONTAINER */
 .search {  
-  padding: 0 2rem 1rem 2rem;  
+  padding: 0 2rem 1rem 2rem;      
   display: flex;  
-  flex-direction: column; /* make dropdown appear below input */
+  flex-direction: column;         
   justify-content: center;  
   align-items: center;  
-  position: relative; /* needed for dropdown positioning */
+  position: relative;             
 }
 
+/* 🔹 SEARCH INPUT FIELD */
 .search input {  
-  padding: 0.6rem 1rem;  
-  border-radius: 999px;  
+  padding: 0.6rem 1rem;           
+  border-radius: 999px;           
   border: none;  
   width: 100%;  
-  max-width: 450px;  
+  max-width: 450px;               
   font-size: 1rem;  
   outline: none;  
   box-shadow: 0 0 8px rgba(0,0,0,0.2);  
 }
 
-/* Dropdown container under search input */
+/* 🔹 DROPDOWN CONTAINER UNDER SEARCH INPUT */
 .dropdown {
   position: absolute;
-  top: 100%; /* right below input */
+  top: 100%;                      
   left: 0;
   right: 0;
-  background: #fff;
+  background: #ffffff;            
   width: 100%;
-  max-width: 450px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  max-width: 450px;               
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
   border-radius: 8px;
-  display: none; /* hidden by default */
+  display: none;                  
   z-index: 100;
-  max-height: 300px;
+  max-height: 300px;              
   overflow-y: auto;
 }
 
+/* 🔹 EACH ROW/ITEM INSIDE THE DROPDOWN */
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+/* 🔹 HOVER EFFECT FOR DROPDOWN ITEMS */
+.dropdown-item:hover {
+  background: rgba(0,0,0,0.1);
+      }
 /* Each item in dropdown */
 .dropdown-item {
   padding: 0.5rem 1rem;
@@ -433,12 +445,19 @@
   <div class="hero-top">
     <h2>Upload. Download. Promote. share.</h2>
   </div>
-<!-- SEARCH BAR UNDER HERO-TOP -->
+<!-- 🔹 SEARCH BAR SECTION (Pandemalawi Sounds) -->
 <div class="search">
-  <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
-  <div id="searchResults" class="dropdown"></div> <!-- dropdown results -->
-</div>
+  <!-- Search input: user types song or artist here -->
+  <input 
+    type="text" 
+    id="searchBar" 
+    onkeyup="searchSongs()" 
+    placeholder="Search songs or artists..."
+  >
 
+  <!-- Dropdown results will appear here under the input -->
+  <div id="searchResults" class="dropdown"></div>
+</div>
   <!-- 1️⃣ AD AFTER SEARCH (Business Ad) -->
   <div class="section">
     <div class="ad-strip">  
@@ -764,74 +783,128 @@
     el.innerText = parseInt(el.innerText) + 1;  
   }  
 
-  // 🔹 Function: searchSongs
-// Handles searching artists and songs, shows results in a dropdown
+  // 🔹 SEARCH FUNCTION FOR PANDEMALAWI SOUNDS
+// Runs every time user types in the search bar.
+// Shows dropdown with matching artists and songs.
+// Clicking a result opens the artist page.
+
 function searchSongs() {
-  // Get input, trim spaces, lowercase for case-insensitive search
-  const input = document.getElementById('searchBar').value.trim().toLowerCase();
+  // Get what the user typed in the input box
+  const inputElement = document.getElementById('searchBar');
+  const input = inputElement.value.trim().toLowerCase(); // clean + lowercase
 
-  // Dropdown container
+  // Get the dropdown container under the input
   const resultsContainer = document.getElementById('searchResults');
-  resultsContainer.innerHTML = ''; // Clear previous results
 
-  // If input is empty, hide dropdown and exit
+  // Clear old results every time user types
+  resultsContainer.innerHTML = '';
+
+  // If search is empty, hide dropdown and stop here
   if (!input) {
     resultsContainer.style.display = 'none';
     return;
   }
 
-  // 🔹 Example data: list of artists and songs
-  // Replace or expand with your actual artist pages and songs
+  // 🔹 DATA: ARTISTS + SONGS
+  // IMPORTANT:
+  // - "page" must match your REAL artist page filename.
+  // - "songs" is an array of song titles for that artist.
+  // - To add more songs for the SAME artist: add more items in the songs: [ ... ] array.
+  // - To add a NEW artist: copy the whole object block and paste below.
   const artists = [
     {
-      name: 'Pboy Halla',
-      page: 'pboy-halla.html', // artist page
-      songs: ['By My Side', 'Another Song']
-    },
-    {
-      name: 'Denje',
-      page: 'denje.html',
-      songs: ['Ubalikiwe', 'Song 2']
+      // ✅ ARTIST 1 (EXAMPLE: Pboy Halla)
+      name: 'Pboy Halla',                  // Artist display name
+      page: 'pboy_halla.html',             // Actual file name of artist page (EDIT if different)
+      songs: [
+        'By My Side With Hot Denje'        // 🔸 Add more songs for Pboy Halla on new lines below
+        // 'Second Song Title',
+        // 'Third Song Title'
+      ]
     }
+
+    // ✅ HOW TO ADD ANOTHER ARTIST (EXAMPLE)
+    // ,{
+    //   name: 'Denje',                     // Artist 2 name
+    //   page: 'denje.html',                // Artist 2 page file
+    //   songs: [
+    //     'Ubalikiwe',                     // 🔸 First song for Denje
+    //     'Another Denje Song'             // 🔸 Add more songs on new lines
+    //   ]
+    // }
+
+    // ✅ TO ADD A THIRD ARTIST:
+    // ,{
+    //   name: 'Third Artist Name',
+    //   page: 'third_artist.html',
+    //   songs: [
+    //     'First Song',
+    //     'Second Song'
+    //   ]
+    // }
   ];
 
-  let hasResults = false; // Track if we have matches
+  // Track if we found any match (artist or song)
+  let hasResults = false;
 
-  // Loop through each artist
+  // OPTIONAL DEBUG LINE: show what user typed on top
+  const debug = document.createElement('div');
+  debug.className = 'dropdown-item';
+  debug.textContent = `You typed: "${input}"`; // just to see it's working
+  resultsContainer.appendChild(debug);
+
+  // 🔹 LOOP THROUGH ALL ARTISTS
   artists.forEach(artist => {
     const artistNameLower = artist.name.toLowerCase();
 
-    // 🔹 Check if artist name matches input
+    // 1️⃣ ARTIST NAME MATCH
     if (artistNameLower.includes(input)) {
       const div = document.createElement('div');
       div.className = 'dropdown-item';
-      div.textContent = artist.name; // show artist name
-      div.onclick = () => { // navigate to artist page on click
-        window.location.href = artist.page;
-        resultsContainer.style.display = 'none';
+      div.textContent = artist.name; // show only artist name
+
+      // On click -> go to the artist page
+      div.onclick = () => {
+        window.location.href = artist.page;       // open artist page
+        resultsContainer.style.display = 'none';  // hide dropdown
       };
+
       resultsContainer.appendChild(div);
       hasResults = true;
     }
 
-    // 🔹 Check if any song matches
+    // 2️⃣ SONG TITLE MATCHES
     artist.songs.forEach(song => {
-      if (song.toLowerCase().includes(input)) {
+      const songLower = song.toLowerCase();
+
+      if (songLower.includes(input)) {
         const div = document.createElement('div');
         div.className = 'dropdown-item';
-        div.textContent = `${song} - ${artist.name}`; // show song + artist
-        div.onclick = () => { // navigate to artist page
+        // Show "Song - Artist"
+        div.textContent = `${song} - ${artist.name}`;
+
+        // On click -> go to same artist page
+        div.onclick = () => {
           window.location.href = artist.page;
           resultsContainer.style.display = 'none';
         };
+
         resultsContainer.appendChild(div);
         hasResults = true;
       }
     });
   });
 
-  // Show dropdown only if we have results
-  resultsContainer.style.display = hasResults ? 'block' : 'none';
+  // 3️⃣ IF NOTHING MATCHES, SHOW "NO RESULTS"
+  if (!hasResults) {
+    const noResult = document.createElement('div');
+    noResult.className = 'dropdown-item';
+    noResult.textContent = 'No results found';
+    resultsContainer.appendChild(noResult);
+  }
+
+  // Finally, show dropdown box now that we added items
+  resultsContainer.style.display = 'block';
   }
 
   // COPY LINK FUNCTION
