@@ -9,522 +9,259 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('file_00000000d39c622fa42365e8830ef40e_conversation_id=681a18ad-95f8-8005-aee3-51d75118b8f0&message_id=1d0dee6d-1a19-449f-8be1-210410525f32.png') no-repeat center center fixed;
+      background: url('background-home.jpg') no-repeat center center fixed;
       background-size: cover;
       color: #fff;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 20px;
-      background-color: rgba(0, 0, 0, 0.6);
-      border-radius: 15px;
+    .full-width {
+      width: 100%;
     }
 
-    /* Top Navigation */
-    .top-nav {
-      display: flex;
-      justify-content: flex-start;
-      gap: 10px;
-      margin-bottom: 15px;
-    }
-    .top-nav button, .top-nav a {
-      padding: 8px 16px;
-      border-radius: 20px;
-      border: 1px solid #fff;
-      background: rgba(0,0,0,0.5);
-      color: #fff;
-      cursor: pointer;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .top-nav button:hover, .top-nav a:hover {
-      background: #fff;
-      color: #000;
-    }
-
-    /* Artist Header */
     .artist-header {
       position: relative;
       text-align: center;
-      margin-bottom: 20px;
     }
+
     .artist-header img {
       width: 100%;
-      max-height: 400px;
-      object-fit: cover;
-      border-radius: 15px;
+      height: auto;
+      display: block;
     }
+
     .artist-header h1 {
       position: absolute;
       top: 20px;
       left: 50%;
       transform: translateX(-50%);
       font-size: 2.5em;
-      font-weight: bold;
-      color: #fff;
-      text-shadow: 2px 2px 5px #000;
-    }
-    .artist-bio {
-      margin-top: 15px;
-      font-size: 1em;
+      background-color: rgba(0,0,0,0.5);
+      padding: 10px 20px;
+      border-radius: 10px;
     }
 
-    /* Ads */
-    .ad-banner {
-      margin: 20px 0;
-      padding: 15px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 10px;
+    .bio {
       text-align: center;
-      font-weight: bold;
-      font-size: 1.1em;
+      margin: 20px;
+      padding: 10px;
+      background-color: rgba(0,0,0,0.5);
+      border-radius: 10px;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0;
+    }
+
+    .nav-buttons button {
+      padding: 12px 25px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      background-color: rgba(29, 185, 84, 0.9);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .song-card {
+      margin: 30px auto;
+      padding: 15px;
+      max-width: 900px;
+      background-color: rgba(0,0,0,0.5);
+      border-radius: 15px;
+    }
+
+    .song-card img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 10px;
+    }
+
+    .song-title {
+      font-size: 1.5em;
+      margin-bottom: 10px;
       color: #fff;
     }
 
-    /* Song Card */
-    .song-card {
-      margin-top: 30px;
-      padding: 15px;
-      background-color: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-      box-shadow: 0 0 5px rgba(255,255,255,0.1);
+    .audio-download {
       display: flex;
       flex-direction: column;
       gap: 10px;
+      margin-bottom: 10px;
     }
-    .song-card img {
-      width: 100%;
-      max-height: 250px;
-      object-fit: cover;
-      border-radius: 15px;
-    }
-    .song-info {
-      margin-top: 10px;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-    }
-    .song-title {
-      font-size: 1.5em;
-      font-weight: bold;
-    }
+
     .download-btn a {
-      display: inline-block;
-      background: rgba(255,255,255,0.2); /* transparent download */
-      padding: 10px 15px;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 12px;
+      background-color: rgba(29, 185, 84, 0.9);
       color: #fff;
       text-decoration: none;
       border-radius: 8px;
       font-weight: bold;
-      transition: background 0.3s;
     }
-    .download-btn a:hover {
-      background: rgba(255,255,255,0.4);
-    }
-    .song-ad {
-      width: 100px;
-      height: 30px;
-      background: rgba(255,255,255,0.1);
-      border-radius: 5px;
+
+    .like-dislike, .share-buttons {
       margin-top: 10px;
+    }
+
+    .like-dislike button, .share-buttons button {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.3em;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+
+    .youtube-video {
+      width: 100%;
+      height: 400px;
+      margin: 15px 0;
+    }
+
+    .ad-bar {
+      width: 100%;
+      height: 60px;
+      background-color: rgba(255,255,255,0.1);
+      color: #fff;
       text-align: center;
-      line-height: 30px;
-      font-size: 0.8em;
-      color: #fff;
-    }
-
-    audio {
-      width: 100%;
-      margin-top: 10px;
-    }
-
-    .like-dislike button {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.2em;
-      margin-right: 10px;
-      cursor: pointer;
-    }
-
-    .share-buttons button {
-      background: none;
-      border: none;
-      color: #fff;
-      font-size: 1.5em;
-      margin-right: 10px;
-      cursor: pointer;
-    }
-
-    /* YouTube Video Section */
-    .video-section {
-      margin-top: 40px;
-    }
-    .video-card {
-      margin-bottom: 20px;
-    }
-    .video-frame {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%;
-      overflow: hidden;
-      border-radius: 15px;
-      background: #000;
-    }
-    .video-frame iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      line-height: 60px;
+      margin: 15px 0;
+      border-radius: 8px;
+      font-weight: bold;
     }
 
     footer {
       text-align: center;
-      margin-top: 40px;
+      margin: 40px 0;
       font-size: 0.9em;
       opacity: 0.8;
     }
 
     @media (max-width: 600px) {
-      .top-nav {
-        flex-direction: column;
+      .youtube-video {
+        height: 250px;
       }
     }
+
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <!-- Top Navigation -->
-    <div class="top-nav">
-      <a href="index.html">Home</a>
-      <button onclick="history.back()">Back</button>
-    </div>
+  <!-- ARTIST HEADER -->
+  <div class="artist-header">
+    <h1>Pboy Halla</h1>
+    <img src="covers/Pboy1.jpg" alt="Pboy Halla Cover">
+  </div>
 
-    <!-- Artist Header -->
-    <div class="artist-header">
-      <h1>Pboy Halla</h1>
-      <img src="covers/Pboy1.jpg" alt="Pboy Halla Cover">
-    </div>
-    <div class="artist-bio">
-      <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
-    </div>
+  <div class="bio">
+    <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
+  </div>
 
-    <!-- Ad after artist picture -->
-    <div class="ad-banner">Business Advertisement</div>
+  <!-- NAVIGATION BUTTONS -->
+  <div class="nav-buttons">
+    <button onclick="location.href='index.html'">Home</button>
+  </div>
 
-    <!-- SONGS SECTION -->
-    <!-- SONG 1 -->
-    <div class="song-card" id="song1">
-      <img src="covers/Song3.png" alt="Song Image">
-      <div class="song-info">
-        <h2 class="song-title">By My Side with Hot Denje</h2>
-        <div class="download-btn">
-          <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>Download</a>
-        </div>
-      </div>
-      <div class="song-ad">Ad Here</div>
-      <audio id="audio-song1" controls>
+  <!-- AD AFTER ARTIST -->
+  <div class="ad-bar">Business Advertisement</div>
+
+  <!-- SONG 1 -->
+  <div class="song-card" id="song1">
+    <img src="covers/Song3.png" alt="By My Side">
+    <h2 class="song-title">By My Side with Hot Denje</h2>
+    <div class="audio-download">
+      <audio controls>
         <source src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" type="audio/mpeg">
+        Your browser does not support the audio element.
       </audio>
-      <div class="like-dislike">
-        <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span id="song1-like">0</span></button>
-        <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song1-dislike">0</span></button>
-      </div>
-      <div class="share-buttons">
-        <button onclick="shareToFacebook('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#By_My_Side_ft_Denje')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareToWhatsApp('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#By_My_Side_ft_Denje')"><i class="fab fa-whatsapp"></i></button>
-        <a href="https://www.tiktok.com" target="_blank"><button><i class="fab fa-tiktok"></i></button></a>
-        <button onclick="copySongLink('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#By_My_Side_ft_Denje')"><i class="fa fa-link"></i></button>
+      <div class="download-btn">
+        <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>Download</a>
       </div>
     </div>
+    <div class="like-dislike">
+      <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span id="song1-like">0</span></button>
+      <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song1-dislike">0</span></button>
+    </div>
+    <div class="share-buttons">
+      <button onclick="shareToFacebook('song1')"><i class="fab fa-facebook"></i></button>
+      <button onclick="shareToWhatsApp('song1')"><i class="fab fa-whatsapp"></i></button>
+      <button onclick="shareToTikTok('song1')"><i class="fab fa-tiktok"></i></button>
+      <button onclick="copySongLink('song1')"><i class="fa fa-link"></i></button>
+    </div>
+    <iframe class="youtube-video" src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+    <div class="ad-bar">Advertisement</div>
+  </div>
 
-    <!-- SONG 2 -->
-    <div class="song-card" id="song2">
-      <img src="covers/Song2.png" alt="Song Image">
-      <div class="song-info">
-        <h2 class="song-title">Happy_Birthday</h2>
-        <div class="download-btn">
-          <a href="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" download>Download</a>
-        </div>
-      </div>
-      <div class="song-ad">Ad Here</div>
-      <audio id="audio-song2" controls>
+  <!-- SONG 2 -->
+  <div class="song-card" id="song2">
+    <img src="covers/Song2.png" alt="Happy Birthday">
+    <h2 class="song-title">Happy Birthday</h2>
+    <div class="audio-download">
+      <audio controls>
         <source src="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" type="audio/mpeg">
       </audio>
-      <div class="like-dislike">
-        <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span id="song2-like">0</span></button>
-        <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song2-dislike">0</span></button>
-      </div>
-      <div class="share-buttons">
-        <button onclick="shareToFacebook('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareToWhatsApp('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')"><i class="fab fa-whatsapp"></i></button>
-        <a href="https://www.tiktok.com" target="_blank"><button><i class="fab fa-tiktok"></i></button></a>
-        <button onclick="copySongLink('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')"><i class="fa fa-link"></i></button>
+      <div class="download-btn">
+        <a href="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" download>Download</a>
       </div>
     </div>
-
-    <!-- SONG 3 -->
-    <div class="song-card" id="song3">
-      <img src="covers/Tenga.png" alt="Song Image">
-      <div class="song-info">
-        <h2 class="song-title">Tenga</h2>
-        <div class="download-btn">
-          <a href="https://drive.google.com/uc?export=download&id=1BrF9ZMeXooK3alLQP1aZkMlyLYJPs9tO" download>Download</a>
-        </div>
-      </div>
-      <div class="song-ad">Ad Here</div>
-      <audio id="audio-song3" controls>
-        <source src="https://drive.google.com/uc?export=download&id=1BrF9ZMeXooK3alLQP1aZkMlyLYJPs9tO" type="audio/mpeg">
-      </audio>
-      <div class="like-dislike">
-        <button onclick="vote('song3','like')"><i class="fa fa-thumbs-up"></i> <span id="song3-like">0</span></button>
-        <button onclick="vote('song3','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song3-dislike">0</span></button>
-      </div>
-      <div class="share-buttons">
-        <button onclick="shareToFacebook('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareToWhatsApp('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-whatsapp"></i></button>
-        <a href="https://www.tiktok.com" target="_blank"><button><i class="fab fa-tiktok"></i></button></a>
-        <button onclick="copySongLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fa fa-link"></i></button>
-      </div>
+    <div class="like-dislike">
+      <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span id="song2-like">0</span></button>
+      <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song2-dislike">0</span></button>
     </div>
-
-    <!-- SONG 4 -->
-    <div class="song-card" id="song4">
-      <img src="covers/Ukupweteka.png" alt="Song Image">
-      <div class="song-info">
-        <h2 class="song-title">Mtima wanga ukupweteka</h2>
-        <div class="download-btn">
-          <a href="https://drive.google.com/uc?export=download&id=1-xakof7tF4LqE4qRFdoMJ3k70Dgi8hqj" download>Download</a>
-        </div>
-      </div>
-      <div class="song-ad">Ad Here</div>
-      <audio id="audio-song4" controls>
-        <source src="https://drive.google.com/uc?export=download&id=1-xakof7tF4LqE4qRFdoMJ3k70Dgi8hqj" type="audio/mpeg">
-      </audio>
-      <div class="like-dislike">
-        <button onclick="vote('song4','like')"><i class="fa fa-thumbs-up"></i> <span id="song4-like">0</span></button>
-        <button onclick="vote('song4','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song4-dislike">0</span></button>
-      </div>
-      <div class="share-buttons">
-        <button onclick="shareToFacebook('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fab fa-facebook"></i></button>
-        <button onclick="shareToWhatsApp('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fab fa-whatsapp"></i></button>
-        <a href="https://www.tiktok.com" target="_blank"><button><i class="fab fa-tiktok"></i></button></a>
-        <button onclick="copySongLink('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fa fa-link"></i></button>
-      </div>
+    <div class="share-buttons">
+      <button onclick="shareToFacebook('song2')"><i class="fab fa-facebook"></i></button>
+      <button onclick="shareToWhatsApp('song2')"><i class="fab fa-whatsapp"></i></button>
+      <button onclick="shareToTikTok('song2')"><i class="fab fa-tiktok"></i></button>
+      <button onclick="copySongLink('song2')"><i class="fa fa-link"></i></button>
     </div>
-
-    <!-- Ad after all songs -->
-    <div class="ad-banner">P&E Techo Advertisement</div>
-
-    <!-- YouTube Embedded Video -->
-    <div class="video-section">
-      <h2 style="margin-bottom: 15px;">Watch Video</h2>
-      <div class="video-card">
-        <h3>By My Side ft Hot Denje (Official Video)</h3>
-        <div class="video-frame">
-          <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-          </iframe>
-        </div>
-        <div class="like-dislike" style="margin-top:5px;">
-          <button onclick="vote('video1','like')"><i class="fa fa-thumbs-up"></i> <span id="video1-like">0</span></button>
-          <button onclick="vote('video1','dislike')"><i class="fa fa-thumbs-down"></i> <span id="video1-dislike">0</span></button>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      &copy; 2025 Pandemalawi Sounds
-    </footer>
+    <iframe class="youtube-video" src="https://www.youtube.com/embed/VIDEO_ID_HERE" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+    <div class="ad-bar">Advertisement</div>
   </div>
 
+  <!-- ADD MORE SONGS USING SAME FORMAT -->
+
+  <!-- AD AFTER ALL SONGS -->
+  <div class="ad-bar">P&E Techo Advertisement</div>
+
+  <footer>
+    &copy; 2025 Pandemalawi Sounds
+  </footer>
+
 <script>
-  function shareToWhatsApp(url) {
+  // Voting system
+  function vote(songId, type) {
+    const el = document.getElementById(`${songId}-${type}`);
+    el.innerText = parseInt(el.innerText) + 1;
+  }
+
+  // Share functions
+  function shareToWhatsApp(songId) {
+    const url = window.location.href + '#' + songId;
     window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
   }
-  function shareToFacebook(url) {
+
+  function shareToFacebook(songId) {
+    const url = window.location.href + '#' + songId;
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
   }
-  function copySongLink(url) {
+
+  function shareToTikTok(songId) {
+    const url = window.location.href + '#' + songId;
+    window.open(`https://www.tiktok.com/share?url=${encodeURIComponent(url)}`, '_blank');
+  }
+
+  function copySongLink(songId) {
+    const url = window.location.href + '#' + songId;
     navigator.clipboard.writeText(url)
-      .then(() => alert("Link copied to clipboard!"))
+      .then(() => alert("Link copied!"))
       .catch(() => alert("Failed to copy link"));
   }
-  function vote(id,type){
-    let likeSpan = document.getElementById(id + '-like');
-    let dislikeSpan = document.getElementById(id + '-dislike');
-    if(type==='like'){
-      likeSpan.textContent = parseInt(likeSpan.textContent)+1;
-    } else {
-      dislikeSpan.textContent = parseInt(dislikeSpan.textContent)+1;
-    }
-  }
 </script>
+
 </body>
 </html>
-    @media (max-width: 600px) {
-      .song-row {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .song-row img {
-        margin-bottom: 10px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="artist-header">
-      <h1>Pboy Halla</h1>
-      <img src="covers/Pboy1.jpg" alt="Pboy Halla Cover">
-      <p><strong>Bio:</strong> Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.</p>
-    </div>
-
-    
-<!-- SONG 1 -->
-<div class="song-card" id="song1">
-  <h2 class="song-title">By My Side with Hot Denje</h2>
-  <div class="song-row">
-    <img src="covers/Song3.png" alt="Song Image">
-    <div class="download-btn">
-      <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>Download</a>
-    </div>
-  </div>
-  <audio id="audio-song1" controls>
-    <source src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <div class="like-dislike">
-    <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span id="song1-like">0</span></button>
-    <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song1-dislike">0</span></button>
-  </div>
-  <div class="share-buttons">
-    <button onclick="shareToFacebook('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#By_My_Side_ft_Denje')">
-      <i class="fab fa-facebook"></i>
-    </button>
-    <button onclick="shareToWhatsApp('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#By_My_Side_ft_Denje')">
-      <i class="fab fa-whatsapp"></i>
-    </button>
-    <a href="https://www.tiktok.com" target="_blank">
-      <button><i class="fab fa-tiktok"></i></button>
-    </a>
-    <button onclick="copySongLink('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#By_My_Side_ft_Denje')">
-      <i class="fa fa-link"></i>
-    </button>
-  </div>
-</div>
-
-<!-- SONG 2 -->
-<div class="song-card" id="song2">
-  <h2 class="song-title">Happy_Birthday</h2>
-  <div class="song-row">
-    <img src="covers/Song2.png" alt="Song Image">
-    <div class="download-btn">
-      <a href="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" download>Download</a>
-    </div>
-  </div>
-  <audio id="audio-song2" controls>
-    <source src="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <div class="like-dislike">
-    <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span id="song2-like">0</span></button>
-    <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song2-dislike">0</span></button>
-  </div>
-  <div class="share-buttons">
-    <button onclick="shareToFacebook('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')">
-      <i class="fab fa-facebook"></i>
-    </button>
-    <button onclick="shareToWhatsApp('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')">
-      <i class="fab fa-whatsapp"></i>
-    </button>
-    <a href="https://www.tiktok.com" target="_blank">
-      <button><i class="fab fa-tiktok"></i></button>
-    </a>
-    <button onclick="copySongLink('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')">
-      <i class="fa fa-link"></i>
-    </button>
-  </div>
-</div>
-
-<!-- SONG 3 -->
-<div class="song-card" id="song3">
-  <h2 class="song-title">Tenga</h2>
-  <div class="song-row">
-    <img src="covers/Tenga.png" alt="Song Image">
-    <div class="download-btn">
-      <a href="https://drive.google.com/uc?export=download&id=1BrF9ZMeXooK3alLQP1aZkMlyLYJPs9tO" download>Download</a>
-    </div>
-  </div>
-  <audio id="audio-song3" controls>
-    <source src="https://drive.google.com/uc?export=download&id=1BrF9ZMeXooK3alLQP1aZkMlyLYJPs9tO" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <div class="like-dislike">
-    <button onclick="vote('song3','like')"><i class="fa fa-thumbs-up"></i> <span id="song3-like">0</span></button>
-    <button onclick="vote('song3','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song3-dislike">0</span></button>
-  </div>
-  <div class="share-buttons">
-    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-facebook"></i></button>
-    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-whatsapp"></i></button>
-    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fab fa-tiktok"></i></button>
-    <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song3')"><i class="fa fa-link"></i></button>
-  </div>
-</div>
-
-<!-- SONG 4 -->
-<div class="song-card" id="song4">
-  <h2 class="song-title">Mtima wanga ukupweteka</h2>
-  <div class="song-row">
-    <img src="covers/Ukupweteka.png" alt="Song Image">
-    <div class="download-btn">
-      <a href="https://drive.google.com/uc?export=download&id=1-xakof7tF4LqE4qRFdoMJ3k70Dgi8hqj" download>Download</a>
-    </div>
-  </div>
-  <audio id="audio-song4" controls>
-    <source src="https://drive.google.com/uc?export=download&id=1-xakof7tF4LqE4qRFdoMJ3k70Dgi8hqj" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
-  <div class="like-dislike">
-    <button onclick="vote('song4','like')"><i class="fa fa-thumbs-up"></i> <span id="song4-like">0</span></button>
-    <button onclick="vote('song4','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song4-dislike">0</span></button>
-  </div>
-  <div class="share-buttons">
-    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fab fa-facebook"></i></button>
-    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fab fa-whatsapp"></i></button>
-    <button onclick="shareLink('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fab fa-tiktok"></i></button>
-    <button onclick="copyLink('https://yourwebsite.com/artist-pboy-halla.html#song4')"><i class="fa fa-link"></i></button>
-  </div>
-        </div>
-
-    <footer>
-      &copy; 2025 Pandemalawi Sounds
-    </footer>
-  </div>
-
-<script>
-  // Share to WhatsApp
-  function shareToWhatsApp(url) {
-    window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
-  }
-
-  // Share to Facebook
-  function shareToFacebook(url) {
-    window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
-  }
-
-  // Copy link
-  function copySongLink(url) {
-    navigator.clipboard.writeText(url)
-      .then(() => alert("Link copied to clipboard!"))
-      .catch(() => alert("Failed to copy link"));
-  }
-</script>
-</body>
-  </html>
