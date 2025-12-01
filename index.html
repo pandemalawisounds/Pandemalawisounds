@@ -146,8 +146,8 @@
     /* Wrapper so images cover entire box (no visible margin) */
     .slideshow-section {
       position: relative;
-      width: 90%;
-      max-width: 1100px;
+      width: 100%;
+      max-width: 1300px;
       margin: 1.5rem auto;
       border-radius: 20px;
       overflow: hidden; /* hides edges so images fill smoothly */
@@ -158,19 +158,19 @@
     /* Title on top of images */
     .slideshow-title {
       position: absolute;
-      top: 10px;
+      top: 15px;
       left: 15px;
       z-index: 5;
       margin: 0;
-      font-size: 1.2rem;
+      font-size: 1.8rem;
       font-weight: 600;
       text-shadow: 1px 1px 6px #000;
     }
 
     .slideshow-container {
       display: flex;
-      width: 90%;
-      height: 120px; /* same size for Trending & Latest */
+      width: 100%;
+      height: 200px; /* same size for Trending & Latest */
       border-radius: 20px;
       overflow: hidden;
       position: relative;
@@ -185,7 +185,7 @@
 
     .slide img {
       width: 100%;
-      height: 140px;
+      height: 200px;
       object-fit: cover;  /* makes image fully cover */
       display: block;
     }
