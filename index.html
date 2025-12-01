@@ -60,33 +60,53 @@
       font-size: 0.95rem;
     }
 
-    /* SEARCH BAR MOVED UP UNDER HERO-TOP */
-    .search {  
-      padding: 0 2rem 1rem 2rem;  
-      display: flex;  
-      justify-content: center;  
-      align-items: center;  
-    }  
-    .search input {  
-      padding: 0.6rem 1rem;  
-      border-radius: 999px;  
-      border: none;  
-      width: 100%;  
-      max-width: 450px;  
-      font-size: 1rem;  
-      outline: none;  
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);  
-    }  
+/* SEARCH BAR */
+.search {  
+  padding: 0 2rem 1rem 2rem;  
+  display: flex;  
+  flex-direction: column; /* make dropdown appear below input */
+  justify-content: center;  
+  align-items: center;  
+  position: relative; /* needed for dropdown positioning */
+}
 
-    .section {  
-      padding: 2rem;  
-      backdrop-filter: blur(5px);  
-      background: rgba(0,0,0,0.25);  
-      border-radius: 20px;  
-      margin: 2rem auto;  
-      width: 90%;  
-      max-width: 1100px;  
-    }  
+.search input {  
+  padding: 0.6rem 1rem;  
+  border-radius: 999px;  
+  border: none;  
+  width: 100%;  
+  max-width: 450px;  
+  font-size: 1rem;  
+  outline: none;  
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);  
+}
+
+/* Dropdown container under search input */
+.dropdown {
+  position: absolute;
+  top: 100%; /* right below input */
+  left: 0;
+  right: 0;
+  background: #fff;
+  width: 100%;
+  max-width: 450px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 8px;
+  display: none; /* hidden by default */
+  z-index: 100;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+/* Each item in dropdown */
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: rgba(0,0,0,0.1);
+      }
 
     /* FLASHING ADS (style kept same) */  
     .ad-strip {  
@@ -413,11 +433,11 @@
   <div class="hero-top">
     <h2>Upload. Download. Promote. share.</h2>
   </div>
-
-  <!-- SEARCH BAR UNDER HERO TEXT -->
-  <div class="search">  
-    <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">  
-  </div>  
+<!-- SEARCH BAR UNDER HERO-TOP -->
+<div class="search">
+  <input type="text" id="searchBar" onkeyup="searchSongs()" placeholder="Search songs or artists...">
+  <div id="searchResults" class="dropdown"></div> <!-- dropdown results -->
+</div>
 
   <!-- 1️⃣ AD AFTER SEARCH (Business Ad) -->
   <div class="section">
@@ -461,7 +481,7 @@
     <!-- Slide 5 -->
     <div class="slide" onclick="toggleSlideList('trendingList')">
       <img src="covers/Jonarp.jpg" alt="Trending song artwork 3">
-      <div class="slide-caption">Trending song artwork 3</div>
+      <div class="slide-caption">jonarp-Dolo</div>
     </div>
   </div>
 
@@ -744,21 +764,74 @@
     el.innerText = parseInt(el.innerText) + 1;  
   }  
 
-  // POWERFUL SEARCH FUNCTION (works with current HTML & CSS)
+  // 🔹 Function: searchSongs
+// Handles searching artists and songs, shows results in a dropdown
 function searchSongs() {
+  // Get input, trim spaces, lowercase for case-insensitive search
   const input = document.getElementById('searchBar').value.trim().toLowerCase();
-  const cards = document.querySelectorAll('.artist-box');
 
-  cards.forEach(card => {
-    const nameEl = card.querySelector('.artist-name');
-    const bioEl = card.querySelector('.artist-bio');
+  // Dropdown container
+  const resultsContainer = document.getElementById('searchResults');
+  resultsContainer.innerHTML = ''; // Clear previous results
 
-    const name = nameEl ? nameEl.textContent.toLowerCase() : '';
-    const bio = bioEl ? bioEl.textContent.toLowerCase() : '';
+  // If input is empty, hide dropdown and exit
+  if (!input) {
+    resultsContainer.style.display = 'none';
+    return;
+  }
 
-    // Show card if name or bio includes input
-    card.style.display = (name.includes(input) || bio.includes(input)) ? 'flex' : 'none';
+  // 🔹 Example data: list of artists and songs
+  // Replace or expand with your actual artist pages and songs
+  const artists = [
+    {
+      name: 'Pboy Halla',
+      page: 'pboy-halla.html', // artist page
+      songs: ['By My Side', 'Another Song']
+    },
+    {
+      name: 'Denje',
+      page: 'denje.html',
+      songs: ['Ubalikiwe', 'Song 2']
+    }
+  ];
+
+  let hasResults = false; // Track if we have matches
+
+  // Loop through each artist
+  artists.forEach(artist => {
+    const artistNameLower = artist.name.toLowerCase();
+
+    // 🔹 Check if artist name matches input
+    if (artistNameLower.includes(input)) {
+      const div = document.createElement('div');
+      div.className = 'dropdown-item';
+      div.textContent = artist.name; // show artist name
+      div.onclick = () => { // navigate to artist page on click
+        window.location.href = artist.page;
+        resultsContainer.style.display = 'none';
+      };
+      resultsContainer.appendChild(div);
+      hasResults = true;
+    }
+
+    // 🔹 Check if any song matches
+    artist.songs.forEach(song => {
+      if (song.toLowerCase().includes(input)) {
+        const div = document.createElement('div');
+        div.className = 'dropdown-item';
+        div.textContent = `${song} - ${artist.name}`; // show song + artist
+        div.onclick = () => { // navigate to artist page
+          window.location.href = artist.page;
+          resultsContainer.style.display = 'none';
+        };
+        resultsContainer.appendChild(div);
+        hasResults = true;
+      }
+    });
   });
+
+  // Show dropdown only if we have results
+  resultsContainer.style.display = hasResults ? 'block' : 'none';
   }
 
   // COPY LINK FUNCTION
