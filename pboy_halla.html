@@ -46,23 +46,47 @@
   }
 
   /* Home button */
-  .home-btn {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    background-color: rgba(255,255,255,0.2);
-    color: #fff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    backdrop-filter: blur(5px);
-  }
+/* ========================= */
+/*       HOME BUTTON CSS     */
+/* ========================= */
 
-  .home-btn i {
-    margin-right: 10px;
+/* Main circle container */
+.home-btn {
+  display: flex;                 /* Align icon + text vertically */
+  flex-direction: column;        
+  align-items: center;           
+  justify-content: center;
+  
+  width: 70px;                   /* Circle width */
+  height: 70px;                  /* Circle height */
+  
+  background: rgba(255,255,255,0.15);   /* Transparent white circle */
+  backdrop-filter: blur(5px);           /* Glass effect */
+  border-radius: 50%;                   /* Makes it a perfect circle */
+  border: 1px solid rgba(255,255,255,0.25); /* Light border */
+  
+  cursor: pointer;               /* Show pointer when hovering */
+  margin: 20px auto;             /* Center button on page */
+  
+  transition: 0.3s;              /* Smooth animation on hover */
+}
+
+/* Hover effect (grows slightly) */
+.home-btn:hover {
+  transform: scale(1.1);
+}
+
+/* House icon styling */
+.home-icon {
+  font-size: 28px;               /* Size of the icon */
+}
+
+/* Text under the icon */
+.home-btn span {
+  margin-top: 5px;               /* Space between icon and text */
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
   }
 
   /* Artist name overlay */
@@ -214,7 +238,23 @@
   <!-- Artist Header -->
   <div class="artist-header">
     <img src="covers/Pboy1.jpg" alt="Pboy Halla Cover">
-    <div class="home-btn"><i class="fas fa-arrow-left"></i> Home</div>
+    <!-- ===================== -->
+<!--   HOME / BACK BUTTON  -->
+<!-- ===================== -->
+<!-- 
+This is the circular Home button.
+When clicked, it will call the goHome() function 
+(which will take the user back to index.html).
+-->
+<div class="home-btn" onclick="goHome()">
+  
+  <!-- Icon inside the circle -->
+  <div class="home-icon">🏠</div>
+  
+  <!-- Text below the icon -->
+  <span>Home</span>
+
+</div>
     <div class="artist-name">Pboy Halla</div>
     <div class="artist-bio">
       Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.
@@ -291,6 +331,14 @@
   }
   function shareToFacebook(url) {
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+  }
+  // ============================
+  //   SEND USER TO HOME PAGE
+  // ============================
+
+  function goHome() {
+    // Change "index.html" if your home page has a different file name
+    window.location.href = "index.html";  
   }
   function copySongLink(url) {
     navigator.clipboard.writeText(url)
