@@ -515,6 +515,33 @@
       .then(() => alert("Link copied to clipboard!"))
       .catch(() => alert("Failed to copy link"));
   }
+  // Wait until the page fully loads before running the code
+window.addEventListener('load', function() {
+
+  // Get the current URL hash (everything after #)
+  // Example: if URL is "...#Happy_Birthday_with_Hot_Denje", hash will be "#Happy_Birthday_with_Hot_Denje"
+  const hash = window.location.hash;
+
+  // Check if there is a hash in the URL
+  if(hash) {
+
+    // Remove the # symbol to get the element ID
+    // Example: "#Happy_Birthday_with_Hot_Denje" => "Happy_Birthday_with_Hot_Denje"
+    const songId = hash.substring(1);
+
+    // Find the song element on the page using its ID
+    const songElement = document.getElementById(songId);
+
+    // If the element exists on the page, scroll to it
+    if(songElement) {
+
+      // Scroll the page to the song element smoothly
+      // 'behavior: smooth' makes the scroll animate nicely
+      // 'block: start' ensures the element appears at the top of the viewport
+      songElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+});
 
   // Vote for like or dislike
   function vote(songId, type){
@@ -558,6 +585,7 @@
       setTimeout(() => msg.remove(), 4000);
     });
   });
+  
 </script>
 </body>
       </html>
