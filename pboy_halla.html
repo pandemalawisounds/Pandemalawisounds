@@ -561,6 +561,63 @@
   </div>
   </div>
 
+  <!-- SONG CARD – ubalikiwe-->
+<div class="song-card" id="song_ukupweteka">
+  <div class="ad-bar">Advertisement</div>
+
+  <!-- Song image -->
+  <div class="song-row">
+    <img src="covers/Ukupweteka.png" alt="Ukupweteka">
+  </div>
+
+  <!-- Song title -->
+  <div class="song-title">Ukupweteka</div>
+
+  <!-- Audio player -->
+  <audio id="audio_song_ukupweteka" controls>
+    <source src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" type="audio/mpeg">
+  </audio>
+
+<!-- YouTube video -->
+<iframe class="youtube-embed" 
+        src="https://www.youtube.com/embed/GXjDy93shn8" 
+        title="YouTube video" 
+        frameborder="0" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+        allowfullscreen>
+</iframe>
+  <!-- Download button -->
+  <div class="download-btn">
+    <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>Download</a>
+  </div>
+
+  <!-- Like / Dislike buttons -->
+  <div class="like-dislike">
+    <button onclick="vote('song_ukupweteka','like')">
+      <i class="fa fa-thumbs-up"></i> <span id="song_ukupweteka-like">0</span>
+    </button>
+    <button onclick="vote('song_ukupweteka','dislike')">
+      <i class="fa fa-thumbs-down"></i> <span id="song_ukupweteka-dislike">0</span>
+    </button>
+  </div>
+
+  <!-- Share buttons -->
+  <div class="share-buttons">
+    <button onclick="shareToFacebook('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#song_ukupweteka')">
+      <i class="fab fa-facebook"></i>
+    </button>
+    <button onclick="shareToWhatsApp('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#song_ukupweteka')">
+      <i class="fab fa-whatsapp"></i>
+    </button>
+    <a href="https://www.tiktok.com" target="_blank">
+      <button><i class="fab fa-tiktok"></i></button>
+    </a>
+    <button onclick="copySongLink('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#song_ukupweteka')">
+      <i class="fa fa-link"></i>
+    </button>
+  </div>
+</div>
+
 <script>
   /* ===================== */
   /*   SHARE / COPY / VOTE */
