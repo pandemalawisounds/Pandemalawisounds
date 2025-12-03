@@ -88,13 +88,20 @@
   }
 
   /* ========================== */
-  /*   ARTIST NAME ABOVE BIO    */
+  /*   ARTIST NAME & BIO STACKED*/
   /* ========================== */
-  .artist-name {
+  .artist-text {
     position: absolute;
-    bottom: 60px;            /* Adjusted to sit above bio */
+    bottom: 20px; /* distance from image bottom */
     left: 20px;
-    background-color: rgba(0,0,0,0.25); /* semi-transparent */
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* space between name and bio */
+  }
+
+  .artist-name {
+    background-color: rgba(0,0,0,0.25);
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 2em;
@@ -102,15 +109,8 @@
     backdrop-filter: blur(3px);
   }
 
-  /* ========================== */
-  /*       ARTIST BIO           */
-  /* ========================== */
   .artist-bio {
-    position: absolute;
-    bottom: 20px;             /* Bottom of image */
-    left: 20px;
-    right: 20px;
-    background-color: rgba(0,0,0,0.2); /* more transparent */
+    background-color: rgba(0,0,0,0.2);
     padding: 12px 15px;
     border-radius: 10px;
     font-size: 1em;
@@ -228,8 +228,8 @@
   /* ========================== */
   @media (max-width: 600px) {
     .youtube-embed { height: 200px; }
-    .artist-name { font-size: 1.5em; bottom: 55px; }
-    .artist-bio { font-size: 0.9em; bottom: 15px; }
+    .artist-name { font-size: 1.5em; }
+    .artist-bio { font-size: 0.9em; }
   }
 </style>
 </head>
@@ -246,12 +246,12 @@
       <span>Home</span>
     </div>
 
-    <!-- ARTIST NAME (ABOVE BIO) -->
-    <div class="artist-name">Pboy Halla</div>
-
-    <!-- ARTIST BIO (BOTTOM OF IMAGE) -->
-    <div class="artist-bio">
-      Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.
+    <!-- ARTIST NAME & BIO STACKED -->
+    <div class="artist-text">
+      <div class="artist-name">Pboy Halla</div>
+      <div class="artist-bio">
+        Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.
+      </div>
     </div>
   </div>
 
@@ -333,4 +333,4 @@
   }
 </script>
 </body>
-    </html>
+  </html>
