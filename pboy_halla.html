@@ -121,10 +121,10 @@
   /*        SONG CARD           */
   /* ========================== */
   .song-card {
-    margin-top: 30px;
+    margin-top: 20px;           /* smaller top space */
     background-color: rgba(0,0,0,0.3);
-    border-radius: 15px;
-    padding: 15px;
+    border-radius: 12px;        /* slightly smaller radius */
+    padding: 10px;              /* less padding inside */
     overflow: hidden;
   }
 
@@ -148,66 +148,68 @@
 
   .song-row img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 8px;
+    height: 180px;              /* smaller image height */
+    object-fit: cover;
   }
 
   .song-title {
-    margin-top: 10px;
-    font-size: 1.5em;
-    background-color: rgba(0,0,0,0.4);
-    padding: 5px 10px;
-    border-radius: 8px;
+    margin-top: 8px;
+    font-size: 1.2em;           /* smaller title */
+    background-color: rgba(0,0,0,0.35);
+    padding: 4px 8px;           /* smaller padding */
+    border-radius: 6px;
   }
 
   audio {
     width: 100%;
-    margin-top: 10px;
+    margin-top: 8px;
   }
 
   .youtube-embed {
     width: 100%;
     max-width: 560px;
-    height: 315px;
-    border-radius: 15px;
+    height: 280px;              /* smaller embed height */
+    border-radius: 12px;
     overflow: hidden;
-    margin: 15px auto;
+    margin: 12px auto;
     display: block;
   }
 
   .download-btn a {
     display: inline-block;
     width: 100%;
-    padding: 15px;
+    padding: 12px;              /* smaller button */
     text-align: center;
     font-weight: bold;
     color: #fff;
     text-decoration: none;
-    border-radius: 12px;
-    margin-top: 10px;
+    border-radius: 10px;
+    margin-top: 8px;
     background: linear-gradient(145deg,#1db954,#1aa34a);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
   }
 
   .download-btn a:hover {
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
     transform: translateY(-2px);
   }
 
   .like-dislike, .share-buttons {
     display: flex;
     justify-content: flex-start;
-    margin-top: 10px;
-    gap: 10px;
+    margin-top: 8px;
+    gap: 8px;
   }
 
   .like-dislike button, .share-buttons button {
     background-color: rgba(255,255,255,0.2);
     border: none;
-    padding: 10px;
-    border-radius: 8px;
+    padding: 8px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #fff;
     transition: 0.3s;
   }
@@ -258,7 +260,7 @@
   <!-- Business Ad -->
   <div class="ad-bar">Business Advertisement</div>
 
-  <!-- SONGS SECTION (unchanged) -->
+  <!-- SONGS SECTION -->
   <div class="song-card" id="song1">
     <div class="ad-bar">Advertisement</div>
     <div class="song-row"><img src="covers/Song3.png" alt="By My Side"></div>
