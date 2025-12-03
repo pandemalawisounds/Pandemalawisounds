@@ -9,7 +9,6 @@
   body {
     margin: 0;
     font-family: Arial, sans-serif;
-    /* INDEX BACKGROUND */
     background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') no-repeat center center fixed;  
     background-size: cover;
     color: #fff;
@@ -32,12 +31,15 @@
     padding: 0 10px;
   }
 
-  /* Artist header */
+  /* ========================== */
+  /*   ARTIST HEADER CONTAINER   */
+  /* ========================== */
   .artist-header {
-    position: relative;
+    position: relative;  /* needed for absolute positioning of children */
     width: 100%;
   }
 
+  /* Artist Image */
   .artist-header img {
     width: 100%;
     display: block;
@@ -45,67 +47,48 @@
     height: 400px;
   }
 
-  /* Home button */
-/* ========================= */
-/*       HOME BUTTON CSS     */
-/* ========================= */
-
-/* Main circle container */
-.home-btn {
-  display: flex;                 /* Align icon + text vertically */
-  flex-direction: column;        
-  align-items: center;           
-  justify-content: center;
-  
-  width: 70px;                   /* Circle width */
-  height: 70px;                  /* Circle height */
-  
-  background: rgba(255,255,255,0.15);   /* Transparent white circle */
-  backdrop-filter: blur(5px);           /* Glass effect */
-  border-radius: 50%;                   /* Makes it a perfect circle */
-  border: 1px solid rgba(255,255,255,0.25); /* Light border */
-  
-  cursor: pointer;               /* Show pointer when hovering */
-  margin: 20px auto;             /* Center button on page */
-  
-  transition: 0.3s;              /* Smooth animation on hover */
-}
-
-/* Hover effect (grows slightly) */
-.home-btn:hover {
-  transform: scale(1.1);
-}
-
-/* House icon styling */
-.home-icon {
-  font-size: 28px;               /* Size of the icon */
-}
-
-/* Text under the icon */
-.home-btn span {
-  margin-top: 5px;               /* Space between icon and text */
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
+  /* ========================== */
+  /*   HOME BUTTON TOP-LEFT     */
+  /* ========================== */
+  .home-btn {
+    position: absolute;   /* overlay on image */
+    top: 15px;            /* distance from top edge */
+    left: 15px;           /* distance from left edge */
+    display: flex;        
+    flex-direction: column;
+    align-items: center;           
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: 0.3s;
   }
 
-  /* Artist name overlay */
-  .artist-name {
-    position: absolute;
-    top: 70px;
-    left: 20px;
-    background-color: rgba(0,0,0,0.4);
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-size: 2em;
-    font-weight: 800;
-    backdrop-filter: blur(3px);
+  .home-btn:hover {
+    transform: scale(1.1);
   }
 
-  /* Bio overlay */
+  .home-icon {
+    font-size: 28px;
+  }
+
+  .home-btn span {
+    margin-top: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  /* ========================== */
+  /*   ARTIST BIO (OLD HOME POS)*/
+  /* ========================== */
   .artist-bio {
-    position: absolute;
-    top: 150px;
+    position: absolute;       /* overlay on image */
+    top: 20px;                /* moved to old home button position */
     left: 20px;
     right: 20px;
     background-color: rgba(0,0,0,0.5);
@@ -115,10 +98,25 @@
     backdrop-filter: blur(3px);
   }
 
+  /* ========================== */
+  /*   ARTIST NAME BOTTOM LEFT  */
+  /* ========================== */
+  .artist-name {
+    position: absolute;  
+    bottom: 20px;         
+    left: 20px;           
+    background-color: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 2em;
+    font-weight: 800;
+    backdrop-filter: blur(3px);
+  }
+
   /* Song card */
   .song-card {
     margin-top: 30px;
-    background-color: rgba(0,0,0,0.3); /* transparent */
+    background-color: rgba(0,0,0,0.3);
     border-radius: 15px;
     padding: 15px;
     overflow: hidden;
@@ -161,7 +159,6 @@
     margin-top: 10px;
   }
 
-  /* YouTube embed */
   .youtube-embed {
     width: 100%;
     max-width: 560px;
@@ -172,7 +169,6 @@
     display: block;
   }
 
-  /* Download button 3D */
   .download-btn a {
     display: inline-block;
     width: 100%;
@@ -193,7 +189,6 @@
     transform: translateY(-2px);
   }
 
-  /* Like / Dislike + Share buttons */
   .like-dislike, .share-buttons {
     display: flex;
     justify-content: flex-start;
@@ -224,11 +219,9 @@
   }
 
   @media (max-width: 600px) {
-    .youtube-embed {
-      height: 200px;
-    }
-    .artist-name { font-size: 1.5em; top: 60px; }
-    .artist-bio { font-size: 0.9em; top: 120px; }
+    .youtube-embed { height: 200px; }
+    .artist-name { font-size: 1.5em; bottom: 15px; }
+    .artist-bio { font-size: 0.9em; top: 15px; }
   }
 </style>
 </head>
@@ -238,42 +231,32 @@
   <!-- Artist Header -->
   <div class="artist-header">
     <img src="covers/Pboy1.jpg" alt="Pboy Halla Cover">
-    <!-- ===================== -->
-<!--   HOME / BACK BUTTON  -->
-<!-- ===================== -->
-<!-- 
-This is the circular Home button.
-When clicked, it will call the goHome() function 
-(which will take the user back to index.html).
--->
-<div class="home-btn" onclick="goHome()">
-  
-  <!-- Icon inside the circle -->
-  <div class="home-icon">🏠</div>
-  
-  <!-- Text below the icon -->
-  <span>Home</span>
 
-</div>
-    <div class="artist-name">Pboy Halla</div>
+    <!-- HOME BUTTON -->
+    <div class="home-btn" onclick="goHome()">
+      <div class="home-icon">🏠</div>
+      <span>Home</span>
+    </div>
+
+    <!-- ARTIST BIO -->
     <div class="artist-bio">
       Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.
     </div>
+
+    <!-- ARTIST NAME -->
+    <div class="artist-name">Pboy Halla</div>
   </div>
 
   <!-- Business Ad after picture -->
   <div class="ad-bar">Business Advertisement</div>
 
-  <!-- SONG 1 -->
+  <!-- SONGS SECTION (unchanged) -->
   <div class="song-card" id="song1">
     <div class="ad-bar">Advertisement</div>
-    <div class="song-row">
-      <img src="covers/Song3.png" alt="By My Side">
-    </div>
+    <div class="song-row"><img src="covers/Song3.png" alt="By My Side"></div>
     <div class="song-title">By My Side with Hot Denje</div>
     <audio id="audio-song1" controls>
       <source src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" type="audio/mpeg">
-      Your browser does not support the audio element.
     </audio>
     <iframe class="youtube-embed" src="https://www.youtube.com/embed/YOUR_VIDEO_ID1" title="YouTube video" frameborder="0" allowfullscreen></iframe>
     <div class="download-btn">
@@ -291,12 +274,9 @@ When clicked, it will call the goHome() function
     </div>
   </div>
 
-  <!-- SONG 2 -->
   <div class="song-card" id="song2">
     <div class="ad-bar">Advertisement</div>
-    <div class="song-row">
-      <img src="covers/Song2.png" alt="Happy Birthday">
-    </div>
+    <div class="song-row"><img src="covers/Song2.png" alt="Happy Birthday"></div>
     <div class="song-title">Happy Birthday</div>
     <audio id="audio-song2" controls>
       <source src="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" type="audio/mpeg">
@@ -317,12 +297,9 @@ When clicked, it will call the goHome() function
     </div>
   </div>
 
-  <!-- P&E Ad after all songs -->
   <div class="ad-bar">P&E Techo Advertisement</div>
 
-  <footer>
-    &copy; 2025 Pandemalawi Sounds
-  </footer>
+  <footer>&copy; 2025 Pandemalawi Sounds</footer>
 </div>
 
 <script>
@@ -332,14 +309,11 @@ When clicked, it will call the goHome() function
   function shareToFacebook(url) {
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
   }
-  // ============================
-  //   SEND USER TO HOME PAGE
-  // ============================
 
   function goHome() {
-    // Change "index.html" if your home page has a different file name
     window.location.href = "index.html";  
   }
+
   function copySongLink(url) {
     navigator.clipboard.writeText(url)
       .then(() => alert("Link copied to clipboard!"))
