@@ -121,22 +121,24 @@
   /*        SONG CARD           */
   /* ========================== */
   .song-card {
-    margin-top: 20px;           /* smaller top space */
+    margin-top: 15px;               /* smaller space between cards */
     background-color: rgba(0,0,0,0.3);
-    border-radius: 12px;        /* slightly smaller radius */
-    padding: 10px;              /* less padding inside */
+    border-radius: 10px;            /* smaller radius */
+    padding: 8px;                   /* smaller padding */
     overflow: hidden;
+    font-size: 0.8em;               /* scale text down */
   }
 
+  /* Advertisement inside song card */
   .ad-bar {
     width: 100%;
     background: linear-gradient(90deg, #ff0066, #ffcc00);
     color: #fff;
     text-align: center;
-    padding: 10px 0;
-    margin-bottom: 10px;
+    padding: 6px 0;                 /* smaller ad bar */
+    margin-bottom: 8px;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 6px;
     animation: glow 2s infinite alternate;
   }
 
@@ -146,70 +148,76 @@
     100% { box-shadow: 0 0 5px #ff0066; }
   }
 
+  /* Song image inside card */
   .song-row img {
     width: 100%;
-    border-radius: 8px;
-    height: 180px;              /* smaller image height */
+    border-radius: 6px;
+    height: 120px;                 /* half size */
     object-fit: cover;
   }
 
+  /* Song title */
   .song-title {
-    margin-top: 8px;
-    font-size: 1.2em;           /* smaller title */
+    margin-top: 6px;
+    font-size: 1em;                /* smaller title */
     background-color: rgba(0,0,0,0.35);
-    padding: 4px 8px;           /* smaller padding */
-    border-radius: 6px;
+    padding: 3px 6px;
+    border-radius: 5px;
   }
 
+  /* Audio player */
   audio {
     width: 100%;
-    margin-top: 8px;
+    margin-top: 6px;
   }
 
+  /* YouTube embed */
   .youtube-embed {
     width: 100%;
     max-width: 560px;
-    height: 280px;              /* smaller embed height */
-    border-radius: 12px;
+    height: 140px;                 /* half size */
+    border-radius: 8px;
     overflow: hidden;
-    margin: 12px auto;
+    margin: 8px auto;
     display: block;
   }
 
+  /* Download button */
   .download-btn a {
     display: inline-block;
     width: 100%;
-    padding: 12px;              /* smaller button */
+    padding: 6px;                  /* smaller button */
     text-align: center;
     font-weight: bold;
     color: #fff;
     text-decoration: none;
-    border-radius: 10px;
-    margin-top: 8px;
+    border-radius: 6px;
+    margin-top: 6px;
     background: linear-gradient(145deg,#1db954,#1aa34a);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
     transition: all 0.3s ease;
   }
 
   .download-btn a:hover {
-    box-shadow: 0 6px 15px rgba(0,0,0,0.5);
-    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.5);
+    transform: translateY(-1px);
   }
 
+  /* Like/Dislike and Share buttons */
   .like-dislike, .share-buttons {
     display: flex;
     justify-content: flex-start;
-    margin-top: 8px;
-    gap: 8px;
+    margin-top: 6px;
+    gap: 6px;
   }
 
   .like-dislike button, .share-buttons button {
     background-color: rgba(255,255,255,0.2);
     border: none;
-    padding: 8px;
-    border-radius: 6px;
+    padding: 5px;
+    border-radius: 5px;
     cursor: pointer;
-    font-size: 1.1em;
+    font-size: 0.9em;
     color: #fff;
     transition: 0.3s;
   }
@@ -218,18 +226,17 @@
     background-color: rgba(255,255,255,0.4);
   }
 
+  /* Footer */
   footer {
     text-align: center;
-    margin: 40px 0;
-    font-size: 0.9em;
+    margin: 30px 0;
+    font-size: 0.8em;
     opacity: 0.8;
   }
 
-  /* ========================== */
-  /*        RESPONSIVE          */
-  /* ========================== */
+  /* Responsive */
   @media (max-width: 600px) {
-    .youtube-embed { height: 200px; }
+    .youtube-embed { height: 120px; }
     .artist-name { font-size: 1.5em; }
     .artist-bio { font-size: 0.9em; }
   }
@@ -248,7 +255,7 @@
       <span>Home</span>
     </div>
 
-    <!-- ARTIST NAME & BIO STACKED -->
+    <!-- ARTIST NAME & BIO -->
     <div class="artist-text">
       <div class="artist-name">Pboy Halla</div>
       <div class="artist-bio">
@@ -260,22 +267,40 @@
   <!-- Business Ad -->
   <div class="ad-bar">Business Advertisement</div>
 
-  <!-- SONGS SECTION -->
+  <!-- ==================== -->
+  <!-- SONG CARD TEMPLATE -->
+  <!-- ==================== -->
+  <!-- You can copy this <div class="song-card"> block and change IDs, titles, images, and links to add more songs -->
+
   <div class="song-card" id="song1">
     <div class="ad-bar">Advertisement</div>
+
+    <!-- Song image -->
     <div class="song-row"><img src="covers/Song3.png" alt="By My Side"></div>
+
+    <!-- Song title -->
     <div class="song-title">By My Side with Hot Denje</div>
+
+    <!-- Audio player -->
     <audio id="audio-song1" controls>
       <source src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" type="audio/mpeg">
     </audio>
+
+    <!-- YouTube video -->
     <iframe class="youtube-embed" src="https://www.youtube.com/embed/YOUR_VIDEO_ID1" title="YouTube video" frameborder="0" allowfullscreen></iframe>
+
+    <!-- Download button -->
     <div class="download-btn">
       <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>Download</a>
     </div>
+
+    <!-- Like / Dislike buttons -->
     <div class="like-dislike">
       <button onclick="vote('song1','like')"><i class="fa fa-thumbs-up"></i> <span id="song1-like">0</span></button>
       <button onclick="vote('song1','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song1-dislike">0</span></button>
     </div>
+
+    <!-- Share buttons -->
     <div class="share-buttons">
       <button onclick="shareToFacebook('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#By_My_Side_ft_Denje')"><i class="fab fa-facebook"></i></button>
       <button onclick="shareToWhatsApp('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#By_My_Side_ft_Denje')"><i class="fab fa-whatsapp"></i></button>
@@ -284,55 +309,34 @@
     </div>
   </div>
 
-  <div class="song-card" id="song2">
-    <div class="ad-bar">Advertisement</div>
-    <div class="song-row"><img src="covers/Song2.png" alt="Happy Birthday"></div>
-    <div class="song-title">Happy Birthday</div>
-    <audio id="audio-song2" controls>
-      <source src="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" type="audio/mpeg">
-    </audio>
-    <iframe class="youtube-embed" src="https://www.youtube.com/embed/YOUR_VIDEO_ID2" title="YouTube video" frameborder="0" allowfullscreen></iframe>
-    <div class="download-btn">
-      <a href="https://drive.google.com/uc?export=download&id=11k9UXaeqFJKqEJLmhip7GSR09M0I4G7z" download>Download</a>
-    </div>
-    <div class="like-dislike">
-      <button onclick="vote('song2','like')"><i class="fa fa-thumbs-up"></i> <span id="song2-like">0</span></button>
-      <button onclick="vote('song2','dislike')"><i class="fa fa-thumbs-down"></i> <span id="song2-dislike">0</span></button>
-    </div>
-    <div class="share-buttons">
-      <button onclick="shareToFacebook('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')"><i class="fab fa-facebook"></i></button>
-      <button onclick="shareToWhatsApp('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')"><i class="fab fa-whatsapp"></i></button>
-      <a href="https://www.tiktok.com" target="_blank"><button><i class="fab fa-tiktok"></i></button></a>
-      <button onclick="copySongLink('https://pandemalawisounds.github.io/Pandemalawisounds/pboy_halla.html#Happy_Birthday')"><i class="fa fa-link"></i></button>
-    </div>
-  </div>
+  <!-- Add more song cards below using same structure -->
 
   <div class="ad-bar">P&E Techo Advertisement</div>
   <footer>&copy; 2025 Pandemalawi Sounds</footer>
 </div>
 
 <script>
+  /* ===================== */
+  /*   SHARE / COPY / VOTE */
+  /* ===================== */
   function shareToWhatsApp(url) {
     window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
   }
   function shareToFacebook(url) {
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
   }
-
   function goHome() {
     window.location.href = "index.html";  
   }
-
   function copySongLink(url) {
     navigator.clipboard.writeText(url)
       .then(() => alert("Link copied to clipboard!"))
       .catch(() => alert("Failed to copy link"));
   }
-
   function vote(songId, type){
     let el = document.getElementById(`${songId}-${type}`);
     el.textContent = parseInt(el.textContent)+1;
   }
 </script>
 </body>
-  </html>
+      </html>
