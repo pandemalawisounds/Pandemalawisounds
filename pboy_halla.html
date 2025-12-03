@@ -6,6 +6,9 @@
 <title>Pboy Halla - Pandemalawi Sounds</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 <style>
+  /* ========================== */
+  /*        BODY STYLES         */
+  /* ========================== */
   body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -14,6 +17,7 @@
     color: #fff;
     position: relative;
   }
+  /* Dark overlay to make text readable */
   body::before {
     content:"";
     position: fixed;
@@ -21,7 +25,7 @@
     left:0;
     width:100%;
     height:100%;
-    background: rgba(0,0,0,0.35); /* dark overlay like index */
+    background: rgba(0,0,0,0.35);
     z-index: -1;
   }
 
@@ -35,7 +39,7 @@
   /*   ARTIST HEADER CONTAINER   */
   /* ========================== */
   .artist-header {
-    position: relative;  /* needed for absolute positioning of children */
+    position: relative;  /* Needed for absolute positioning of children */
     width: 100%;
   }
 
@@ -48,15 +52,15 @@
   }
 
   /* ========================== */
-  /*   HOME BUTTON TOP-LEFT     */
+  /*      HOME BUTTON TOP-LEFT  */
   /* ========================== */
   .home-btn {
-    position: absolute;   /* overlay on image */
-    top: 15px;            /* distance from top edge */
-    left: 15px;           /* distance from left edge */
-    display: flex;        
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: flex;
     flex-direction: column;
-    align-items: center;           
+    align-items: center;
     justify-content: center;
     width: 70px;
     height: 70px;
@@ -84,28 +88,13 @@
   }
 
   /* ========================== */
-  /*   ARTIST BIO (OLD HOME POS)*/
-  /* ========================== */
-  .artist-bio {
-    position: absolute;       /* overlay on image */
-    top: 20px;                /* moved to old home button position */
-    left: 20px;
-    right: 20px;
-    background-color: rgba(0,0,0,0.5);
-    padding: 15px;
-    border-radius: 10px;
-    font-size: 1em;
-    backdrop-filter: blur(3px);
-  }
-
-  /* ========================== */
-  /*   ARTIST NAME BOTTOM LEFT  */
+  /*   ARTIST NAME ABOVE BIO    */
   /* ========================== */
   .artist-name {
-    position: absolute;  
-    bottom: 20px;         
-    left: 20px;           
-    background-color: rgba(0,0,0,0.4);
+    position: absolute;
+    bottom: 70px;            /* Above bio */
+    left: 20px;
+    background-color: rgba(0,0,0,0.25); /* more transparent */
     padding: 10px 20px;
     border-radius: 8px;
     font-size: 2em;
@@ -113,7 +102,24 @@
     backdrop-filter: blur(3px);
   }
 
-  /* Song card */
+  /* ========================== */
+  /*       ARTIST BIO           */
+  /* ========================== */
+  .artist-bio {
+    position: absolute;
+    bottom: 20px;             /* Bottom of image */
+    left: 20px;
+    right: 20px;
+    background-color: rgba(0,0,0,0.2); /* more transparent */
+    padding: 12px 15px;
+    border-radius: 10px;
+    font-size: 1em;
+    backdrop-filter: blur(3px);
+  }
+
+  /* ========================== */
+  /*        SONG CARD           */
+  /* ========================== */
   .song-card {
     margin-top: 30px;
     background-color: rgba(0,0,0,0.3);
@@ -122,7 +128,6 @@
     overflow: hidden;
   }
 
-  /* Ad bar */
   .ad-bar {
     width: 100%;
     background: linear-gradient(90deg, #ff0066, #ffcc00);
@@ -218,36 +223,39 @@
     opacity: 0.8;
   }
 
+  /* ========================== */
+  /*        RESPONSIVE          */
+  /* ========================== */
   @media (max-width: 600px) {
     .youtube-embed { height: 200px; }
-    .artist-name { font-size: 1.5em; bottom: 15px; }
-    .artist-bio { font-size: 0.9em; top: 15px; }
+    .artist-name { font-size: 1.5em; bottom: 60px; }
+    .artist-bio { font-size: 0.9em; bottom: 15px; }
   }
 </style>
 </head>
 <body>
 <div class="container">
 
-  <!-- Artist Header -->
+  <!-- ARTIST HEADER -->
   <div class="artist-header">
     <img src="covers/Pboy1.jpg" alt="Pboy Halla Cover">
 
-    <!-- HOME BUTTON -->
+    <!-- HOME BUTTON TOP LEFT -->
     <div class="home-btn" onclick="goHome()">
       <div class="home-icon">🏠</div>
       <span>Home</span>
     </div>
 
-    <!-- ARTIST BIO -->
+    <!-- ARTIST NAME (ABOVE BIO) -->
+    <div class="artist-name">Pboy Halla</div>
+
+    <!-- ARTIST BIO (BOTTOM OF IMAGE) -->
     <div class="artist-bio">
       Pboy Halla is a Malawian musician known for his modern fusion of Afrobeat and hip-hop, bringing unique melodies and powerful lyrics to life.
     </div>
-
-    <!-- ARTIST NAME -->
-    <div class="artist-name">Pboy Halla</div>
   </div>
 
-  <!-- Business Ad after picture -->
+  <!-- Business Ad -->
   <div class="ad-bar">Business Advertisement</div>
 
   <!-- SONGS SECTION (unchanged) -->
@@ -298,7 +306,6 @@
   </div>
 
   <div class="ad-bar">P&E Techo Advertisement</div>
-
   <footer>&copy; 2025 Pandemalawi Sounds</footer>
 </div>
 
@@ -326,4 +333,4 @@
   }
 </script>
 </body>
-</html>
+  </html>
