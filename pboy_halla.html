@@ -319,24 +319,71 @@
   /* ===================== */
   /*   SHARE / COPY / VOTE */
   /* ===================== */
+
+  // Share link to WhatsApp
   function shareToWhatsApp(url) {
     window.open(`https://wa.me/?text=${encodeURIComponent(url)}`, '_blank');
   }
+
+  // Share link to Facebook
   function shareToFacebook(url) {
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
   }
+
+  // Go back to home page
   function goHome() {
     window.location.href = "index.html";  
   }
+
+  // Copy song link to clipboard
   function copySongLink(url) {
     navigator.clipboard.writeText(url)
       .then(() => alert("Link copied to clipboard!"))
       .catch(() => alert("Failed to copy link"));
   }
+
+  // Vote for like or dislike
   function vote(songId, type){
     let el = document.getElementById(`${songId}-${type}`);
     el.textContent = parseInt(el.textContent)+1;
   }
+
+  /* ===================== */
+  /*   STREAMING MESSAGE   */
+  /* ===================== */
+
+  // Select all audio players (so it works for multiple songs)
+  const audioPlayers = document.querySelectorAll('audio');
+
+  // Loop through each audio player
+  audioPlayers.forEach(player => {
+    player.addEventListener('play', () => {
+      // Pause the audio immediately
+      player.pause();
+
+      // Create a temporary message element
+      const msg = document.createElement('div');
+      msg.innerText = 'Streaming Coming Soon!'; // Message displayed when play is pressed
+      // Style the message
+      msg.style.position = 'absolute';
+      msg.style.top = '50%';
+      msg.style.left = '50%';
+      msg.style.transform = 'translate(-50%, -50%)';
+      msg.style.backgroundColor = 'rgba(0,0,0,0.7)';
+      msg.style.color = '#fff';
+      msg.style.padding = '15px 25px';
+      msg.style.borderRadius = '10px';
+      msg.style.fontSize = '1.5em';
+      msg.style.zIndex = '9999';
+      msg.style.textAlign = 'center';
+
+      // Add the message to the body
+      document.body.appendChild(msg);
+
+      // Remove the message after 4 seconds
+      setTimeout(() => msg.remove(), 4000);
+    });
+  });
 </script>
 </body>
       </html>
