@@ -699,80 +699,99 @@ window.addEventListener('load', function() {
     el.textContent = parseInt(el.textContent)+1;
   }
 
-  // ================ YOUTUBE AUDIO STREAMING =================
-  // Keep track of all YouTube players
-  const ytPlayers = {};
+/* ===========================
+   YOUTUBE AUDIO STREAMING SCRIPT
+   =========================== */
 
-  // Function to load YouTube IFrame API
-  function loadYouTubeAPI() {
-    if (!window.YT) {
-      const tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
+/* Object to keep track of all YouTube players */
+const ytPlayers = {};
+
+/* Function to load the YouTube IFrame API */
+function loadYouTubeAPI() {
+  if (!window.YT) {
+    const tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
   }
+}
 
-  loadYouTubeAPI();
+/* Load the API */
+loadYouTubeAPI();
 
-  // After API is ready
-  function onYouTubeIframeAPIReady() {
-    document.querySelectorAll('audio').forEach(audio => {
-      const ytId = audio.getAttribute('data-youtube-id'); // Assign each audio a YouTube ID
-      if (!ytId) return;
+/* This function is called automatically by YouTube API when ready */
+function onYouTubeIframeAPIReady() {
 
-      // Create hidden player div
-      const playerDiv = document.createElement('div');
-      playerDiv.id = 'yt-' + ytId;
-      playerDiv.style.width = '0px';
-      playerDiv.style.height = '0px';
-      playerDiv.style.overflow = 'hidden';
-      document.body.appendChild(playerDiv);
+  // Find all YouTube audio divs
+  document.querySelectorAll('.youtube-audio').forEach(div => {
 
-      // Create YouTube player
-      ytPlayers[ytId] = new YT.Player(playerDiv.id, {
-        height: '0',
-        width: '0',
-        videoId: ytId,
-        playerVars: {
-          autoplay: 0,
-          controls: 0,
-          rel: 0,
-          modestbranding: 1,
-          playsinline: 1
+    const videoId = div.getAttribute('data-video-id'); // Get YouTube ID
+    if(!videoId) return;
+
+    // Create a hidden div to attach the YouTube player
+    const playerDiv = document.createElement('div');
+    playerDiv.id = 'yt-' + videoId;
+    playerDiv.style.width = '0px';   // hidden width
+    playerDiv.style.height = '0px';  // hidden height
+    div.appendChild(playerDiv);
+
+    // Create YouTube player
+    ytPlayers[videoId] = new YT.Player(playerDiv.id, {
+      videoId: videoId,
+      playerVars: {
+        autoplay: 0,      // do not autoplay
+        controls: 0,      // hide controls
+        rel: 0,           // no related videos
+        modestbranding: 1,
+        playsinline: 1
+      },
+      events: {
+        onReady: function(event) {
+          // Optional: can auto-attach play/pause listeners here
         },
-        events: {
-          onStateChange: function(event) {
-            if(event.data === YT.PlayerState.ENDED){
-              audio.pause();
-            }
+        onStateChange: function(event) {
+          // Stop player when video ends
+          if(event.data === YT.PlayerState.ENDED){
+            // do something if needed
           }
         }
-      });
-
-      // Override audio play
-      audio.addEventListener('play', () => {
-        // Pause all other audios
-        document.querySelectorAll('audio').forEach(a => {
-          if(a !== audio) a.pause();
-        });
-
-        // Stop other YouTube players
-        Object.keys(ytPlayers).forEach(id => {
-          if(id !== ytId && ytPlayers[id].getPlayerState() === 1) ytPlayers[id].pauseVideo();
-        });
-
-        // Play YouTube audio
-        ytPlayers[ytId].playVideo();
-        audio.pause(); // Prevent default audio from playing
-      });
-
-      audio.addEventListener('pause', () => {
-        ytPlayers[ytId].pauseVideo();
-      });
+      }
     });
-    }
-  
+
+    // Add a transparent play button
+    const playBtn = document.createElement('button');
+    playBtn.textContent = "▶ Play Audio";
+    playBtn.style.background = 'transparent';
+    playBtn.style.color = '#fff';
+    playBtn.style.border = '1px solid #fff';
+    playBtn.style.padding = '6px 12px';
+    playBtn.style.borderRadius = '5px';
+    playBtn.style.cursor = 'pointer';
+    playBtn.style.marginTop = '5px';
+    div.appendChild(playBtn);
+
+    // Play/pause logic
+    let isPlaying = false;
+
+    playBtn.addEventListener('click', () => {
+      if(!isPlaying){
+        // Pause all other players
+        Object.keys(ytPlayers).forEach(id => {
+          if(id !== videoId) ytPlayers[id].pauseVideo();
+        });
+
+        ytPlayers[videoId].playVideo();
+        playBtn.textContent = "⏸ Pause Audio";
+        isPlaying = true;
+      } else {
+        ytPlayers[videoId].pauseVideo();
+        playBtn.textContent = "▶ Play Audio";
+        isPlaying = false;
+      }
+    });
+
+  });
+}
 </script>
 </body>
       </html>
