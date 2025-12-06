@@ -357,43 +357,33 @@
     src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/praise-chiwaula/happy-birthday-hot-denje-x-p-1&auto_play=false&show_comments=false&show_user=false&show_artwork=false&visual=false">
 </iframe>
 
-<!-- Custom round play/pause button -->
-<button id="playPauseBtn"></button>
+<!-- Custom Website-Style Button -->
+<button id="playPauseBtn" class="audio-btn">Play Audio</button>
 
 <style>
-/* Round, 3D, and slightly transparent button */
-#playPauseBtn {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  border: none;
-  background: linear-gradient(145deg, #ffffff, #d1d1d1); /* 3D effect */
-  box-shadow: 5px 5px 15px #aaa, -5px -5px 15px #fff;
+/* Website-style transparent rounded button */
+.audio-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.15);   /* transparent white */
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  color: white;
+  font-size: 15px;
+  font-weight: 500;
   cursor: pointer;
-  position: relative;
-  outline: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 30px;
-  color: Transparent; /* accent color */
-  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  transition: 0.25s ease;
 }
 
-#playPauseBtn:hover {
-  transform: scale(1.1);
-  box-shadow: 3px 3px 10px #888, -3px -3px 10px #fff;
+.audio-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
 }
 
-/* Play icon */
-#playPauseBtn.play::before {
-  content: "►";
-  margin-left: 5px;
-}
-
-/* Pause icon */
-#playPauseBtn.pause::before {
-  content: "❚❚";
+/* When audio is playing */
+.audio-btn.playing {
+  border-color: #ff4444;     /* optional highlight */
+  color: #ff4444;            /* optional highlight */
 }
 </style>
 
@@ -405,22 +395,19 @@ var widget = SC.Widget(iframeElement);
 var btn = document.getElementById('playPauseBtn');
 var isPlaying = false;
 
-// Initialize button
-btn.classList.add('play');
-
 btn.addEventListener('click', function() {
   if (!isPlaying) {
     widget.play();
-    btn.classList.remove('play');
-    btn.classList.add('pause');
+    btn.textContent = "Pause Audio"; 
+    btn.classList.add("playing");
   } else {
     widget.pause();
-    btn.classList.remove('pause');
-    btn.classList.add('play');
+    btn.textContent = "Play Audio";
+    btn.classList.remove("playing");
   }
   isPlaying = !isPlaying;
 });
-  </script>
+</script>
 
   <!-- YouTube video (existing) -->
   <iframe class="youtube-embed" 
