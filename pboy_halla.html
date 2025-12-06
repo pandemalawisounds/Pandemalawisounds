@@ -472,9 +472,7 @@ btn.addEventListener('click', function() {
           allowfullscreen>
   </iframe>
 
-  <!-- YouTube audio streaming player (transparent) -->
-  <div class="youtube-audio" data-video-id="3T1mdnkUQmY"></div>
-
+  
   <!-- Download button -->
   <div class="download-btn">
     <a href="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" download>Download</a>
@@ -541,58 +539,7 @@ btn.addEventListener('click', function() {
     allow="autoplay"
     src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/praise-chiwaula/nataria-p-bouy-x-hot-denje&auto_play=false&show_comments=false&show_user=false&show_artwork=false&visual=false">
 </iframe>
-  
-<!-- Custom Website-Style Button -->
-<button id="playPauseBtn" class="audio-btn">Play Audio</button>
 
-<style>
-/* Website-style transparent rounded button */
-.audio-btn {
-  padding: 10px 20px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.15);   /* transparent white */
-  border: 1px solid rgba(255, 255, 255, 0.9);
-  color: white;
-  font-size: 15px;
-  font-weight: 500;
-  cursor: pointer;
-  backdrop-filter: blur(4px);
-  transition: 0.25s ease;
-}
-
-.audio-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.05);
-}
-
-/* When audio is playing */
-.audio-btn.playing {
-  border-color: #ff4444;     /* optional highlight */
-  color: #ff4444;            /* optional highlight */
-}
-</style>
-
-<script src="https://w.soundcloud.com/player/api.js"></script>
-<script>
-var iframeElement = document.getElementById('sc-player');
-var widget = SC.Widget(iframeElement);
-
-var btn = document.getElementById('playPauseBtn');
-var isPlaying = false;
-
-btn.addEventListener('click', function() {
-  if (!isPlaying) {
-    widget.play();
-    btn.textContent = "Pause Audio"; 
-    btn.classList.add("playing");
-  } else {
-    widget.pause();
-    btn.textContent = "Play Audio";
-    btn.classList.remove("playing");
-  }
-  isPlaying = !isPlaying;
-});
-</script>
   <!-- Download button -->
   <div class="download-btn">
     <a href="YOUR_AUDIO_LINK_HERE.mp3" download>Download</a>
