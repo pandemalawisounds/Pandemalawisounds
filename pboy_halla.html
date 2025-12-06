@@ -343,11 +343,31 @@
 
   <!-- Song title -->
   <div class="song-title">Happy Birthday with Hot Denje</div>
+<!-- ========================= -->
+<!-- SoundCloud Stream Player -->
+<!-- Track: Happy Birthday Hot Denje x P -->
+<!-- ========================= -->
 
-  <!-- Audio player (original) -->
-  <audio id="audio-Happy_Birthday_with_Hot_Denje" controls>
-    <source src="https://drive.google.com/uc?export=download&id=1-9WOA8icVV69KMB2R7dDv6tDZZIzusVp" type="audio/mpeg">
-  </audio>
+<iframe 
+  width="100%"  <!-- sets the player width: 100% makes it responsive to container width -->
+  height="120"  <!-- sets the player height; you can adjust if you want bigger player -->
+  scrolling="no"  <!-- disables internal iframe scrollbars -->
+  frameborder="no"  <!-- removes border around iframe -->
+  allow="autoplay"  <!-- allows autoplay if needed — usually false but depends on user/browser settings -->
+  src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/praise-chiwaula/happy-birthday-hot-denje-x-p-1&color=%23ff5500&auto_play=false&show_comments=false&show_user=true">
+</iframe>
+
+<!-- 
+
+Explanation of parameters in the src URL:
+
+- url=   → the full SoundCloud track URL (encoded).
+- color=#ff5500 → the accent color for the player controls (here it's orange, default SoundCloud color).
+- auto_play=false → prevents the track from auto‑playing when page loads.
+- show_comments=false → hides comments overlay inside the player (cleaner look).
+- show_user=true → shows the artist/username in the player header.
+
+-->
 
   <!-- YouTube video (existing) -->
   <iframe class="youtube-embed" 
@@ -356,9 +376,6 @@
           frameborder="0" 
           allowfullscreen>
   </iframe>
-
-  <!-- YouTube audio streaming player (new, transparent) -->
-  <div class="youtube-audio" data-video-id="YOUR_VIDEO_ID"></div>
 
   <!-- Download button -->
   <div class="download-btn">
