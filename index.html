@@ -140,6 +140,72 @@
   color: #000000 !important;      /* force black for anything inside dropdown */
   mix-blend-mode: normal !important;
       }
+    /* ===========================================
+   SONG LIST BAR STYLE (Latest & Trending)
+   =========================================== */
+.song-list {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Each song bar */
+.song-bar {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: 0.2s ease;
+    text-decoration: none;
+    color: #000;
+}
+
+/* Hover effect */
+.song-bar:hover {
+    transform: scale(1.02);
+}
+
+/* Left image */
+.song-img {
+    width: 55px;
+    height: 55px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-right: 12px;
+}
+
+/* Song text (middle) */
+.song-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+/* Title */
+.song-title {
+    font-weight: bold;
+}
+
+/* Artist name */
+.song-artist {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+/* Play/Download on the right */
+.song-action {
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    background: #eee;
+    font-weight: bold;
+}
 
     /* FLASHING ADS (style kept same) */  
     .ad-strip {  
@@ -527,13 +593,62 @@
 
   <p class="tap-to-view">Tap to view trending songs</p>
   <div class="slide-song-list" id="trendingList">
-    <ul>
-      <li>Club Banger – Artist X</li>
-      <li>Track 2 – Artist Y</li>
-      <li>Track 3 – Artist Z</li>
-      <li>Track 4 – Artist A</li>
-      <li>Track 5 – Artist B</li>
-    </ul>
+    <!-- ===========================================
+     TRENDING SONGS
+     =========================================== -->
+<div class="song-list">
+
+    <!-- 1. MALAWIAN GIRLS -->
+    <div class="song-bar" data-link="pboy-halla.html#malawian-girls">
+        <img src="img/malawian-girls.jpg" class="song-img" alt="">
+        <div class="song-info">
+            <div class="song-title">Malawian Girls</div>
+            <div class="song-artist">Pboy Halla</div>
+        </div>
+        <div class="song-action">Listen</div>
+    </div>
+
+    <!-- 2. FIND YOUR WAY -->
+    <div class="song-bar" data-link="hot-denje.html#find-your-way">
+        <img src="img/find-your-way.jpg" class="song-img" alt="">
+        <div class="song-info">
+            <div class="song-title">Find Your Way</div>
+            <div class="song-artist">Hot Denje</div>
+        </div>
+        <div class="song-action">Listen</div>
+    </div>
+
+    <!-- 3. KUMAMUMVESESA -->
+    <div class="song-bar" data-link="hot-denje.html#kumamumvesesa">
+        <img src="img/kumamumvesesa.jpg" class="song-img" alt="">
+        <div class="song-info">
+            <div class="song-title">Kumamumvesesa</div>
+            <div class="song-artist">Hot Denje</div>
+        </div>
+        <div class="song-action">Listen</div>
+    </div>
+
+    <!-- PLACEHOLDER A -->
+    <div class="song-bar" data-link="#">
+        <img src="img/placeholder.jpg" class="song-img" alt="">
+        <div class="song-info">
+            <div class="song-title">Song Title Here</div>
+            <div class="song-artist">Artist Name</div>
+        </div>
+        <div class="song-action">Listen</div>
+    </div>
+
+    <!-- PLACEHOLDER B -->
+    <div class="song-bar" data-link="#">
+        <img src="img/placeholder.jpg" class="song-img" alt="">
+        <div class="song-info">
+            <div class="song-title">Song Title Here</div>
+            <div class="song-artist">Artist Name</div>
+        </div>
+        <div class="song-action">Listen</div>
+    </div>
+
+</div>
   </div>
 </div>
 </div>
@@ -572,19 +687,66 @@
 
   <p class="tap-to-view">Tap to view latest songs</p>
   <div class="slide-song-list" id="latestList">
-    <ul>
-      <li>Track 1 – Artist 1</li>
-      <li>Track 2 – Artist 2</li>
-      <li>Track 3 – Artist 3</li>
-      <li>Track 4 – Artist 4</li>
-      <li>Track 5 – Artist 5</li>
-      <li>Track 6 – Artist 6</li>
-      <li>Track 7 – Artist 7</li>
-      <li>Track 8 – Artist 8</li>
-      <li>Track 9 – Artist 9</li>
-      <li>Track 10 – Artist 10</li>
-    </ul>
-  </div>
+    <!-- ===========================================
+     LATEST UPLOADS
+     =========================================== -->
+<div class="song-list">
+
+    <!-- 1. YOU NEVER ALONE -->
+    <div class="song-bar" data-link="pboy-halla.html#you-never-alone">
+        <img src="img/you-never-alone.jpg" class="song-img" alt="">
+        <div class="song-info">
+            <div class="song-title">You Never Alone</div>
+            <div class="song-artist">Pboy Halla</div>
+        </div>
+        <div class="song-action">Listen</div>
+    </div>
+
+    <!-- 2. KUMAMUMVESESA -->
+    <div class="song-bar" data-link="hot-denje.html#kumamumvesesa">
+        <img src="img/kumamumvesesa.jpg" class="song-img" alt="">
+        <div class="song-info">
+            <div class="song-title">Kumamumvesesa</div>
+            <div class="song-artist">Hot Denje</div>
+        </div>
+        <div class="song-action">Listen</div>
+    </div>
+
+    <!-- 3. HOLIDAY -->
+    <div class="song-bar" data-link="nataria.html#holiday">
+        <img src="img/holiday.jpg" class="song-img" alt="">
+        <div class="song-info">
+            <div class="song-title">Holiday</div>
+            <div class="song-artist">Nataria</div>
+        </div>
+        <div class="song-action">Listen</div>
+    </div>
+
+    <!-- 4–10 PLACEHOLDERS TO ADD MORE SONGS -->
+    
+    <!-- PLACEHOLDER 4 -->
+    <!-- Copy this block and edit title/artist/link -->
+    <div class="song-bar" data-link="#">
+        <img src="img/placeholder.jpg" class="song-img" alt="">
+        <div class="song-info">
+            <div class="song-title">Song Title Here</div>
+            <div class="song-artist">Artist Name</div>
+        </div>
+        <div class="song-action">Listen</div>
+    </div>
+
+    <!-- PLACEHOLDER 5 -->
+    <div class="song-bar" data-link="#">
+        <img src="img/placeholder.jpg" class="song-img" alt="">
+        <div class="song-info">
+            <div class="song-title">Song Title Here</div>
+            <div class="song-artist">Artist Name</div>
+        </div>
+        <div class="song-action">Listen</div>
+    </div>
+
+    <!-- Add more placeholders 6 to 10 the same way -->
+</div>
 </div>
   <!-- 5️⃣ AD AFTER LATEST UPLOADS -->
   <div class="section">
@@ -971,6 +1133,15 @@ function searchSongs() {
 
     showNextSlide();
   }
+  
+/* ===========================================
+   Smooth Scroll to Artist Song
+   =========================================== */
+document.querySelectorAll('.song-bar').forEach(bar => {
+    bar.addEventListener('click', function () {
+        window.location.href = this.getAttribute('data-link');
+    });
+});
 
   // INIT SLIDESHOWS WHEN PAGE LOADS
   document.addEventListener("DOMContentLoaded", function() {
