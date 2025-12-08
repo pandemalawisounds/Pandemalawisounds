@@ -342,85 +342,104 @@
   z-index: 5;             /* ensure caption is above the image */
     }
 
-    /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
-    .artist-container {  
-      display: flex;  
-      flex-direction: column;  
-      gap: 1rem;  
-    }  
-    .artist-box {  
-      background: rgba(255, 255, 255, 0.05);  
-      border: 1px solid rgba(255,255,255,0.15);  
-      padding: 10px;  
-      display: flex;  
-      align-items: center;  
-      cursor: pointer;  
-      overflow: hidden;  
-      transition: all 0.4s ease;  
-      flex-wrap: wrap;  
-    }  
-    .artist-box img {  
-      width: 80px;  
-      height: 80px;  
-      object-fit: cover;  
-      border-radius: 8px;  
-      margin-right: 15px;  
-      transition: all 0.4s ease;  
-    }  
-    .artist-info {  
-      flex: 1;  
-    }  
-    .artist-name {  
-      font-size: 18px;  
-      font-weight: bold;  
-      margin: 0;  
-    }  
-    .artist-bio {  
-      font-size: 12px;  
-      color: rgba(255,255,255,0.85);  
-      overflow: hidden;  
-      max-height: 30px;  
-      transition: all 0.4s ease;  
-    }  
-    .songs {  
-      display: none;  
-      margin-top: 10px;  
-      padding-left: 18px;  
-    }  
-    .songs li {  
-      font-size: 14px;  
-      color: #fff;  
-      margin: 3px 0;  
-    }  
-    .more-link {  
-      color: #00ffd5;  
-      font-weight: bold;  
-      cursor: pointer;  
-      margin-top: 5px;  
-      display: inline-block;  
-    }  
-    .artist-box:hover {  
-      background: rgba(255,255,255,0.1);  
-      box-shadow: 0 0 15px rgba(0,255,255,0.15);  
-      transform: translateY(-2px);  
-    }  
-    .expanded {  
-      flex-direction: column;  
-      align-items: center;  
-      text-align: center;  
-    }  
-    .expanded img {  
-      margin: 0 0 10px 0;  
-      width: 150px;  
-      height: 150px;  
-    }  
-    .expanded .artist-bio {  
-      max-height: 500px;  
-      color: #fff;  
-    }  
-    .expanded .songs {  
-      display: block;  
-    }  
+/* ===== Featured Artists — Advanced styles ===== */
+.artist-scroll-container {
+  max-height: 350px;      /* shows ~3 artists before scrolling */
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* artist card */
+.artist-box {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  padding: 10px;
+  margin-bottom: 12px;
+  transition: box-shadow .18s ease;
+}
+
+/* header row */
+.artist-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.artist-photo {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
+.artist-name {
+  font-size: 15px;
+  font-weight: 700;
+  flex: 1;
+  color: #111;
+}
+
+/* arrow / toggle icon */
+.dropdown-icon {
+  transition: transform .25s ease, opacity .18s ease;
+  opacity: 0.75;
+  font-size: 14px;
+  transform-origin: 50% 45%;
+}
+
+/* rotated arrow state */
+.dropdown-icon.open {
+  transform: rotate(-180deg);
+}
+
+/* animated dropdown content (we animate max-height) */
+.animated-dropdown {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .35s cubic-bezier(.2,.9,.2,1);
+}
+
+/* visible state */
+.animated-dropdown.open {
+  /* max-height is set inline by JS to dropdown.scrollHeight + 'px' */
+}
+
+/* song item */
+.song-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #222;
+  font-size: 14px;
+}
+
+/* small icon for song */
+.song-icon {
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+/* "More" link */
+.artist-more {
+  display: inline-block;
+  margin-top: 8px;
+  color: #0077cc;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* subtle hover */
+.artist-box:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+
+/* make sure artist header content doesn't wrap weirdly on mobile */
+.artist-header .artist-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
     /* ========== PAYMENT SECTION (unchanged) ========== */  
     .payment-section {  
@@ -904,130 +923,174 @@
           <p class="artist-bio">Versatile Malawian rapper and songwriter with a passion for afro-pop and rap music.</p>  
           <div class="song-list">
 <!-- Featured Artists Content (Hidden by default) -->
-<div class="content" style="display: none;">
-    <!-- your songs go here -->
-    <!-- 1. MALAWIAN GIRLS -->
-    <div class="song-bar" data-link="pboy-halla.html#malawian-girls">
-        <img src="img/malawian-girls.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Malawian Girls</div>
-            <div class="song-artist">Pboy Halla</div>
+<!-- ============================= -->
+<!-- FEATURED ARTISTS (Scroll List) -->
+<!-- ============================= -->
+
+<div class="section-title">Featured Artists</div>
+
+<!-- Scroll Container -->
+<div class="artist-scroll-container">
+
+    <!-- ARTIST TEMPLATE START (10 samples included) -->
+    
+    <!-- ========== ARTIST 1 ========== -->
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/artist1.jpg" class="artist-photo" alt="">
+            <div class="artist-name">Hot Denje</div>
+            <span class="dropdown-icon">▼</span>
         </div>
-        <div class="song-action">Listen</div>
+
+        <div class="artist-songs animated-dropdown">
+
+            <!-- Song 1 -->
+            <div class="song-item" onclick="goToSong('HotDenje.html','denje-song1')">
+                <span class="song-icon">♪</span> Happy Birthday
+            </div>
+
+            <!-- ✨ ADD MORE SONGS BELOW -->
+
+
+            <span class="artist-more" onclick="goToArtistPage(event,'HotDenje.html')">More</span>
+        </div>
     </div>
 
-    <!-- 2. FIND YOUR WAY -->
-    <div class="song-bar" data-link="hot-denje.html#find-your-way">
-        <img src="img/find-your-way.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Find Your Way</div>
-            <div class="song-artist">Hot Denje</div>
+
+
+    <!-- ========== ARTIST 2 ========== -->
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/artist2.jpg" class="artist-photo" alt="">
+            <div class="artist-name">Jonarp</div>
+            <span class="dropdown-icon">▼</span>
         </div>
-        <div class="song-action">Listen</div>
+
+        <div class="artist-songs animated-dropdown">
+
+            <div class="song-item" onclick="goToSong('Jonarp.html','jonarp-song1')">
+                <span class="song-icon">♪</span> Nataria
+            </div>
+
+            <!-- ✨ ADD MORE SONGS BELOW -->
+
+            <span class="artist-more" onclick="goToArtistPage(event,'Jonarp.html')">More</span>
+        </div>
     </div>
 
-    <!-- 3. KUMAMUMVESESA -->
-    <div class="song-bar" data-link="hot-denje.html#kumamumvesesa">
-        <img src="img/kumamumvesesa.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Kumamumvesesa</div>
-            <div class="song-artist">Hot Denje</div>
+
+
+    <!-- ========== ARTIST 3 ========== -->
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/artist3.jpg" class="artist-photo" alt="">
+            <div class="artist-name">P Boy Halla</div>
+            <span class="dropdown-icon">▼</span>
         </div>
-        <div class="song-action">Listen</div>
+
+        <div class="artist-songs animated-dropdown">
+
+            <div class="song-item" onclick="goToSong('PBoyHalla.html','pboy-song1')">
+                <span class="song-icon">♪</span> By My Side
+            </div>
+
+            <!-- ✨ ADD MORE SONGS BELOW -->
+
+            <span class="artist-more" onclick="goToArtistPage(event,'PBoyHalla.html')">More</span>
+        </div>
     </div>
 
-    <!-- PLACEHOLDER A -->
-    <div class="song-bar" data-link="#">
-        <img src="img/placeholder.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Song Title Here</div>
-            <div class="song-artist">Artist Name</div>
+
+
+    <!-- ========== ARTIST 4–10 (Samples) ========== -->
+    <!-- Just change name + image + link -->
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/a4.jpg" class="artist-photo">
+            <div class="artist-name">Denje</div>
+            <span class="dropdown-icon">▼</span>
         </div>
-        <div class="song-action">Listen</div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
+            <span class="artist-more">More</span>
+        </div>
     </div>
 
-    <!-- PLACEHOLDER B -->
-    <div class="song-bar" data-link="#">
-        <img src="img/placeholder.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Song Title Here</div>
-            <div class="song-artist">Artist Name</div>
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/a5.jpg" class="artist-photo">
+            <div class="artist-name">Brada Fifi</div>
+            <span class="dropdown-icon">▼</span>
         </div>
-        <div class="song-action">Listen</div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
+            <span class="artist-more">More</span>
+        </div>
     </div>
 
-          <span class="more-link" onclick="goToArtistPage(event,'Ric_fabs.html')">More</span>  
-        </div>  
-      </div>  
-</div>
-      <!-- Jonarp -->  
-      <div class="artist-box" onclick="toggleArtist(this)">  
-        <img src="covers/Jonarp.jpg" alt="Jonarp">  
-        <div class="artist-info">  
-          <p class="artist-name">Jonarp</p>  
-          <p class="artist-bio">Malawian Trapper known for his unique style.</p>  
-          <div class="song-list">
-
-    <!-- 1. MALAWIAN GIRLS --><!-- Featured Artists Content (Hidden by default) -->
-<div class="content" style="display: none;">
-    <!-- your songs go here -->
-    <div class="song-bar" data-link="pboy-halla.html#malawian-girls">
-        <img src="img/malawian-girls.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Malawian Girls</div>
-            <div class="song-artist">Pboy Halla</div>
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/a6.jpg" class="artist-photo">
+            <div class="artist-name">Loy Musiq</div>
+            <span class="dropdown-icon">▼</span>
         </div>
-        <div class="song-action">Listen</div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
+            <span class="artist-more">More</span>
+        </div>
     </div>
 
-    <!-- 2. FIND YOUR WAY -->
-    <div class="song-bar" data-link="hot-denje.html#find-your-way">
-        <img src="img/find-your-way.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Find Your Way</div>
-            <div class="song-artist">Hot Denje</div>
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/a7.jpg" class="artist-photo">
+            <div class="artist-name">Zach</div>
+            <span class="dropdown-icon">▼</span>
         </div>
-        <div class="song-action">Listen</div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
+            <span class="artist-more">More</span>
+        </div>
     </div>
 
-    <!-- 3. KUMAMUMVESESA -->
-    <div class="song-bar" data-link="hot-denje.html#kumamumvesesa">
-        <img src="img/kumamumvesesa.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Kumamumvesesa</div>
-            <div class="song-artist">Hot Denje</div>
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/a8.jpg" class="artist-photo">
+            <div class="artist-name">Black Nyanda</div>
+            <span class="dropdown-icon">▼</span>
         </div>
-        <div class="song-action">Listen</div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
+            <span class="artist-more">More</span>
+        </div>
     </div>
 
-    <!-- PLACEHOLDER A -->
-    <div class="song-bar" data-link="#">
-        <img src="img/placeholder.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Song Title Here</div>
-            <div class="song-artist">Artist Name</div>
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/a9.jpg" class="artist-photo">
+            <div class="artist-name">Xabit</div>
+            <span class="dropdown-icon">▼</span>
         </div>
-        <div class="song-action">Listen</div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
+            <span class="artist-more">More</span>
+        </div>
     </div>
 
-    <!-- PLACEHOLDER B -->
-    <div class="song-bar" data-link="#">
-        <img src="img/placeholder.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Song Title Here</div>
-            <div class="song-artist">Artist Name</div>
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/a10.jpg" class="artist-photo">
+            <div class="artist-name">Young Vybz</div>
+            <span class="dropdown-icon">▼</span>
         </div>
-        <div class="song-action">Listen</div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
+            <span class="artist-more">More</span>
+        </div>
     </div>
 
-          <span class="more-link" onclick="goToArtistPage(event,'Jonarp.html')">More</span>  
-        </div>  
-      </div>  
-    </div>  
-  </div>  
-        
-</div>
-        
+    <!-- ARTIST TEMPLATE END -->
+
+              </div>
   <!-- 7️⃣ SPONSORED ADS (same as your original "Sponsored Ads" section) -->  
   <div class="section ads">  
     <h3>Sponsored Ads</h3>  
@@ -1307,6 +1370,166 @@ function searchSongs() {
 
     showNextSlide();
   }
+
+/*
+  Full-Pro Featured Artists Script
+  - Uses event delegation so it works if you add artists dynamically
+  - Auto-closes other artists (accordion)
+  - Rotates arrow icon
+  - Smooth open/close (uses maxHeight)
+  - Prevents rapid double toggles (debounce guard per dropdown)
+  - Scrolls the container to keep the opened artist visible
+  - goToSong(page, songId) will open target page and we rely on a small snippet on the artist page to scroll to the exact element
+*/
+
+(function() {
+  // Selectors (change if you used different class names)
+  const scrollContainerSelector = '.artist-scroll-container';
+  const artistBoxSelector = '.artist-box';
+  const artistHeaderSelector = '.artist-header';
+  const dropdownContentSelector = '.animated-dropdown';
+  const dropdownIconSelector = '.dropdown-icon';
+
+  // Grab the scroll container (there may be many; we handle the first)
+  const artistScrollContainer = document.querySelector(scrollContainerSelector);
+
+  // Guard
+  if (!artistScrollContainer) return;
+
+  // Helper: close a dropdown element
+  function closeDropdown(dropdown, icon) {
+    if (!dropdown) return;
+    dropdown.style.maxHeight = '0px';
+    dropdown.classList.remove('open');
+    if (icon) icon.classList.remove('open');
+    // remove guard flag
+    dropdown._isAnimating = false;
+  }
+
+  // Helper: open a dropdown element
+  function openDropdown(dropdown, icon) {
+    if (!dropdown) return;
+    // ensure not already animating
+    if (dropdown._isAnimating) return;
+    dropdown._isAnimating = true;
+
+    // set maxHeight to scrollHeight to animate open
+    const full = dropdown.scrollHeight;
+    dropdown.style.maxHeight = full + 'px';
+    dropdown.classList.add('open');
+    if (icon) icon.classList.add('open');
+
+    // after transition finishes, remove animating flag
+    dropdown.addEventListener('transitionend', function handler(e) {
+      if (e.propertyName === 'max-height') {
+        dropdown._isAnimating = false;
+        dropdown.removeEventListener('transitionend', handler);
+        // keep maxHeight set to full so future reads are stable
+        dropdown.style.maxHeight = full + 'px';
+      }
+    });
+  }
+
+  // Close all other dropdowns except the one provided
+  function closeOthers(exceptDropdown) {
+    const all = artistScrollContainer.querySelectorAll(dropdownContentSelector);
+    all.forEach(d => {
+      if (d !== exceptDropdown) {
+        const parent = d.closest(artistBoxSelector);
+        const icon = parent ? parent.querySelector(dropdownIconSelector) : null;
+        closeDropdown(d, icon);
+      }
+    });
+  }
+
+  // Keep the opened artist visible inside the scroll box
+  function scrollIntoViewIfNeeded(artistBox) {
+    if (!artistBox) return;
+    const container = artistScrollContainer;
+    const boxRect = artistBox.getBoundingClientRect();
+    const contRect = container.getBoundingClientRect();
+
+    // if the top is above the container top OR bottom is below container bottom, scroll
+    if (boxRect.top < contRect.top || boxRect.bottom > contRect.bottom) {
+      // compute how much to scroll so the artistBox appears near top with small padding
+      const offset = boxRect.top - contRect.top - 12; // 12px padding
+      container.scrollBy({ top: offset, left: 0, behavior: 'smooth' });
+    }
+  }
+
+  // Event handler (delegated) to toggle artist dropdowns
+  artistScrollContainer.addEventListener('click', function(event) {
+    // find the header element (allow clicking child elements)
+    const header = event.target.closest(artistHeaderSelector);
+    if (!header) return;
+
+    // if user clicked the "More" link inside header, do not toggle
+    if (event.target.closest('.artist-more')) {
+      return;
+    }
+
+    const artistBox = header.closest(artistBoxSelector);
+    if (!artistBox) return;
+
+    const dropdown = artistBox.querySelector(dropdownContentSelector);
+    const icon = header.querySelector(dropdownIconSelector);
+
+    // If dropdown is already open -> close it
+    const isOpen = dropdown && dropdown.classList.contains('open');
+    if (isOpen) {
+      closeDropdown(dropdown, icon);
+      return;
+    }
+
+    // otherwise open it, and close others
+    closeOthers(dropdown);
+    openDropdown(dropdown, icon);
+
+    // keep the opened box in view
+    setTimeout(() => scrollIntoViewIfNeeded(artistBox), 120);
+  });
+
+  // Expose helper functions globally (so HTML onclick can call them)
+  window.goToArtistPage = function (event, page) {
+    if (event && event.stopPropagation) event.stopPropagation();
+    window.location.href = page;
+  };
+
+  window.goToSong = function (page, songId) {
+    // Add small guard: ensure valid args
+    if (!page) return;
+    // Build URL and open. If you want to open in new tab use window.open(...)
+    const url = page + (songId ? ('#' + encodeURIComponent(songId)) : '');
+    // Save timestamp in sessionStorage to allow artist page to detect that we requested a scroll
+    try {
+      sessionStorage.setItem('scrollToSong_onLoad', JSON.stringify({ songId: songId || null, ts: Date.now() }));
+    } catch(e) {
+      // ignore sessionStorage errors
+    }
+    window.location.href = url;
+  };
+
+  // Optional: support keyboard toggle (Enter/Space) for accessibility
+  artistScrollContainer.addEventListener('keydown', function(e) {
+    const header = e.target.closest(artistHeaderSelector);
+    if (!header) return;
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      header.click();
+    }
+  });
+
+  // OPTIONAL: if you dynamically load more artists later, you can call:
+  // rebindUI() to re-evaluate scroll heights etc. Currently event delegation handles clicks.
+  window.featuredArtistsReflow = function() {
+    // ensure any open dropdown has correct maxHeight set
+    const openDrops = artistScrollContainer.querySelectorAll(dropdownContentSelector + '.open');
+    openDrops.forEach(d => {
+      d.style.maxHeight = d.scrollHeight + 'px';
+    });
+  };
+
+})();
   
 /* ===========================================
    Smooth Scroll to Artist Song
