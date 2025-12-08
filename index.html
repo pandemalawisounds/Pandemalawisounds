@@ -341,22 +341,26 @@
   border-radius: 5px;
   z-index: 5;             /* ensure caption is above the image */
     }
+    
+    /*=====Featured Artists =====/// */
 
-/* ===== Featured Artists — Advanced styles ===== */
+/* scroll box – stays transparent */
 .artist-scroll-container {
-  max-height: 350px;      /* shows ~3 artists before scrolling */
+  max-height: 350px;         /* shows about 3 artists before scroll */
   overflow-y: auto;
   padding-right: 10px;
+  background: transparent;    /* REMOVE white */
 }
 
-/* artist card */
+/* artist card – transparent, edges only */
 .artist-box {
-  background: #ffffff;
-  border: 1px solid #e6e6e6;
+  background: transparent;     /* REMOVE white background */
+  border: 1px solid rgba(255,255,255,0.15);  /* subtle line */
   border-radius: 12px;
   padding: 10px;
   margin-bottom: 12px;
   transition: box-shadow .18s ease;
+  backdrop-filter: blur(3px);   /* optional: soft clean effect */
 }
 
 /* header row */
@@ -380,10 +384,10 @@
   font-size: 15px;
   font-weight: 700;
   flex: 1;
-  color: #111;
+  color: #fff;   /* match your dark theme */
 }
 
-/* arrow / toggle icon */
+/* drop arrow */
 .dropdown-icon {
   transition: transform .25s ease, opacity .18s ease;
   opacity: 0.75;
@@ -391,55 +395,54 @@
   transform-origin: 50% 45%;
 }
 
-/* rotated arrow state */
 .dropdown-icon.open {
   transform: rotate(-180deg);
 }
 
-/* animated dropdown content (we animate max-height) */
+/* dropdown animation */
 .animated-dropdown {
   overflow: hidden;
   max-height: 0;
   transition: max-height .35s cubic-bezier(.2,.9,.2,1);
 }
 
-/* visible state */
-.animated-dropdown.open {
-  /* max-height is set inline by JS to dropdown.scrollHeight + 'px' */
-}
-
-/* song item */
+/* song list under artist */
 .song-item {
   padding: 8px 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid rgba(255,255,255,0.1); /* no white */
   display: flex;
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  color: #222;
+  color: #ddd;   /* visible on dark bg */
   font-size: 14px;
 }
 
-/* small icon for song */
 .song-icon {
   font-size: 14px;
   opacity: 0.7;
 }
 
-/* "More" link */
+/* more link */
 .artist-more {
   display: inline-block;
   margin-top: 8px;
-  color: #0077cc;
+  color: #4da3ff;   /* nice blue for links */
   font-weight: 700;
   cursor: pointer;
 }
 
-/* subtle hover */
-.artist-box:hover { box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+/* hover */
+.artist-box:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
 
-/* make sure artist header content doesn't wrap weirdly on mobile */
-.artist-header .artist-name { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+/* prevent weird wrap */
+.artist-header .artist-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+    }
 
     /* ========== PAYMENT SECTION (unchanged) ========== */  
     .payment-section {  
@@ -949,148 +952,7 @@
                 <span class="song-icon">♪</span> Happy Birthday
             </div>
 
-            <!-- ✨ ADD MORE SONGS BELOW -->
 
-
-            <span class="artist-more" onclick="goToArtistPage(event,'HotDenje.html')">More</span>
-        </div>
-    </div>
-
-
-
-    <!-- ========== ARTIST 2 ========== -->
-    <div class="artist-box">
-        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
-            <img src="img/artist2.jpg" class="artist-photo" alt="">
-            <div class="artist-name">Jonarp</div>
-            <span class="dropdown-icon">▼</span>
-        </div>
-
-        <div class="artist-songs animated-dropdown">
-
-            <div class="song-item" onclick="goToSong('Jonarp.html','jonarp-song1')">
-                <span class="song-icon">♪</span> Nataria
-            </div>
-
-            <!-- ✨ ADD MORE SONGS BELOW -->
-
-            <span class="artist-more" onclick="goToArtistPage(event,'Jonarp.html')">More</span>
-        </div>
-    </div>
-
-
-
-    <!-- ========== ARTIST 3 ========== -->
-    <div class="artist-box">
-        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
-            <img src="img/artist3.jpg" class="artist-photo" alt="">
-            <div class="artist-name">P Boy Halla</div>
-            <span class="dropdown-icon">▼</span>
-        </div>
-
-        <div class="artist-songs animated-dropdown">
-
-            <div class="song-item" onclick="goToSong('PBoyHalla.html','pboy-song1')">
-                <span class="song-icon">♪</span> By My Side
-            </div>
-
-            <!-- ✨ ADD MORE SONGS BELOW -->
-
-            <span class="artist-more" onclick="goToArtistPage(event,'PBoyHalla.html')">More</span>
-        </div>
-    </div>
-
-
-
-    <!-- ========== ARTIST 4–10 (Samples) ========== -->
-    <!-- Just change name + image + link -->
-    <div class="artist-box">
-        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
-            <img src="img/a4.jpg" class="artist-photo">
-            <div class="artist-name">Denje</div>
-            <span class="dropdown-icon">▼</span>
-        </div>
-        <div class="artist-songs animated-dropdown">
-            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
-            <span class="artist-more">More</span>
-        </div>
-    </div>
-
-    <div class="artist-box">
-        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
-            <img src="img/a5.jpg" class="artist-photo">
-            <div class="artist-name">Brada Fifi</div>
-            <span class="dropdown-icon">▼</span>
-        </div>
-        <div class="artist-songs animated-dropdown">
-            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
-            <span class="artist-more">More</span>
-        </div>
-    </div>
-
-    <div class="artist-box">
-        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
-            <img src="img/a6.jpg" class="artist-photo">
-            <div class="artist-name">Loy Musiq</div>
-            <span class="dropdown-icon">▼</span>
-        </div>
-        <div class="artist-songs animated-dropdown">
-            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
-            <span class="artist-more">More</span>
-        </div>
-    </div>
-
-    <div class="artist-box">
-        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
-            <img src="img/a7.jpg" class="artist-photo">
-            <div class="artist-name">Zach</div>
-            <span class="dropdown-icon">▼</span>
-        </div>
-        <div class="artist-songs animated-dropdown">
-            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
-            <span class="artist-more">More</span>
-        </div>
-    </div>
-
-    <div class="artist-box">
-        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
-            <img src="img/a8.jpg" class="artist-photo">
-            <div class="artist-name">Black Nyanda</div>
-            <span class="dropdown-icon">▼</span>
-        </div>
-        <div class="artist-songs animated-dropdown">
-            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
-            <span class="artist-more">More</span>
-        </div>
-    </div>
-
-    <div class="artist-box">
-        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
-            <img src="img/a9.jpg" class="artist-photo">
-            <div class="artist-name">Xabit</div>
-            <span class="dropdown-icon">▼</span>
-        </div>
-        <div class="artist-songs animated-dropdown">
-            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
-            <span class="artist-more">More</span>
-        </div>
-    </div>
-
-    <div class="artist-box">
-        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
-            <img src="img/a10.jpg" class="artist-photo">
-            <div class="artist-name">Young Vybz</div>
-            <span class="dropdown-icon">▼</span>
-        </div>
-        <div class="artist-songs animated-dropdown">
-            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
-            <span class="artist-more">More</span>
-        </div>
-    </div>
-
-    <!-- ARTIST TEMPLATE END -->
-
-              </div>
   <!-- 7️⃣ SPONSORED ADS (same as your original "Sponsored Ads" section) -->  
   <div class="section ads">  
     <h3>Sponsored Ads</h3>  
@@ -1098,7 +960,7 @@
       <div class="ad-box">  
         <div class="ad-title">Business Ad</div>  
         <div class="ad-text">Promote your product, shop, or event on Pandemalawi Sounds.</div>  
-        <div class="ad-price">K2,000 per day</div>  
+        <div class="ad-price">K800 per day</div>  
         <span class="ad-cta">Book now</span>  
       </div>  
       <div class="ad-box">  
@@ -1108,6 +970,82 @@
       </div>  
     </div>  
   </div>  
+          <!-- ========== FEATURED ARTISTS SCROLLABLE BOX ========== -->
+<div class="artist-scroll-container">
+
+    <!-- ========== ARTIST 1 ========== -->
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/artist1.jpg" class="artist-photo" alt="">
+            <div class="artist-name">Hot Denje</div>
+            <span class="dropdown-icon">▼</span>
+        </div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item" onclick="goToSong('HotDenje.html','hotdenje-song1')">
+                <span class="song-icon">♪</span> Sample Song
+            </div>
+            <span class="artist-more" onclick="goToArtistPage(event,'HotDenje.html')">More</span>
+        </div>
+    </div>
+
+    <!-- ========== ARTIST 2 ========== -->
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/artist2.jpg" class="artist-photo" alt="">
+            <div class="artist-name">Jonarp</div>
+            <span class="dropdown-icon">▼</span>
+        </div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item" onclick="goToSong('Jonarp.html','jonarp-song1')">
+                <span class="song-icon">♪</span> Nataria
+            </div>
+            <span class="artist-more" onclick="goToArtistPage(event,'Jonarp.html')">More</span>
+        </div>
+    </div>
+
+    <!-- ========== ARTIST 3 ========== -->
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/artist3.jpg" class="artist-photo" alt="">
+            <div class="artist-name">P Boy Halla</div>
+            <span class="dropdown-icon">▼</span>
+        </div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item" onclick="goToSong('PBoyHalla.html','pboy-song1')">
+                <span class="song-icon">♪</span> By My Side
+            </div>
+            <span class="artist-more" onclick="goToArtistPage(event,'PBoyHalla.html')">More</span>
+        </div>
+    </div>
+
+    <!-- ========== ARTIST 4 ========== -->
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/a4.jpg" class="artist-photo" alt="">
+            <div class="artist-name">Denje</div>
+            <span class="dropdown-icon">▼</span>
+        </div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
+            <span class="artist-more">More</span>
+        </div>
+    </div>
+
+    <!-- ========== ARTIST 5 ========== -->
+    <div class="artist-box">
+        <div class="artist-header" onclick="toggleFeaturedArtist(this)">
+            <img src="img/a5.jpg" class="artist-photo" alt="">
+            <div class="artist-name">Rick Fabs</div>
+            <span class="dropdown-icon">▼</span>
+        </div>
+        <div class="artist-songs animated-dropdown">
+            <div class="song-item"><span class="song-icon">♪</span> Sample Song</div>
+            <span class="artist-more">More</span>
+        </div>
+    </div>
+
+</div>
+<!-- ========== END FEATURED ARTISTS ========== -->
 
   <!-- 8️⃣ PAYMENT SECTION (unchanged) -->  
   <div class="payment-section" id="payments">  
