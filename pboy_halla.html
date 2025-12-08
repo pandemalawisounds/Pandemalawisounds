@@ -804,6 +804,62 @@ window.addEventListener('load', function() {
     let el = document.getElementById(`${songId}-${type}`);
     el.textContent = parseInt(el.textContent)+1;
   }
+  
+/*
+  Artist page scroll helper:
+  - If the user clicked from the featured list, sessionStorage will carry the songId to scroll to
+  - Also supports direct links like page.html#song-id
+  - Smoothly scrolls to the element with id == song-id
+  - If no element found, does nothing
+*/
+(function() {
+  function smoothScrollToElement(el) {
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    // Optionally highlight briefly
+    el.style.transition = 'background-color .6s ease';
+    var orig = el.style.backgroundColor;
+    el.style.backgroundColor = 'rgba(255,255,0,0.08)';
+    setTimeout(function() { el.style.backgroundColor = orig; }, 900);
+  }
+
+  // 1) Check URL hash first
+  var hash = decodeURIComponent(location.hash.replace('#','')) || null;
+
+  // 2) Also check sessionStorage flag set before navigation (from goToSong)
+  try {
+    var stored = sessionStorage.getItem('scrollToSong_onLoad');
+    if (stored) {
+      stored = JSON.parse(stored);
+      // If stored and recent (within 10s) use it
+      if (stored && stored.songId && (Date.now() - (stored.ts || 0) < 10000)) {
+        // prefer stored.songId over hash when both exist
+        hash = stored.songId;
+      }
+      // Clear it after reading
+      sessionStorage.removeItem('scrollToSong_onLoad');
+    }
+  } catch(e) {
+    // ignore storage errors
+  }
+
+  if (hash) {
+    // Find element with id equal to hash
+    // Make id-safe (if you used encoded ids)
+    var safeId = hash;
+    // Try multiple decodings
+    try { safeId = decodeURIComponent(hash); } catch(e){}
+    var target = document.getElementById(safeId) || document.querySelector('[data-song-id="'+safeId+'"]');
+    if (target) {
+      // Wait a tick for page assets/layout to finish, then scroll
+      window.addEventListener('load', function() {
+        setTimeout(function() { smoothScrollToElement(target); }, 120);
+      });
+      // Also try immediate (in case load already fired)
+      setTimeout(function() { smoothScrollToElement(target); }, 300);
+    }
+  }
+})();
 
 /* ===========================
    YOUTUBE AUDIO STREAMING SCRIPT
