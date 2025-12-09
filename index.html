@@ -344,7 +344,124 @@
     
     /*=====Featured Artists =====/// */
 
+/* Title above scroll box */
+.featured-title {
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  color: #fff;
+  text-align: left;
+}
 
+/* Scroll Box */
+.artist-scroll-container {
+  max-height: 350px;
+  overflow-y: auto;
+  background: transparent;
+  padding-right: 5px;
+}
+
+/* Artist Card */
+.artist-box {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 10px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  backdrop-filter: blur(3px);
+  transition: 0.2s ease;
+}
+
+.artist-box:hover {
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+/* Header Row */
+.artist-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.artist-photo {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.artist-name {
+  flex: 1;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.dropdown-icon {
+  font-size: 14px;
+  opacity: 0.8;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-icon.open {
+  transform: rotate(-180deg);
+}
+
+/* Dropdown */
+.animated-dropdown {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height .35s ease;
+  margin-top: 8px;
+}
+
+/* Song Row */
+.song-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.song-thumb {
+  width: 40px;
+  height: 40px;
+  border-radius: 7px;
+  object-fit: cover;
+}
+
+.song-title {
+  flex: 1;
+  color: #ddd;
+  font-size: 14px;
+}
+
+/* Right Side Button */
+.song-btn {
+  background: transparent;
+  border: 1px solid #4da3ff;
+  color: #4da3ff;
+  padding: 5px 8px;
+  border-radius: 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.song-btn:hover {
+  background: #4da3ff;
+  color: black;
+}
+
+/* 'More' link */
+.artist-more {
+  margin-top: 8px;
+  color: #4da3ff;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+    }
 
     /* ========== PAYMENT SECTION (unchanged) ========== */  
     .payment-section {  
@@ -686,7 +803,125 @@
 
   <!-- 6️⃣ FEATURED ARTISTS (YOUR ORIGINAL SECTION, KEPT) -->  
   
+<!-- ============================
+     FEATURED ARTISTS (SCROLL BOX)
+     ============================ -->
+<section class="featured-container">
 
+  <h2 class="featured-title">Featured Artists</h2>
+
+  <!-- Scrollable box -->
+  <div class="artist-scroll-container">
+
+    <!-- =======================
+         ARTIST: PBOY HALLA
+         ======================= -->
+    <div class="artist-box">
+      <div class="artist-header">
+        <img src="images/pboyhalla.jpg" class="artist-photo" alt="Pboy Halla">
+        <span class="artist-name">Pboy Halla</span>
+        <span class="dropdown-icon">▼</span>
+      </div>
+
+      <div class="animated-dropdown">
+        <!-- Songs inside dropdown -->
+        <div class="song-item">
+          <img src="images/song1.jpg" class="song-thumb">
+          <span class="song-title">By My Side</span>
+          <button class="song-btn" onclick="goToSong('pboy_halla.html','by-my-side')">Play / Download</button>
+        </div>
+
+        <!-- more songs -->
+        <div class="song-item">
+          <img src="images/song2.jpg" class="song-thumb">
+          <span class="song-title">Nataria</span>
+          <button class="song-btn" onclick="goToSong('pboy_halla.html','nataria')">Play / Download</button>
+        </div>
+
+        <!-- More link to artist page -->
+        <div class="artist-more" onclick="goToArtistPage(event,'pboy_halla.html')">More →</div>
+      </div>
+    </div>
+
+    <!-- =======================
+         ARTIST: HOT DENJE
+         ======================= -->
+    <div class="artist-box">
+      <div class="artist-header">
+        <img src="images/denge.jpg" class="artist-photo" alt="Hot Denje">
+        <span class="artist-name">Hot Denje</span>
+        <span class="dropdown-icon">▼</span>
+      </div>
+
+      <div class="animated-dropdown">
+
+        <div class="song-item">
+          <img src="images/song3.jpg" class="song-thumb">
+          <span class="song-title">Happy Birthday</span>
+          <button class="song-btn" onclick="goToSong('Hot_Denje.html','happy-birthday')">Play / Download</button>
+        </div>
+
+        <div class="song-item">
+          <img src="images/song4.jpg" class="song-thumb">
+          <span class="song-title">Pano</span>
+          <button class="song-btn" onclick="goToSong('Hot_Denje.html','pano')">Play / Download</button>
+        </div>
+
+        <div class="artist-more" onclick="goToArtistPage(event,'Hot_Denje.html')">More →</div>
+      </div>
+    </div>
+
+    <!-- =======================
+         ARTIST: RIC FABS
+         ======================= -->
+    <div class="artist-box">
+      <div class="artist-header">
+        <img src="images/ricfabs.jpg" class="artist-photo" alt="Ric Fabs">
+        <span class="artist-name">Ric Fabs</span>
+        <span class="dropdown-icon">▼</span>
+      </div>
+
+      <div class="animated-dropdown">
+
+        <div class="song-item">
+          <img src="images/song5.jpg" class="song-thumb">
+          <span class="song-title">Fire Inside</span>
+          <button class="song-btn" onclick="goToSong('Ric_fabs.html','fire-inside')">Play / Download</button>
+        </div>
+
+        <div class="artist-more" onclick="goToArtistPage(event,'Ric_fabs.html')">More →</div>
+      </div>
+    </div>
+
+    <!-- =======================
+         ARTIST: JONARP
+         ======================= -->
+    <div class="artist-box">
+      <div class="artist-header">
+        <img src="images/jonarp.jpg" class="artist-photo" alt="Jonarp">
+        <span class="artist-name">Jonarp</span>
+        <span class="dropdown-icon">▼</span>
+      </div>
+
+      <div class="animated-dropdown">
+
+        <div class="song-item">
+          <img src="images/song6.jpg" class="song-thumb">
+          <span class="song-title">Time</span>
+          <button class="song-btn" onclick="goToSong('Jonarp.html','time')">Play / Download</button>
+        </div>
+
+        <div class="artist-more" onclick="goToArtistPage(event,'Jonarp.html')">More →</div>
+      </div>
+    </div>
+
+    <!-- =======================
+         ADD MORE ARTISTS HERE
+         (COPY + PASTE artist-box)
+         ======================= -->
+
+  </div>
+  </section>
 <!-- ========== END FEATURED ARTISTS ========== -->
 
   <!-- 8️⃣ PAYMENT SECTION (unchanged) -->  
