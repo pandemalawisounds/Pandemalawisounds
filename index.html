@@ -155,15 +155,24 @@
 .song-bar {
     display: flex;
     align-items: center;
-    background: #ffffff;
+
+    /* TRUE transparent background */
+    background: rgba(255, 255, 255, 0.08); /* light glass effect */
+
     padding: 10px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+    /* soft shadow */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+
     cursor: pointer;
     transition: 0.2s ease;
+
     text-decoration: none;
-    color: Transparent;
-}
+
+    /* readable text color */
+    color: #eaeaea;
+      }
 
 /* Hover effect */
 .song-bar:hover {
