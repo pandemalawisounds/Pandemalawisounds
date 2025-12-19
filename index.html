@@ -294,82 +294,85 @@
       }  
     }  
 
-    /* ========== FLOATING TRENDING SONGS SLIDESHOW ========== */
+    /* ========== SLIDESHOW SECTIONS: TRENDING + LATEST ========== */
+    /* Wrapper so images cover entire box (no visible margin) */
+    .slideshow-section {
+      position: relative;
+      width: 100%;
+      max-width: 1300px;
+      margin: 1.5rem auto;
+      border-radius: 20px;
+      overflow: hidden; /* hides edges so images fill smoothly */
+      backdrop-filter: blur(5px);
+      background: rgba(0,0,0,0.25);
+    }
 
-/* Outer slideshow section wrapper */
-.slideshow-section {
-  position: relative;
-  width: 100%;
-  max-width: 1300px;
-  margin: 1.5rem auto;
-  border-radius: 20px;
-  overflow: hidden;
-  background: rgba(0,0,0,0.05); /* subtle background */
-}
+    /* Title on top of images */
+    .slideshow-title {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 5;
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-shadow: 1px 1px 6px #000;
+    }
 
-/* Section title stays at top-left */
-.slideshow-title {
+    .slideshow-container {
+      display: flex;
+      width: 100%;
+      height: 200px; /* same size for Trending & Latest */
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .slide {
+      min-width: 100%;
+      transition: transform 0.5s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .slide img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;  /* makes image fully cover */
+      display: block;
+    }
+
+    /* List that drops down for songs (backend for you to edit) */
+    .slide-song-list {
+      display: none; /* hidden by default, shown when tapped */
+      padding: 0.8rem 1.2rem 1rem 1.2rem;
+      font-size: 0.9rem;
+    }
+    .slide-song-list ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .slide-song-list li {
+      margin: 3px 0;
+    }
+
+    .tap-to-view {
+      font-size: 0.85rem;
+      padding: 0 1.2rem 0.6rem 1.2rem;
+      opacity: 0.9;
+    }
+    .slide-caption {
   position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 5;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-shadow: 1px 1px 6px #000;
-}
-
-/* Slideshow container for horizontal scroll/animation */
-.slideshow-container {
-  display: flex;
-  gap: 20px; /* space between slides */
-  overflow: hidden; /* hide overflow */
-  padding: 20px;
-  position: relative;
-}
-
-/* Each slide */
-.slide {
-  position: relative;
-  min-width: 300px; /* fixed width for floating cards */
-  height: 200px;
-  border-radius: 15px;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* subtle lift effect */
-  transition: transform 0.5s ease, box-shadow 0.5s ease;
-  animation: float 6s ease-in-out infinite; /* subtle vertical float */
-}
-
-/* Floating animation */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-8px); } /* gentle lift */
-  100% { transform: translateY(0px); }
-}
-
-/* Slide image covers entire card */
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 15px;
-  display: block;
-}
-
-/* Overlay: "Tap to view trending songs" on top of slides */
-.slideshow-section .tap-to-view {
-  position: absolute;
-  top: 50%; /* vertically center */
-  left: 50%; /* horizontally center */
-  transform: translate(-50%, -50%);
+  bottom: 10px;          /* bottom-left of the slide */
+  left: 10px;
   color: #fff;
-  font-size: 1rem;
   font-weight: 600;
-  text-align: center;
-  z-index: 10;
-  background: rgba(0,0,0,0.3); /* semi-transparent for readability */
-  padding: 6px 12px;
-  border-radius: 10px;
-  pointer-events: none; /* so clicks pass through */
+  font-size: 0.95rem;
+  text-shadow: 1px 1px 5px #000;
+  background: rgba(0,0,0,0.25); /* optional semi-transparent bg for readability */
+  padding: 2px 6px;
+  border-radius: 5px;
+  z-index: 5;             /* ensure caption is above the image */
     }
     
     /*=====Featured Artists =====/// */
@@ -1203,65 +1206,6 @@ function searchSongs() {
     el.style.display = (el.style.display === 'block') ? 'none' : 'block';
   }
 
-  // =========================
-  // AUTO-SLIDE FUNCTION FOR ALL SLIDESHOWS
-  // Handles horizontal sliding with infinite loop
-  // =========================
-  function setupAutoSlide(containerId, interval = 3000) {
-    const container = document.getElementById(containerId);
-    const slides = container.querySelectorAll('.slide');
-    let currentIndex = 0;
-
-    // Clone first slide for smooth infinite loop
-    const firstSlideClone = slides[0].cloneNode(true);
-    container.appendChild(firstSlideClone);
-
-    // Move slides automatically
-    setInterval(() => {
-      currentIndex++;
-      container.style.transition = 'transform 0.7s ease';
-      container.style.transform = `translateX(-${currentIndex * 100}%)`;
-
-      // Reset to first slide when reaching the end
-      if (currentIndex >= slides.length) {
-        setTimeout(() => {
-          container.style.transition = 'none';
-          container.style.transform = 'translateX(0)';
-          currentIndex = 0;
-        }, 750); // matches transition duration
-      }
-    }, interval);
-  }
-
-  // =========================
-  // FLOATING OVERLAY TEXT
-  // Tap to view Trending/Latest on top of images
-  // =========================
-  document.addEventListener('DOMContentLoaded', () => {
-    // Initialize auto-slide
-    setupAutoSlide('trendingSlides', 3500); // Trending Songs
-    setupAutoSlide('latestSlides', 4000);   // Latest Uploads
-
-    // Optionally: make the overlay float gently
-    const trendingOverlay = document.querySelector('#trendingSection .tap-to-view');
-    const latestOverlay = document.querySelector('#latestSection .tap-to-view');
-
-    if (trendingOverlay) trendingOverlay.style.animation = 'floatOverlay 6s ease-in-out infinite';
-    if (latestOverlay) latestOverlay.style.animation = 'floatOverlay 6s ease-in-out infinite';
-  });
-
-  // Floating keyframes for overlay text
-  const styleSheet = document.createElement("style");
-  styleSheet.type = "text/css";
-  styleSheet.innerText = `
-    @keyframes floatOverlay {
-      0% { transform: translate(-50%, -50%) translateY(0); }
-      50% { transform: translate(-50%, -50%) translateY(-6px); }
-      100% { transform: translate(-50%, -50%) translateY(0); }
-    }
-  `;
-  document.head.appendChild(styleSheet);
-
 /*
   Full-Pro Featured Artists Script
   - Uses event delegation so it works if you add artists dynamically
@@ -1430,6 +1374,12 @@ document.querySelectorAll('.song-bar').forEach(bar => {
         window.location.href = this.getAttribute('data-link');
     });
 });
+  
+  // INIT SLIDESHOWS WHEN PAGE LOADS
+  document.addEventListener("DOMContentLoaded", function() {
+    initSlideshow('trendingSlides');
+    initSlideshow('latestSlides');
+  });
 
   });
 </script>  
