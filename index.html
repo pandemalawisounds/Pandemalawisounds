@@ -1,39 +1,19 @@
 <!DOCTYPE html>  
-<html lang="en">    
+<html lang="en">  
 <head>  
   <meta charset="UTF-8" />  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-  <link rel="preload" href="covers/Pandemalawisounds (1).webp" as="image">
   <title>Pandemalawi Sounds</title>  
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Outfit', sans-serif;
-      background-color: #000; /* fallback while image loads */
-      color: #fff;
-      transition: background-image 1s ease-in-out;
-    }
-    body.bg-loaded {
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
-    }
-  </style>
-
-  <script>
-    const bg = new Image();
-    bg.src = 'covers/Pandemalawisounds (1).webp'; // your background image
-    bg.onload = () => {
-      document.body.style.backgroundImage = `url('${bg.src}')`;
-      document.body.classList.add('bg-loaded');
-    };
-  </script>
-  </head>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />  
   <style>  
-    
+    body {  
+      margin: 0;  
+      font-family: 'Outfit', sans-serif;  
+      background: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4') no-repeat center center fixed;  
+      background-size: cover;  
+      color: #fff;  
+    }  
     body::before {  
       content: "";  
       position: fixed;  
@@ -41,7 +21,7 @@
       left: 0;  
       width: 100%;  
       height: 100%;  
-      background: rgba(0, 0, 0, 0.1);  
+      background: rgba(0, 0, 0, 0.35);  
       z-index: -1;  
     }  
 
@@ -51,7 +31,7 @@
       display: flex;  
       justify-content: space-between;  
       align-items: center;  
-      backdrop-filter: blur(2px);  
+      backdrop-filter: blur(5px);  
       flex-wrap: wrap;
     }  
     header h1 {  
@@ -80,166 +60,66 @@
       font-size: 0.95rem;
     }
 
-/* 🔹 SEARCH BAR + DROPDOWN STYLING FOR PANDEMALAWI SOUNDS */
-/* Delete your old .search / .dropdown / .dropdown-item CSS and paste this */
-
-/* 🔹 SEARCH BAR CONTAINER */
+/* ðŸ”¹ SEARCH BAR CONTAINER */
 .search {  
-  padding: 0 2rem 1rem 2rem;      /* space around search area */ 
+  padding: 0 2rem 1rem 2rem;      
   display: flex;  
-  flex-direction: column;         /* input on top, dropdown under it */
+  flex-direction: column;         
   justify-content: center;  
   align-items: center;  
-  position: relative;             /* so dropdown is positioned under this */
-  z-index: 50;                    /* keep it above background stuff */
+  position: relative;             
 }
 
-/* 🔹 SEARCH INPUT FIELD */
+/* ðŸ”¹ SEARCH INPUT FIELD */
 .search input {  
-  padding: 0.6rem 1rem;           /* inside spacing */ 
-  border-radius: 999px;           /* pill shape */ 
+  padding: 0.6rem 1rem;           
+  border-radius: 999px;           
   border: none;  
   width: 100%;  
-  max-width: 450px;               /* don't get too wide */ 
+  max-width: 450px;               
   font-size: 1rem;  
   outline: none;  
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);  /* soft shadow */ 
-  background: #ffffff;            /* white background for contrast */
-  color: #000000;                 /* black text so it's visible */
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);  
 }
 
-/* Placeholder text inside input */
-.search input::placeholder {
-  color: #666666;                 /* grey placeholder text */
-}
-
-/* 🔹 DROPDOWN CONTAINER UNDER SEARCH INPUT */
+/* ðŸ”¹ DROPDOWN CONTAINER UNDER SEARCH INPUT */
 .dropdown {
   position: absolute;
-  top: 100%;                      /* sit right under the input */
+  top: 100%;                      
   left: 0;
   right: 0;
-  margin-top: 0.3rem;             /* small gap under input */
-  background: #ffffff;            /* white so text is readable */
+  background: #ffffff;            
   width: 100%;
-  max-width: 450px;               /* same as input */ 
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1); 
+  max-width: 450px;               
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
   border-radius: 8px;
-  display: none;                  /* hidden by default, JS shows it */
-  z-index: 100;                   /* above everything else */
-  max-height: 300px;              /* scroll if too long */
+  display: none;                  
+  z-index: 100;
+  max-height: 300px;              
   overflow-y: auto;
-  border: 1px solid #dddddd;      /* light border so you see the box */
 }
 
-/* 🔹 EACH ROW/ITEM INSIDE THE DROPDOWN */
+/* ðŸ”¹ EACH ROW/ITEM INSIDE THE DROPDOWN */
 .dropdown-item {
   padding: 0.5rem 1rem;
   cursor: pointer;
   font-size: 0.95rem;
-  color: #000000;                 /* 🔸 BLACK text so it's clearly visible */
-  background: #ffff;            /* white background */
-  text-align: left;               /* left-align text */
-  line-height: 1.3;
 }
 
-/* 🔹 HOVER EFFECT FOR DROPDOWN ITEMS */
+/* ðŸ”¹ HOVER EFFECT FOR DROPDOWN ITEMS */
 .dropdown-item:hover {
-  background: #f0f0f0;            /* light grey hover so user sees focus */
-}
-
-/* 🔹 FIRST ITEM (DEBUG "You typed: ...") – make it look a bit different */
-.dropdown-item:first-child {
-  font-style: italic;
-  background: #f7f7f7;            /* slightly different background */
-}
-
-/* 🔹 HARD OVERRIDE IN CASE GLOBAL STYLES INTERFERE */
-.dropdown,
-.dropdown * {
-  color: #000000 !important;      /* force black for anything inside dropdown */
-  mix-blend-mode: normal !important;
+  background: rgba(0,0,0,0.1);
       }
-    /* ===========================================
-   SONG LIST BAR STYLE (Latest & Trending)
-   =========================================== */
-.song-list {
-    width: 100%;
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+/* Each item in dropdown */
+.dropdown-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 
-/* Each song bar */
-.song-bar {
-    display: flex;
-    align-items: center;
-
-    /* TRUE transparent background */
-    background: rgba(255, 255, 255, 0.08); /* light glass effect */
-
-    padding: 10px;
-    border-radius: 10px;
-
-    /* soft shadow */
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-
-    cursor: pointer;
-    transition: 0.2s ease;
-
-    text-decoration: none;
-
-    /* readable text color */
-    color: #eaeaea;
+.dropdown-item:hover {
+  background: rgba(0,0,0,0.1);
       }
-.song-action:hover {
-    background: #27ae60;   /* deeper green */
-}
 
-/* Left image */
-.song-img {
-    width: 55px;
-    height: 55px;
-    border-radius: 8px;
-    object-fit: cover;
-    margin-right: 12px;
-}
-
-/* Song text (middle) */
-.song-info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    font-size: 14px;
-}
-
-/* Title */
-.song-title {
-    font-weight: bold;
-}
-
-/* Artist name */
-.song-artist {
-    font-size: 12px;
-    opacity: 0.7;
-}
-
-/* Play / Download button */
-.song-action {
-    font-size: 12px;
-    padding: 6px 12px;
-    border-radius: 6px;
-
-    background: #2ecc71;   /* modern green */
-    color: #000;           /* black text */
-
-    font-weight: 600;
-    border: none;
-    cursor: pointer;
-
-    transition: 0.2s ease;
-    }
     /* FLASHING ADS (style kept same) */  
     .ad-strip {  
       display: grid;  
@@ -248,7 +128,7 @@
       margin-top: 1rem;  
     }  
     .ad-box {  
-      background: rgba(0,0,0,0.1);  
+      background: rgba(0,0,0,0.45);  
       border-radius: 15px;  
       padding: 0.8rem 1rem;  
       text-align: center;  
@@ -374,127 +254,86 @@
   border-radius: 5px;
   z-index: 5;             /* ensure caption is above the image */
     }
-    
-    /*=====Featured Artists =====/// */
 
-/* Title above scroll box */
-.featured-title {
-  font-size: 22px;
-  font-weight: 800;
-  margin-bottom: 10px;
-  color: #fff;
-  text-align: left;
-}
-
-/* Scroll Box */
-.artist-scroll-container {
-  max-height: 350px;
-  overflow-y: auto;
-  background: transparent;
-  padding-right: 5px;
-}
-
-/* Artist Card */
-.artist-box {
-  background: transparent;
-  border: 1px solid rgba(255,255,255,0.15);
-  padding: 10px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  backdrop-filter: blur(1px);
-  transition: 0.2s ease;
-}
-
-.artist-box:hover {
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-}
-
-/* Header Row */
-.artist-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-}
-
-.artist-photo {
-  width: 55px;
-  height: 55px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-.artist-name {
-  flex: 1;
-  color: #fff;
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.dropdown-icon {
-  font-size: 14px;
-  opacity: 0.8;
-  transition: transform 0.3s ease;
-}
-
-.dropdown-icon.open {
-  transform: rotate(-180deg);
-}
-
-/* Dropdown */
-.animated-dropdown {
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height .35s ease;
-  margin-top: 8px;
-}
-
-/* Song Row */
-.song-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 7px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.song-thumb {
-  width: 40px;
-  height: 40px;
-  border-radius: 7px;
-  object-fit: cover;
-}
-
-.song-title {
-  flex: 1;
-  color: #ddd;
-  font-size: 14px;
-}
-
-/* Right Side Button */
-.song-btn {
-  background: transparent;
-  border: 1px solid #4da3ff;
-  color: #4da3ff;
-  padding: 5px 8px;
-  border-radius: 8px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.song-btn:hover {
-  background: #4da3ff;
-  color: black;
-}
-
-/* 'More' link */
-.artist-more {
-  margin-top: 8px;
-  color: #4da3ff;
-  font-weight: 600;
-  font-size: 14px;
-  cursor: pointer;
-    }
+    /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
+    .artist-container {  
+      display: flex;  
+      flex-direction: column;  
+      gap: 1rem;  
+    }  
+    .artist-box {  
+      background: rgba(255, 255, 255, 0.05);  
+      border: 1px solid rgba(255,255,255,0.15);  
+      padding: 10px;  
+      display: flex;  
+      align-items: center;  
+      cursor: pointer;  
+      overflow: hidden;  
+      transition: all 0.4s ease;  
+      flex-wrap: wrap;  
+    }  
+    .artist-box img {  
+      width: 80px;  
+      height: 80px;  
+      object-fit: cover;  
+      border-radius: 8px;  
+      margin-right: 15px;  
+      transition: all 0.4s ease;  
+    }  
+    .artist-info {  
+      flex: 1;  
+    }  
+    .artist-name {  
+      font-size: 18px;  
+      font-weight: bold;  
+      margin: 0;  
+    }  
+    .artist-bio {  
+      font-size: 12px;  
+      color: rgba(255,255,255,0.85);  
+      overflow: hidden;  
+      max-height: 30px;  
+      transition: all 0.4s ease;  
+    }  
+    .songs {  
+      display: none;  
+      margin-top: 10px;  
+      padding-left: 18px;  
+    }  
+    .songs li {  
+      font-size: 14px;  
+      color: #fff;  
+      margin: 3px 0;  
+    }  
+    .more-link {  
+      color: #00ffd5;  
+      font-weight: bold;  
+      cursor: pointer;  
+      margin-top: 5px;  
+      display: inline-block;  
+    }  
+    .artist-box:hover {  
+      background: rgba(255,255,255,0.1);  
+      box-shadow: 0 0 15px rgba(0,255,255,0.15);  
+      transform: translateY(-2px);  
+    }  
+    .expanded {  
+      flex-direction: column;  
+      align-items: center;  
+      text-align: center;  
+    }  
+    .expanded img {  
+      margin: 0 0 10px 0;  
+      width: 150px;  
+      height: 150px;  
+    }  
+    .expanded .artist-bio {  
+      max-height: 500px;  
+      color: #fff;  
+    }  
+    .expanded .songs {  
+      display: block;  
+    }  
 
     /* ========== PAYMENT SECTION (unchanged) ========== */  
     .payment-section {  
@@ -504,7 +343,7 @@
       padding: 0.8rem 1rem;  
       max-width: 650px;  
       margin: 1rem auto;  
-      box-shadow: 0 8px 16px rgba(0,0,0,0.1);  
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);  
       font-size: 0.85rem;  
     }  
     .payment-section h3 {  
@@ -591,9 +430,6 @@
     #contact a:hover {  
       text-decoration: underline;  
     }  
-    body {
-  padding-top: 250px; /* adjust number to move content below logo words */
-    }
   </style>  
 </head>  
 <body>  
@@ -609,7 +445,7 @@
   <div class="hero-top">
     <h2>Upload. Download. Promote. share.</h2>
   </div>
-<!-- 🔹 SEARCH BAR SECTION (Pandemalawi Sounds) -->
+<!-- ðŸ”¹ SEARCH BAR SECTION (Pandemalawi Sounds) -->
 <div class="search">
   <!-- Search input: user types song or artist here -->
   <input 
@@ -622,13 +458,13 @@
   <!-- Dropdown results will appear here under the input -->
   <div id="searchResults" class="dropdown"></div>
 </div>
-  <!-- 1️⃣ AD AFTER SEARCH (Business Ad) -->
+  <!-- 1ï¸âƒ£ AD AFTER SEARCH (Business Ad) -->
   <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
         <div class="ad-title">Business Ad</div>  
         <div class="ad-text">Advertise your business on Pandemalawi Sounds and reach more ears.</div>  
-        <div class="ad-price">K1000 per day</div>  
+        <div class="ad-price">K2,000 per day</div>  
         <span class="ad-cta">Book this space</span>  
       </div>  
     </div>  
@@ -643,12 +479,8 @@
   <div class="slideshow-container" id="trendingSlides">
     <!-- Slide 1 -->
     <div class="slide" onclick="toggleSlideList('trendingList')">
-  <img src="covers/Nata.png" alt="Nataria pboy n Denje">
-
-  <img src="img/music-note.webp" class="float-img f1" alt="">
-  <img src="img/wave.webp" class="float-img f2" alt="">
-
-  <div class="slide-caption">Nataria pboy n Denje</div>
+      <img src="covers/Nata.png" alt="Nataria pboy n Denje">
+      <div class="slide-caption">Nataria pboy n Denje</div>
     </div>
     <!-- Slide 2 -->
     <div class="slide" onclick="toggleSlideList('trendingList')">
@@ -674,72 +506,23 @@
 
   <p class="tap-to-view">Tap to view trending songs</p>
   <div class="slide-song-list" id="trendingList">
-    <!-- ===========================================
-     TRENDING SONGS
-     =========================================== -->
-<div class="song-list">
-
-    <!-- 1. Love war  -->
-    <div class="song-bar" data-link="pboy-halla.html#Love war">
-        <img src="img/malawian-girls.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">love war </div>
-            <div class="song-artist">Pboy Halla</div>
-        </div>
-        <div class="song-action">Listen</div>
-    </div>
-
-    <!-- 2. FIND YOUR WAY -->
-    <div class="song-bar" data-link="hot-denje.html#find-your-way">
-        <img src="img/find-your-way.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Find Your Way</div>
-            <div class="song-artist">Hot Denje</div>
-        </div>
-        <div class="song-action">Listen</div>
-    </div>
-
-    <!-- 3. KUMAMUMVESESA -->
-    <div class="song-bar" data-link="hot-denje.html#kumamumvesesa">
-        <img src="img/kumamumvesesa.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Kumamumvesesa</div>
-            <div class="song-artist">Hot Denje</div>
-        </div>
-        <div class="song-action">Listen</div>
-    </div>
-
-    <!-- PLACEHOLDER A -->
-    <div class="song-bar" data-link="#">
-        <img src="img/placeholder.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Song Title Here</div>
-            <div class="song-artist">Artist Name</div>
-        </div>
-        <div class="song-action">Listen</div>
-    </div>
-
-    <!-- PLACEHOLDER B -->
-    <div class="song-bar" data-link="#">
-        <img src="img/placeholder.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Song Title Here</div>
-            <div class="song-artist">Artist Name</div>
-        </div>
-        <div class="song-action">Listen</div>
-    </div>
-
-</div>
+    <ul>
+      <li>Club Banger â€“ Artist X</li>
+      <li>Track 2 â€“ Artist Y</li>
+      <li>Track 3 â€“ Artist Z</li>
+      <li>Track 4 â€“ Artist A</li>
+      <li>Track 5 â€“ Artist B</li>
+    </ul>
   </div>
 </div>
 </div>
-  <!-- 3️⃣ P&E TECHO AD -->
+  <!-- 3ï¸âƒ£ P&E TECHO AD -->
   <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
         <div class="ad-title">P&E Techo</div>  
         <div class="ad-text">P&E Techo: Carpentry, furniture, electrical & tech services in Malawi.</div>  
-        <span class="ad-cta">Contact P&E Techo:0996285575</span>  
+        <span class="ad-cta">Contact P&E Techo</span>  
       </div>  
     </div>  
   </div>
@@ -768,203 +551,145 @@
 
   <p class="tap-to-view">Tap to view latest songs</p>
   <div class="slide-song-list" id="latestList">
-    <!-- ===========================================
-     LATEST UPLOADS
-     =========================================== -->
-<div class="song-list">
-
-    <!-- 1. YOU NEVER ALONE -->
-    <div class="song-bar" data-link="pboy-halla.html#you-never-alone">
-        <img src="img/you-never-alone.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">You Never Alone</div>
-            <div class="song-artist">Pboy Halla</div>
-        </div>
-        <div class="song-action">Listen</div>
-    </div>
-
-    <!-- 2. KUMAMUMVESESA -->
-    <div class="song-bar" data-link="hot-denje.html#kumamumvesesa">
-        <img src="img/kumamumvesesa.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Kumamumvesesa</div>
-            <div class="song-artist">Hot Denje</div>
-        </div>
-        <div class="song-action">Listen</div>
-    </div>
-
-    <!-- 3. HOLIDAY -->
-    <div class="song-bar" data-link=html#holiday">
-        <img src="img/holiday.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Holiday</div>
-            <div class="song-artist">Nataria</div>
-        </div>
-        <div class="song-action">Listen</div>
-    </div>
-
-    <!-- 4–10 PLACEHOLDERS TO ADD MORE SONGS -->
-    
-    <!-- PLACEHOLDER 4 -->
-    <!-- Copy this block and edit title/artist/link -->
-    <div class="song-bar" data-link="#">
-        <img src="img/placeholder.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Song Title Here</div>
-            <div class="song-artist">Artist Name</div>
-        </div>
-        <div class="song-action">Listen</div>
-    </div>
-
-    <!-- PLACEHOLDER 5 -->
-    <div class="song-bar" data-link="#">
-        <img src="img/placeholder.jpg" class="song-img" alt="">
-        <div class="song-info">
-            <div class="song-title">Song Title Here</div>
-            <div class="song-artist">Artist Name</div>
-        </div>
-        <div class="song-action">Listen</div>
-    </div>
-
-    <!-- Add more placeholders 6 to 10 the same way -->
+    <ul>
+      <li>Track 1 â€“ Artist 1</li>
+      <li>Track 2 â€“ Artist 2</li>
+      <li>Track 3 â€“ Artist 3</li>
+      <li>Track 4 â€“ Artist 4</li>
+      <li>Track 5 â€“ Artist 5</li>
+      <li>Track 6 â€“ Artist 6</li>
+      <li>Track 7 â€“ Artist 7</li>
+      <li>Track 8 â€“ Artist 8</li>
+      <li>Track 9 â€“ Artist 9</li>
+      <li>Track 10 â€“ Artist 10</li>
+    </ul>
+  </div>
 </div>
-</div>
-  <!-- 5️⃣ AD AFTER LATEST UPLOADS -->
+  <!-- 5ï¸âƒ£ AD AFTER LATEST UPLOADS -->
   <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
         <div class="ad-title">Business Ad</div>  
         <div class="ad-text">Your advert can be here: promote your brand, shop or service.</div>  
-        <div class="ad-price">K800 per day</div>  
+        <div class="ad-price">K2,000 per day</div>  
         <span class="ad-cta">Advertise now</span>  
       </div>  
     </div>  
   </div>
 
-  <!-- 6️⃣ FEATURED ARTISTS (YOUR ORIGINAL SECTION, KEPT) -->  
-  
-<!-- ============================
-     FEATURED ARTISTS (SCROLL BOX)
-     ============================ -->
-<section class="featured-container">
+  <!-- 6ï¸âƒ£ FEATURED ARTISTS (YOUR ORIGINAL SECTION, KEPT) -->  
+  <div class="section" id="artists">  
+    <h3>Featured Artists</h3>  
+    <div class="artist-container">  
+      <!-- Pboy Halla -->  
+      <div class="artist-box" onclick="toggleArtist(this)">  
+        <img src="covers/Pboy1.jpg" alt="Pboy Halla">  
+        <div class="artist-info">  
+          <p class="artist-name">Pboy Halla</p>  
+          <p class="artist-bio">Malawian artist known for urban music and afrobeat vibes.</p>  
+          <ul class="songs">  
+            <li>By My Side</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
+          <span class="more-link" onclick="goToArtistPage(event,'pboy_halla.html')">More</span>  
+        </div>  
+      </div>  
 
-  <h2 class="featured-title">Featured Artists</h2>
+      <!-- Hot Denje -->  
+      <div class="artist-box" onclick="toggleArtist(this)">  
+        <img src="covers/Hot denje.jpg" alt="Hot Denje">  
+        <div class="artist-info">  
+          <p class="artist-name">Hot Denje</p>  
+          <p class="artist-bio">Malawian RnB afro artist known for his unique style. Listen to a song called Denje then you will appreciate the rest.</p>  
+          <ul class="songs">  
+            <li>Denje</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
+          <span class="more-link" onclick="goToArtistPage(event,'Hot_Denje.html')">More</span>  
+        </div>  
+      </div>  
 
-  <!-- Scrollable box -->
-  <div class="artist-scroll-container">
+      <!-- Ric Fabs -->  
+      <div class="artist-box" onclick="toggleArtist(this)">  
+        <img src="covers/Rickfabs.jpg" alt="Ric Fabs">  
+        <div class="artist-info">  
+          <p class="artist-name">Ric Fabs</p>  
+          <p class="artist-bio">Versatile Malawian rapper and songwriter with a passion for afro-pop and rap music.</p>  
+          <ul class="songs">  
+            <li>Song 1</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
+          <span class="more-link" onclick="goToArtistPage(event,'Ric_fabs.html')">More</span>  
+        </div>  
+      </div>  
 
-    <!-- =======================
-         ARTIST: PBOY HALLA
-         ======================= -->
-    <div class="artist-box">
-      <div class="artist-header">
-        <img src="covers/Pboy1.jpg" class="artist-photo" alt="Pboy Halla">
-        <span class="artist-name">Pboy Halla</span>
-        <span class="dropdown-icon">▼</span>
-      </div>
+      <!-- Jonarp -->  
+      <div class="artist-box" onclick="toggleArtist(this)">  
+        <img src="covers/Jonarp.jpg" alt="Jonarp">  
+        <div class="artist-info">  
+          <p class="artist-name">Jonarp</p>  
+          <p class="artist-bio">Malawian Trapper known for his unique style.</p>  
+          <ul class="songs">  
+            <li>Song 1</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
+          <span class="more-link" onclick="goToArtistPage(event,'Jonarp.html')">More</span>  
+        </div>  
+      </div>  
+    </div>  
+  </div>  
 
-      <div class="animated-dropdown">
-        <!-- Songs inside dropdown -->
-        <div class="song-item">
-          <img src="covers/Song3.png" class="song-thumb">
-          <span class="song-title">By My Side</span>
-          <button class="song-btn" onclick="goToSong('pboy_halla.html','by-my-side')">Play / Download</button>
-        </div>
+  <!-- 7ï¸âƒ£ SPONSORED ADS (same as your original "Sponsored Ads" section) -->  
+  <div class="section ads">  
+    <h3>Sponsored Ads</h3>  
+    <div class="ad-strip">  
+      <div class="ad-box">  
+        <div class="ad-title">Business Ad</div>  
+        <div class="ad-text">Promote your product, shop, or event on Pandemalawi Sounds.</div>  
+        <div class="ad-price">K2,000 per day</div>  
+        <span class="ad-cta">Book now</span>  
+      </div>  
+      <div class="ad-box">  
+        <div class="ad-title">P&E Techo</div>  
+        <div class="ad-text">P&E Techo â€“ Quality carpentry, furniture and electrical solutions.</div>  
+        <span class="ad-cta">View services</span>  
+      </div>  
+    </div>  
+  </div>  
 
-        <!-- more songs -->
-        <div class="song-item">
-          <img src="covers/Nata.png" class="song-thumb">
-          <span class="song-title">Nataria</span>
-          <button class="song-btn" onclick="goToSong('pboy_halla.html','nataria')">Play / Download</button>
-        </div>
-
-        <!-- More link to artist page -->
-        <div class="artist-more" onclick="goToArtistPage(event,'pboy_halla.html')">More →</div>
-      </div>
-    </div>
-
-    <!-- =======================
-         ARTIST: HOT DENJE
-         ======================= -->
-    <div class="artist-box">
-      <div class="artist-header">
-        <img src="covers/Hot denje.jpg" class="artist-photo" alt="Hot denje">
-        <span class="artist-name">Hot Denje</span>
-        <span class="dropdown-icon">▼</span>
-      </div>
-
-      <div class="animated-dropdown">
-
-        <div class="song-item">
-          <img src="covers/Lovewar.png" class="song-thumb">
-          <span class="song-title">Lover war</span>
-          <button class="song-btn" onclick="goToSong('Hot_Denje.html','love war')">Play / Download</button>
-        </div>
-
-        <div class="song-item">
-          <img src="images/song4.jpg" class="song-thumb">
-          <span class="song-title">Pano</span>
-          <button class="song-btn" onclick="goToSong('Hot_Denje.html','pano')">Play / Download</button>
-        </div>
-
-        <div class="artist-more" onclick="goToArtistPage(event,'Hot_Denje.html')">More →</div>
-      </div>
-    </div>
-
-    <!-- =======================
-         ARTIST: RIC FABS
-         ======================= -->
-    <div class="artist-box">
-      <div class="artist-header">
-        <img src="covers/Rickfabs.jpg" class="artist-photo" alt="Ric Fabs">
-        <span class="artist-name">Ric Fabs</span>
-        <span class="dropdown-icon">▼</span>
-      </div>
-
-      <div class="animated-dropdown">
-
-        <div class="song-item">
-          <img src="covers/Rick.jpg" class="song-thumb">
-          <span class="song-title">vibe</span>
-          <button class="song-btn" onclick="goToSong('Ric_fabs.html','vibe')">Play / Download</button>
-        </div>
-
-        <div class="artist-more" onclick="goToArtistPage(event,'Ric_fabs.html')">More →</div>
-      </div>
-    </div>
-
-    <!-- =======================
-         ARTIST: JONARP
-         ======================= -->
-    <div class="artist-box">
-      <div class="artist-header">
-        <img src="covers/Jonarp.jpg" class="artist-photo" alt="Jonarp">
-        <span class="artist-name">Jonarp</span>
-        <span class="dropdown-icon">▼</span>
-      </div>
-
-      <div class="animated-dropdown">
-
-        <div class="song-item">
-          <img src="images/song6.jpg" class="song-thumb">
-          <span class="song-title">Time</span>
-          <button class="song-btn" onclick="goToSong('Jonarp.html','time')">Play / Download</button>
-        </div>
-
-        <div class="artist-more" onclick="goToArtistPage(event,'Jonarp.html')">More →</div>
-      </div>
-    </div>
-
-    <!-- =======================
-         ADD MORE ARTISTS HERE
-         (COPY + PASTE artist-box)
-         ======================= -->
-
-  </div>
-  </section>
-<!-- ========== END FEATURED ARTISTS ========== -->
-
-  <!-- 8️⃣ PAYMENT SECTION (unchanged) -->  
+  <!-- 8ï¸âƒ£ PAYMENT SECTION (unchanged) -->  
   <div class="payment-section" id="payments">  
     <h3>Upload & Promotion Payments</h3>  
     <p class="payment-sub">Choose a package for your song uploads. After payment, send proof via WhatsApp.</p>  
@@ -1004,25 +729,25 @@
     </div>  
   </div>  
 
-  <!-- 9️⃣ ABOUT SECTION (unchanged) -->  
+  <!-- 9ï¸âƒ£ ABOUT SECTION (unchanged) -->  
   <div class="section" id="about">  
     <h3>About Pandemalawi Sounds</h3>  
     <p>Pandemalawi Sounds is a platform dedicated to promoting Malawian music and artists by making their work accessible to everyone. We also offer space for local business promotions.</p>  
   </div>  
 
-  <!-- 🔟 AD AFTER ABOUT -->  
+  <!-- ðŸ”Ÿ AD AFTER ABOUT -->  
   <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
         <div class="ad-title">Business Ad</div>  
-        <div class="ad-text">Special offers, events, or music releases – get seen on Pandemalawi Sounds.</div>  
-        <div class="ad-price">K800 per day</div>  
+        <div class="ad-text">Special offers, events, or music releases â€“ get seen on Pandemalawi Sounds.</div>  
+        <div class="ad-price">K2,000 per day</div>  
         <span class="ad-cta">Reserve slot</span>  
       </div>  
     </div>  
   </div>
 
-  <!-- 1️⃣1️⃣ CONTACT US (unchanged styles) -->  
+  <!-- 1ï¸âƒ£1ï¸âƒ£ CONTACT US (unchanged styles) -->  
   <div class="section" id="contact">  
     <h3>Contact Us</h3>  
     <p>Email:  
@@ -1058,7 +783,7 @@
     el.innerText = parseInt(el.innerText) + 1;  
   }  
 
-  // 🔹 SEARCH FUNCTION FOR PANDEMALAWI SOUNDS
+  // ðŸ”¹ SEARCH FUNCTION FOR PANDEMALAWI SOUNDS
 // Runs every time user types in the search bar.
 // Shows dropdown with matching artists and songs.
 // Clicking a result opens the artist page.
@@ -1080,7 +805,7 @@ function searchSongs() {
     return;
   }
 
-  // 🔹 DATA: ARTISTS + SONGS
+  // ðŸ”¹ DATA: ARTISTS + SONGS
   // IMPORTANT:
   // - "page" must match your REAL artist page filename.
   // - "songs" is an array of song titles for that artist.
@@ -1088,27 +813,27 @@ function searchSongs() {
   // - To add a NEW artist: copy the whole object block and paste below.
   const artists = [
     {
-      // ✅ ARTIST 1 (EXAMPLE: Pboy Halla)
+      // âœ… ARTIST 1 (EXAMPLE: Pboy Halla)
       name: 'Pboy Halla',                  // Artist display name
       page: 'pboy_halla.html',             // Actual file name of artist page (EDIT if different)
       songs: [
-        'By My Side With Hot Denje'        // 🔸 Add more songs for Pboy Halla on new lines below
+        'By My Side With Hot Denje'        // ðŸ”¸ Add more songs for Pboy Halla on new lines below
         // 'Second Song Title',
         // 'Third Song Title'
       ]
     }
 
-    // ✅ HOW TO ADD ANOTHER ARTIST (EXAMPLE)
+    // âœ… HOW TO ADD ANOTHER ARTIST (EXAMPLE)
     // ,{
     //   name: 'Denje',                     // Artist 2 name
     //   page: 'denje.html',                // Artist 2 page file
     //   songs: [
-    //     'Ubalikiwe',                     // 🔸 First song for Denje
-    //     'Another Denje Song'             // 🔸 Add more songs on new lines
+    //     'Ubalikiwe',                     // ðŸ”¸ First song for Denje
+    //     'Another Denje Song'             // ðŸ”¸ Add more songs on new lines
     //   ]
     // }
 
-    // ✅ TO ADD A THIRD ARTIST:
+    // âœ… TO ADD A THIRD ARTIST:
     // ,{
     //   name: 'Third Artist Name',
     //   page: 'third_artist.html',
@@ -1128,11 +853,11 @@ function searchSongs() {
   debug.textContent = `You typed: "${input}"`; // just to see it's working
   resultsContainer.appendChild(debug);
 
-  // 🔹 LOOP THROUGH ALL ARTISTS
+  // ðŸ”¹ LOOP THROUGH ALL ARTISTS
   artists.forEach(artist => {
     const artistNameLower = artist.name.toLowerCase();
 
-    // 1️⃣ ARTIST NAME MATCH
+    // 1ï¸âƒ£ ARTIST NAME MATCH
     if (artistNameLower.includes(input)) {
       const div = document.createElement('div');
       div.className = 'dropdown-item';
@@ -1148,7 +873,7 @@ function searchSongs() {
       hasResults = true;
     }
 
-    // 2️⃣ SONG TITLE MATCHES
+    // 2ï¸âƒ£ SONG TITLE MATCHES
     artist.songs.forEach(song => {
       const songLower = song.toLowerCase();
 
@@ -1170,7 +895,7 @@ function searchSongs() {
     });
   });
 
-  // 3️⃣ IF NOTHING MATCHES, SHOW "NO RESULTS"
+  // 3ï¸âƒ£ IF NOTHING MATCHES, SHOW "NO RESULTS"
   if (!hasResults) {
     const noResult = document.createElement('div');
     noResult.className = 'dropdown-item';
@@ -1206,182 +931,31 @@ function searchSongs() {
     el.style.display = (el.style.display === 'block') ? 'none' : 'block';
   }
 
-/*
-  Full-Pro Featured Artists Script
-  - Uses event delegation so it works if you add artists dynamically
-  - Auto-closes other artists (accordion)
-  - Rotates arrow icon
-  - Smooth open/close (uses maxHeight)
-  - Prevents rapid double toggles (debounce guard per dropdown)
-  - Scrolls the container to keep the opened artist visible
-  - goToSong(page, songId) will open target page and we rely on a small snippet on the artist page to scroll to the exact element
-*/
+  // ====== SLIDESHOW FUNCTION ======
+  function initSlideshow(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    const slides = container.getElementsByClassName('slide');
+    let index = 0;
 
-(function() {
-  // Selectors (change if you used different class names)
-  const scrollContainerSelector = '.artist-scroll-container';
-  const artistBoxSelector = '.artist-box';
-  const artistHeaderSelector = '.artist-header';
-  const dropdownContentSelector = '.animated-dropdown';
-  const dropdownIconSelector = '.dropdown-icon';
-
-  // Grab the scroll container (there may be many; we handle the first)
-  const artistScrollContainer = document.querySelector(scrollContainerSelector);
-
-  // Guard
-  if (!artistScrollContainer) return;
-
-  // Helper: close a dropdown element
-  function closeDropdown(dropdown, icon) {
-    if (!dropdown) return;
-    dropdown.style.maxHeight = '0px';
-    dropdown.classList.remove('open');
-    if (icon) icon.classList.remove('open');
-    // remove guard flag
-    dropdown._isAnimating = false;
-  }
-
-  // Helper: open a dropdown element
-  function openDropdown(dropdown, icon) {
-    if (!dropdown) return;
-    // ensure not already animating
-    if (dropdown._isAnimating) return;
-    dropdown._isAnimating = true;
-
-    // set maxHeight to scrollHeight to animate open
-    const full = dropdown.scrollHeight;
-    dropdown.style.maxHeight = full + 'px';
-    dropdown.classList.add('open');
-    if (icon) icon.classList.add('open');
-
-    // after transition finishes, remove animating flag
-    dropdown.addEventListener('transitionend', function handler(e) {
-      if (e.propertyName === 'max-height') {
-        dropdown._isAnimating = false;
-        dropdown.removeEventListener('transitionend', handler);
-        // keep maxHeight set to full so future reads are stable
-        dropdown.style.maxHeight = full + 'px';
+    function showNextSlide() {
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
       }
-    });
+      index++;
+      if (index > slides.length) index = 1;
+      slides[index - 1].style.display = 'block';
+      setTimeout(showNextSlide, 3000); // change every 3 seconds
+    }
+
+    showNextSlide();
   }
 
-  // Close all other dropdowns except the one provided
-  function closeOthers(exceptDropdown) {
-    const all = artistScrollContainer.querySelectorAll(dropdownContentSelector);
-    all.forEach(d => {
-      if (d !== exceptDropdown) {
-        const parent = d.closest(artistBoxSelector);
-        const icon = parent ? parent.querySelector(dropdownIconSelector) : null;
-        closeDropdown(d, icon);
-      }
-    });
-  }
-
-  // Keep the opened artist visible inside the scroll box
-  function scrollIntoViewIfNeeded(artistBox) {
-    if (!artistBox) return;
-    const container = artistScrollContainer;
-    const boxRect = artistBox.getBoundingClientRect();
-    const contRect = container.getBoundingClientRect();
-
-    // if the top is above the container top OR bottom is below container bottom, scroll
-    if (boxRect.top < contRect.top || boxRect.bottom > contRect.bottom) {
-      // compute how much to scroll so the artistBox appears near top with small padding
-      const offset = boxRect.top - contRect.top - 12; // 12px padding
-      container.scrollBy({ top: offset, left: 0, behavior: 'smooth' });
-    }
-  }
-
-  // Event handler (delegated) to toggle artist dropdowns
-  artistScrollContainer.addEventListener('click', function(event) {
-    // find the header element (allow clicking child elements)
-    const header = event.target.closest(artistHeaderSelector);
-    if (!header) return;
-
-    // if user clicked the "More" link inside header, do not toggle
-    if (event.target.closest('.artist-more')) {
-      return;
-    }
-
-    const artistBox = header.closest(artistBoxSelector);
-    if (!artistBox) return;
-
-    const dropdown = artistBox.querySelector(dropdownContentSelector);
-    const icon = header.querySelector(dropdownIconSelector);
-
-    // If dropdown is already open -> close it
-    const isOpen = dropdown && dropdown.classList.contains('open');
-    if (isOpen) {
-      closeDropdown(dropdown, icon);
-      return;
-    }
-
-    // otherwise open it, and close others
-    closeOthers(dropdown);
-    openDropdown(dropdown, icon);
-
-    // keep the opened box in view
-    setTimeout(() => scrollIntoViewIfNeeded(artistBox), 120);
-  });
-
-  // Expose helper functions globally (so HTML onclick can call them)
-  window.goToArtistPage = function (event, page) {
-    if (event && event.stopPropagation) event.stopPropagation();
-    window.location.href = page;
-  };
-
-  window.goToSong = function (page, songId) {
-    // Add small guard: ensure valid args
-    if (!page) return;
-    // Build URL and open. If you want to open in new tab use window.open(...)
-    const url = page + (songId ? ('#' + encodeURIComponent(songId)) : '');
-    // Save timestamp in sessionStorage to allow artist page to detect that we requested a scroll
-    try {
-      sessionStorage.setItem('scrollToSong_onLoad', JSON.stringify({ songId: songId || null, ts: Date.now() }));
-    } catch(e) {
-      // ignore sessionStorage errors
-    }
-    window.location.href = url;
-  };
-
-  // Optional: support keyboard toggle (Enter/Space) for accessibility
-  artistScrollContainer.addEventListener('keydown', function(e) {
-    const header = e.target.closest(artistHeaderSelector);
-    if (!header) return;
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      header.click();
-    }
-  });
-
-  // OPTIONAL: if you dynamically load more artists later, you can call:
-  // rebindUI() to re-evaluate scroll heights etc. Currently event delegation handles clicks.
-  window.featuredArtistsReflow = function() {
-    // ensure any open dropdown has correct maxHeight set
-    const openDrops = artistScrollContainer.querySelectorAll(dropdownContentSelector + '.open');
-    openDrops.forEach(d => {
-      d.style.maxHeight = d.scrollHeight + 'px';
-    });
-  };
-
-})();
-  
-/* ===========================================
-   Smooth Scroll to Artist Song
-   =========================================== */
-document.querySelectorAll('.song-bar').forEach(bar => {
-    bar.addEventListener('click', function () {
-        window.location.href = this.getAttribute('data-link');
-    });
-});
-  
   // INIT SLIDESHOWS WHEN PAGE LOADS
   document.addEventListener("DOMContentLoaded", function() {
     initSlideshow('trendingSlides');
     initSlideshow('latestSlides');
   });
-
-  });
 </script>  
 </body>  
-</html>
+  </html>
