@@ -355,6 +355,45 @@
   border-radius: 5px;
   z-index: 5;             /* ensure caption is above the image */
     }
+    /* slide positioning */
+.slide {
+  position: relative;
+  overflow: hidden;
+}
+
+/* floating images */
+.float-img {
+  position: absolute;
+  width: 36px;      /* small icon */
+  opacity: 0.2;     /* subtle */
+  pointer-events: none;
+  z-index: 2;
+  animation: float 8s ease-in-out infinite;
+}
+
+.float-img.f1 {
+  top: 12%;
+  left: 10%;
+  animation-duration: 10s;
+}
+
+.float-img.f2 {
+  bottom: 18%;
+  right: 12%;
+  animation-duration: 14s;
+}
+
+/* float animation */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-14px); }
+  100% { transform: translateY(0); }
+}
+
+/* optional: pause floating on inactive slides if your slider uses .active */
+.slide:not(.active) .float-img {
+  animation-play-state: paused;
+    }
     
     /*=====Featured Artists =====/// */
 
@@ -624,8 +663,12 @@
   <div class="slideshow-container" id="trendingSlides">
     <!-- Slide 1 -->
     <div class="slide" onclick="toggleSlideList('trendingList')">
-      <img src="covers/Nata.png" alt="Nataria pboy n Denje">
-      <div class="slide-caption">Nataria pboy n Denje</div>
+  <img src="covers/Nata.png" alt="Nataria pboy n Denje">
+
+  <img src="img/music-note.webp" class="float-img f1" alt="">
+  <img src="img/wave.webp" class="float-img f2" alt="">
+
+  <div class="slide-caption">Nataria pboy n Denje</div>
     </div>
     <!-- Slide 2 -->
     <div class="slide" onclick="toggleSlideList('trendingList')">
