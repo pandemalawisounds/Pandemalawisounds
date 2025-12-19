@@ -5,16 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
   <link rel="preload" href="covers/Pandemalawisounds (1).webp" as="image">
   <title>Pandemalawi Sounds</title>  
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Outfit', sans-serif;
+      background-color: #000; /* fallback while image loads */
+      color: #fff;
+      transition: background-image 1s ease-in-out;
+    }
+    body.bg-loaded {
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+  </style>
+
+  <script>
+    const bg = new Image();
+    bg.src = 'covers/Pandemalawisounds (1).png'; // your background image
+    bg.onload = () => {
+      document.body.style.backgroundImage = `url('${bg.src}')`;
+      document.body.classList.add('bg-loaded');
+    };
+  </script>
+  </head>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />  
   <style>  
-    body {  
-  margin: 0;  
-  font-family: 'Outfit', sans-serif;  
-  background: url('covers/Pandemalawisounds (1).png') no-repeat center center fixed;  
-  background-size: cover;  
-  color: #fff;  
-}
+    
     body::before {  
       content: "";  
       position: fixed;  
