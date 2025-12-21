@@ -5,13 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
   <title>Pandemalawi Sounds</title>  
   <style>
-  .top-nav {
+/* ===== TOP NAVIGATION BAR ===== */
+.top-nav {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
   padding: 14px 20px;
   justify-content: center;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
 }
 
 .top-nav a {
@@ -24,7 +27,7 @@
 .top-nav a:hover {
   opacity: 0.7;
 }
-  <style>
+  </style>
   <script>
 (function () {
   const img = new Image();
