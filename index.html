@@ -9,12 +9,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  @media (max-width: 480px) {
+  .top-nav a {
+    font-size: 11px;
+  }
+  }
 
   padding: 2px 6px 6px;   /* TOP very small, bottom slightly bigger */
   row-gap: 4px;           /* space BETWEEN the two rows */
   column-gap: 8px;
 
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6px);
   z-index: 1000;
 }
@@ -23,6 +28,7 @@
   color: #00ff00;
   text-decoration: none;
   font-weight: 600;
+  column-gap: 4px;
   font-size: 12px;
   padding: 1px 4px;       /* tight links */
   line-height: 1.2;
