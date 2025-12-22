@@ -8,24 +8,26 @@
 .top-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  padding: 14px 20px;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(6px);
+
+  padding: 8px 10px;      /* reduced height */
+  row-gap: 6px;           /* small vertical gap */
+  column-gap: 14px;       /* horizontal spacing */
+
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(2px);
   z-index: 1000;
+
+  max-width: 100%;
 }
 
 .top-nav a {
-  color: #00ff00;       /* green color */
+  color: #00ff00;
   text-decoration: none;
   font-weight: 600;
-  font-size: 14px;
-}
-
-.top-nav a:hover {
-  opacity: 0.7;
-}
+  font-size: 13px;        /* slightly smaller to fit */
+  white-space: nowrap;   /* prevents breaking into words */
+  }
   </style>
   
     <script>
