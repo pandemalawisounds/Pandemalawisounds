@@ -9,35 +9,37 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  @media (max-width: 480px) {
-  .top-nav a {
-    font-size: 11px;
-  }
-  }
-  .top-nav a {
-  margin: 0 4px;
-  }
 
-  padding: 2px 6px 6px;   /* TOP very small, bottom slightly bigger */
-  row-gap: 2px;           /* space BETWEEN the two rows */
-  column-gap: 4px;
-
+  padding: 2px 6px 6px;   /* small top, slightly bigger bottom */
+  row-gap: 2px;           /* space between rows */
+  column-gap: 0;          /* we will use margins on links instead */
+  
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(6px);
   z-index: 1000;
 }
-    .top-nav a { margin-right: 4px; }
 
+/* NAV LINKS */
 .top-nav a {
   color: #00ff00;
   text-decoration: none;
   font-weight: 600;
-  column-gap: 4px;
   font-size: 12px;
   padding: 1px 4px;       /* tight links */
   line-height: 1.2;
   white-space: nowrap;
+  
+  /* LEFT & RIGHT SPACING */
+  margin: 0 4px;           /* THIS WORKS reliably */
+  display: inline-block;   /* ensures margin works */
+}
+
+/* MOBILE FONT ADJUSTMENT */
+@media (max-width: 480px) {
+  .top-nav a {
+    font-size: 11px;
   }
+}
   </style>
   
     <script>
