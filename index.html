@@ -1,6 +1,27 @@
 <!DOCTYPE html>  
 <html lang="en">  
 <head>  
+  <script>
+(function () {
+  var img = new Image();
+
+  img.onload = function () {
+    document.body.style.backgroundImage =
+      "url('covers/Pandemalawisounds (1).webp')";
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundPosition = "center center";
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundAttachment = "fixed";
+  };
+
+  img.onerror = function () {
+    // fallback – never leave body empty
+    document.body.style.backgroundColor = "#111";
+  };
+
+  img.src = "covers/Pandemalawisounds (1).webp";
+})();
+    </script>
   <meta charset="UTF-8" />  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
   <title>Pandemalawi Sounds</title>  
