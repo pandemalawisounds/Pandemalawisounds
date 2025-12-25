@@ -224,42 +224,48 @@
         box-shadow: 0 0 18px rgba(0,255,255,0.7);  
         transform: translateY(-2px);  
       }  
-    }  
 /* ===============================
-   SLIDE SONG LIST → GRID CARDS
-   Overrides old dropdown list
+   SLIDE SONG LIST → DROPDOWN GRID
 ================================ */
 
-/* Container for song cards inside slideshow dropdown */
+/* Dropdown container (HIDDEN by default) */
 .slide-song-list {
-  display: grid; /* change from list to grid */
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  gap: 12px; /* space between cards */
+  display: none; /* IMPORTANT: keeps dropdown behavior */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
   padding: 12px;
-  background: rgba(0,0,0,0.15); /* optional semi-transparent background */
-  border-radius: 12px;
+
+  max-height: 360px;        /* prevents section stretching */
+  overflow-y: auto;         /* scroll inside dropdown */
+
+  background: rgba(0,0,0,0.15);
+  border-radius: 0 0 16px 16px;
 }
 
-/* Each song card inside the dropdown */
+/* When dropdown is opened */
+.slide-song-list.active {
+  display: grid;
+}
+
+/* Each song card */
 .slide-song-list li {
-  list-style: none; /* remove bullets */
-  position: relative; /* for 3 dots positioning */
+  list-style: none;
+  position: relative;
+  height: 160px;            /* FIXED height */
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  height: 160px; /* fixed uniform height */
 }
 
-/* Song image fills the card */
+/* Song image */
 .slide-song-list li img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;        /* NO stretching */
   display: block;
-  border-radius: 12px;
 }
 
-/* 3 dots menu on top-right of each card */
+/* 3 dots */
 .slide-song-list .menu-dots {
   position: absolute;
   top: 6px;
@@ -269,11 +275,10 @@
   border-radius: 50%;
   font-size: 18px;
   color: #fff;
-  cursor: pointer;
   z-index: 5;
 }
 
-/* Popup menu (Play button) hidden by default */
+/* Popup menu */
 .slide-song-list .song-menu {
   position: absolute;
   top: 36px;
@@ -284,7 +289,7 @@
   z-index: 10;
 }
 
-/* Play button inside popup */
+/* Play button */
 .slide-song-list .song-menu button {
   background: none;
   border: none;
@@ -531,34 +536,74 @@
 <div class="slideshow-section" id="trendingSection">
   <!-- Section title -->
   <h3 class="slideshow-title">Trending Songs</h3>
+  <!-- Tap area to open dropdown -->
+<div class="tap-to-view" onclick="toggleSlideSongs('trendingSongs')">
+  Tap to view songs
+</div>
+
+<!-- DROPDOWN GRID -->
+<ul class="slide-song-list" id="trendingSongs">
+
+  <li>
+    <img src="covers/stay.jpg" onclick="openSong(0)">
+    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
+    <div class="song-menu">
+      <button onclick="playSong(0)">▶ Play</button>
+    </div>
+  </li>
+
+  <li>
+    <img src="covers/dolo.jpg" onclick="openSong(1)">
+    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
+    <div class="song-menu">
+      <button onclick="playSong(1)">▶ Play</button>
+    </div>
+  </li>
+
+  <li>
+    <img src="covers/vibe.jpg" onclick="openSong(2)">
+    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
+    <div class="song-menu">
+      <button onclick="playSong(2)">▶ Play</button>
+    </div>
+  </li>
+
+</ul>
 
   <div class="slideshow-container" id="trendingSlides">
-    <!-- Slide 1 -->
-    <div class="slide" onclick="toggleSlideList('trendingList')">
-      <img src="covers/Nata.png" alt="Nataria pboy n Denje">
-      <div class="slide-caption">Nataria pboy n Denje</div>
+    <!-- Tap area to open dropdown -->
+<div class="tap-to-view" onclick="toggleSlideSongs('trendingSongs')">
+  Tap to view songs
+</div>
+
+<!-- DROPDOWN GRID -->
+<ul class="slide-song-list" id="trendingSongs">
+
+  <li>
+    <img src="covers/stay.jpg" onclick="openSong(0)">
+    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
+    <div class="song-menu">
+      <button onclick="playSong(0)">▶ Play</button>
     </div>
-    <!-- Slide 2 -->
-    <div class="slide" onclick="toggleSlideList('trendingList')">
-      <img src="covers/Lovewar.png" alt="Love war pboy n Denje">
-      <div class="slide-caption">Love war pboy n Denje</div>
+  </li>
+
+  <li>
+    <img src="covers/dolo.jpg" onclick="openSong(1)">
+    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
+    <div class="song-menu">
+      <button onclick="playSong(1)">▶ Play</button>
     </div>
-    <!-- Slide 3 -->
-    <div class="slide" onclick="toggleSlideList('trendingList')">
-      <img src="covers/Something.png" alt="Something for you">
-      <div class="slide-caption">Something for you</div>
+  </li>
+
+  <li>
+    <img src="covers/vibe.jpg" onclick="openSong(2)">
+    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
+    <div class="song-menu">
+      <button onclick="playSong(2)">▶ Play</button>
     </div>
-    <!-- Slide 4 -->
-    <div class="slide" onclick="toggleSlideList('trendingList')">
-      <img src="covers/Benchi.png" alt="Benchi pboy n Rick Fabs">
-      <div class="slide-caption">Benchi pboy n Rick Fabs</div>
-    </div>
-    <!-- Slide 5 -->
-    <div class="slide" onclick="toggleSlideList('trendingList')">
-      <img src="covers/Jonarp.jpg" alt="Trending song artwork 3">
-      <div class="slide-caption">jonarp-Dolo</div>
-    </div>
-  </div>
+  </li>
+
+</ul>
 
   <p class="tap-to-view">Tap to view trending songs</p>
     <!-- Slide song list container (dropdown) -->
@@ -864,62 +909,7 @@
     const el = document.getElementById(id);  
     el.innerText = parseInt(el.innerText) + 1;  
   }  
-  // =====================================
-// SONG DATA
-// Each song index corresponds to li in grid
-// =====================================
-const songs = [
-  { title: "Stay By My Side", artist: "Pboy Halla", file: "songs/stay.mp3" },
-  { title: "Dolo", artist: "Jonarp", file: "songs/dolo.mp3" },
-  { title: "Vibe", artist: "Ric Farbs", file: "songs/vibe.mp3" }
-];
-
-let currentSong = 0; // keeps track of current song
-
-// =====================================
-// TOGGLE 3 DOT MENU
-// Only one menu can be open at a time
-// =====================================
-function toggleMenu(dot) {
-  const menu = dot.nextElementSibling;
-  // close all other menus
-  document.querySelectorAll('.song-menu').forEach(m => {
-    if (m !== menu) m.style.display = 'none';
-  });
-  // toggle current menu
-  menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-}
-
-// =====================================
-// PLAY SONG
-// Uses global audio player
-// =====================================
-function playSong(index) {
-  currentSong = index;
-  const player = document.getElementById("audioPlayer");
-  player.src = songs[index].file; // set audio source
-  player.play(); // start playback
-
-  // close all menus after playing
-  closeMenus();
-}
-
-// =====================================
-// OPEN SONG PAGE
-// Replace alert with your navigation logic
-// =====================================
-function openSong(index) {
-  currentSong = index;
-  alert(`Open song page for: ${songs[index].title}`);
-}
-
-// =====================================
-// CLOSE ALL MENUS
-// Used after clicking play
-// =====================================
-function closeMenus() {
-  document.querySelectorAll('.song-menu').forEach(m => m.style.display = 'none');
-  }
+  
 
   // Ã°Å¸â€Â¹ SEARCH FUNCTION FOR PANDEMALAWI SOUNDS
 // Runs every time user types in the search bar.
@@ -942,7 +932,30 @@ function searchSongs() {
     resultsContainer.style.display = 'none';
     return;
   }
+/* ===============================
+   DROPDOWN TOGGLE
+================================ */
+function toggleSlideSongs(id) {
+  const list = document.getElementById(id);
+  list.classList.toggle("active");
+}
 
+/* 3 dots menu toggle */
+function toggleMenu(dot) {
+  const menu = dot.nextElementSibling;
+  menu.style.display =
+    menu.style.display === "block" ? "none" : "block";
+}
+
+/* Open song page */
+function openSong(index) {
+  alert("Open song page: " + index);
+}
+
+/* Stream song */
+function playSong(index) {
+  alert("Play song: " + index);
+}
   // Ã°Å¸â€Â¹ DATA: ARTISTS + SONGS
   // IMPORTANT:
   // - "page" must match your REAL artist page filename.
