@@ -224,83 +224,87 @@
         box-shadow: 0 0 18px rgba(0,255,255,0.7);  
         transform: translateY(-2px);  
       }  
-/* ===============================
-   SLIDE SONG LIST → DROPDOWN GRID
-================================ */
+    }  
 
-/* Dropdown container (HIDDEN by default) */
-.slide-song-list {
-  display: none; /* IMPORTANT: keeps dropdown behavior */
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 12px;
+    /* ========== SLIDESHOW SECTIONS: TRENDING + LATEST ========== */
+    /* Wrapper so images cover entire box (no visible margin) */
+    .slideshow-section {
+      position: relative;
+      width: 100%;
+      max-width: 1300px;
+      margin: 1.5rem auto;
+      border-radius: 20px;
+      overflow: hidden; /* hides edges so images fill smoothly */
+      backdrop-filter: blur(5px);
+      background: rgba(0,0,0,0.25);
+    }
 
-  max-height: 360px;        /* prevents section stretching */
-  overflow-y: auto;         /* scroll inside dropdown */
+    /* Title on top of images */
+    .slideshow-title {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 5;
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-shadow: 1px 1px 6px #000;
+    }
 
-  background: rgba(0,0,0,0.15);
-  border-radius: 0 0 16px 16px;
-}
+    .slideshow-container {
+      display: flex;
+      width: 100%;
+      height: 200px; /* same size for Trending & Latest */
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
 
-/* When dropdown is opened */
-.slide-song-list.active {
-  display: grid;
-}
+    .slide {
+      min-width: 100%;
+      transition: transform 0.5s ease;
+      position: relative;
+      cursor: pointer;
+    }
 
-/* Each song card */
-.slide-song-list li {
-  list-style: none;
-  position: relative;
-  height: 160px;            /* FIXED height */
-  border-radius: 12px;
-  overflow: hidden;
-  cursor: pointer;
-}
+    .slide img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;  /* makes image fully cover */
+      display: block;
+    }
 
-/* Song image */
-.slide-song-list li img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;        /* NO stretching */
-  display: block;
-}
+    /* List that drops down for songs (backend for you to edit) */
+    .slide-song-list {
+      display: none; /* hidden by default, shown when tapped */
+      padding: 0.8rem 1.2rem 1rem 1.2rem;
+      font-size: 0.9rem;
+    }
+    .slide-song-list ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .slide-song-list li {
+      margin: 3px 0;
+    }
 
-/* 3 dots */
-.slide-song-list .menu-dots {
+    .tap-to-view {
+      font-size: 0.85rem;
+      padding: 0 1.2rem 0.6rem 1.2rem;
+      opacity: 0.9;
+    }
+    .slide-caption {
   position: absolute;
-  top: 6px;
-  right: 6px;
-  background: rgba(0,0,0,0.6);
-  padding: 4px 8px;
-  border-radius: 50%;
-  font-size: 18px;
+  bottom: 10px;          /* bottom-left of the slide */
+  left: 10px;
   color: #fff;
-  z-index: 5;
-}
-
-/* Popup menu */
-.slide-song-list .song-menu {
-  position: absolute;
-  top: 36px;
-  right: 6px;
-  background: #111;
-  border-radius: 6px;
-  display: none;
-  z-index: 10;
-}
-
-/* Play button */
-.slide-song-list .song-menu button {
-  background: none;
-  border: none;
-  color: white;
-  padding: 10px;
-  width: 100%;
-  cursor: pointer;
-}
-
-.slide-song-list .song-menu button:hover {
-  background: #222;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-shadow: 1px 1px 5px #000;
+  background: rgba(0,0,0,0.25); /* optional semi-transparent bg for readability */
+  padding: 2px 6px;
+  border-radius: 5px;
+  z-index: 5;             /* ensure caption is above the image */
     }
 
     /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
@@ -536,110 +540,44 @@
 <div class="slideshow-section" id="trendingSection">
   <!-- Section title -->
   <h3 class="slideshow-title">Trending Songs</h3>
-  <!-- Tap area to open dropdown -->
-<div class="tap-to-view" onclick="toggleSlideSongs('trendingSongs')">
-  Tap to view songs
-</div>
-
-<!-- DROPDOWN GRID -->
-<ul class="slide-song-list" id="trendingSongs">
-
-  <li>
-    <img src="covers/stay.jpg" onclick="openSong(0)">
-    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
-    <div class="song-menu">
-      <button onclick="playSong(0)">▶ Play</button>
-    </div>
-  </li>
-
-  <li>
-    <img src="covers/dolo.jpg" onclick="openSong(1)">
-    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
-    <div class="song-menu">
-      <button onclick="playSong(1)">▶ Play</button>
-    </div>
-  </li>
-
-  <li>
-    <img src="covers/vibe.jpg" onclick="openSong(2)">
-    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
-    <div class="song-menu">
-      <button onclick="playSong(2)">▶ Play</button>
-    </div>
-  </li>
-
-</ul>
 
   <div class="slideshow-container" id="trendingSlides">
-    <!-- Tap area to open dropdown -->
-<div class="tap-to-view" onclick="toggleSlideSongs('trendingSongs')">
-  Tap to view songs
-</div>
-
-<!-- DROPDOWN GRID -->
-<ul class="slide-song-list" id="trendingSongs">
-
-  <li>
-    <img src="covers/stay.jpg" onclick="openSong(0)">
-    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
-    <div class="song-menu">
-      <button onclick="playSong(0)">▶ Play</button>
+    <!-- Slide 1 -->
+    <div class="slide" onclick="toggleSlideList('trendingList')">
+      <img src="covers/Nata.png" alt="Nataria pboy n Denje">
+      <div class="slide-caption">Nataria pboy n Denje</div>
     </div>
-  </li>
-
-  <li>
-    <img src="covers/dolo.jpg" onclick="openSong(1)">
-    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
-    <div class="song-menu">
-      <button onclick="playSong(1)">▶ Play</button>
+    <!-- Slide 2 -->
+    <div class="slide" onclick="toggleSlideList('trendingList')">
+      <img src="covers/Lovewar.png" alt="Love war pboy n Denje">
+      <div class="slide-caption">Love war pboy n Denje</div>
     </div>
-  </li>
-
-  <li>
-    <img src="covers/vibe.jpg" onclick="openSong(2)">
-    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
-    <div class="song-menu">
-      <button onclick="playSong(2)">▶ Play</button>
+    <!-- Slide 3 -->
+    <div class="slide" onclick="toggleSlideList('trendingList')">
+      <img src="covers/Something.png" alt="Something for you">
+      <div class="slide-caption">Something for you</div>
     </div>
-  </li>
-
-</ul>
+    <!-- Slide 4 -->
+    <div class="slide" onclick="toggleSlideList('trendingList')">
+      <img src="covers/Benchi.png" alt="Benchi pboy n Rick Fabs">
+      <div class="slide-caption">Benchi pboy n Rick Fabs</div>
+    </div>
+    <!-- Slide 5 -->
+    <div class="slide" onclick="toggleSlideList('trendingList')">
+      <img src="covers/Jonarp.jpg" alt="Trending song artwork 3">
+      <div class="slide-caption">jonarp-Dolo</div>
+    </div>
+  </div>
 
   <p class="tap-to-view">Tap to view trending songs</p>
-    <!-- Slide song list container (dropdown) -->
-<div class="slide-song-list" id="slideSongList">
-
-  <!-- ========= SONG 1 ========= -->
-  <li>
-    <img src="covers/stay.jpg" alt="Stay By My Side" onclick="openSong(0)">
-    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
-    <div class="song-menu">
-      <button onclick="playSong(0)">▶ Play</button>
-    </div>
-  </li>
-
-  <!-- ========= SONG 2 ========= -->
-  <li>
-    <img src="covers/dolo.jpg" alt="Dolo" onclick="openSong(1)">
-    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
-    <div class="song-menu">
-      <button onclick="playSong(1)">▶ Play</button>
-    </div>
-  </li>
-
-  <!-- ========= SONG 3 ========= -->
-  <li>
-    <img src="covers/vibe.jpg" alt="Vibe" onclick="openSong(2)">
-    <div class="menu-dots" onclick="toggleMenu(this)">⋮</div>
-    <div class="song-menu">
-      <button onclick="playSong(2)">▶ Play</button>
-    </div>
-  </li>
-
-</div>
-
-<!-- Global audio player -->
-<audio id="audioPlayer"></audio>
+  <div class="slide-song-list" id="trendingList">
+    <ul>
+      <li>Club Banger Ã¢â‚¬â€œ Artist X</li>
+      <li>Track 2 Ã¢â‚¬â€œ Artist Y</li>
+      <li>Track 3 Ã¢â‚¬â€œ Artist Z</li>
+      <li>Track 4 Ã¢â‚¬â€œ Artist A</li>
+      <li>Track 5 Ã¢â‚¬â€œ Artist B</li>
+    </ul>
   </div>
 </div>
 </div>
@@ -909,7 +847,6 @@
     const el = document.getElementById(id);  
     el.innerText = parseInt(el.innerText) + 1;  
   }  
-  
 
   // Ã°Å¸â€Â¹ SEARCH FUNCTION FOR PANDEMALAWI SOUNDS
 // Runs every time user types in the search bar.
@@ -932,30 +869,7 @@ function searchSongs() {
     resultsContainer.style.display = 'none';
     return;
   }
-/* ===============================
-   DROPDOWN TOGGLE
-================================ */
-function toggleSlideSongs(id) {
-  const list = document.getElementById(id);
-  list.classList.toggle("active");
-}
 
-/* 3 dots menu toggle */
-function toggleMenu(dot) {
-  const menu = dot.nextElementSibling;
-  menu.style.display =
-    menu.style.display === "block" ? "none" : "block";
-}
-
-/* Open song page */
-function openSong(index) {
-  alert("Open song page: " + index);
-}
-
-/* Stream song */
-function playSong(index) {
-  alert("Play song: " + index);
-}
   // Ã°Å¸â€Â¹ DATA: ARTISTS + SONGS
   // IMPORTANT:
   // - "page" must match your REAL artist page filename.
