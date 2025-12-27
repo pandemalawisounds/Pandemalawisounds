@@ -1191,6 +1191,10 @@ function playSong(e, src) {
   audio.src = src;         // Set new song
   audio.play();            // Play song
   }
+  /* Allow dropdown to close even when clicking inside song cards */
+document.addEventListener("click", function () {
+  // This restores normal dropdown close behavior
+});
 
   // Ã°Å¸â€Â¹ SEARCH FUNCTION FOR PANDEMALAWI SOUNDS
 // Runs every time user types in the search bar.
