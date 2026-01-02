@@ -738,6 +738,15 @@
   <p class="tap-to-view">Tap to view latest songs</p>
   <div class="song-grid">
 
+/* ===================== SONG GRID ===================== */
+/* The grid that holds all the trending song cards */
+.song-grid {
+  display: none; /* hide the song cards initially */
+  gap: 1rem; /* spacing between cards */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* responsive columns */
+  display: grid; /* set grid layout when visible */
+}
+
   <!-- SONG 1 -->
   <a href="trending.html#bymyside" class="song-card"
      style="background-image:url('covers/bymyside.jpg')">
