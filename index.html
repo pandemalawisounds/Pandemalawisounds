@@ -736,12 +736,16 @@
   </div>
 
   <p class="tap-to-view">Tap to view latest songs</p>
-  <div class="song-grid">
 
-/* Hide song grids by default */
-.song-grid {
-  display: none;  /* hidden initially */
-}
+
+  <div class="song-grid">
+<style>
+  /* Hide all song grids initially */
+  .slideshow-section .song-grid {
+    display: none !important;
+  }
+</style>
+
   <!-- SONG 1 -->
   <a href="trending.html#bymyside" class="song-card"
      style="background-image:url('covers/bymyside.jpg')">
