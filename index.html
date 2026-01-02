@@ -739,12 +739,6 @@
 
 
   <div class="song-grid">
-<style>
-  /* Hide all song grids initially */
-  .slideshow-section .song-grid {
-    display: none !important;
-  }
-</style>
 
   <!-- SONG 1 -->
   <a href="trending.html#bymyside" class="song-card"
@@ -1375,23 +1369,38 @@ function searchSongs() {
     initSlideshow('trendingSlides');
     initSlideshow('latestSlides');
   });
+  // Function to toggle the song grid visibility
+  function toggleSongGrid(event) {
+    // Find the closest slideshow-section parent
+    const section = event.target.closest('.slideshow-section');
+    if (!section) return;
 
-  // Select the "Tap to view trending songs" element
-  const tapButton = document.querySelector('.tap-to-view');
+    // Find the song grid inside that section
+    const grid = section.querySelector('.song-grid');
+    if (!grid) return;
 
-  // Select the grid containing all song cards
-  const songGrid = document.querySelector('.song-grid');
-
-  // Listen for clicks on the "Tap to view" text
-  tapButton.addEventListener('click', () => {
-    // If the grid is already visible, hide it
-    if(songGrid.style.display === 'grid') {
-      songGrid.style.display = 'none';
+    // Toggle display
+    if (grid.style.display === 'grid' || grid.style.display === '') {
+      grid.style.display = grid.style.display === 'grid' ? 'none' : 'grid';
     } else {
-      // If hidden, show it
-      songGrid.style.display = 'grid';
+      grid.style.display = 'grid';
     }
+  }
+
+  // Attach click event to all tap-to-view buttons
+  document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.tap-to-view');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', toggleSongGrid);
+    });
+
+    // Initially hide all song grids
+    const grids = document.querySelectorAll('.song-grid');
+    grids.forEach(grid => {
+      grid.style.display = 'none';
+    });
   });
+  
 </script>  
 </body>  
   </html>
