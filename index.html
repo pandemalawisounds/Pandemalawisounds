@@ -1367,6 +1367,23 @@ function searchSongs() {
     initSlideshow('trendingSlides');
     initSlideshow('latestSlides');
   });
+
+  // Select the "Tap to view trending songs" element
+  const tapButton = document.querySelector('.tap-to-view');
+
+  // Select the grid containing all song cards
+  const songGrid = document.querySelector('.song-grid');
+
+  // Listen for clicks on the "Tap to view" text
+  tapButton.addEventListener('click', () => {
+    // If the grid is already visible, hide it
+    if(songGrid.style.display === 'grid') {
+      songGrid.style.display = 'none';
+    } else {
+      // If hidden, show it
+      songGrid.style.display = 'grid';
+    }
+  });
 </script>  
 </body>  
   </html>
