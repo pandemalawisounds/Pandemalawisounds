@@ -665,37 +665,47 @@
   <!-- Song grid -->
   <div class="song-grid">
    <!-- ========================= -->
+
+<!-- ==================== -->
 <!-- SONG 1: By My Side -->
-<!-- ========================= -->
-
-<!--
-  - This is a song card for the Trending / Latest grid
-  - The background image of the card is the song artwork
-  - Clicking the card navigates to the song's page
-  - Clicking the play button plays/pauses the song without navigating
--->
-
-<a href="pboy_halla.html#By_My_Side"  <!-- Navigate to artist page + song -->
-   class="song-card"
-   style="background-image:url('covers/Song3.png');"  <!-- Whole card image -->
->
-  <!-- Song menu / extra options -->
-  <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-  <!-- Song title & artist -->
-  <div class="song-info">
-    <div class="song-title">By My Side</div>
-    <div class="song-meta">Pboy Halla • ft. Hot Denje</div>
+<!-- ==================== -->
+<a href="pboy_halla.html#By_My_Side_with_Hot_Denje" class="song-card" 
+   style="background-image: url('covers/Song3.png'); 
+          background-size: cover; 
+          background-position: center; 
+          display: block; 
+          width: 200px; height: 250px; 
+          position: relative; 
+          border-radius: 10px; 
+          overflow: hidden; 
+          text-decoration: none; 
+          color: white;">
+  
+  <!-- Three dots menu -->
+  <div class="song-menu" 
+       style="position: absolute; top: 8px; right: 8px; font-size: 20px; cursor: pointer; z-index: 2;">
+    ⋮
   </div>
 
-  <!-- Play / Pause button -->
-  <div class="play-btn">
-    <button onclick="playSong(event, 'songs/bymyside.mp3')">
+  <!-- Song info overlay -->
+  <div class="song-info" 
+       style="position: absolute; bottom: 10px; left: 10px; right: 10px; 
+              background: rgba(0,0,0,0.5); padding: 6px; border-radius: 5px;">
+    <div class="song-title" style="font-weight: bold; font-size: 1em;">By My Side</div>
+    <div class="song-meta" style="font-size: 0.8em;">Pboy Halla • Prod. DJ XYZ</div>
+  </div>
+
+  <!-- Play button overlay -->
+  <div class="play-btn" 
+       style="position: absolute; bottom: 50px; right: 10px; z-index: 2;">
+    <button onclick="playSong(event, 'songs/bymyside.mp3')" 
+            style="padding: 6px 12px; border-radius: 6px; border: none; 
+                   background: rgba(255,255,255,0.2); color: #fff; cursor: pointer;">
       ▶ Play
     </button>
   </div>
-</a>
 
+</a>
     <!-- SONG 2 -->
     <a href="trending.html#bymyside" class="song-card" style="background-image:url('covers/bymyside.jpg')">
       <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
