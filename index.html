@@ -664,17 +664,37 @@
 
   <!-- Song grid -->
   <div class="song-grid">
-    <!-- SONG 1 -->
-    <a href="trending.html#bymyside" class="song-card" style="background-image:url('covers/bymyside.jpg')">
-      <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-      <div class="song-info">
-        <div class="song-title">By My Side</div>
-        <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-      </div>
-      <div class="play-btn">
-        <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-      </div>
-    </a>
+   <!-- ========================= -->
+<!-- SONG 1: By My Side -->
+<!-- ========================= -->
+
+<!--
+  - This is a song card for the Trending / Latest grid
+  - The background image of the card is the song artwork
+  - Clicking the card navigates to the song's page
+  - Clicking the play button plays/pauses the song without navigating
+-->
+
+<a href="pboy_halla.html#By_My_Side"  <!-- Navigate to artist page + song -->
+   class="song-card"
+   style="background-image:url('covers/Song3.png');"  <!-- Whole card image -->
+>
+  <!-- Song menu / extra options -->
+  <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
+
+  <!-- Song title & artist -->
+  <div class="song-info">
+    <div class="song-title">By My Side</div>
+    <div class="song-meta">Pboy Halla • ft. Hot Denje</div>
+  </div>
+
+  <!-- Play / Pause button -->
+  <div class="play-btn">
+    <button onclick="playSong(event, 'songs/bymyside.mp3')">
+      ▶ Play
+    </button>
+  </div>
+</a>
 
     <!-- SONG 2 -->
     <a href="trending.html#bymyside" class="song-card" style="background-image:url('covers/bymyside.jpg')">
