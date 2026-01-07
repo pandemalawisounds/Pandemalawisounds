@@ -1420,6 +1420,63 @@ function searchSongs() {
       grid.style.display = 'none';
     });
   });
+/* =====================================================
+   AUDIO PLAYER (SINGLE INSTANCE)
+   ===================================================== */
+const audio = new Audio();
+let currentButton = null;
+
+/* =====================================================
+   CLICK HANDLER
+   ===================================================== */
+document.addEventListener("click", function (e) {
+
+  /* --- PLAY / PAUSE BUTTON --- */
+  if (e.target.classList.contains("play-toggle")) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const btn = e.target;
+    const src = btn.dataset.src;
+
+    // Load new song if needed
+    if (audio.src !== src) {
+      audio.src = src;
+    }
+
+    // Toggle play / pause
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = "⏸ Pause";
+
+      // Reset previous button
+      if (currentButton && currentButton !== btn) {
+        currentButton.textContent = "▶ Play";
+      }
+
+      currentButton = btn;
+    } else {
+      audio.pause();
+      btn.textContent = "▶ Play";
+    }
+  }
+
+  /* --- MENU (3 DOTS) --- */
+  if (e.target.dataset.action === "menu") {
+    e.preventDefault();
+    e.stopPropagation();
+    // menu logic later (kept safe)
+  }
+});
+
+/* =====================================================
+   RESET WHEN SONG ENDS
+   ===================================================== */
+audio.addEventListener("ended", () => {
+  if (currentButton) {
+    currentButton.textContent = "▶ Play";
+  }
+});
   
 </script>  
 </body>  
