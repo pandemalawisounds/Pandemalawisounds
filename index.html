@@ -667,70 +667,165 @@
    <!-- ========================= -->
 
 <!-- ==================== -->
-<!-- SONG 1: By My Side -->
+<!-- TRENDING SONG CARDS -->
 <!-- ==================== -->
-<a href="pboy_halla.html#By_My_Side_with_Hot_Denje" class="song-card" 
-   style="background-image: url('covers/Song3.png'); 
-          background-size: cover; 
-          background-position: center; 
-          display: block; 
-          width: 200px; height: 250px; 
-          position: relative; 
-          border-radius: 10px; 
-          overflow: hidden; 
-          text-decoration: none; 
-          color: white;">
-  
-  <!-- Three dots menu -->
-  <div class="song-menu" 
-       style="position: absolute; top: 8px; right: 8px; font-size: 20px; cursor: pointer; z-index: 2;">
-    ⋮
-  </div>
+<div class="trending-songs" style="display: flex; gap: 20px; flex-wrap: wrap;">
 
-  <!-- Song info overlay -->
-  <div class="song-info" 
-       style="position: absolute; bottom: 10px; left: 10px; right: 10px; 
-              background: rgba(0,0,0,0.5); padding: 6px; border-radius: 5px;">
-    <div class="song-title" style="font-weight: bold; font-size: 1em;">By My Side</div>
-    <div class="song-meta" style="font-size: 0.8em;">Pboy Halla • Prod. DJ XYZ</div>
-  </div>
+  <!-- ==================== -->
+  <!-- SONG 1 -->
+  <!-- ==================== -->
+  <a href="pboy_halla.html#By_My_Side_with_Hot_Denje" class="song-card" 
+     style="background-image: url('covers/Song3.png'); 
+            background-size: cover; 
+            background-position: center; 
+            display: block; 
+            width: 200px; height: 250px; 
+            position: relative; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            text-decoration: none; 
+            color: white;">
+    
+    <!-- Three dots menu -->
+    <div class="song-menu" style="position: absolute; top: 8px; right: 8px; font-size: 20px; cursor: pointer; z-index: 2;">
+      ⋮
+    </div>
 
-  <!-- Play button overlay -->
-  <div class="play-btn" 
-       style="position: absolute; bottom: 50px; right: 10px; z-index: 2;">
-    <button onclick="playSong(event, 'songs/bymyside.mp3')" 
-            style="padding: 6px 12px; border-radius: 6px; border: none; 
-                   background: rgba(255,255,255,0.2); color: #fff; cursor: pointer;">
-      ▶ Play
-    </button>
-  </div>
+    <!-- Song info overlay -->
+    <div class="song-info" style="position: absolute; bottom: 10px; left: 10px; right: 10px; background: rgba(0,0,0,0.5); padding: 6px; border-radius: 5px;">
+      <div class="song-title" style="font-weight: bold; font-size: 1em;">By My Side</div>
+      <div class="song-meta" style="font-size: 0.8em;">Pboy Halla • Prod. DJ XYZ</div>
+    </div>
 
-</a>
-    <!-- SONG 2 -->
-    <a href="trending.html#bymyside" class="song-card" style="background-image:url('covers/bymyside.jpg')">
-      <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-      <div class="song-info">
-        <div class="song-title">By My Side</div>
-        <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-      </div>
-      <div class="play-btn">
-        <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-      </div>
-    </a>
+    <!-- Play button overlay -->
+    <div class="play-btn" style="position: absolute; bottom: 50px; right: 10px; z-index: 2;">
+      <button class="play-toggle" data-src="songs/bymyside.mp3" style="padding: 6px 12px; border-radius: 6px; border: none; background: rgba(255,255,255,0.2); color: #fff; cursor: pointer;">
+        ▶ Play
+      </button>
+    </div>
 
-    <!-- SONG 3 -->
-    <a href="trending.html#bymyside" class="song-card" style="background-image:url('covers/bymyside.jpg')">
-      <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-      <div class="song-info">
-        <div class="song-title">By My Side</div>
-        <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-      </div>
-      <div class="play-btn">
-        <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-      </div>
-    </a>
-  </div>
+  </a>
+
+  <!-- ==================== -->
+  <!-- SONG 2 -->
+  <!-- ==================== -->
+  <a href="pboy_halla.html#By_My_Side_with_Hot_Denje" class="song-card" 
+     style="background-image: url('covers/Song3.png'); 
+            background-size: cover; 
+            background-position: center; 
+            display: block; 
+            width: 200px; height: 250px; 
+            position: relative; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            text-decoration: none; 
+            color: white;">
+    
+    <div class="song-menu" style="position: absolute; top: 8px; right: 8px; font-size: 20px; cursor: pointer; z-index: 2;">⋮</div>
+    <div class="song-info" style="position: absolute; bottom: 10px; left: 10px; right: 10px; background: rgba(0,0,0,0.5); padding: 6px; border-radius: 5px;">
+      <div class="song-title" style="font-weight: bold; font-size: 1em;">By My Side</div>
+      <div class="song-meta" style="font-size: 0.8em;">Pboy Halla • Prod. DJ XYZ</div>
+    </div>
+    <div class="play-btn" style="position: absolute; bottom: 50px; right: 10px; z-index: 2;">
+      <button class="play-toggle" data-src="songs/bymyside.mp3" style="padding: 6px 12px; border-radius: 6px; border: none; background: rgba(255,255,255,0.2); color: #fff; cursor: pointer;">
+        ▶ Play
+      </button>
+    </div>
+
+  </a>
+
+  <!-- ==================== -->
+  <!-- SONG 3 -->
+  <!-- ==================== -->
+  <a href="pboy_halla.html#By_My_Side_with_Hot_Denje" class="song-card" 
+     style="background-image: url('covers/Song3.png'); 
+            background-size: cover; 
+            background-position: center; 
+            display: block; 
+            width: 200px; height: 250px; 
+            position: relative; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            text-decoration: none; 
+            color: white;">
+    
+    <div class="song-menu" style="position: absolute; top: 8px; right: 8px; font-size: 20px; cursor: pointer; z-index: 2;">⋮</div>
+    <div class="song-info" style="position: absolute; bottom: 10px; left: 10px; right: 10px; background: rgba(0,0,0,0.5); padding: 6px; border-radius: 5px;">
+      <div class="song-title" style="font-weight: bold; font-size: 1em;">By My Side</div>
+      <div class="song-meta" style="font-size: 0.8em;">Pboy Halla • Prod. DJ XYZ</div>
+    </div>
+    <div class="play-btn" style="position: absolute; bottom: 50px; right: 10px; z-index: 2;">
+      <button class="play-toggle" data-src="songs/bymyside.mp3" style="padding: 6px 12px; border-radius: 6px; border: none; background: rgba(255,255,255,0.2); color: #fff; cursor: pointer;">
+        ▶ Play
+      </button>
+    </div>
+
+  </a>
+
 </div>
+
+<!-- ==================== -->
+<!-- AUDIO PLAYER SCRIPT -->
+<!-- ==================== -->
+<script>
+  /* =====================================================
+     SINGLE AUDIO INSTANCE
+     ===================================================== */
+  const audio = new Audio();
+  let currentButton = null;
+
+  /* =====================================================
+     CLICK HANDLER
+     ===================================================== */
+  document.addEventListener("click", function (e) {
+
+    // --- PLAY / PAUSE BUTTON ---
+    if (e.target.classList.contains("play-toggle")) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const btn = e.target;
+      const src = btn.dataset.src;
+
+      // Load new song if different
+      if (audio.src !== src) {
+        audio.src = src;
+      }
+
+      // Toggle play / pause
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = "⏸ Pause";
+
+        // Reset previous button
+        if (currentButton && currentButton !== btn) {
+          currentButton.textContent = "▶ Play";
+        }
+
+        currentButton = btn;
+      } else {
+        audio.pause();
+        btn.textContent = "▶ Play";
+      }
+    }
+
+    // --- MENU (3 DOTS) ---
+    if (e.target.closest(".song-menu")) {
+      e.preventDefault();
+      e.stopPropagation();
+      alert("Menu clicked! You can add actions here.");
+    }
+  });
+
+  /* =====================================================
+     RESET WHEN SONG ENDS
+     ===================================================== */
+  audio.addEventListener("ended", () => {
+    if (currentButton) {
+      currentButton.textContent = "▶ Play";
+    }
+  });
+</script>
 
   <!-- 3Ã¯Â¸Ã¢Æ’Â£ P&E TECHO AD -->
   <div class="section">
@@ -1430,63 +1525,6 @@ function searchSongs() {
       grid.style.display = 'none';
     });
   });
-/* =====================================================
-   AUDIO PLAYER (SINGLE INSTANCE)
-   ===================================================== */
-const audio = new Audio();
-let currentButton = null;
-
-/* =====================================================
-   CLICK HANDLER
-   ===================================================== */
-document.addEventListener("click", function (e) {
-
-  /* --- PLAY / PAUSE BUTTON --- */
-  if (e.target.classList.contains("play-toggle")) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const btn = e.target;
-    const src = btn.dataset.src;
-
-    // Load new song if needed
-    if (audio.src !== src) {
-      audio.src = src;
-    }
-
-    // Toggle play / pause
-    if (audio.paused) {
-      audio.play();
-      btn.textContent = "⏸ Pause";
-
-      // Reset previous button
-      if (currentButton && currentButton !== btn) {
-        currentButton.textContent = "▶ Play";
-      }
-
-      currentButton = btn;
-    } else {
-      audio.pause();
-      btn.textContent = "▶ Play";
-    }
-  }
-
-  /* --- MENU (3 DOTS) --- */
-  if (e.target.dataset.action === "menu") {
-    e.preventDefault();
-    e.stopPropagation();
-    // menu logic can be added later
-  }
-});
-
-/* =====================================================
-   RESET WHEN SONG ENDS
-   ===================================================== */
-audio.addEventListener("ended", () => {
-  if (currentButton) {
-    currentButton.textContent = "▶ Play";
-  }
-});
   
 </script>  
 </body>  
