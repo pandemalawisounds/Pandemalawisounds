@@ -225,85 +225,75 @@
         transform: translateY(-2px);  
       }  
     }  
-/* ========== SLIDESHOW SECTIONS: TRENDING + LATEST ========== */
-/* Wrapper so images cover entire box (no visible margin) */
-.slideshow-section {
-  position: relative;
-  width: 100%;
-  max-width: 1300px;
-  margin: 1.5rem auto;
-  border-radius: 20px;
-  overflow: hidden; /* hides edges so images fill smoothly */
-  backdrop-filter: blur(5px);
-  background: rgba(0,0,0,0.25);
-}
 
-/* Title on top of images */
-.slideshow-title {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  z-index: 5;
-  margin: 0;
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-shadow: 1px 1px 6px #000;
-}
+    /* ========== SLIDESHOW SECTIONS: TRENDING + LATEST ========== */
+    /* Wrapper so images cover entire box (no visible margin) */
+    .slideshow-section {
+      position: relative;
+      width: 100%;
+      max-width: 1300px;
+      margin: 1.5rem auto;
+      border-radius: 20px;
+      overflow: hidden; /* hides edges so images fill smoothly */
+      backdrop-filter: blur(5px);
+      background: rgba(0,0,0,0.25);
+    }
 
-.slideshow-container {
-  display: flex;
-  width: 100%;
-  height: 200px; /* same size for Trending & Latest */
-  border-radius: 20px;
-  overflow: hidden;
-  position: relative;
-}
+    /* Title on top of images */
+    .slideshow-title {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 5;
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-shadow: 1px 1px 6px #000;
+    }
 
-.slide {
-  min-width: 100%;
-  transition: transform 0.5s ease;
-  position: relative;
-  /* removed cursor: pointer; so images are not clickable */
-}
+    .slideshow-container {
+      display: flex;
+      width: 100%;
+      height: 200px; /* same size for Trending & Latest */
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
 
-.slide img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;  /* makes image fully cover */
-  display: block;
-}
+    .slide {
+      min-width: 100%;
+      transition: transform 0.5s ease;
+      position: relative;
+      cursor: pointer;
+    }
 
-/* List that drops down for songs (hidden by default) */
-.slide-song-list {
-  display: none; /* hidden by default, shown when tapped */
-  padding: 0.8rem 1.2rem 1rem 1.2rem;
-  font-size: 0.9rem;
-}
-.slide-song-list ul {
-  margin: 0;
-  padding-left: 1.1rem;
-}
-.slide-song-list li {
-  margin: 3px 0;
-}
+    .slide img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;  /* makes image fully cover */
+      display: block;
+    }
 
-/* Tap-to-view text as a subtle button */
-.tap-to-view {
-  font-size: 0.85rem;
-  padding: 0.4rem 1.2rem;
-  opacity: 0.9;
-  cursor: pointer;          /* make it look clickable */
-  display: inline-block;
-  color: #fff;
-  background: rgba(0,0,0,0.25); /* subtle button look */
-  border-radius: 6px;
-  transition: background 0.3s ease;
-}
-.tap-to-view:hover {
-  background: rgba(0,0,0,0.4); /* hover effect */
-}
+    /* List that drops down for songs (backend for you to edit) */
+    .slide-song-list {
+      display: none; /* hidden by default, shown when tapped */
+      padding: 0.8rem 1.2rem 1rem 1.2rem;
+      font-size: 0.9rem;
+    }
+    .slide-song-list ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .slide-song-list li {
+      margin: 3px 0;
+    }
 
-.slide-caption {
+    .tap-to-view {
+      font-size: 0.85rem;
+      padding: 0 1.2rem 0.6rem 1.2rem;
+      opacity: 0.9;
+    }
+    .slide-caption {
   position: absolute;
   bottom: 10px;          /* bottom-left of the slide */
   left: 10px;
@@ -315,88 +305,7 @@
   padding: 2px 6px;
   border-radius: 5px;
   z-index: 5;             /* ensure caption is above the image */
-}
-
-    /* ===== SONG CARDS (DROPDOWN ONLY) ===== */
-
-.song-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  padding: 10px;
-}
-
-.song-card {
-  position: relative;
-  height: 180px;
-  border-radius: 12px;
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  cursor: pointer;
-}
-
-/* Dark overlay */
-.song-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0.2));
-}
-
-/* Song text */
-.song-info {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  right: 35px;
-  z-index: 2;
-  color: #fff;
-}
-
-.song-title {
-  font-size: 14px;
-  font-weight: bold;
-}
-
-.song-meta {
-  font-size: 11px;
-  opacity: 0.9;
-}
-
-/* Three dots */
-.song-menu {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  z-index: 3;
-  font-size: 20px;
-  color: #fff;
-}
-
-/* Play overlay */
-.play-btn {
-  position: absolute;
-  inset: 0;
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 4;
-}
-
-.play-btn button {
-  background: rgba(0,0,0,0.75);
-  border: none;
-  color: #fff;
-  padding: 12px 20px;
-  border-radius: 40px;
-  font-size: 14px;
-}
-
-/* Show play */
-.song-card.show-play .play-btn {
-  display: flex;
-      }
+    }
 
     /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
     .artist-container {  
@@ -601,7 +510,7 @@
   <div class="hero-top">
     <h2>Upload. Stream. Download. Promote. share.</h2>
   </div>
-<!-- SEARCH BAR SECTION (Pandemalawi Sounds) -->
+<!-- Ã°Å¸â€Â¹ SEARCH BAR SECTION (Pandemalawi Sounds) -->
 <div class="search">
   <!-- Search input: user types song or artist here -->
   <input 
@@ -614,7 +523,7 @@
   <!-- Dropdown results will appear here under the input -->
   <div id="searchResults" class="dropdown"></div>
 </div>
-  <!--AD AFTER SEARCH (Business Ad) -->
+  <!-- 1Ã¯Â¸Ã¢Æ’Â£ AD AFTER SEARCH (Business Ad) -->
   <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
@@ -627,94 +536,52 @@
   </div>
 
   <!-- TRENDING SONGS SECTION -->
+<d<!-- TRENDING SONGS SECTION -->
 <div class="slideshow-section" id="trendingSection">
   <!-- Section title -->
   <h3 class="slideshow-title">Trending Songs</h3>
 
   <div class="slideshow-container" id="trendingSlides">
     <!-- Slide 1 -->
-    <div class="slide">
+    <div class="slide" onclick="toggleSlideList('trendingList')">
       <img src="covers/Nata.png" alt="Nataria pboy n Denje">
       <div class="slide-caption">Nataria pboy n Denje</div>
     </div>
     <!-- Slide 2 -->
-    <div class="slide">
+    <div class="slide" onclick="toggleSlideList('trendingList')">
       <img src="covers/Lovewar.png" alt="Love war pboy n Denje">
       <div class="slide-caption">Love war pboy n Denje</div>
     </div>
     <!-- Slide 3 -->
-    <div class="slide">
+    <div class="slide" onclick="toggleSlideList('trendingList')">
       <img src="covers/Something.png" alt="Something for you">
       <div class="slide-caption">Something for you</div>
     </div>
     <!-- Slide 4 -->
-    <div class="slide">
+    <div class="slide" onclick="toggleSlideList('trendingList')">
       <img src="covers/Benchi.png" alt="Benchi pboy n Rick Fabs">
       <div class="slide-caption">Benchi pboy n Rick Fabs</div>
     </div>
     <!-- Slide 5 -->
-    <div class="slide">
+    <div class="slide" onclick="toggleSlideList('trendingList')">
       <img src="covers/Jonarp.jpg" alt="Trending song artwork 3">
       <div class="slide-caption">jonarp-Dolo</div>
     </div>
   </div>
 
-
-  <p class="tap-to-view">Tap to view latest songs</p>
-
-
-  <div class="song-grid">
-
-  <!-- SONG 1 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 2 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 3 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a
-  
-
-  <!--P&E TECHO AD -->
+  <p class="tap-to-view">Tap to view trending songs</p>
+  <div class="slide-song-list" id="trendingList">
+    <ul>
+      <li>Club Banger Ã¢â‚¬â€œ Artist X</li>
+      <li>Track 2 Ã¢â‚¬â€œ Artist Y</li>
+      <li>Track 3 Ã¢â‚¬â€œ Artist Z</li>
+      <li>Track 4 Ã¢â‚¬â€œ Artist A</li>
+      <li>Track 5 Ã¢â‚¬â€œ Artist B</li>
+    </ul>
+  </div>
+</div>
+</div>
+  <!-- 3Ã¯Â¸Ã¢Æ’Â£ P&E TECHO AD -->
   <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
@@ -748,59 +615,21 @@
   </div>
 
   <p class="tap-to-view">Tap to view latest songs</p>
-
-
-  <div class="song-grid">
-
-  <!-- SONG 1 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 2 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 3 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-        </div>
+  <div class="slide-song-list" id="latestList">
+    <ul>
+      <li>Track 1 Ã¢â‚¬â€œ Artist 1</li>
+      <li>Track 2 Ã¢â‚¬â€œ Artist 2</li>
+      <li>Track 3 Ã¢â‚¬â€œ Artist 3</li>
+      <li>Track 4 Ã¢â‚¬â€œ Artist 4</li>
+      <li>Track 5 Ã¢â‚¬â€œ Artist 5</li>
+      <li>Track 6 Ã¢â‚¬â€œ Artist 6</li>
+      <li>Track 7 Ã¢â‚¬â€œ Artist 7</li>
+      <li>Track 8 Ã¢â‚¬â€œ Artist 8</li>
+      <li>Track 9 Ã¢â‚¬â€œ Artist 9</li>
+      <li>Track 10 Ã¢â‚¬â€œ Artist 10</li>
+    </ul>
+  </div>
+</div>
   <!-- 5Ã¯Â¸Ã¢Æ’Â£ AD AFTER LATEST UPLOADS -->
   <div class="section">
     <div class="ad-strip">  
@@ -813,7 +642,7 @@
     </div>  
   </div>
 
-  <!--FEATURED ARTISTS (YOUR ORIGINAL SECTION, KEPT) -->  
+  <!-- 6Ã¯Â¸Ã¢Æ’Â£ FEATURED ARTISTS (YOUR ORIGINAL SECTION, KEPT) -->  
   <div class="section" id="artists">  
     <h3>Featured Artists</h3>  
     <div class="artist-container">  
@@ -823,57 +652,18 @@
         <div class="artist-info">  
           <p class="artist-name">Pboy Halla</p>  
           <p class="artist-bio">Malawian artist known for urban music and afrobeat vibes.</p>  
-          <div class="song-grid">
-
-  <!-- SONG 1 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 2 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 3 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-</div>
+          <ul class="songs">  
+            <li>By My Side</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
           <span class="more-link" onclick="goToArtistPage(event,'pboy_halla.html')">More</span>  
         </div>  
       </div>  
@@ -884,57 +674,18 @@
         <div class="artist-info">  
           <p class="artist-name">Hot Denje</p>  
           <p class="artist-bio">Malawian RnB afro artist known for his unique style. Listen to a song called Denje then you will appreciate the rest.</p>  
-          <div class="song-grid">
-
-  <!-- SONG 1 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 2 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 3 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-</div>
+          <ul class="songs">  
+            <li>Denje</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
           <span class="more-link" onclick="goToArtistPage(event,'Hot_Denje.html')">More</span>  
         </div>  
       </div>  
@@ -945,57 +696,18 @@
         <div class="artist-info">  
           <p class="artist-name">Ric Fabs</p>  
           <p class="artist-bio">Versatile Malawian rapper and songwriter with a passion for afro-pop and rap music.</p>  
-          <div class="song-grid">
-
-  <!-- SONG 1 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 2 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 3 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-</div>
+          <ul class="songs">  
+            <li>Song 1</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
           <span class="more-link" onclick="goToArtistPage(event,'Ric_fabs.html')">More</span>  
         </div>  
       </div>  
@@ -1006,57 +718,18 @@
         <div class="artist-info">  
           <p class="artist-name">Jonarp</p>  
           <p class="artist-bio">Malawian Trapper known for his unique style.</p>  
-         <div class="song-grid">
-
-  <!-- SONG 1 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 2 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-  <!-- SONG 3 -->
-  <a href="trending.html#bymyside" class="song-card"
-     style="background-image:url('covers/bymyside.jpg')">
-
-    <div class="song-menu" onclick="togglePlay(event, this)">⋮</div>
-
-    <div class="song-info">
-      <div class="song-title">By My Side</div>
-      <div class="song-meta">Pboy Halla • Prod. DJ XYZ</div>
-    </div>
-
-    <div class="play-btn">
-      <button onclick="playSong(event, 'songs/bymyside.mp3')">▶ Play</button>
-    </div>
-  </a>
-
-    </div>   
+          <ul class="songs">  
+            <li>Song 1</li>  
+            <li>Song 2</li>  
+            <li>Song 3</li>  
+            <li>Song 4</li>  
+            <li>Song 5</li>  
+            <li>Song 6</li>  
+            <li>Song 7</li>  
+            <li>Song 8</li>  
+            <li>Song 9</li>  
+            <li>Song 10</li>  
+          </ul>  
           <span class="more-link" onclick="goToArtistPage(event,'Jonarp.html')">More</span>  
         </div>  
       </div>  
@@ -1174,39 +847,6 @@
     const el = document.getElementById(id);  
     el.innerText = parseInt(el.innerText) + 1;  
   }  
-  /* Create one audio object so only one song plays at a time */
-let audio = new Audio();
-
-/*
-  Runs when the 3 dots are tapped
-  - Prevents the song card link from opening
-  - Stops click from bubbling to the parent <a>
-  - Toggles visibility of the Play button
-*/
-function togglePlay(e, el) {
-  e.preventDefault();      // Stop link navigation
-  e.stopPropagation();     // Stop parent click
-  el.closest('.song-card').classList.toggle('show-play');
-}
-
-/*
-  Runs when Play button is tapped
-  - Prevents page navigation
-  - Stops click bubbling
-  - Stops any currently playing song
-  - Loads and plays selected song
-*/
-function playSong(e, src) {
-  e.preventDefault();      // Prevent redirect
-  e.stopPropagation();     // Prevent parent click
-  audio.pause();           // Stop current song
-  audio.src = src;         // Set new song
-  audio.play();            // Play song
-  }
-  /* Allow dropdown to close even when clicking inside song cards */
-document.addEventListener("click", function () {
-  // This restores normal dropdown close behavior
-});
 
   // Ã°Å¸â€Â¹ SEARCH FUNCTION FOR PANDEMALAWI SOUNDS
 // Runs every time user types in the search bar.
@@ -1381,39 +1021,6 @@ function searchSongs() {
     initSlideshow('trendingSlides');
     initSlideshow('latestSlides');
   });
-  // Function to toggle the song grid visibility
-  function toggleSongGrid(event) {
-    // Find the closest slideshow-section parent
-    const section = event.target.closest('.slideshow-section');
-    if (!section) return;
-
-    // Find the song grid inside that section
-    const grid = section.querySelector('.song-grid');
-    if (!grid) return;
-
-    // Toggle display
-    if (grid.style.display === 'grid' || grid.style.display === '') {
-      grid.style.display = grid.style.display === 'grid' ? 'none' : 'grid';
-    } else {
-      grid.style.display = 'grid';
-    }
-  }
-
-  // Attach click event to all tap-to-view buttons
-  document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.tap-to-view');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', toggleSongGrid);
-    });
-
-    // Initially hide all song grids
-    const grids = document.querySelectorAll('.song-grid');
-    grids.forEach(grid => {
-      grid.style.display = 'none';
-    });
-  });
-  
 </script>  
 </body>  
   </html>
-
