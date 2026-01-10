@@ -764,70 +764,9 @@
 
 </div>
 
-<!-- ==================== -->
-<!-- AUDIO PLAYER SCRIPT -->
-<!-- ==================== -->
-<script>
-  /* =====================================================
-     SINGLE AUDIO INSTANCE
-     ===================================================== */
-  const audio = new Audio();
-  let currentButton = null;
+  
 
-  /* =====================================================
-     CLICK HANDLER
-     ===================================================== */
-  document.addEventListener("click", function (e) {
-
-    // --- PLAY / PAUSE BUTTON ---
-    if (e.target.classList.contains("play-toggle")) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      const btn = e.target;
-      const src = btn.dataset.src;
-
-      // Load new song if different
-      if (audio.src !== src) {
-        audio.src = src;
-      }
-
-      // Toggle play / pause
-      if (audio.paused) {
-        audio.play();
-        btn.textContent = "⏸ Pause";
-
-        // Reset previous button
-        if (currentButton && currentButton !== btn) {
-          currentButton.textContent = "▶ Play";
-        }
-
-        currentButton = btn;
-      } else {
-        audio.pause();
-        btn.textContent = "▶ Play";
-      }
-    }
-
-    // --- MENU (3 DOTS) ---
-    if (e.target.closest(".song-menu")) {
-      e.preventDefault();
-      e.stopPropagation();
-      alert("Menu clicked! You can add actions here.");
-    }
-  });
-
-  /* =====================================================
-     RESET WHEN SONG ENDS
-     ===================================================== */
-  audio.addEventListener("ended", () => {
-    if (currentButton) {
-      currentButton.textContent = "▶ Play";
-    }
-  });
-</script>
-
-  <!-- 3Ã¯Â¸Ã¢Æ’Â£ P&E TECHO AD -->
+  <!--P&E TECHO AD -->
   <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
@@ -926,7 +865,7 @@
     </div>  
   </div>
 
-  <!-- 6Ã¯Â¸Ã¢Æ’Â£ FEATURED ARTISTS (YOUR ORIGINAL SECTION, KEPT) -->  
+  <!--FEATURED ARTISTS (YOUR ORIGINAL SECTION, KEPT) -->  
   <div class="section" id="artists">  
     <h3>Featured Artists</h3>  
     <div class="artist-container">  
@@ -1529,3 +1468,4 @@ function searchSongs() {
 </script>  
 </body>  
   </html>
+
