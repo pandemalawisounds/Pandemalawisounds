@@ -311,6 +311,53 @@
   z-index: 5;             /* ensure caption is above the image */
     }
 
+/* Hides elements with the 'hidden' class */
+.hidden {
+  display: none;
+}
+
+/* ===== SONG CARD (DROPDOWN) ===== */
+
+.song-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.song-card {
+  position: relative;
+  background: #111;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.song-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Play button ONLY clickable */
+.song-card .play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  z-index: 2;
+}
+
     /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
     .artist-container {  
       display: flex;  
@@ -575,15 +622,64 @@
   Tap to view trending songs ▼
 </p>
   
-  <div class="slide-song-list" id="trendingList">
-    <ul>
-      <li>Club Banger Ã¢â‚¬â€œ Artist X</li>
-      <li>Track 2 Ã¢â‚¬â€œ Artist Y</li>
-      <li>Track 3 Ã¢â‚¬â€œ Artist Z</li>
-      <li>Track 4 Ã¢â‚¬â€œ Artist A</li>
-      <li>Track 5 Ã¢â‚¬â€œ Artist B</li>
-    </ul>
-  </div>
+  <div class="slide-song-list hidden" id="trendingList">
+  <ul>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div> <!-- transparent play button -->
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div>
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div>
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div>
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div>
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div>
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+  </ul>
+</div>
 </div>
 </div>
   <!-- 3Ã¯Â¸Ã¢Æ’Â£ P&E TECHO AD -->
@@ -622,22 +718,66 @@
   <p class="tap-to-view" onclick="toggleSlideList('latestList')">
   Tap to view latest songs ▼
 </p>
-  <div class="slide-song-list" id="latestList">
-    <ul>
-      <li>Track 1 Ã¢â‚¬â€œ Artist 1</li>
-      <li>Track 2 Ã¢â‚¬â€œ Artist 2</li>
-      <li>Track 3 Ã¢â‚¬â€œ Artist 3</li>
-      <li>Track 4 Ã¢â‚¬â€œ Artist 4</li>
-      <li>Track 5 Ã¢â‚¬â€œ Artist 5</li>
-      <li>Track 6 Ã¢â‚¬â€œ Artist 6</li>
-      <li>Track 7 Ã¢â‚¬â€œ Artist 7</li>
-      <li>Track 8 Ã¢â‚¬â€œ Artist 8</li>
-      <li>Track 9 Ã¢â‚¬â€œ Artist 9</li>
-      <li>Track 10 Ã¢â‚¬â€œ Artist 10</li>
-    </ul>
-  </div>
+  <div class="slide-song-list hidden" id="latestList">
+  <ul>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div> <!-- transparent play button -->
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div>
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div>
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div>
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div>
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+    <li>
+      <a href="song_page.html">
+        <div class="song-card">
+          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
+          <div class="play-button">&#9658;</div>
+        </div>
+        <p>Club Banger – Artist X</p>
+      </a>
+    </li>
+  </ul>
 </div>
-  <!-- 5Ã¯Â¸Ã¢Æ’Â£ AD AFTER LATEST UPLOADS -->
+</div>
+  <!-- AD AFTER LATEST UPLOADS -->
   <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
