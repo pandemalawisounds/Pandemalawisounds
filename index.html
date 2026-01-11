@@ -275,6 +275,7 @@
     }
 
     /* List that drops down for songs (backend for you to edit) */
+
     .slide-song-list {
       display: none; /* hidden by default, shown when tapped */
       padding: 0.8rem 1.2rem 1rem 1.2rem;
@@ -316,46 +317,57 @@
   display: none;
 }
 
-/* ===== SONG CARD (DROPDOWN) ===== */
-
+/* ========== SONG GRID CONTAINER ========== */
 .song-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 15px;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+  gap: 20px; /* space between cards */
+  margin-top: 20px;
+  justify-items: center; /* center cards horizontally */
 }
 
+/* ========== INDIVIDUAL SONG CARD ========== */
 .song-card {
-  position: relative;
-  background: #111;
-  border-radius: 14px;
+  position: relative; /* for play button positioning */
+  width: 200px; /* fixed width for demo, can adjust */
+  height: 200px; /* fixed height for demo */
   overflow: hidden;
+  border-radius: 15px; /* rounded corners */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* subtle shadow */
 }
 
+/* ========== CARD IMAGE ========== */
 .song-card img {
   width: 100%;
-  height: 160px;
-  object-fit: cover;
+  height: 100%;
+  object-fit: cover; /* ensures image covers card */
   display: block;
 }
 
-/* Play button ONLY clickable */
-.song-card .play-btn {
+/* ========== PLAY BUTTON OVERLAY ========== */
+.play-button {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  text-decoration: none;
+  transform: translate(-50%, -50%); /* center the button */
+  background: rgba(0,0,0,0.5); /* semi-transparent dark overlay */
+  color: white;
+  border: none;
+  border-radius: 50%; /* round button */
+  width: 50px;
+  height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  z-index: 2;
+  font-size: 24px; /* play icon size */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+/* ========== PLAY BUTTON HOVER EFFECT ========== */
+.play-button:hover {
+  background: rgba(0,0,0,0.7);
+  transform: translate(-50%, -50%) scale(1.2);
 }
 
     /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
@@ -623,66 +635,48 @@
 </p>
   
   <div class="slide-song-list hidden" id="trendingList">
-  <ul>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div> <!-- transparent play button -->
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div>
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div>
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div>
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div>
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div>
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-  </ul>
+  <!-- ========== SONG GRID ========== -->
+<div class="song-grid">
+
+  <!-- ========== SONG CARD 1 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Song 1 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
+  <!-- ========== SONG CARD 2 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Song 2 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
+  <!-- ========== SONG CARD 3 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Song 3 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
+  <!-- ========== SONG CARD 4 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Song 4 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
+  <!-- ========== SONG CARD 5 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Song 5 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
+  <!-- ========== SONG CARD 6 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Song 6 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
 </div>
 </div>
-</div>
-  <!-- 3Ã¯Â¸Ã¢Æ’Â£ P&E TECHO AD -->
+  <!-- P&E TECHO AD -->
   <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
@@ -719,62 +713,46 @@
   Tap to view latest songs ▼
 </p>
   <div class="slide-song-list hidden" id="latestList">
-  <ul>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div> <!-- transparent play button -->
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div>
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div>
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div>
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div>
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-    <li>
-      <a href="song_page.html">
-        <div class="song-card">
-          <img src="covers/sample-song.jpg" alt="Sample Song Cover" />
-          <div class="play-button">&#9658;</div>
-        </div>
-        <p>Club Banger – Artist X</p>
-      </a>
-    </li>
-  </ul>
+  
+<!-- ========== LATEST UPLOADS GRID ========== -->
+<div class="song-grid" id="latestUploads">
+
+  <!-- ========== SONG CARD 1 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Latest Song 1 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
+  <!-- ========== SONG CARD 2 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Latest Song 2 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
+  <!-- ========== SONG CARD 3 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Latest Song 3 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
+  <!-- ========== SONG CARD 4 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Latest Song 4 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
+  <!-- ========== SONG CARD 5 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Latest Song 5 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
+  <!-- ========== SONG CARD 6 ========== -->
+  <div class="song-card">
+    <img src="covers/song1.jpg" alt="Latest Song 6 Cover">
+    <a href="song1.html" class="play-button">▶</a>
+  </div>
+
 </div>
 </div>
   <!-- AD AFTER LATEST UPLOADS -->
