@@ -543,7 +543,7 @@
 
   <div class="slideshow-container" id="trendingSlides">
     <!-- Slide 1 -->
-    <div class="slide" onclick="toggleSlideList('trendingList')">
+   <div class="slide">
       <img src="covers/Nata.png" alt="Nataria pboy n Denje">
       <div class="slide-caption">Nataria pboy n Denje</div>
     </div>
@@ -568,8 +568,10 @@
       <div class="slide-caption">jonarp-Dolo</div>
     </div>
   </div>
-
-  <p class="tap-to-view">Tap to view trending songs</p>
+<p class="tap-to-view" onclick="toggleSlideList('trendingList')">
+  Tap to view trending songs ▼
+</p>
+  
   <div class="slide-song-list" id="trendingList">
     <ul>
       <li>Club Banger Ã¢â‚¬â€œ Artist X</li>
@@ -598,7 +600,7 @@
 
   <div class="slideshow-container" id="latestSlides">
     <!-- Slide 1 -->
-    <div class="slide" onclick="toggleSlideList('latestList')">
+    <div class="slide"> 
       <img src="covers/Ubalikiwe.png" alt="Latest upload artwork 1">
       <div class="slide-caption">Ubalikiwe denje n pboy</div>
     </div>
@@ -614,7 +616,9 @@
     </div>
   </div>
 
-  <p class="tap-to-view">Tap to view latest songs</p>
+  <p class="tap-to-view" onclick="toggleSlideList('latestList')">
+  Tap to view latest songs ▼
+</p>
   <div class="slide-song-list" id="latestList">
     <ul>
       <li>Track 1 Ã¢â‚¬â€œ Artist 1</li>
