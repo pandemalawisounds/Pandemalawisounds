@@ -449,57 +449,58 @@
     .expanded .songs {  
       display: block;  
     }  
+
 /* ==================== SONGS SECTION STYLES ==================== */
 
 /* Main container for songs sections */
 #songs-section {
-  margin: 3rem auto;          /* Space above and below the section */
-  max-width: 1200px;          /* Keeps section from stretching too wide on big screens */
-  padding: 0 15px;            /* Small padding on sides for mobile */
-  background: transparent;    /* Whole section transparent */
+  padding: 2rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: transparent; /* fully transparent section */
 }
 
 /* Section header styling */
 #songs-section .section-header {
-  text-align: center;         /* Center the text */
-  font-size: 2rem;            /* Make it noticeable */
-  font-weight: bold;           /* Bold font for emphasis */
-  margin-bottom: 1.5rem;       /* Space below the header before the grid starts */
-  color: #222;                /* Dark gray text for readability */
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #222; /* visible text */
 }
 
-/* Grid container for the section cards */
+/* Grid container for the cards */
 #songs-section .section-grid {
-  display: grid;                           /* Use CSS Grid layout */
-  grid-template-columns: repeat(2, 1fr);   /* 2 cards per row */
-  gap: 15px;                               /* Space between cards */
-  justify-items: stretch;                   /* Cards fill the column width */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* cards adjust to screen */
+  gap: 20px; /* space between cards */
+  justify-items: center; /* center cards horizontally */
 }
 
-/* ===== Section Card ===== */
+/* ===== Section Cards ===== */
 .section-card {
   display: block;
   width: 100%;
-  aspect-ratio: 1 / 1;       /* Makes card square */
+  aspect-ratio: 1/1; /* make cards square */
   border-radius: 15px;
   overflow: hidden;
   text-decoration: none;
-  color: #fff;
+  color: #fff; /* text color on cards */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   position: relative;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .section-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
 /* ===== Card Slideshow ===== */
 .card-slideshow {
-  position: relative;
   width: 100%;
-  height: 100%;           /* Fill the card */
+  height: 100%;
+  position: relative;
 }
 
 .card-slideshow img {
@@ -521,21 +522,12 @@
   bottom: 0;
   width: 100%;
   text-align: center;
-  padding: 0.8rem;
   font-size: 1.2rem;
   font-weight: bold;
-  background: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
+  padding: 0.6rem 0;
+  background: rgba(0,0,0,0.5); /* semi-transparent overlay */
   color: #fff;
 }
-
-/* Slide visibility fallback */
-.slide {
-  display: none;
-}
-.slide.active {
-  display: block;
-}
-
     /* ========== PAYMENT SECTION (unchanged) ========== */  
     .payment-section {  
       background: rgba(255,255,255,0.95);  
