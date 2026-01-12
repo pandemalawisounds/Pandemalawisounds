@@ -449,36 +449,38 @@
     .expanded .songs {  
       display: block;  
     }  
+/* ==================== SONGS SECTION STYLES ==================== */
 
-/* ================= SONGS SECTION ================== */
+/* Main container for songs sections */
 #songs-section {
-  background: transparent;      /* Make the whole section transparent */
-  max-width: 1200px;
-  margin: 3rem auto;
-  padding: 0 15px;
+  margin: 3rem auto;          /* Space above and below the section */
+  max-width: 1200px;          /* Keeps section from stretching too wide on big screens */
+  padding: 0 15px;            /* Small padding on sides for mobile */
+  background: transparent;    /* Whole section transparent */
 }
 
-.section-header {
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 2rem;
-  color: #222;
+/* Section header styling */
+#songs-section .section-header {
+  text-align: center;         /* Center the text */
+  font-size: 2rem;            /* Make it noticeable */
+  font-weight: bold;           /* Bold font for emphasis */
+  margin-bottom: 1.5rem;       /* Space below the header before the grid starts */
+  color: #222;                /* Dark gray text for readability */
 }
 
-/* Grid: 2 cards per row, 3 rows */
-.section-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
-  grid-auto-rows: 200px;                 /* each row same height */
-  gap: 20px;
+/* Grid container for the section cards */
+#songs-section .section-grid {
+  display: grid;                           /* Use CSS Grid layout */
+  grid-template-columns: repeat(2, 1fr);   /* 2 cards per row */
+  gap: 15px;                               /* Space between cards */
+  justify-items: stretch;                   /* Cards fill the column width */
 }
 
-/* ===== Section Cards ===== */
+/* ===== Section Card ===== */
 .section-card {
   display: block;
   width: 100%;
-  height: 100%;
+  aspect-ratio: 1 / 1;       /* Makes card square */
   border-radius: 15px;
   overflow: hidden;
   text-decoration: none;
@@ -493,11 +495,11 @@
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
 
-/* ===== Slideshow Images ===== */
+/* ===== Card Slideshow ===== */
 .card-slideshow {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 100%;           /* Fill the card */
 }
 
 .card-slideshow img {
@@ -513,24 +515,23 @@
   opacity: 1;
 }
 
-/* ===== Card Titles ===== */
+/* ===== Card Title Overlay ===== */
 .card-title {
   position: absolute;
   bottom: 0;
   width: 100%;
-  padding: 10px;
+  text-align: center;
+  padding: 0.8rem;
   font-size: 1.2rem;
   font-weight: bold;
-  text-align: center;
-  background: rgba(0,0,0,0.5); /* semi-transparent black for readability */
+  background: rgba(0, 0, 0, 0.5); /* semi-transparent overlay */
   color: #fff;
 }
 
-/* ===== Slides Hidden by Default ===== */
+/* Slide visibility fallback */
 .slide {
   display: none;
 }
-
 .slide.active {
   display: block;
 }
