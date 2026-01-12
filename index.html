@@ -646,6 +646,89 @@
     .pay-detail {  
       font-size: 0.8rem;  
     }  
+/* ==================== BUY & SELL SECTION STYLES ==================== */
+
+/* Main container */
+#buy-sell-section {
+  padding: 1rem 0.5rem;       /* vertical padding */
+  max-width: 1400px;          /* same width as other sections */
+  margin: 2rem auto;          /* spacing above/below */
+  background: transparent;    /* fully transparent */
+}
+
+/* Section header styling */
+#buy-sell-section .section-header {
+  text-align: left;           /* top-left */
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #fff;                /* visible text */
+}
+
+/* Grid container for the card */
+#buy-sell-section .section-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* single full-width card */
+  gap: 12px;
+  justify-items: center;      /* center card horizontally */
+}
+
+/* ===== Card Styles ===== */
+#buy-sell-section .section-card {
+  display: block;
+  width: 100%;                /* full width of grid */
+  aspect-ratio: 1/1;          /* square card */
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;                /* text color */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* subtle shadow for depth */
+  position: relative;
+  background: transparent;    /* card background transparent */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Hover effect for realism */
+#buy-sell-section .section-card:hover {
+  transform: translateY(-7px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+}
+
+/* Slideshow container */
+#buy-sell-section .card-slideshow {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Slideshow images */
+#buy-sell-section .card-slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* Active image visible */
+#buy-sell-section .card-slideshow img.active {
+  opacity: 1;
+}
+
+/* Card title overlay */
+#buy-sell-section .card-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.8rem 0;
+  background: rgba(0,0,0,0.4); /* semi-transparent overlay for readability */
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* text more readable on images */
+}
 
     /* CONTACT LINKS (unchanged) */  
     #contact a {  
@@ -1074,11 +1157,46 @@
     </div>  
   </div>  
 
-  <!-- 9Ã¯Â¸Ã¢Æ’Â£ ABOUT SECTION (unchanged) -->  
+<!-- ======== BUY & SELL SECTION ======== -->
+<section id="buy-sell-section">
+  <h2 class="section-header">Buy & Sell</h2>
+
+  <div class="section-grid">
+
+    <!-- ===== Buy & Sell Card ===== -->
+
+    <a href="buy-sell.html" class="section-card">
+      <!-- Slideshow container for images -->
+      <div class="card-slideshow">
+        <img src="images/buysell1.jpg" class="slide active" alt="Buy & Sell Slide 1">
+        <img src="images/buysell2.jpg" class="slide" alt="Buy & Sell Slide 2">
+        <img src="images/buysell3.jpg" class="slide" alt="Buy & Sell Slide 3">
+      </div>
+      <!-- Card title overlay -->
+      <div class="card-title">Buy & Sell</div>
+    </a>
+
+  </div>
+</section>
+<script>
+document.querySelectorAll('#buy-sell-section .card-slideshow').forEach(slideshow => {
+  let slides = slideshow.querySelectorAll('.slide');
+  let index = 0;
+
+  setInterval(() => {
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+  }, 3000); // rotate every 3 seconds
+});
+</script>
+
+  <!-- ABOUT SECTION (unchanged) -->  
   <div class="section" id="about">  
     <h3>About Pandemalawi Sounds</h3>  
     <p>Pandemalawi Sounds is a platform dedicated to promoting Malawian music and artists by making their work accessible to everyone. We also offer space for local business promotions.</p>  
   </div>  
+
 
   <!-- Ã°Å¸â€Å¸ AD AFTER ABOUT -->  
   <div class="section">
