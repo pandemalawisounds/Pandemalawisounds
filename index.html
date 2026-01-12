@@ -1021,13 +1021,12 @@
         <div class="ad-price">K800 per day</div>  
         <span class="ad-cta">Book now</span>  
       </div>  
-
 <!-- ======== SONGS SECTION ======== -->
 <section id="songs-section">
   <!-- Section Header -->
   <h2 class="section-header">songs</h2>
 
-  <!-- Grid Container -->
+  <!-- Grid Container for all cards -->
   <div class="section-grid">
 
     <!-- ===== SONGLIST ===== -->
@@ -1086,29 +1085,28 @@
 
   </div>
 </section>
-<script>
-  // Select all elements with class 'card-slideshow' (each section card has one)
-  document.querySelectorAll('.card-slideshow').forEach(slideshow => {
-    
-    // Inside each slideshow, get all images with class 'slide'
-    let slides = slideshow.querySelectorAll('.slide');
-    
-    // Initialize current slide index to 0 (first image)
-    let index = 0;
 
-    // Set up an interval to change slides automatically
-    setInterval(() => {
-      // Remove 'active' class from the current slide to hide it
-      slides[index].classList.remove('active');
-      
-      // Move index to the next slide, loop back to 0 at the end
-      index = (index + 1) % slides.length;
-      
-      // Add 'active' class to the new slide to display it
-      slides[index].classList.add('active');
-    }, 3000); // Change slide every 3000ms (3 seconds)
+<!-- ======== SLIDESHOW SCRIPT FOR SONGS CARDS ======== -->
+<script>
+  // Select all card slideshows
+  const slideshows = document.querySelectorAll('.card-slideshow');
+
+  slideshows.forEach(slideshow => {
+    const slides = slideshow.querySelectorAll('.slide'); // All slides in this card
+    let index = 0; // Start with first slide
+
+    // Function to switch slides
+    const nextSlide = () => {
+      slides[index].classList.remove('active'); // Hide current
+      index = (index + 1) % slides.length;     // Next index, loop at end
+      slides[index].classList.add('active');    // Show next
+    };
+
+    // Change slide every 3 seconds
+    setInterval(nextSlide, 3000);
   });
 </script>
+
       <div class="ad-box">  
         <div class="ad-title">P&E Techo</div>  
         <div class="ad-text">P&E Techo Ã¢â‚¬â€œ Quality carpentry, furniture and electrical solutions.</div>  
