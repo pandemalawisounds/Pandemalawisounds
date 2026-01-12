@@ -450,6 +450,101 @@
       display: block;  
     }  
 
+/* ==================== SONGS SECTION STYLES ==================== */
+
+/* Main container for songs sections */
+#songs-section {
+  margin: 3rem auto;          /* Space above and below the section */
+  max-width: 1200px;          /* Keeps section from stretching too wide on big screens */
+  padding: 0 15px;            /* Small padding on sides for mobile */
+}
+
+/* Section header styling */
+#songs-section .section-header {
+  text-align: center;         /* Center the text */
+  font-size: 1.8rem;          /* Make it noticeable */
+  font-weight: bold;           /* Bold font for emphasis */
+  margin-bottom: 1.5rem;       /* Space below the header before the grid starts */
+  color: #333;                /* Dark gray text for readability */
+}
+
+/* Grid container for the section cards */
+#songs-section .section-grid {
+  display: grid;              /* Use CSS Grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+                               /* Makes cards responsive:
+                                  - Minimum width 220px
+                                  - Auto-fit adapts number of columns to screen */
+  gap: 20px;                  /* Space between cards */
+}
+/* ===== SONGS SECTION ===== */
+#songs-section {
+  padding: 2rem 1rem;
+  background: #f9f9f9;
+}
+
+.section-header {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+/* ===== Section Card ===== */
+.section-card {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* ===== Card Slideshow ===== */
+.card-slideshow {
+  position: relative;
+  width: 100%;
+  height: 150px; /* adjust height as needed */
+}
+
+.card-slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card-slideshow img.active {
+  opacity: 1;
+}
+
+/* ===== Card Title ===== */
+.card-title {
+  padding: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+  background: #fff;
+.slide { display: none; }
+.slide.active { display: block; }
+}
+
     /* ========== PAYMENT SECTION (unchanged) ========== */  
     .payment-section {  
       background: rgba(255,255,255,0.95);  
@@ -817,7 +912,7 @@
     </div>  
   </div>  
 
-  <!-- 7Ã¯Â¸Ã¢Æ’Â£ SPONSORED ADS (same as your original "Sponsored Ads" section) -->  
+  <!-- SPONSORED ADS (same as your original "Sponsored Ads" section) -->  
   <div class="section ads">  
     <h3>Sponsored Ads</h3>  
     <div class="ad-strip">  
@@ -827,6 +922,134 @@
         <div class="ad-price">K800 per day</div>  
         <span class="ad-cta">Book now</span>  
       </div>  
+
+<!-- ======== SONGS SECTIONS ======== -->
+<!-- This is the main container for all song categories/sections like Gospel, Nasheed, Zambian music, etc. -->
+<section id="songs-section">
+  <!-- Section title -->
+  <h2 class="section-header">Songs</h2>
+
+  <!-- Grid container where all the section cards will go -->
+  <div class="section-grid">
+
+    <!-- Section cards will be added here later -->
+
+<!-- ======== SONGS SECTIONS WITH SLIDES ======== -->
+<section id="songs-section">
+  <!-- Section Header -->
+  <h2 class="section-header">Songs</h2>
+
+  <!-- ===== Grid Container for Section Cards ===== -->
+  <div class="section-grid">
+
+    <!-- ===== SONGLIST ===== -->
+    <a href="songlist.html" class="section-card">
+      <!-- Slideshow inside the card -->
+      <div class="card-slideshow">
+        <img src="images/songlist1.jpg" class="slide active">
+        <img src="images/songlist2.jpg" class="slide">
+        <img src="images/songlist3.jpg" class="slide">
+      </div>
+      <!-- Card title -->
+      <div class="card-title">Songlist</div>
+    </a>
+
+    <!-- ===== GOSPEL SONGS ===== -->
+    <a href="gospel.html" class="section-card">
+      <!-- Slideshow inside the card -->
+      <div class="card-slideshow">
+        <img src="images/gospel1.jpg" class="slide active">
+        <img src="images/gospel2.jpg" class="slide">
+        <img src="images/gospel3.jpg" class="slide">
+      </div>
+      <!-- Card title -->
+      <div class="card-title">Gospel Songs</div>
+    </a>
+
+    <!-- ===== NASHEED ===== -->
+    <a href="nasheed.html" class="section-card">
+      <!-- Slideshow inside the card -->
+      <div class="card-slideshow">
+        <img src="images/nasheed1.jpg" class="slide active">
+        <img src="images/nasheed2.jpg" class="slide">
+        <img src="images/nasheed3.jpg" class="slide">
+      </div>
+      <!-- Card title -->
+      <div class="card-title">Nasheed</div>
+    </a>
+
+    <!-- ===== BEATS (MEET THE PRODUCER) ===== -->
+    <a href="beats.html" class="section-card">
+      <!-- Slideshow inside the card -->
+      <div class="card-slideshow">
+        <img src="images/beats1.jpg" class="slide active">
+        <img src="images/beats2.jpg" class="slide">
+        <img src="images/beats3.jpg" class="slide">
+      </div>
+      <!-- Card title -->
+      <div class="card-title">Beats (Meet the Producer)</div>
+    </a>
+
+    <!-- ===== ZAMBIAN MUSIC ===== -->
+    <a href="zambian.html" class="section-card">
+      <!-- Slideshow inside the card -->
+      <div class="card-slideshow">
+        <img src="images/zambian1.jpg" class="slide active">
+        <img src="images/zambian2.jpg" class="slide">
+        <img src="images/zambian3.jpg" class="slide">
+      </div>
+      <!-- Card title -->
+      <div class="card-title">Zambian Music</div>
+    </a>
+
+    <!-- ===== COMPETITIONS ===== -->
+    <a href="competitions.html" class="section-card">
+      <!-- Slideshow inside the card -->
+      <div class="card-slideshow">
+        <img src="images/competitions1.jpg" class="slide active">
+        <img src="images/competitions2.jpg" class="slide">
+        <img src="images/competitions3.jpg" class="slide">
+      </div>
+      <!-- Card title -->
+      <div class="card-title">Competitions</div>
+    </a>
+
+  </div>
+</section>
+
+<!-- ===== Notes =====
+1. Each <a> tag is a full clickable card linking to its page.
+2. 'card-slideshow' contains multiple images; the first one has class 'active'.
+3. The 'section-grid' will be styled via CSS grid; keeps these cards separate from trending/latest song cards.
+4. Card titles show the section name clearly.
+5. No <script> or CSS here; JS for slideshows and CSS grid will be added separately.
+6. Comments included for every major element for easy future edits.
+===== -->
+  </div>
+</section>
+<script>
+  // Select all elements with class 'card-slideshow' (each section card has one)
+  document.querySelectorAll('.card-slideshow').forEach(slideshow => {
+    
+    // Inside each slideshow, get all images with class 'slide'
+    let slides = slideshow.querySelectorAll('.slide');
+    
+    // Initialize current slide index to 0 (first image)
+    let index = 0;
+
+    // Set up an interval to change slides automatically
+    setInterval(() => {
+      // Remove 'active' class from the current slide to hide it
+      slides[index].classList.remove('active');
+      
+      // Move index to the next slide, loop back to 0 at the end
+      index = (index + 1) % slides.length;
+      
+      // Add 'active' class to the new slide to display it
+      slides[index].classList.add('active');
+    }, 3000); // Change slide every 3000ms (3 seconds)
+  });
+</script>
       <div class="ad-box">  
         <div class="ad-title">P&E Techo</div>  
         <div class="ad-text">P&E Techo Ã¢â‚¬â€œ Quality carpentry, furniture and electrical solutions.</div>  
