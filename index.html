@@ -450,32 +450,80 @@
       display: block;  
     }  
 
-/* ==================== SONGS SECTION STYLES ==================== */
 
-/* Main container for songs sections */
+ 
+  /* ===== SONGS SECTION ===== */
 #songs-section {
-  margin: 3rem auto;          /* Space above and below the section */
-  max-width: 1200px;          /* Keeps section from stretching too wide on big screens */
-  padding: 0 15px;            /* Small padding on sides for mobile */
+  padding: 2rem 1rem;
+  background: #f9f9f9; /* overall section background */
 }
 
-/* Section header styling */
-#songs-section .section-header {
-  text-align: center;         /* Center the text */
-  font-size: 1.8rem;          /* Make it noticeable */
-  font-weight: bold;           /* Bold font for emphasis */
-  margin-bottom: 1.5rem;       /* Space below the header before the grid starts */
-  color: #333;                /* Dark gray text for readability */
+.section-header {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #222;
 }
 
-/* Grid container for the section cards */
-#songs-section .section-grid {
-  display: grid;              /* Use CSS Grid layout */
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
-                               /* Makes cards responsive:
-                                  - Minimum width 220px
-                                  - Auto-fit adapts number of columns to screen */
-  gap: 20px;                  /* Space between cards */
+/* Grid container */
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
+}
+
+/* Section Card */
+.section-card {
+  display: block;
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff; /* make words visible */
+  position: relative; /* for overlay text */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Card Slideshow */
+.card-slideshow {
+  position: relative;
+  width: 100%;
+  height: 220px; /* bigger for visibility */
+}
+
+.card-slideshow img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 15px; /* match card */
+}
+
+.card-slideshow img.active {
+  opacity: 1;
+}
+
+/* Card Title overlay */
+.card-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  background: rgba(0,0,0,0.5); /* semi-transparent black for readability */
+  color: #fff;
+  z-index: 2;
 }
 /* ===== SONGS SECTION ===== */
 #songs-section {
