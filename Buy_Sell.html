@@ -222,33 +222,44 @@ body {
 
 <!-- ===== AUTO SCROLL SCRIPT ===== -->
 <script>
+/*
+  Auto-scrolls the markets bar continuously.
+  Users can drag/scroll manually — auto-scroll slows while interacting.
+  Clicking a market link works normally.
+*/
+
+// Get the markets bar container
 const bar = document.getElementById("marketsBar");
 
+// Normal and slow scroll speeds (pixels per frame)
 let normalSpeed = 0.6;
 let slowSpeed = 0.15;
 let currentSpeed = normalSpeed;
 
+// Auto-scroll function
 function autoScroll() {
-  bar.scrollLeft += currentSpeed;
+  bar.scrollLeft += currentSpeed; // move the scroll
 
+  // Reset scroll to start when reaching end for seamless loop
   if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2) {
     bar.scrollLeft = 0;
   }
-  requestAnimationFrame(autoScroll);
+
+  requestAnimationFrame(autoScroll); // repeat next frame
 }
 
-// Slow when user interacts
-["mousedown","touchstart","wheel"].forEach(e =>
-  bar.addEventListener(e, () => currentSpeed = slowSpeed)
+// Slow down auto-scroll when user interacts
+["mousedown", "touchstart", "wheel"].forEach(event =>
+  bar.addEventListener(event, () => currentSpeed = slowSpeed)
 );
 
-// Restore speed
-["mouseup","touchend","mouseleave"].forEach(e =>
-  bar.addEventListener(e, () => currentSpeed = normalSpeed)
+// Restore normal speed when user stops interacting
+["mouseup", "touchend", "mouseleave"].forEach(event =>
+  bar.addEventListener(event, () => currentSpeed = normalSpeed)
 );
 
+// Start auto-scrolling
 autoScroll();
 </script>
-
 </body>
 </html>
