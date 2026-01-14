@@ -219,46 +219,71 @@ body {
   </div>
 
 </div>
-
-<!-- ===== AUTO SCROLL SCRIPT ===== -->
 <script>
-/*
-  Auto-scrolls the markets bar continuously.
-  Users can drag/scroll manually — auto-scroll slows while interacting.
-  Clicking a market link works normally.
-*/
-
-// Get the markets bar container
 const bar = document.getElementById("marketsBar");
 
-// Normal and slow scroll speeds (pixels per frame)
 let normalSpeed = 0.6;
 let slowSpeed = 0.15;
 let currentSpeed = normalSpeed;
 
-// Auto-scroll function
-function autoScroll() {
-  bar.scrollLeft += currentSpeed; // move the scroll
+let isDragging = false;
+let startX = 0;
+let moved = false;
 
-  // Reset scroll to start when reaching end for seamless loop
+function autoScroll() {
+  bar.scrollLeft += currentSpeed;
+
   if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2) {
     bar.scrollLeft = 0;
   }
-
-  requestAnimationFrame(autoScroll); // repeat next frame
+  requestAnimationFrame(autoScroll);
 }
 
-// Slow down auto-scroll when user interacts
-["mousedown", "touchstart", "wheel"].forEach(event =>
-  bar.addEventListener(event, () => currentSpeed = slowSpeed)
-);
+/* Mouse events */
+bar.addEventListener("mousedown", e => {
+  isDragging = true;
+  moved = false;
+  startX = e.pageX;
+  currentSpeed = slowSpeed;
+});
 
-// Restore normal speed when user stops interacting
-["mouseup", "touchend", "mouseleave"].forEach(event =>
-  bar.addEventListener(event, () => currentSpeed = normalSpeed)
-);
+bar.addEventListener("mousemove", e => {
+  if (!isDragging) return;
+  if (Math.abs(e.pageX - startX) > 5) moved = true;
+});
 
-// Start auto-scrolling
+bar.addEventListener("mouseup", () => {
+  isDragging = false;
+  currentSpeed = normalSpeed;
+});
+
+bar.addEventListener("mouseleave", () => {
+  isDragging = false;
+  currentSpeed = normalSpeed;
+});
+
+/* Touch events */
+bar.addEventListener("touchstart", e => {
+  moved = false;
+  startX = e.touches[0].pageX;
+  currentSpeed = slowSpeed;
+});
+
+bar.addEventListener("touchmove", e => {
+  if (Math.abs(e.touches[0].pageX - startX) > 5) moved = true;
+});
+
+bar.addEventListener("touchend", () => {
+  currentSpeed = normalSpeed;
+});
+
+/* Allow tap, block drag-click */
+bar.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", e => {
+    if (moved) e.preventDefault();
+  });
+});
+
 autoScroll();
 </script>
 </body>
