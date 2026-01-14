@@ -6,7 +6,6 @@
 <title>Market Section | Pandemalawi Sounds</title>
 
 <style>
-/* ===== BASIC RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +13,6 @@
   font-family: Arial, sans-serif;
 }
 
-/* ===== BACKGROUND IMAGE ===== */
 body {
   background:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
@@ -23,32 +21,28 @@ body {
   color: #fff;
 }
 
-/* ===== MAIN WRAPPER ===== */
 .market-wrapper {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
 }
 
-/* ===== HOME BUTTON ===== */
+/* HOME */
 .home-btn {
   text-align: center;
   margin-bottom: 15px;
 }
-
 .home-btn a {
   text-decoration: none;
   color: #fff;
   font-size: 14px;
 }
-
 .home-btn span {
   font-size: 26px;
   display: block;
-  opacity: 0.9;
 }
 
-/* ===== MARKET TITLE ===== */
+/* TITLE */
 .market-title {
   text-align: center;
   font-size: 32px;
@@ -56,20 +50,24 @@ body {
   margin-bottom: 15px;
 }
 
-/* ===== AUTO-SCROLL MARKETS BAR ===== */
+/* ===== MARKETS BAR ===== */
 .market-scroll {
-  overflow: hidden;
+  overflow-x: auto;
   margin-bottom: 25px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.market-scroll::-webkit-scrollbar {
+  display: none;
 }
 
 .market-track {
   display: flex;
   gap: 15px;
   width: max-content;
-  animation: scrollMarkets 25s linear infinite;
+  padding: 5px 0;
 }
 
-/* Individual market button */
 .market-track a {
   background: rgba(255,165,0,0.85);
   color: #000;
@@ -78,26 +76,15 @@ body {
   text-decoration: none;
   font-weight: bold;
   white-space: nowrap;
+  flex: 0 0 auto;
 }
 
-/* Pause animation on hover (user control) */
-.market-scroll:hover .market-track {
-  animation-play-state: paused;
-}
-
-/* Infinite scrolling animation */
-@keyframes scrollMarkets {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-/* ===== SEARCH BAR ===== */
+/* SEARCH */
 .market-search {
   display: flex;
   justify-content: center;
   margin-bottom: 25px;
 }
-
 .market-search input {
   width: 65%;
   max-width: 480px;
@@ -106,7 +93,6 @@ body {
   outline: none;
   border-radius: 30px 0 0 30px;
 }
-
 .market-search button {
   padding: 14px 26px;
   border: none;
@@ -116,51 +102,41 @@ body {
   cursor: pointer;
 }
 
-/* ===== PRODUCT GRID (2 PER ROW MOBILE) ===== */
+/* PRODUCTS GRID */
 .market-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 }
-
-/* Bigger screens */
 @media (min-width: 768px) {
   .market-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-/* ===== PRODUCT CARD ===== */
 .product-card {
   background: rgba(255,255,255,0.12);
   border-radius: 14px;
   overflow: hidden;
   backdrop-filter: blur(6px);
 }
-
 .product-card img {
   width: 100%;
   height: 120px;
   object-fit: cover;
 }
-
-/* ===== PRODUCT INFO ===== */
 .product-info {
   padding: 10px;
 }
-
 .product-price {
   color: #ffd700;
   font-weight: bold;
   font-size: 14px;
 }
-
 .product-desc {
   font-size: 13px;
-  opacity: 0.9;
   margin: 6px 0;
 }
-
 .product-btn {
   display: block;
   text-align: center;
@@ -179,7 +155,6 @@ body {
 
 <div class="market-wrapper">
 
-  <!-- ===== HOME BUTTON ===== -->
   <div class="home-btn">
     <a href="index.html">
       <span>🏠</span>
@@ -187,13 +162,11 @@ body {
     </a>
   </div>
 
-  <!-- ===== MARKET TITLE ===== -->
   <div class="market-title">MARKET SECTION</div>
 
-  <!-- ===== AUTO SCROLLING MARKETS ===== -->
-  <div class="market-scroll">
+  <!-- MARKETS -->
+  <div class="market-scroll" id="marketsBar">
     <div class="market-track">
-      <!-- Repeat markets twice for seamless loop -->
       <a href="#">Limbe Market</a>
       <a href="#">Blantyre Market</a>
       <a href="#">Mzuzu Market</a>
@@ -201,6 +174,7 @@ body {
       <a href="#">Nkhotakota Market</a>
       <a href="#">Karonga Market</a>
 
+      <!-- duplicate for seamless loop -->
       <a href="#">Limbe Market</a>
       <a href="#">Blantyre Market</a>
       <a href="#">Mzuzu Market</a>
@@ -210,15 +184,12 @@ body {
     </div>
   </div>
 
-  <!-- ===== SEARCH BAR ===== -->
   <div class="market-search">
     <input type="text" placeholder="Search products, services, shops...">
     <button>Search</button>
   </div>
 
-  <!-- ===== PRODUCTS GRID ===== -->
   <div class="market-grid">
-
     <div class="product-card">
       <img src="covers/product1.jpg">
       <div class="product-info">
@@ -245,10 +216,39 @@ body {
         <a href="#" class="product-btn">View</a>
       </div>
     </div>
-
   </div>
 
 </div>
+
+<!-- ===== AUTO SCROLL SCRIPT ===== -->
+<script>
+const bar = document.getElementById("marketsBar");
+
+let normalSpeed = 0.6;
+let slowSpeed = 0.15;
+let currentSpeed = normalSpeed;
+
+function autoScroll() {
+  bar.scrollLeft += currentSpeed;
+
+  if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2) {
+    bar.scrollLeft = 0;
+  }
+  requestAnimationFrame(autoScroll);
+}
+
+// Slow when user interacts
+["mousedown","touchstart","wheel"].forEach(e =>
+  bar.addEventListener(e, () => currentSpeed = slowSpeed)
+);
+
+// Restore speed
+["mouseup","touchend","mouseleave"].forEach(e =>
+  bar.addEventListener(e, () => currentSpeed = normalSpeed)
+);
+
+autoScroll();
+</script>
 
 </body>
 </html>
