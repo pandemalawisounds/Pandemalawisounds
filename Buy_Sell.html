@@ -6,6 +6,7 @@
 <title>Market Section | Pandemalawi Sounds</title>
 
 <style>
+/* ===== BASIC RESET ===== */
 * {
   margin: 0;
   padding: 0;
@@ -13,7 +14,7 @@
   font-family: Arial, sans-serif;
 }
 
-/* ====== BACKGROUND IMAGE ====== */
+/* ===== BACKGROUND IMAGE ===== */
 body {
   background:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
@@ -22,36 +23,88 @@ body {
   color: #fff;
 }
 
-/* ===== MAIN CONTAINER ===== */
+/* ===== MAIN WRAPPER ===== */
 .market-wrapper {
   max-width: 1200px;
   margin: auto;
-  padding: 30px 20px;
+  padding: 20px;
+}
+
+/* ===== HOME BUTTON ===== */
+.home-btn {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.home-btn a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+
+.home-btn span {
+  font-size: 26px;
+  display: block;
+  opacity: 0.9;
 }
 
 /* ===== MARKET TITLE ===== */
 .market-title {
   text-align: center;
-  font-size: 34px;
+  font-size: 32px;
   font-weight: bold;
+  margin-bottom: 15px;
+}
+
+/* ===== AUTO-SCROLL MARKETS BAR ===== */
+.market-scroll {
+  overflow: hidden;
   margin-bottom: 25px;
+}
+
+.market-track {
+  display: flex;
+  gap: 15px;
+  width: max-content;
+  animation: scrollMarkets 25s linear infinite;
+}
+
+/* Individual market button */
+.market-track a {
+  background: rgba(255,165,0,0.85);
+  color: #000;
+  padding: 8px 18px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* Pause animation on hover (user control) */
+.market-scroll:hover .market-track {
+  animation-play-state: paused;
+}
+
+/* Infinite scrolling animation */
+@keyframes scrollMarkets {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 /* ===== SEARCH BAR ===== */
 .market-search {
   display: flex;
   justify-content: center;
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
 .market-search input {
   width: 65%;
-  max-width: 500px;
+  max-width: 480px;
   padding: 14px;
   border: none;
   outline: none;
   border-radius: 30px 0 0 30px;
-  font-size: 16px;
 }
 
 .market-search button {
@@ -59,16 +112,22 @@ body {
   border: none;
   border-radius: 0 30px 30px 0;
   background: orange;
-  color: #000;
   font-weight: bold;
   cursor: pointer;
 }
 
-/* ===== PRODUCT GRID ===== */
+/* ===== PRODUCT GRID (2 PER ROW MOBILE) ===== */
 .market-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+/* Bigger screens */
+@media (min-width: 768px) {
+  .market-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 /* ===== PRODUCT CARD ===== */
@@ -77,34 +136,29 @@ body {
   border-radius: 14px;
   overflow: hidden;
   backdrop-filter: blur(6px);
-  transition: transform 0.3s;
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
 }
 
 .product-card img {
   width: 100%;
-  height: 160px;
+  height: 120px;
   object-fit: cover;
 }
 
 /* ===== PRODUCT INFO ===== */
 .product-info {
-  padding: 12px;
+  padding: 10px;
 }
 
 .product-price {
   color: #ffd700;
   font-weight: bold;
-  margin-bottom: 6px;
+  font-size: 14px;
 }
 
 .product-desc {
-  font-size: 14px;
+  font-size: 13px;
   opacity: 0.9;
-  margin-bottom: 10px;
+  margin: 6px 0;
 }
 
 .product-btn {
@@ -112,11 +166,11 @@ body {
   text-align: center;
   background: orange;
   color: #000;
-  padding: 8px;
-  border-radius: 20px;
+  padding: 6px;
+  border-radius: 15px;
   text-decoration: none;
+  font-size: 13px;
   font-weight: bold;
-  font-size: 14px;
 }
 </style>
 </head>
@@ -125,16 +179,44 @@ body {
 
 <div class="market-wrapper">
 
-  <!-- ===== MARKET SECTION STARTS HERE ===== -->
+  <!-- ===== HOME BUTTON ===== -->
+  <div class="home-btn">
+    <a href="index.html">
+      <span>🏠</span>
+      Home
+    </a>
+  </div>
+
+  <!-- ===== MARKET TITLE ===== -->
   <div class="market-title">MARKET SECTION</div>
 
-  <!-- SEARCH BAR -->
+  <!-- ===== AUTO SCROLLING MARKETS ===== -->
+  <div class="market-scroll">
+    <div class="market-track">
+      <!-- Repeat markets twice for seamless loop -->
+      <a href="#">Limbe Market</a>
+      <a href="#">Blantyre Market</a>
+      <a href="#">Mzuzu Market</a>
+      <a href="#">Zomba Market</a>
+      <a href="#">Nkhotakota Market</a>
+      <a href="#">Karonga Market</a>
+
+      <a href="#">Limbe Market</a>
+      <a href="#">Blantyre Market</a>
+      <a href="#">Mzuzu Market</a>
+      <a href="#">Zomba Market</a>
+      <a href="#">Nkhotakota Market</a>
+      <a href="#">Karonga Market</a>
+    </div>
+  </div>
+
+  <!-- ===== SEARCH BAR ===== -->
   <div class="market-search">
-    <input type="text" placeholder="Search products, services, beats, gear...">
+    <input type="text" placeholder="Search products, services, shops...">
     <button>Search</button>
   </div>
 
-  <!-- PRODUCT GRID -->
+  <!-- ===== PRODUCTS GRID ===== -->
   <div class="market-grid">
 
     <div class="product-card">
