@@ -302,42 +302,58 @@ body {
 ================================ -->
 <script>
 /*
-  Auto scrolling market bar
-  - Scrolls endlessly
+  CORRECT market bar behavior:
+  - Auto scroll runs
+  - On touch / mouse down → auto scroll STOPS
   - User can swipe freely
-  - Auto scroll slows on interaction
-  - Taps always work
+  - TAPS WORK
+  - Auto scroll resumes after interaction
 */
 
 const bar = document.getElementById("marketsBar");
 
-const normalSpeed = 0.6;
-const slowSpeed = 0.15;
-let speed = normalSpeed;
+let speed = 0.6;
+let autoScrollActive = true;
+let resumeTimer;
 
+/* Auto scroll loop */
 function autoScroll() {
-  bar.scrollLeft += speed;
+  if (autoScrollActive) {
+    bar.scrollLeft += speed;
 
-  if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 1) {
-    bar.scrollLeft = 0;
+    /* Loop */
+    if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 1) {
+      bar.scrollLeft = 0;
+    }
   }
-
   requestAnimationFrame(autoScroll);
 }
 
-/* Slow down when user interacts */
-["touchstart","mousedown","wheel"].forEach(e =>
-  bar.addEventListener(e, () => speed = slowSpeed)
+/* Pause auto scroll immediately */
+function pauseAutoScroll() {
+  autoScrollActive = false;
+  clearTimeout(resumeTimer);
+}
+
+/* Resume auto scroll after user stops */
+function resumeAutoScroll() {
+  clearTimeout(resumeTimer);
+  resumeTimer = setTimeout(() => {
+    autoScrollActive = true;
+  }, 1200); // resume after 1.2s
+}
+
+/* Touch + mouse events */
+["touchstart", "mousedown", "wheel"].forEach(e =>
+  bar.addEventListener(e, pauseAutoScroll)
 );
 
-/* Restore speed */
-["touchend","mouseup","mouseleave"].forEach(e =>
-  bar.addEventListener(e, () => speed = normalSpeed)
+["touchend", "mouseup", "mouseleave"].forEach(e =>
+  bar.addEventListener(e, resumeAutoScroll)
 );
 
-/* Start scrolling */
+/* Start */
 autoScroll();
 </script>
-
 </body>
 </html>
