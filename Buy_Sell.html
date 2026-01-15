@@ -298,31 +298,22 @@ body {
 </div>
 
 <!-- ===============================
-     MARKET BAR AUTO SCROLL SCRIPT
-================================ -->
-<script>
-/*
-  CORRECT market bar behavior:
-  - Auto scroll runs
-  - On touch / mouse down → auto scroll STOPS
-  - User can swipe freely
-  - TAPS WORK
-  - Auto scroll resumes after interaction
-*/
-
+ <script>
 const bar = document.getElementById("marketsBar");
+const speed = 0.6;
 
-let speed = 0.6;
 let autoScrollActive = true;
 let resumeTimer;
+let isDragging = false;
+let startX = 0;
+let moved = false;
 
 /* Auto scroll loop */
 function autoScroll() {
-  if (autoScrollActive) {
+  if (autoScrollActive && !isDragging) {
     bar.scrollLeft += speed;
-
-    /* Loop */
-    if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 1) {
+    if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth / 2) {
+      // reset to start to loop seamlessly
       bar.scrollLeft = 0;
     }
   }
@@ -332,27 +323,58 @@ function autoScroll() {
 /* Pause auto scroll immediately */
 function pauseAutoScroll() {
   autoScrollActive = false;
-  clearTimeout(resumeTimer);
 }
 
-/* Resume auto scroll after user stops */
+/* Resume after interaction */
 function resumeAutoScroll() {
   clearTimeout(resumeTimer);
   resumeTimer = setTimeout(() => {
     autoScrollActive = true;
-  }, 1200); // resume after 1.2s
+    isDragging = false;
+    moved = false;
+  }, 1200);
 }
 
-/* Touch + mouse events */
-["touchstart", "mousedown", "wheel"].forEach(e =>
-  bar.addEventListener(e, pauseAutoScroll)
-);
+/* Drag detection */
+bar.addEventListener("mousedown", e => {
+  isDragging = true;
+  moved = false;
+  startX = e.pageX;
+  pauseAutoScroll();
+});
+bar.addEventListener("mousemove", e => {
+  if (!isDragging) return;
+  if (Math.abs(e.pageX - startX) > 5) moved = true;
+});
+bar.addEventListener("mouseup", e => {
+  resumeAutoScroll();
+});
+bar.addEventListener("mouseleave", e => {
+  resumeAutoScroll();
+});
 
-["touchend", "mouseup", "mouseleave"].forEach(e =>
-  bar.addEventListener(e, resumeAutoScroll)
-);
+/* Touch events */
+bar.addEventListener("touchstart", e => {
+  isDragging = true;
+  moved = false;
+  startX = e.touches[0].pageX;
+  pauseAutoScroll();
+});
+bar.addEventListener("touchmove", e => {
+  if (Math.abs(e.touches[0].pageX - startX) > 5) moved = true;
+});
+bar.addEventListener("touchend", e => {
+  resumeAutoScroll();
+});
 
-/* Start */
+/* Click handling: only allow click if NOT a drag */
+bar.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", e => {
+    if (moved) e.preventDefault(); // cancel fake click from drag
+  });
+});
+
+/* Start auto scroll */
 autoScroll();
 </script>
 </body>
