@@ -56,6 +56,9 @@ body {
   margin-bottom: 25px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
+
+  /* ✅ CRITICAL FIX: allows swipe + tap */
+  touch-action: pan-x;
 }
 .market-scroll::-webkit-scrollbar {
   display: none;
@@ -167,20 +170,20 @@ body {
   <!-- MARKETS -->
   <div class="market-scroll" id="marketsBar">
     <div class="market-track">
-      <a href="#">Limbe Market</a>
-      <a href="#">Blantyre Market</a>
-      <a href="#">Mzuzu Market</a>
-      <a href="#">Zomba Market</a>
-      <a href="#">Nkhotakota Market</a>
-      <a href="#">Karonga Market</a>
+      <a href="limbe-market.html">Limbe Market</a>
+      <a href="blantyre-market.html">Blantyre Market</a>
+      <a href="mzuzu-market.html">Mzuzu Market</a>
+      <a href="zomba-market.html">Zomba Market</a>
+      <a href="nkhotakota-market.html">Nkhotakota Market</a>
+      <a href="karonga-market.html">Karonga Market</a>
 
       <!-- duplicate for seamless loop -->
-      <a href="#">Limbe Market</a>
-      <a href="#">Blantyre Market</a>
-      <a href="#">Mzuzu Market</a>
-      <a href="#">Zomba Market</a>
-      <a href="#">Nkhotakota Market</a>
-      <a href="#">Karonga Market</a>
+      <a href="limbe-market.html">Limbe Market</a>
+      <a href="blantyre-market.html">Blantyre Market</a>
+      <a href="mzuzu-market.html">Mzuzu Market</a>
+      <a href="zomba-market.html">Zomba Market</a>
+      <a href="nkhotakota-market.html">Nkhotakota Market</a>
+      <a href="karonga-market.html">Karonga Market</a>
     </div>
   </div>
 
@@ -189,81 +192,42 @@ body {
     <button>Search</button>
   </div>
 
-  <div class="market-grid">
-    <div class="product-card">
-      <img src="covers/product1.jpg">
-      <div class="product-info">
-        <div class="product-price">MK 45,000</div>
-        <div class="product-desc">Studio Headphones</div>
-        <a href="#" class="product-btn">View</a>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="covers/product2.jpg">
-      <div class="product-info">
-        <div class="product-price">MK 120,000</div>
-        <div class="product-desc">Acoustic Guitar</div>
-        <a href="#" class="product-btn">View</a>
-      </div>
-    </div>
-
-    <div class="product-card">
-      <img src="covers/product3.jpg">
-      <div class="product-info">
-        <div class="product-price">MK 25,000</div>
-        <div class="product-desc">USB Microphone</div>
-        <a href="#" class="product-btn">View</a>
-      </div>
-    </div>
-  </div>
-
 </div>
+
 <!-- ===== MARKET BAR AUTO SCROLL SCRIPT ===== -->
 <script>
 /*
-  This script does EXACTLY what you want:
-  - Auto scroll runs endlessly
-  - User can swipe left/right freely
-  - Auto scroll slows during interaction
-  - Taps on markets ALWAYS work
+  Auto scroll
+  Swipe freely
+  Slow on interaction
+  TAPS WORK
 */
 
 const bar = document.getElementById("marketsBar");
 
-/* Scroll speeds */
-const normalSpeed = 0.6;   // normal auto scroll
-const slowSpeed   = 0.15;  // when user interacts
-let currentSpeed  = normalSpeed;
+const normalSpeed = 0.6;
+const slowSpeed = 0.15;
+let currentSpeed = normalSpeed;
 
-/* Auto scroll loop */
 function autoScroll() {
   bar.scrollLeft += currentSpeed;
 
-  /* Loop back to start */
   if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 1) {
     bar.scrollLeft = 0;
   }
-
   requestAnimationFrame(autoScroll);
 }
 
-/* Slow down when user interacts */
-["touchstart", "mousedown", "wheel"].forEach(event => {
-  bar.addEventListener(event, () => {
-    currentSpeed = slowSpeed;
-  });
-});
+["touchstart","mousedown","wheel"].forEach(e =>
+  bar.addEventListener(e, () => currentSpeed = slowSpeed)
+);
 
-/* Restore speed after interaction */
-["touchend", "mouseup", "mouseleave"].forEach(event => {
-  bar.addEventListener(event, () => {
-    currentSpeed = normalSpeed;
-  });
-});
+["touchend","mouseup","mouseleave"].forEach(e =>
+  bar.addEventListener(e, () => currentSpeed = normalSpeed)
+);
 
-/* Start auto scroll */
 autoScroll();
 </script>
+
 </body>
 </html>
