@@ -219,71 +219,50 @@ body {
   </div>
 
 </div>
+<!-- ===== MARKET BAR AUTO SCROLL SCRIPT ===== -->
 <script>
+/*
+  This script does EXACTLY what you want:
+  - Auto scroll runs endlessly
+  - User can swipe left/right freely
+  - Auto scroll slows during interaction
+  - Taps on markets ALWAYS work
+*/
+
 const bar = document.getElementById("marketsBar");
 
-let normalSpeed = 0.6;
-let slowSpeed = 0.15;
-let currentSpeed = normalSpeed;
+/* Scroll speeds */
+const normalSpeed = 0.6;   // normal auto scroll
+const slowSpeed   = 0.15;  // when user interacts
+let currentSpeed  = normalSpeed;
 
-let isDragging = false;
-let startX = 0;
-let moved = false;
-
+/* Auto scroll loop */
 function autoScroll() {
   bar.scrollLeft += currentSpeed;
 
-  if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2) {
+  /* Loop back to start */
+  if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 1) {
     bar.scrollLeft = 0;
   }
+
   requestAnimationFrame(autoScroll);
 }
 
-/* Mouse events */
-bar.addEventListener("mousedown", e => {
-  isDragging = true;
-  moved = false;
-  startX = e.pageX;
-  currentSpeed = slowSpeed;
-});
-
-bar.addEventListener("mousemove", e => {
-  if (!isDragging) return;
-  if (Math.abs(e.pageX - startX) > 5) moved = true;
-});
-
-bar.addEventListener("mouseup", () => {
-  isDragging = false;
-  currentSpeed = normalSpeed;
-});
-
-bar.addEventListener("mouseleave", () => {
-  isDragging = false;
-  currentSpeed = normalSpeed;
-});
-
-/* Touch events */
-bar.addEventListener("touchstart", e => {
-  moved = false;
-  startX = e.touches[0].pageX;
-  currentSpeed = slowSpeed;
-});
-
-bar.addEventListener("touchmove", e => {
-  if (Math.abs(e.touches[0].pageX - startX) > 5) moved = true;
-});
-
-bar.addEventListener("touchend", () => {
-  currentSpeed = normalSpeed;
-});
-
-/* Allow tap, block drag-click */
-bar.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", e => {
-    if (moved) e.preventDefault();
+/* Slow down when user interacts */
+["touchstart", "mousedown", "wheel"].forEach(event => {
+  bar.addEventListener(event, () => {
+    currentSpeed = slowSpeed;
   });
 });
 
+/* Restore speed after interaction */
+["touchend", "mouseup", "mouseleave"].forEach(event => {
+  bar.addEventListener(event, () => {
+    currentSpeed = normalSpeed;
+  });
+});
+
+/* Start auto scroll */
 autoScroll();
 </script>
 </body>
