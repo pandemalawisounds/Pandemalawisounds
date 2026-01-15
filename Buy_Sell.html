@@ -6,6 +6,9 @@
 <title>Market Section | Pandemalawi Sounds</title>
 
 <style>
+/* ===============================
+   BASIC RESET
+================================ */
 * {
   margin: 0;
   padding: 0;
@@ -13,6 +16,9 @@
   font-family: Arial, sans-serif;
 }
 
+/* ===============================
+   PAGE BACKGROUND
+================================ */
 body {
   background:
     linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
@@ -21,13 +27,18 @@ body {
   color: #fff;
 }
 
+/* ===============================
+   MAIN CONTAINER
+================================ */
 .market-wrapper {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
 }
 
-/* HOME */
+/* ===============================
+   HOME BUTTON
+================================ */
 .home-btn {
   text-align: center;
   margin-bottom: 15px;
@@ -42,7 +53,9 @@ body {
   display: block;
 }
 
-/* TITLE */
+/* ===============================
+   PAGE TITLE
+================================ */
 .market-title {
   text-align: center;
   font-size: 32px;
@@ -50,15 +63,15 @@ body {
   margin-bottom: 15px;
 }
 
-/* ===== MARKETS BAR ===== */
+/* ===============================
+   MARKETS AUTO-SCROLL BAR
+================================ */
 .market-scroll {
-  overflow-x: auto;
-  margin-bottom: 25px;
+  overflow-x: auto;                 /* allow swipe */
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-
-  /* ✅ CRITICAL FIX: allows swipe + tap */
-  touch-action: pan-x;
+  margin-bottom: 25px;
+  touch-action: pan-x;              /* allow tap + swipe */
 }
 .market-scroll::-webkit-scrollbar {
   display: none;
@@ -71,6 +84,7 @@ body {
   padding: 5px 0;
 }
 
+/* Individual market buttons */
 .market-track a {
   background: rgba(255,165,0,0.85);
   color: #000;
@@ -82,7 +96,9 @@ body {
   flex: 0 0 auto;
 }
 
-/* SEARCH */
+/* ===============================
+   SEARCH BAR
+================================ */
 .market-search {
   display: flex;
   justify-content: center;
@@ -105,41 +121,54 @@ body {
   cursor: pointer;
 }
 
-/* PRODUCTS GRID */
+/* ===============================
+   PRODUCTS GRID
+   2 cards per row on mobile
+================================ */
 .market-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
 }
+
+/* 4 per row on tablets/desktops */
 @media (min-width: 768px) {
   .market-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
+/* ===============================
+   PRODUCT CARD
+================================ */
 .product-card {
   background: rgba(255,255,255,0.12);
   border-radius: 14px;
   overflow: hidden;
   backdrop-filter: blur(6px);
 }
+
 .product-card img {
   width: 100%;
   height: 120px;
   object-fit: cover;
 }
+
 .product-info {
   padding: 10px;
 }
+
 .product-price {
   color: #ffd700;
   font-weight: bold;
   font-size: 14px;
 }
+
 .product-desc {
   font-size: 13px;
   margin: 6px 0;
 }
+
 .product-btn {
   display: block;
   text-align: center;
@@ -158,6 +187,7 @@ body {
 
 <div class="market-wrapper">
 
+  <!-- ===== HOME BUTTON ===== -->
   <div class="home-btn">
     <a href="index.html">
       <span>🏠</span>
@@ -165,67 +195,147 @@ body {
     </a>
   </div>
 
+  <!-- ===== TITLE ===== -->
   <div class="market-title">MARKET SECTION</div>
 
-  <!-- MARKETS -->
+  <!-- ===== MARKETS BAR ===== -->
   <div class="market-scroll" id="marketsBar">
     <div class="market-track">
-      <a href="limbe-market.html">Limbe Market</a>
-      <a href="blantyre-market.html">Blantyre Market</a>
-      <a href="mzuzu-market.html">Mzuzu Market</a>
-      <a href="zomba-market.html">Zomba Market</a>
-      <a href="nkhotakota-market.html">Nkhotakota Market</a>
-      <a href="karonga-market.html">Karonga Market</a>
 
-      <!-- duplicate for seamless loop -->
+      <!-- ADD / REMOVE MARKETS HERE -->
       <a href="limbe-market.html">Limbe Market</a>
       <a href="blantyre-market.html">Blantyre Market</a>
-      <a href="mzuzu-market.html">Mzuzu Market</a>
-      <a href="zomba-market.html">Zomba Market</a>
-      <a href="nkhotakota-market.html">Nkhotakota Market</a>
-      <a href="karonga-market.html">Karonga Market</a>
+      <a href="#">Mzuzu Market</a>
+      <a href="#">Zomba Market</a>
+      <a href="#">Nkhotakota Market</a>
+      <a href="#">Karonga Market</a>
+
+      <!-- DUPLICATED FOR SEAMLESS LOOP -->
+      <a href="limbe-market.html">Limbe Market</a>
+      <a href="blantyre-market.html">Blantyre Market</a>
+      <a href="#">Mzuzu Market</a>
+      <a href="#">Zomba Market</a>
+      <a href="#">Nkhotakota Market</a>
+      <a href="#">Karonga Market</a>
+
     </div>
   </div>
 
+  <!-- ===== SEARCH BAR ===== -->
   <div class="market-search">
     <input type="text" placeholder="Search products, services, shops...">
     <button>Search</button>
   </div>
 
+  <!-- ===== PRODUCTS GRID START ===== -->
+  <div class="market-grid">
+
+    <!-- PRODUCT 1 -->
+    <div class="product-card">
+      <img src="covers/product1.jpg">
+      <div class="product-info">
+        <div class="product-price">MK 45,000</div>
+        <div class="product-desc">Studio Headphones</div>
+        <a href="#" class="product-btn">View</a>
+      </div>
+    </div>
+
+    <!-- PRODUCT 2 -->
+    <div class="product-card">
+      <img src="covers/product2.jpg">
+      <div class="product-info">
+        <div class="product-price">MK 120,000</div>
+        <div class="product-desc">Acoustic Guitar</div>
+        <a href="#" class="product-btn">View</a>
+      </div>
+    </div>
+
+    <!-- PRODUCT 3 -->
+    <div class="product-card">
+      <img src="covers/product3.jpg">
+      <div class="product-info">
+        <div class="product-price">MK 25,000</div>
+        <div class="product-desc">USB Microphone</div>
+        <a href="#" class="product-btn">View</a>
+      </div>
+    </div>
+
+    <!-- PRODUCT 4 -->
+    <div class="product-card">
+      <img src="covers/product4.jpg">
+      <div class="product-info">
+        <div class="product-price">MK 90,000</div>
+        <div class="product-desc">Studio Monitor</div>
+        <a href="#" class="product-btn">View</a>
+      </div>
+    </div>
+
+    <!-- PRODUCT 5 -->
+    <div class="product-card">
+      <img src="covers/product5.jpg">
+      <div class="product-info">
+        <div class="product-price">MK 15,000</div>
+        <div class="product-desc">XLR Cable</div>
+        <a href="#" class="product-btn">View</a>
+      </div>
+    </div>
+
+    <!-- PRODUCT 6 -->
+    <div class="product-card">
+      <img src="covers/product6.jpg">
+      <div class="product-info">
+        <div class="product-price">MK 60,000</div>
+        <div class="product-desc">Audio Interface</div>
+        <a href="#" class="product-btn">View</a>
+      </div>
+    </div>
+
+    <!-- 🔽 COPY A PRODUCT-CARD BLOCK ABOVE TO ADD MORE ITEMS 🔽 -->
+
+  </div>
+  <!-- ===== PRODUCTS GRID END ===== -->
+
 </div>
 
-<!-- ===== MARKET BAR AUTO SCROLL SCRIPT ===== -->
+<!-- ===============================
+     MARKET BAR AUTO SCROLL SCRIPT
+================================ -->
 <script>
 /*
-  Auto scroll
-  Swipe freely
-  Slow on interaction
-  TAPS WORK
+  Auto scrolling market bar
+  - Scrolls endlessly
+  - User can swipe freely
+  - Auto scroll slows on interaction
+  - Taps always work
 */
 
 const bar = document.getElementById("marketsBar");
 
 const normalSpeed = 0.6;
 const slowSpeed = 0.15;
-let currentSpeed = normalSpeed;
+let speed = normalSpeed;
 
 function autoScroll() {
-  bar.scrollLeft += currentSpeed;
+  bar.scrollLeft += speed;
 
   if (bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 1) {
     bar.scrollLeft = 0;
   }
+
   requestAnimationFrame(autoScroll);
 }
 
+/* Slow down when user interacts */
 ["touchstart","mousedown","wheel"].forEach(e =>
-  bar.addEventListener(e, () => currentSpeed = slowSpeed)
+  bar.addEventListener(e, () => speed = slowSpeed)
 );
 
+/* Restore speed */
 ["touchend","mouseup","mouseleave"].forEach(e =>
-  bar.addEventListener(e, () => currentSpeed = normalSpeed)
+  bar.addEventListener(e, () => speed = normalSpeed)
 );
 
+/* Start scrolling */
 autoScroll();
 </script>
 
