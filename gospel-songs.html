@@ -10,7 +10,7 @@
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background:#f6f6f6;
+  background:linear-gradient(to bottom, #fefefe, #f0fdf4);
   color:#222;
   overflow-x:hidden;
   position:relative;
@@ -52,8 +52,25 @@ nav a{
 .hero-overlay{
   position:absolute;
   inset:0;
-  background: rgba(255,255,255,0.15); /* soft heavenly glow */
+  background: rgba(255,255,255,0.15);
   pointer-events:none;
+}
+
+/* ===== MOVING LIGHT RAYS ===== */
+.light-ray{
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  transform:rotate(45deg);
+  animation: rayMove 20s linear infinite;
+  pointer-events:none;
+}
+@keyframes rayMove{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
 }
 
 /* ===== SEARCH BAR ===== */
@@ -85,14 +102,15 @@ nav a{
   max-width:800px;
   margin:20px auto;
   padding:20px;
-  background:rgba(255,255,255,0.9);
+  background:linear-gradient(to right, #ffffff, #d1fae5);
   border-left:6px solid #22c55e;
   font-style:italic;
   text-align:center;
   font-size:16px;
   border-radius:10px;
-  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
   position:relative;
+  color:#065f46;
 }
 .verse::before{
   content:"✝️";
@@ -122,7 +140,7 @@ h2{
   padding:15px;
   border-radius:10px;
   text-align:center;
-  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+  box-shadow:0 3px 10px rgba(0,0,0,0.15);
   font-weight:bold;
   cursor:pointer;
   text-decoration:none;
@@ -133,8 +151,8 @@ h2{
   transition:transform 0.3s, box-shadow 0.3s;
 }
 .card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+  transform:translateY(-6px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
 }
 
 /* ===== FEATURED ARTISTS / SONGS ===== */
@@ -149,7 +167,7 @@ h2{
 .artist-card, .song-card{
   background:#fff;
   border-radius:10px;
-  box-shadow:0 3px 10px rgba(0,0,0,0.1);
+  box-shadow:0 3px 10px rgba(0,0,0,0.15);
   overflow:hidden;
   cursor:pointer;
   text-align:center;
@@ -158,7 +176,7 @@ h2{
 }
 .artist-card:hover, .song-card:hover{
   transform:translateY(-5px);
-  box-shadow:0 6px 15px rgba(0,0,0,0.2);
+  box-shadow:0 6px 15px rgba(0,0,0,0.25);
 }
 .artist-card img, .song-card img{
   width:100%;
@@ -177,7 +195,7 @@ h2{
   color:#555;
 }
 
-/* ===== ADS ===== */
+/* ===== AD SPACES ===== */
 .ad{
   max-width:1000px;
   margin:30px auto;
@@ -190,7 +208,7 @@ h2{
   border-radius:10px;
 }
 
-/* ===== SPIRITUAL BACKGROUND EFFECT ===== */
+/* ===== SPIRITUAL BACKGROUND GLOW ===== */
 body::after{
   content:"";
   position:fixed;
@@ -204,6 +222,23 @@ body::after{
   50%{opacity:0.12;}
   100%{opacity:0.08;}
 }
+
+/* ===== SPARKLES ===== */
+.sparkle{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:#fff;
+  border-radius:50%;
+  opacity:0.6;
+  pointer-events:none;
+  animation: sparkleAnim 4s infinite;
+}
+@keyframes sparkleAnim{
+  0%{transform:translateY(0) scale(0.5);}
+  50%{transform:translateY(-10px) scale(1);}
+  100%{transform:translateY(0) scale(0.5);}
+}
 </style>
 </head>
 <body>
@@ -216,6 +251,7 @@ body::after{
 <!-- HERO SLIDESHOW -->
 <div class="hero" id="heroSlideshow">
   <div class="hero-overlay"></div>
+  <div class="light-ray"></div>
   <img src="covers/gospel1.jpg" class="active" alt="Gospel 1">
   <img src="covers/gospel2.jpg" alt="Gospel 2">
   <img src="covers/gospel3.jpg" alt="Gospel 3">
