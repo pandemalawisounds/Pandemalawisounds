@@ -13,6 +13,22 @@ body{
   color:#222;
 }
 
+/* ===== NAVIGATION ===== */
+nav{
+  background:#222;
+  padding:10px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:16px;
+}
+
 /* ==== HERO ==== */
 .hero{
   height:260px;
@@ -95,7 +111,12 @@ h2{
 
 <body>
 
-<!-- HERO -->
+<!-- ===== NAVIGATION ===== -->
+<nav>
+  <a href="index.html">🏠 Home</a>
+</nav>
+
+<!-- ===== HERO ===== -->
 <div class="hero">
   <div class="hero-text">
     <h1>🇿🇲 Zambian Music</h1>
@@ -105,7 +126,7 @@ h2{
 
 <div class="container">
 
-<!-- GENRES -->
+<!-- ===== GENRES ===== -->
 <h2>Music Genres</h2>
 <div class="grid">
   <div class="card">🎤 Hip-Hop</div>
@@ -115,7 +136,7 @@ h2{
   <div class="card">🔥 Top Hits</div>
 </div>
 
-<!-- SECTIONS -->
+<!-- ===== SECTIONS ===== -->
 <h2>Sections</h2>
 <div class="grid">
   <div class="card">🆕 New Releases</div>
@@ -124,23 +145,23 @@ h2{
   <div class="card">🎼 Classics</div>
 </div>
 
-<!-- VISIT ZAMBIA -->
+<!-- ===== VISIT ZAMBIA ===== -->
 <h2>Visit Zambia 🇿🇲</h2>
 <div class="slideshow" id="visitZambia">
-  <img src="images/zambia1.jpg" class="active">
-  <img src="images/zambia2.jpg">
-  <img src="images/zambia3.jpg">
+  <img src="covers/zambia1.jpg" class="active">
+  <img src="covers/zambia2.jpg">
+  <img src="covers/zambia3.jpg">
 </div>
 <div class="caption">
   Discover waterfalls, wildlife, cities & nature of Zambia
 </div>
 
-<!-- ZAMBIAN CULTURE -->
+<!-- ===== ZAMBIAN CULTURE ===== -->
 <h2>Zambian Culture 🎭</h2>
 <div class="slideshow" id="zambiaCulture">
-  <img src="images/culture1.jpg" class="active">
-  <img src="images/culture2.jpg">
-  <img src="images/culture3.jpg">
+  <img src="covers/culture1.jpg" class="active">
+  <img src="covers/culture2.jpg">
+  <img src="covers/culture3.jpg">
 </div>
 <div class="caption">
   Traditional dances, ceremonies & cultural pride
@@ -149,7 +170,7 @@ h2{
 </div>
 
 <script>
-/* SIMPLE SLIDESHOW FUNCTION */
+/* ===== SIMPLE SLIDESHOW FUNCTION ===== */
 function startSlideshow(id){
   const slides=document.querySelectorAll("#"+id+" img");
   let index=0;
