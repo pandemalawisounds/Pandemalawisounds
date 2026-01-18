@@ -6,11 +6,14 @@
 <title>Gospel Music | Pandemalawi Sounds</title>
 
 <style>
+/* ===== GLOBAL STYLES ===== */
 body{
   margin:0;
   font-family:Arial, sans-serif;
   background:#f6f6f6;
   color:#222;
+  overflow-x:hidden;
+  position:relative;
 }
 
 /* ===== NAVIGATION ===== */
@@ -32,12 +35,12 @@ nav a{
 /* ===== HERO SLIDESHOW ===== */
 .hero{
   position:relative;
-  height:260px;
+  height:280px;
   overflow:hidden;
 }
 .hero img{
   width:100%;
-  height:260px;
+  height:280px;
   object-fit:cover;
   position:absolute;
   opacity:0;
@@ -49,7 +52,8 @@ nav a{
 .hero-overlay{
   position:absolute;
   inset:0;
-  background: rgba(255,255,255,0.15); /* subtle light effect */
+  background: rgba(255,255,255,0.15); /* soft heavenly glow */
+  pointer-events:none;
 }
 
 /* ===== SEARCH BAR ===== */
@@ -57,6 +61,8 @@ nav a{
   max-width:600px;
   margin:15px auto;
   display:flex;
+  z-index:10;
+  position:relative;
 }
 .search-bar input{
   flex:1;
@@ -78,26 +84,35 @@ nav a{
 .verse{
   max-width:800px;
   margin:20px auto;
-  padding:15px;
+  padding:20px;
   background:rgba(255,255,255,0.9);
-  border-left:5px solid #22c55e;
+  border-left:6px solid #22c55e;
   font-style:italic;
   text-align:center;
   font-size:16px;
-  border-radius:8px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  position:relative;
+}
+.verse::before{
+  content:"✝️";
+  position:absolute;
+  left:15px;
+  top:10px;
+  font-size:20px;
 }
 
 /* ===== GRID CARDS ===== */
 h2{
-  margin:25px 0 10px;
-  font-size:20px;
+  margin:35px 0 15px;
+  font-size:22px;
   text-align:center;
+  color:#1f2937;
 }
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
-  gap:12px;
+  gap:15px;
   max-width:1000px;
   margin:auto;
   padding:0 15px;
@@ -105,9 +120,9 @@ h2{
 .card{
   background:#fff;
   padding:15px;
-  border-radius:8px;
+  border-radius:10px;
   text-align:center;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
   font-weight:bold;
   cursor:pointer;
   text-decoration:none;
@@ -115,29 +130,39 @@ h2{
   display:flex;
   align-items:center;
   justify-content:center;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 
 /* ===== FEATURED ARTISTS / SONGS ===== */
 .artist-grid, .song-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:15px;
+  gap:20px;
   max-width:1000px;
   margin:25px auto;
   padding:0 15px;
 }
 .artist-card, .song-card{
   background:#fff;
-  border-radius:8px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
+  border-radius:10px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
   overflow:hidden;
   cursor:pointer;
   text-align:center;
   position:relative;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.artist-card:hover, .song-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 6px 15px rgba(0,0,0,0.2);
 }
 .artist-card img, .song-card img{
   width:100%;
-  height:150px;
+  height:160px;
   object-fit:cover;
 }
 .artist-card .artist-info, .song-card .song-info{
@@ -155,23 +180,29 @@ h2{
 /* ===== ADS ===== */
 .ad{
   max-width:1000px;
-  margin:25px auto;
+  margin:30px auto;
   background:#f3f3f3;
   color:#333;
   text-align:center;
   padding:15px;
   border:1px dashed #aaa;
   font-size:14px;
-  border-radius:8px;
+  border-radius:10px;
 }
 
-/* ===== SPIRITUAL TOUCH ===== */
+/* ===== SPIRITUAL BACKGROUND EFFECT ===== */
 body::after{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
-  background: radial-gradient(circle at top, rgba(255,255,255,0.1), transparent 80%);
+  background: radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 85%);
+  animation: glowPulse 20s infinite alternate;
+}
+@keyframes glowPulse{
+  0%{opacity:0.08;}
+  50%{opacity:0.12;}
+  100%{opacity:0.08;}
 }
 </style>
 </head>
@@ -185,9 +216,9 @@ body::after{
 <!-- HERO SLIDESHOW -->
 <div class="hero" id="heroSlideshow">
   <div class="hero-overlay"></div>
-  <img src="covers/gospel1.jpg" class="active">
-  <img src="covers/gospel2.jpg">
-  <img src="covers/gospel3.jpg">
+  <img src="covers/gospel1.jpg" class="active" alt="Gospel 1">
+  <img src="covers/gospel2.jpg" alt="Gospel 2">
+  <img src="covers/gospel3.jpg" alt="Gospel 3">
 </div>
 
 <!-- SEARCH BAR -->
