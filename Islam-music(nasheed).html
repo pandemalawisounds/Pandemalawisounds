@@ -1,1 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Islamic Music | Pandemalawi Sounds</title>
 
+<style>
+/* ===== GLOBAL STYLES ===== */
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(to bottom, #fefefe, #effaf6);
+  color:#222;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* ===== NAVIGATION ===== */
+nav{
+  background:#222;
+  padding:10px;
+  text-align:center;
+  position:sticky;
+  top:0;
+  z-index:999;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  font-size:16px;
+}
+
+/* ===== HERO SLIDESHOW ===== */
+.hero{
+  position:relative;
+  height:280px;
+  overflow:hidden;
+}
+.hero img{
+  width:100%;
+  height:280px;
+  object-fit:cover;
+  position:absolute;
+  opacity:0;
+  transition:opacity 1s;
+}
+.hero img.active{
+  opacity:1;
+}
+.hero-overlay{
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,0.15);
+  pointer-events:none;
+}
+
+/* ===== MOVING LIGHT RAYS ===== */
+.light-ray{
+  position:absolute;
+  top:-50%;
+  left:-50%;
+  width:200%;
+  height:200%;
+  background:radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+  transform:rotate(45deg);
+  animation: rayMove 20s linear infinite;
+  pointer-events:none;
+}
+@keyframes rayMove{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+
+/* ===== SEARCH BAR ===== */
+.search-bar{
+  max-width:600px;
+  margin:15px auto;
+  display:flex;
+  z-index:10;
+  position:relative;
+}
+.search-bar input{
+  flex:1;
+  padding:10px;
+  border-radius:5px 0 0 5px;
+  border:1px solid #ccc;
+  font-size:14px;
+}
+.search-bar button{
+  padding:10px 15px;
+  border:none;
+  background:#22c55e;
+  color:#fff;
+  border-radius:0 5px 5px 0;
+  cursor:pointer;
+}
+
+/* ===== AYAT KAYA ===== */
+.verse{
+  max-width:800px;
+  margin:20px auto;
+  padding:20px;
+  background:linear-gradient(to right, #ffffff, #d1f7fa);
+  border-left:6px solid #22c55e;
+  font-style:italic;
+  text-align:center;
+  font-size:16px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  position:relative;
+  color:#065f46;
+}
+.verse::before{
+  content:"☪️";
+  position:absolute;
+  left:15px;
+  top:10px;
+  font-size:20px;
+}
+
+/* ===== GRID CARDS ===== */
+h2{
+  margin:35px 0 15px;
+  font-size:22px;
+  text-align:center;
+  color:#1f2937;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:15px;
+  max-width:1000px;
+  margin:auto;
+  padding:0 15px;
+}
+.card{
+  background:#fff;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+  box-shadow:0 3px 10px rgba(0,0,0,0.15);
+  font-weight:bold;
+  cursor:pointer;
+  text-decoration:none;
+  color:#222;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* ===== FEATURED ARTISTS / SONGS ===== */
+.artist-grid, .song-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:20px;
+  max-width:1000px;
+  margin:25px auto;
+  padding:0 15px;
+}
+.artist-card, .song-card{
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.15);
+  overflow:hidden;
+  cursor:pointer;
+  text-align:center;
+  position:relative;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.artist-card:hover, .song-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 6px 15px rgba(0,0,0,0.25);
+}
+.artist-card img, .song-card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+}
+.artist-card .artist-info, .song-card .song-info{
+  padding:10px;
+}
+.artist-card .artist-info h3, .song-card .song-info h3{
+  margin:5px 0;
+  font-size:14px;
+}
+.artist-card .artist-info p, .song-card .song-info p{
+  font-size:12px;
+  color:#555;
+}
+
+/* ===== AD SPACES ===== */
+.ad{
+  max-width:1000px;
+  margin:30px auto;
+  background:#f3f3f3;
+  color:#333;
+  text-align:center;
+  padding:15px;
+  border:1px dashed #aaa;
+  font-size:14px;
+  border-radius:10px;
+}
+
+/* ===== SPIRITUAL BACKGROUND GLOW ===== */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  background: radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 85%);
+  animation: glowPulse 20s infinite alternate;
+}
+@keyframes glowPulse{
+  0%{opacity:0.08;}
+  50%{opacity:0.12;}
+  100%{opacity:0.08;}
+}
+
+/* ===== SPARKLES ===== */
+.sparkle{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:#fff;
+  border-radius:50%;
+  opacity:0.6;
+  pointer-events:none;
+  animation: sparkleAnim 4s infinite;
+}
+@keyframes sparkleAnim{
+  0%{transform:translateY(0) scale(0.5);}
+  50%{transform:translateY(-10px) scale(1);}
+  100%{transform:translateY(0) scale(0.5);}
+}
+
+/* ===== DUA SECTION ===== */
+.dua{
+  max-width:800px;
+  margin:30px auto;
+  padding:20px;
+  background:linear-gradient(to right, #ffffff, #d1f7fa);
+  border-left:6px solid #22c55e;
+  font-style:italic;
+  text-align:center;
+  font-size:16px;
+  border-radius:10px;
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+  color:#065f46;
+}
+.dua::before{
+  content:"🕋";
+  position:absolute;
+  left:15px;
+  top:10px;
+  font-size:20px;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <a href="index.html">🏠 Home</a>
+</nav>
+
+<!-- HERO SLIDESHOW -->
+<div class="hero" id="heroSlideshow">
+  <div class="hero-overlay"></div>
+  <div class="light-ray"></div>
+  <img src="covers/islamic1.jpg" class="active" alt="Islamic 1">
+  <img src="covers/islamic2.jpg" alt="Islamic 2">
+  <img src="covers/islamic3.jpg" alt="Islamic 3">
+</div>
+
+<!-- SEARCH BAR -->
+<div class="search-bar">
+  <input type="text" id="searchInput" placeholder="Search for Islamic songs...">
+  <button onclick="searchSong()">Search</button>
+</div>
+
+<!-- AYAT KAYA -->
+<div class="verse">
+  “Indeed, with hardship comes ease.” – Quran 94:6
+</div>
+
+<!-- FEATURED ARTISTS -->
+<h2>Featured Islamic Artists</h2>
+<div class="artist-grid">
+  <div class="artist-card">
+    <img src="covers/artist1.jpg" alt="Artist 1">
+    <div class="artist-info">
+      <h3>Artist 1</h3>
+      <p>Top songs slideshow</p>
+    </div>
+  </div>
+  <div class="artist-card">
+    <img src="covers/artist2.jpg" alt="Artist 2">
+    <div class="artist-info">
+      <h3>Artist 2</h3>
+      <p>Top songs slideshow</p>
+    </div>
+  </div>
+</div>
+
+<!-- AD SPACE -->
+<div class="ad">Ad Placeholder</div>
+
+<!-- INTERNATIONAL ISLAMIC SONGS -->
+<h2>International Islamic Songs</h2>
+<div class="song-grid">
+  <div class="song-card">
+    <img src="covers/intl1.jpg" alt="Intl Song 1">
+    <div class="song-info">
+      <h3>Song Title 1</h3>
+      <p>Artist Name</p>
+    </div>
+  </div>
+  <div class="song-card">
+    <img src="covers/intl2.jpg" alt="Intl Song 2">
+    <div class="song-info">
+      <h3>Song Title 2</h3>
+      <p>Artist Name</p>
+    </div>
+  </div>
+</div>
+
+<!-- AD SPACE -->
+<div class="ad">Ad Placeholder</div>
+
+<!-- ALL ISLAMIC SONGS -->
+<h2>All Islamic Songs</h2>
+<div class="song-grid" id="songGrid">
+  <div class="song-card">
+    <img src="covers/islamic1.jpg" alt="Islamic Song 1">
+    <div class="song-info">
+      <h3>Islamic Song 1</h3>
+      <p>Artist 1</p>
+    </div>
+  </div>
+  <div class="song-card">
+    <img src="covers/islamic2.jpg" alt="Islamic Song 2">
+    <div class="song-info">
+      <h3>Islamic Song 2</h3>
+      <p>Artist 2</p>
+    </div>
+  </div>
+</div>
+
+<!-- DUA SECTION -->
+<div class="dua">
+  “O Allah, guide us to the straight path and bless our hearts with peace.” 
+</div>
+
+<script>
+/* ===== HERO SLIDESHOW ===== */
+function startHeroSlideshow(){
+  const slides = document.querySelectorAll("#heroSlideshow img");
+  let index = 0;
+  setInterval(()=>{
+    slides[index].classList.remove("active");
+    index = (index + 1) % slides.length;
+    slides[index].classList.add("active");
+  }, 3000);
+}
+startHeroSlideshow();
+
+/* ===== SEARCH FUNCTION ===== */
+function searchSong(){
+  const input = document.getElementById("searchInput").value.toLowerCase();
+  const songs = document.querySelectorAll(".song-card");
+  songs.forEach(card => {
+    const title = card.querySelector("h3").innerText.toLowerCase();
+    card.style.display = title.includes(input) ? "block" : "none";
+  });
+}
+</script>
+
+</body>
+</html>
