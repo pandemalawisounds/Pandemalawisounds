@@ -13,7 +13,7 @@ body{
   color:#222;
 }
 
-/* ===== HERO ===== */
+/* ==== HERO ==== */
 .hero{
   height:260px;
   background:url("images/Zambia.png") center/cover no-repeat;
