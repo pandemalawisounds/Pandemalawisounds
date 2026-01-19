@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Beats | Pandemalawi Sounds</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0e0e0e;
+  color:#fff;
+}
+
+/* ===== HEADER ===== */
+.header{
+  height:220px;
+  background:url("images/beats-header.jpg") center/cover no-repeat;
+  position:relative;
+}
+.header::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+}
+.header-text{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  font-weight:bold;
+  z-index:1;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:15px;
+}
+
+/* ===== BEAT CARD ===== */
+.beat-card{
+  background:#1a1a1a;
+  border-radius:10px;
+  padding:12px;
+  margin-bottom:15px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.beat-cover{
+  width:80px;
+  height:80px;
+  background:#333;
+  border-radius:8px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+}
+
+.beat-info{
+  flex:1;
+}
+
+.beat-title{
+  font-size:16px;
+  font-weight:bold;
+}
+
+.beat-producer{
+  font-size:13px;
+  color:#aaa;
+  margin:4px 0;
+}
+
+.beat-actions{
+  display:flex;
+  gap:10px;
+  margin-top:8px;
+}
+
+button{
+  border:none;
+  padding:6px 12px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.play-btn{
+  background:#2ecc71;
+  color:#000;
+}
+
+.buy-btn{
+  background:#f39c12;
+  color:#000;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-text">🎧 Beats Marketplace</div>
+</div>
+
+<div class="container">
+
+<!-- ===== BEAT CARD 1 ===== -->
+<div class="beat-card">
+  <div class="beat-cover">🎵</div>
+
+  <div class="beat-info">
+    <div class="beat-title">Street Vibes</div>
+    <div class="beat-producer">Prod. DJ Blaze</div>
+
+    <div class="beat-actions">
+      <button class="play-btn" onclick="playBeat('beat1')">▶ Play Preview</button>
+      <button class="buy-btn" onclick="location.href='producer-blaze.html'">
+        Tap to Buy
+      </button>
+    </div>
+
+    <audio id="beat1" src="beats/street-vibes-preview.mp3"></audio>
+  </div>
+</div>
+
+<!-- ===== BEAT CARD 2 ===== -->
+<div class="beat-card">
+  <div class="beat-cover">🎶</div>
+
+  <div class="beat-info">
+    <div class="beat-title">Mapiano Wave</div>
+    <div class="beat-producer">Prod. Kay Flex</div>
+
+    <div class="beat-actions">
+      <button class="play-btn" onclick="playBeat('beat2')">▶ Play Preview</button>
+      <button class="buy-btn" onclick="location.href='producer-kayflex.html'">
+        Tap to Buy
+      </button>
+    </div>
+
+    <audio id="beat2" src="beats/mapiano-wave-preview.mp3"></audio>
+  </div>
+</div>
+
+</div>
+
+<script>
+/* ===== PLAY LIMIT LOGIC ===== */
+const playCount = {};
+
+function playBeat(id){
+  const audio = document.getElementById(id);
+
+  if(!playCount[id]) playCount[id] = 0;
+
+  if(playCount[id] >= 2){
+    alert("Preview limit reached. Tap Buy to contact producer.");
+    return;
+  }
+
+  audio.currentTime = 0;
+  audio.play();
+  playCount[id]++;
+
+  // Stop after 60 seconds
+  setTimeout(()=>{
+    audio.pause();
+    audio.currentTime = 0;
+  },60000);
+}
+</script>
+
+</body>
+</html>
