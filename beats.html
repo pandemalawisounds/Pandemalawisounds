@@ -2,38 +2,60 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Beats | Pandemalawi Sounds</title>
+<title>Beats Marketplace | Pandemalawi Sounds</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 body{
   margin:0;
-  font-family:Arial, sans-serif;
+  font-family:Arial,sans-serif;
   background:#0e0e0e;
   color:#fff;
 }
 
-/* ===== HEADER ===== */
-.header{
-  height:220px;
-  background:url("images/beats-header.jpg") center/cover no-repeat;
+/* ===== HOME BUTTON ===== */
+.home-btn{
+  display:block;
+  text-align:center;
+  background:#f39c12;
+  color:#000;
+  padding:10px 20px;
+  font-weight:bold;
+  border-radius:8px;
+  width:120px;
+  margin:10px auto;
+  text-decoration:none;
+}
+
+/* ===== HERO / SLIDESHOW ===== */
+.hero{
+  height:250px;
   position:relative;
+  overflow:hidden;
 }
-.header::after{
-  content:"";
+.hero img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
   position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.6);
+  opacity:0;
+  transition:opacity 1s;
 }
-.header-text{
+.hero img.active{
+  opacity:1;
+}
+.hero-text{
   position:absolute;
   inset:0;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
+  color:#fff;
   font-size:28px;
   font-weight:bold;
+  text-align:center;
   z-index:1;
+  text-shadow:0 0 8px #000;
 }
 
 /* ===== CONTAINER ===== */
@@ -43,7 +65,36 @@ body{
   padding:15px;
 }
 
-/* ===== BEAT CARD ===== */
+/* ===== SEARCH ===== */
+.search-bar{
+  margin:15px 0;
+  display:flex;
+  justify-content:center;
+}
+.search-bar input{
+  width:60%;
+  padding:8px 12px;
+  border-radius:8px;
+  border:none;
+  font-size:16px;
+}
+
+/* ===== GENRES ===== */
+.genres{
+  display:flex;
+  gap:10px;
+  margin-bottom:20px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.genre{
+  background:#2c2c2c;
+  padding:6px 12px;
+  border-radius:12px;
+  cursor:pointer;
+}
+
+/* ===== BEAT CARDS ===== */
 .beat-card{
   background:#1a1a1a;
   border-radius:10px;
@@ -57,12 +108,12 @@ body{
 .beat-cover{
   width:80px;
   height:80px;
-  background:#333;
   border-radius:8px;
   display:flex;
-  align-items:center;
   justify-content:center;
-  font-size:30px;
+  align-items:center;
+  background:#333;
+  font-size:28px;
 }
 
 .beat-info{
@@ -102,68 +153,100 @@ button{
   background:#f39c12;
   color:#000;
 }
+
+/* ===== ADS ===== */
+.ad{
+  background:#333;
+  text-align:center;
+  padding:15px;
+  margin:20px 0;
+  border-radius:10px;
+  color:#fff;
+  font-weight:bold;
+}
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
-<div class="header">
-  <div class="header-text">🎧 Beats Marketplace</div>
+<!-- HOME BUTTON -->
+<a href="index.html" class="home-btn">🏠 Home</a>
+
+<!-- HERO / SLIDESHOW -->
+<div class="hero">
+  <img src="images/beat1.jpg" class="active">
+  <img src="images/beat2.jpg">
+  <img src="images/beat3.jpg">
+  <div class="hero-text">🎧 Beats Marketplace • Tap to Preview & Buy</div>
 </div>
 
 <div class="container">
 
-<!-- ===== BEAT CARD 1 ===== -->
+<!-- SEARCH -->
+<div class="search-bar">
+  <input type="text" placeholder="Search beats, producers, genre...">
+</div>
+
+<!-- GENRES -->
+<div class="genres">
+  <div class="genre">Hip-Hop</div>
+  <div class="genre">R&B</div>
+  <div class="genre">Mapiano</div>
+  <div class="genre">Afro</div>
+  <div class="genre">Dancehall</div>
+  <div class="genre">Reggae</div>
+</div>
+
+<!-- BEAT CARDS -->
 <div class="beat-card">
   <div class="beat-cover">🎵</div>
-
   <div class="beat-info">
     <div class="beat-title">Street Vibes</div>
     <div class="beat-producer">Prod. DJ Blaze</div>
-
     <div class="beat-actions">
       <button class="play-btn" onclick="playBeat('beat1')">▶ Play Preview</button>
       <button class="buy-btn" onclick="location.href='producer-blaze.html'">
         Tap to Buy
       </button>
     </div>
-
     <audio id="beat1" src="beats/street-vibes-preview.mp3"></audio>
   </div>
 </div>
 
-<!-- ===== BEAT CARD 2 ===== -->
 <div class="beat-card">
   <div class="beat-cover">🎶</div>
-
   <div class="beat-info">
     <div class="beat-title">Mapiano Wave</div>
     <div class="beat-producer">Prod. Kay Flex</div>
-
     <div class="beat-actions">
       <button class="play-btn" onclick="playBeat('beat2')">▶ Play Preview</button>
       <button class="buy-btn" onclick="location.href='producer-kayflex.html'">
         Tap to Buy
       </button>
     </div>
-
     <audio id="beat2" src="beats/mapiano-wave-preview.mp3"></audio>
   </div>
+</div>
+
+<!-- AD BANNER -->
+<div class="ad">📢 Promote your beats here!</div>
+
+<!-- FOOTER NOTE -->
+<div style="text-align:center; margin-top:30px; color:#aaa; font-size:13px;">
+Producers pay monthly to stay active. Pandemalawi Sounds does not track final sales.
 </div>
 
 </div>
 
 <script>
-/* ===== PLAY LIMIT LOGIC ===== */
+/* ===== BEAT PREVIEW LOGIC (45 SECONDS) ===== */
 const playCount = {};
 
 function playBeat(id){
   const audio = document.getElementById(id);
+  if(!playCount[id]) playCount[id]=0;
 
-  if(!playCount[id]) playCount[id] = 0;
-
-  if(playCount[id] >= 2){
+  if(playCount[id]>=2){
     alert("Preview limit reached. Tap Buy to contact producer.");
     return;
   }
@@ -172,12 +255,20 @@ function playBeat(id){
   audio.play();
   playCount[id]++;
 
-  // Stop after 60 seconds
   setTimeout(()=>{
     audio.pause();
     audio.currentTime = 0;
-  },60000);
+  },45000); // 45 seconds preview
 }
+
+/* ===== HERO SLIDESHOW ===== */
+let slideIndex=0;
+const slides=document.querySelectorAll(".hero img");
+setInterval(()=>{
+  slides[slideIndex].classList.remove("active");
+  slideIndex=(slideIndex+1)%slides.length;
+  slides[slideIndex].classList.add("active");
+},4000);
 </script>
 
 </body>
