@@ -1,1 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Competitions | Pandemalawi Sounds</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#0e0e0e;
+  color:#fff;
+}
+
+/* ===== HOME BUTTON ===== */
+.home-btn{
+  display:block;
+  text-align:center;
+  background:#f39c12;
+  color:#000;
+  padding:10px 20px;
+  font-weight:bold;
+  border-radius:8px;
+  width:120px;
+  margin:10px auto;
+  text-decoration:none;
+}
+
+/* ===== HERO / SLIDESHOW ===== */
+.hero{
+  height:250px;
+  position:relative;
+  overflow:hidden;
+}
+.hero img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+  position:absolute;
+  opacity:0;
+  transition:opacity 1s;
+}
+.hero img.active{
+  opacity:1;
+}
+.hero-text{
+  position:absolute;
+  inset:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  font-size:28px;
+  font-weight:bold;
+  text-align:center;
+  z-index:1;
+  text-shadow:0 0 8px #000;
+}
+
+/* ===== CONTAINER ===== */
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:15px;
+}
+
+/* ===== SECTION TITLES ===== */
+h2{
+  text-align:center;
+  margin:25px 0 15px;
+}
+
+/* ===== VIDEO / PERFORMANCE CARDS ===== */
+.performance-card{
+  background:#1a1a1a;
+  border-radius:10px;
+  margin-bottom:15px;
+  padding:12px;
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.video-thumb{
+  width:120px;
+  height:80px;
+  background:#333;
+  border-radius:8px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:28px;
+}
+
+.performance-info{
+  flex:1;
+}
+
+.performance-title{
+  font-size:16px;
+  font-weight:bold;
+}
+
+.performance-artist{
+  font-size:13px;
+  color:#aaa;
+  margin:4px 0;
+}
+
+.performance-actions{
+  display:flex;
+  gap:10px;
+  margin-top:8px;
+}
+
+button{
+  border:none;
+  padding:6px 12px;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+.play-btn{
+  background:#2ecc71;
+  color:#000;
+}
+
+/* ===== ADS ===== */
+.ad{
+  background:#333;
+  text-align:center;
+  padding:15px;
+  margin:20px 0;
+  border-radius:10px;
+  color:#fff;
+  font-weight:bold;
+}
+
+/* ===== UPCOMING / WINNERS GRID ===== */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:12px;
+}
+.card{
+  background:#1a1a1a;
+  padding:12px;
+  border-radius:10px;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HOME BUTTON -->
+<a href="index.html" class="home-btn">🏠 Home</a>
+
+<!-- HERO / SLIDESHOW -->
+<div class="hero">
+  <img src="images/comp1.jpg" class="active">
+  <img src="images/comp2.jpg">
+  <img src="images/comp3.jpg">
+  <div class="hero-text">🎤 Competitions • Watch & Compete</div>
+</div>
+
+<div class="container">
+
+<!-- VIDEO / PERFORMANCE SECTION -->
+<h2>Watch Competitions</h2>
+
+<div class="performance-card">
+  <div class="video-thumb">🎤</div>
+  <div class="performance-info">
+    <div class="performance-title">Battle of the Streets</div>
+    <div class="performance-artist">DJ Blaze vs Kay Flex</div>
+    <div class="performance-actions">
+      <button class="play-btn" onclick="playVideo('vid1')">▶ Watch</button>
+    </div>
+    <video id="vid1" src="videos/battle1.mp4"></video>
+  </div>
+</div>
+
+<div class="performance-card">
+  <div class="video-thumb">🎵</div>
+  <div class="performance-info">
+    <div class="performance-title">Mapiano Challenge</div>
+    <div class="performance-artist">Prod. Kay Flex vs Zara</div>
+    <div class="performance-actions">
+      <button class="play-btn" onclick="playVideo('vid2')">▶ Watch</button>
+    </div>
+    <video id="vid2" src="videos/battle2.mp4"></video>
+  </div>
+</div>
+
+<!-- AD BANNER -->
+<div class="ad">📢 Promote your competition here!</div>
+
+<!-- UPCOMING COMPETITIONS -->
+<h2>Upcoming Competitions</h2>
+<div class="grid">
+  <div class="card">Hip-Hop Street Show • 25 Jan</div>
+  <div class="card">Mapiano Battle • 28 Jan</div>
+  <div class="card">Dancehall Clash • 2 Feb</div>
+</div>
+
+<!-- PAST WINNERS -->
+<h2>Past Winners</h2>
+<div class="grid">
+  <div class="card">DJ Blaze</div>
+  <div class="card">Kay Flex</div>
+  <div class="card">Zara</div>
+</div>
+
+<!-- FOOTER NOTE -->
+<div style="text-align:center; margin-top:30px; color:#aaa; font-size:13px;">
+All competitions are streamed for preview only. Pandemalawi Sounds does not host or sell music from performances.
+</div>
+
+</div>
+
+<script>
+/* ===== VIDEO PLAY LIMIT 45 SECONDS ===== */
+const videoCount = {};
+
+function playVideo(id){
+  const video = document.getElementById(id);
+  if(!videoCount[id]) videoCount[id]=0;
+
+  if(videoCount[id]>=2){
+    alert("Preview limit reached. Watch full performance at official event.");
+    return;
+  }
+
+  video.currentTime=0;
+  video.play();
+  videoCount[id]++;
+
+  setTimeout(()=>{
+    video.pause();
+    video.currentTime=0;
+  },45000);
+}
+
+/* ===== HERO SLIDESHOW ===== */
+let slideIndex=0;
+const slides=document.querySelectorAll(".hero img");
+setInterval(()=>{
+  slides[slideIndex].classList.remove("active");
+  slideIndex=(slideIndex+1)%slides.length;
+  slides[slideIndex].classList.add("active");
+},4000);
+</script>
+
+</body>
+</html>
