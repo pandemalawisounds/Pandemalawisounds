@@ -28,6 +28,10 @@ body {
   color: #fff;
 }
 
+.hero h2 {
+  margin-bottom: 15px;
+}
+
 /* SEARCH */
 .search-box input {
   width: 90%;
@@ -47,9 +51,10 @@ body {
   border-bottom: 2px solid #ddd;
   padding-bottom: 5px;
 }
+
 /* SCROLLABLE LOCATION BOX */
 .location-box {
-  max-height: 220px;     /* you can adjust this */
+  max-height: 220px; /* adjust as needed */
   overflow-y: auto;
   padding-right: 5px;
 }
@@ -68,7 +73,7 @@ body {
 details {
   background: #fff;
   margin: 10px 0;
-  padding: 15px;
+  padding: 10px;
   border-radius: 5px;
 }
 
@@ -100,7 +105,7 @@ li a {
   background: #eaeaea;
   padding: 20px;
   text-align: center;
-  margin: 15px;
+  margin: 15px 0;
   font-weight: bold;
 }
 
@@ -134,60 +139,46 @@ li a {
   </div>
 </div>
 
-<!-- TAXI -->
+<!-- TAXI SECTION -->
 <div class="section">
   <h3>🚕 Taxi</h3>
 
   <details>
     <summary>📍 Manja</summary>
-<div class="location-box">
-    
-<ul>
-  <li>
-    John Taxi –
-    <span class="phone"
-          data-phone="0999850764"
-          data-added="2026-01-01">
-      Checking...
-    </span>
-  </li>
-
-  <li>
-    City Taxi –
-    <span class="phone"
-          data-phone="0888850764"
-          data-added="2026-01-01">
-      Checking...
-    </span>
-  </li>
-</ul>
+    <div class="location-box">
+      <ul>
+        <li>
+          John Taxi – <span class="phone" data-phone="0999850764" data-added="2026-01-01">Checking...</span>
+        </li>
+        <li>
+          City Taxi – <span class="phone" data-phone="0888850764" data-added="2026-01-01">Checking...</span>
+        </li>
+        <li>
+          Extra Taxi – <span class="phone" data-phone="0991111111" data-added="2026-01-01">Checking...</span>
+        </li>
+      </ul>
+    </div>
   </details>
 </div>
 
 <div class="ad">ADVERTISEMENT SPACE</div>
 
-<!-- KABANZA -->
+<!-- KABANZA SECTION -->
 <div class="section">
   <h3>🛵 Kabanza</h3>
 
   <details>
     <summary>📍 Manja</summary>
-<div class="location-box">
-    <ul>
-      <li>
-  Speed Rider –
-  <span class="phone" data-phone="0885716114" data-added="2026-01-01">
-    Checking...
-  </span>
-</li>
-
-<li>
-  Quick Rider –
-  <span class="phone" data-phone="0999213639" data-added="2026-01-01">
-    Checking...
-  </span>
-</li>
-    </ul>
+    <div class="location-box">
+      <ul>
+        <li>
+          Speed Rider – <span class="phone" data-phone="0885716114" data-added="2026-01-01">Checking...</span>
+        </li>
+        <li>
+          Quick Rider – <span class="phone" data-phone="0999213639" data-added="2026-01-01">Checking...</span>
+        </li>
+      </ul>
+    </div>
   </details>
 </div>
 
@@ -199,41 +190,36 @@ li a {
 
   <details>
     <summary>📍 Manja</summary>
-<div class="location-box">
-    <ul>
-      <li>
-  Mike Pickup (Kusamuka) –
-  <span class="phone" data-phone="0893499227" data-added="2026-01-01">
-    Checking...
-  </span>
-</li>
-    </ul>
+    <div class="location-box">
+      <ul>
+        <li>
+          Mike Pickup (Kusamuka) – <span class="phone" data-phone="0893499227" data-added="2026-01-01">Checking...</span>
+        </li>
+      </ul>
+    </div>
   </details>
 </div>
 
 <div class="ad">ADVERTISEMENT SPACE</div>
 
-<!-- TRUCKS -->
+<!-- TRUCKS & LORRIES -->
 <div class="section">
   <h3>🚚 Trucks & Lorries</h3>
 
   <details>
     <summary>📍 Manja</summary>
-<div class="location-box">
-    <ul>
-     <li>
-  Fast Movers –
-  <span class="phone" data-phone="0884960150" data-added="2026-01-01">
-    Checking...
-  </span>
-</li>
-    </ul>
+    <div class="location-box">
+      <ul>
+        <li>
+          Fast Movers – <span class="phone" data-phone="0884960150" data-added="2026-01-01">Checking...</span>
+        </li>
+      </ul>
+    </div>
   </details>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-
   const DAYS_LIMIT = 30;
 
   document.querySelectorAll('.phone').forEach(el => {
@@ -249,7 +235,6 @@ document.addEventListener("DOMContentLoaded", function () {
       el.textContent = "Not available";
     }
   });
-
 });
 </script>
 
@@ -257,12 +242,9 @@ document.addEventListener("DOMContentLoaded", function () {
 <div class="payment">
   <h2>Driver / Rider Registration</h2>
   <p>To be listed on this platform:</p>
-
   <h3><strong>K1000</strong> per month</h3>
-
   <p>Pay via Airtel Money:</p>
   <h3><strong>0996275575</strong></h3>
-
   <p>
     ⚠️ Phone numbers stay <strong>hidden</strong> when payment expires  
     and show <strong>Not available</strong> until renewed.
