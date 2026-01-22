@@ -189,6 +189,24 @@ li a {
   </details>
 </div>
 
+<script>
+const DAYS_LIMIT = 30;
+
+document.querySelectorAll('.phone').forEach(el => {
+  const phone = el.dataset.phone;
+  const addedDate = new Date(el.dataset.added);
+  const today = new Date();
+
+  const diffDays = (today - addedDate) / (1000 * 60 * 60 * 24);
+
+  if (diffDays <= DAYS_LIMIT) {
+    el.innerHTML = `<a href="tel:${phone}">${phone}</a>`;
+  } else {
+    el.textContent = "Not available";
+  }
+});
+</script>
+
 <!-- PAYMENT -->
 <div class="payment">
   <h2>Driver / Rider Registration</h2>
