@@ -20,16 +20,12 @@ body {
   text-align: center;
 }
 
-/* HERO / BACKGROUND */
+/* HERO */
 .hero {
   background: url("covers/Tpt1.jpg") center/cover no-repeat;
   padding: 60px 20px;
   text-align: center;
   color: #fff;
-}
-
-.hero h2 {
-  margin-bottom: 15px;
 }
 
 /* SEARCH */
@@ -42,7 +38,7 @@ body {
   font-size: 16px;
 }
 
-/* SECTIONS */
+/* SECTION */
 .section {
   padding: 20px;
 }
@@ -52,17 +48,35 @@ body {
   padding-bottom: 5px;
 }
 
-/* DRIVER CARD */
-.driver {
+/* LOCATION DROPDOWN */
+details {
   background: #fff;
   margin: 10px 0;
   padding: 15px;
   border-radius: 5px;
 }
 
-.driver span {
-  display: block;
-  margin-top: 5px;
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* DRIVER LIST */
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+
+li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+li a {
+  color: #0a7cff;
+  text-decoration: none;
 }
 
 /* ADS */
@@ -70,7 +84,7 @@ body {
   background: #eaeaea;
   padding: 20px;
   text-align: center;
-  margin: 15px 0;
+  margin: 15px;
   font-weight: bold;
 }
 
@@ -93,32 +107,28 @@ body {
 <!-- HEADER -->
 <div class="header">
   <h1>Transport Near You</h1>
-  <p>Find taxis, kabanzas & cars in your area</p>
+  <p>Find transport in your area</p>
 </div>
 
 <!-- HERO -->
 <div class="hero">
-  <h2>Search Transport in Your Area</h2>
+  <h2>Select Category → Location → Call</h2>
   <div class="search-box">
-    <input type="text" placeholder="Type your area e.g. Mbayani, Chilomoni">
+    <input type="text" placeholder="Search area (coming soon)">
   </div>
 </div>
 
-<!-- TAXI SECTION -->
+<!-- TAXI -->
 <div class="section">
   <h3>🚕 Taxi</h3>
 
-  <div class="driver">
-    <strong>Driver:</strong> John Taxi  
-    <span>Area: Mbayani</span>
-    <span>Phone: <span class="number">Not available</span></span>
-  </div>
-
-  <div class="driver">
-    <strong>Driver:</strong> City Taxi  
-    <span>Area: Chilomoni</span>
-    <span>Phone: <span class="number">Not available</span></span>
-  </div>
+  <details>
+    <summary>📍 Manja</summary>
+    <ul>
+      <li>John Taxi – <span>Not available</span></li>
+      <li>City Taxi – <span>Not available</span></li>
+    </ul>
+  </details>
 </div>
 
 <div class="ad">ADVERTISEMENT SPACE</div>
@@ -127,11 +137,13 @@ body {
 <div class="section">
   <h3>🛵 Kabanza</h3>
 
-  <div class="driver">
-    <strong>Rider:</strong> Speed Rider  
-    <span>Area: Ndirande</span>
-    <span>Phone: <span class="number">Not available</span></span>
-  </div>
+  <details>
+    <summary>📍 Manja</summary>
+    <ul>
+      <li>Speed Rider – <span>Not available</span></li>
+      <li>Quick Rider – <span>Not available</span></li>
+    </ul>
+  </details>
 </div>
 
 <div class="ad">ADVERTISEMENT SPACE</div>
@@ -140,40 +152,41 @@ body {
 <div class="section">
   <h3>🚗 Pickups & Personal Cars for Hire</h3>
 
-  <div class="driver">
-    <strong>Owner:</strong> Mike Pickup  
-    <span>Service: Moving goods / kusamuka</span>
-    <span>Area: Blantyre</span>
-    <span>Phone: <span class="number">Not available</span></span>
-  </div>
+  <details>
+    <summary>📍 Manja</summary>
+    <ul>
+      <li>Mike Pickup (Kusamuka) – <span>Not available</span></li>
+    </ul>
+  </details>
 </div>
 
 <div class="ad">ADVERTISEMENT SPACE</div>
 
-<!-- OPTIONAL EXTRA -->
+<!-- TRUCKS -->
 <div class="section">
   <h3>🚚 Trucks & Lorries</h3>
-  <p>(For tiles, cement, building materials, etc.)</p>
 
-  <div class="driver">
-    <strong>Company:</strong> Fast Movers  
-    <span>Area: Blantyre</span>
-    <span>Phone: <span class="number">Not available</span></span>
-  </div>
+  <details>
+    <summary>📍 Manja</summary>
+    <ul>
+      <li>Fast Movers – <span>Not available</span></li>
+    </ul>
+  </details>
 </div>
 
 <!-- PAYMENT -->
 <div class="payment">
   <h2>Driver / Rider Registration</h2>
   <p>To be listed on this platform:</p>
+
   <h3><strong>K1000</strong> per month</h3>
 
   <p>Pay via Airtel Money:</p>
   <h3><strong>YOUR AIRTEL NUMBER HERE</strong></h3>
 
   <p>
-    ⚠️ Phone numbers remain <strong>hidden</strong> when payment expires  
-    and will display <strong>Not available</strong> until renewed.
+    ⚠️ Phone numbers stay <strong>hidden</strong> when payment expires  
+    and show <strong>Not available</strong> until renewed.
   </p>
 </div>
 
