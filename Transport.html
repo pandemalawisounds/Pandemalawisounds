@@ -124,7 +124,8 @@ li a {
 
   <details>
     <summary>📍 Manja</summary>
-    <ul>
+    
+<ul>
   <li>
     John Taxi –
     <span class="phone"
@@ -194,12 +195,12 @@ const DAYS_LIMIT = 30;
 
 document.querySelectorAll('.phone').forEach(el => {
   const phone = el.dataset.phone;
-  const addedDate = new Date(el.dataset.added);
+  const added = new Date(el.dataset.added);
   const today = new Date();
 
-  const diffDays = (today - addedDate) / (1000 * 60 * 60 * 24);
+  const daysPassed = (today - added) / (1000 * 60 * 60 * 24);
 
-  if (diffDays <= DAYS_LIMIT) {
+  if (daysPassed <= DAYS_LIMIT) {
     el.innerHTML = `<a href="tel:${phone}">${phone}</a>`;
   } else {
     el.textContent = "Not available";
