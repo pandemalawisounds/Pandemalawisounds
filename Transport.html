@@ -28,10 +28,6 @@ body {
   color: #fff;
 }
 
-.hero h2 {
-  margin-bottom: 15px;
-}
-
 /* SEARCH */
 .search-box input {
   width: 90%;
@@ -42,7 +38,7 @@ body {
   font-size: 16px;
 }
 
-/* SECTION */
+/* SECTIONS */
 .section {
   padding: 20px;
 }
@@ -52,28 +48,11 @@ body {
   padding-bottom: 5px;
 }
 
-/* SCROLLABLE LOCATION BOX */
-.location-box {
-  max-height: 220px; /* adjust as needed */
-  overflow-y: auto;
-  padding-right: 5px;
-}
-
-/* Nice scrollbar (optional, mobile safe) */
-.location-box::-webkit-scrollbar {
-  width: 6px;
-}
-
-.location-box::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 5px;
-}
-
 /* LOCATION DROPDOWN */
 details {
   background: #fff;
   margin: 10px 0;
-  padding: 10px;
+  padding: 15px;
   border-radius: 5px;
 }
 
@@ -81,6 +60,22 @@ summary {
   font-weight: bold;
   cursor: pointer;
   font-size: 16px;
+}
+
+/* SCROLLABLE LOCATION BOX */
+.location-box {
+  max-height: 220px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+/* Scrollbar style */
+.location-box::-webkit-scrollbar {
+  width: 6px;
+}
+.location-box::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 5px;
 }
 
 /* DRIVER LIST */
@@ -152,9 +147,6 @@ li a {
         </li>
         <li>
           City Taxi – <span class="phone" data-phone="0888850764" data-added="2026-01-01">Checking...</span>
-        </li>
-        <li>
-          Extra Taxi – <span class="phone" data-phone="0991111111" data-added="2026-01-01">Checking...</span>
         </li>
       </ul>
     </div>
@@ -245,10 +237,7 @@ document.addEventListener("DOMContentLoaded", function () {
   <h3><strong>K1000</strong> per month</h3>
   <p>Pay via Airtel Money:</p>
   <h3><strong>0996275575</strong></h3>
-  <p>
-    ⚠️ Phone numbers stay <strong>hidden</strong> when payment expires  
-    and show <strong>Not available</strong> until renewed.
-  </p>
+  <p>⚠️ Phone numbers stay <strong>hidden</strong> when payment expires and show <strong>Not available</strong> until renewed.</p>
 </div>
 
 </body>
