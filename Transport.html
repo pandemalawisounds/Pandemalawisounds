@@ -52,7 +52,6 @@ body {
 details {
   background: #fff;
   margin: 10px 0;
-  padding: 15px;
   border-radius: 5px;
 }
 
@@ -60,13 +59,17 @@ summary {
   font-weight: bold;
   cursor: pointer;
   font-size: 16px;
+  padding: 10px 15px;
+  display: block;
+  user-select: none;
 }
 
 /* SCROLLABLE LOCATION BOX */
 .location-box {
   max-height: 220px;
   overflow-y: auto;
-  padding-right: 5px;
+  padding: 10px 15px;
+  border-top: 1px solid #eee;
 }
 
 /* Scrollbar style */
@@ -82,7 +85,7 @@ summary {
 ul {
   list-style: none;
   padding-left: 0;
-  margin-top: 10px;
+  margin: 0;
 }
 
 li {
@@ -120,13 +123,11 @@ li a {
 
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <h1>Transport Near You</h1>
   <p>Find transport in your area</p>
 </div>
 
-<!-- HERO -->
 <div class="hero">
   <h2>Select Category → Location → Call</h2>
   <div class="search-box">
@@ -137,17 +138,12 @@ li a {
 <!-- TAXI SECTION -->
 <div class="section">
   <h3>🚕 Taxi</h3>
-
   <details>
     <summary>📍 Manja</summary>
     <div class="location-box">
       <ul>
-        <li>
-          John Taxi – <span class="phone" data-phone="0999850764" data-added="2026-01-01">Checking...</span>
-        </li>
-        <li>
-          City Taxi – <span class="phone" data-phone="0888850764" data-added="2026-01-01">Checking...</span>
-        </li>
+        <li>John Taxi – <span class="phone" data-phone="0999850764" data-added="2026-01-01">Checking...</span></li>
+        <li>City Taxi – <span class="phone" data-phone="0888850764" data-added="2026-01-01">Checking...</span></li>
       </ul>
     </div>
   </details>
@@ -158,17 +154,12 @@ li a {
 <!-- KABANZA SECTION -->
 <div class="section">
   <h3>🛵 Kabanza</h3>
-
   <details>
     <summary>📍 Manja</summary>
     <div class="location-box">
       <ul>
-        <li>
-          Speed Rider – <span class="phone" data-phone="0885716114" data-added="2026-01-01">Checking...</span>
-        </li>
-        <li>
-          Quick Rider – <span class="phone" data-phone="0999213639" data-added="2026-01-01">Checking...</span>
-        </li>
+        <li>Speed Rider – <span class="phone" data-phone="0885716114" data-added="2026-01-01">Checking...</span></li>
+        <li>Quick Rider – <span class="phone" data-phone="0999213639" data-added="2026-01-01">Checking...</span></li>
       </ul>
     </div>
   </details>
@@ -176,17 +167,14 @@ li a {
 
 <div class="ad">ADVERTISEMENT SPACE</div>
 
-<!-- PICKUPS & PERSONAL CARS -->
+<!-- PICKUPS -->
 <div class="section">
-  <h3>🚗 Pickups & Personal Cars for Hire</h3>
-
+  <h3>🚗 Pickups & Personal Cars</h3>
   <details>
     <summary>📍 Manja</summary>
     <div class="location-box">
       <ul>
-        <li>
-          Mike Pickup (Kusamuka) – <span class="phone" data-phone="0893499227" data-added="2026-01-01">Checking...</span>
-        </li>
+        <li>Mike Pickup (Kusamuka) – <span class="phone" data-phone="0893499227" data-added="2026-01-01">Checking...</span></li>
       </ul>
     </div>
   </details>
@@ -194,17 +182,14 @@ li a {
 
 <div class="ad">ADVERTISEMENT SPACE</div>
 
-<!-- TRUCKS & LORRIES -->
+<!-- TRUCKS -->
 <div class="section">
   <h3>🚚 Trucks & Lorries</h3>
-
   <details>
     <summary>📍 Manja</summary>
     <div class="location-box">
       <ul>
-        <li>
-          Fast Movers – <span class="phone" data-phone="0884960150" data-added="2026-01-01">Checking...</span>
-        </li>
+        <li>Fast Movers – <span class="phone" data-phone="0884960150" data-added="2026-01-01">Checking...</span></li>
       </ul>
     </div>
   </details>
@@ -213,12 +198,11 @@ li a {
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const DAYS_LIMIT = 30;
+  const today = new Date();
 
   document.querySelectorAll('.phone').forEach(el => {
     const phone = el.dataset.phone;
     const added = new Date(el.dataset.added);
-    const today = new Date();
-
     const daysPassed = (today - added) / (1000 * 60 * 60 * 24);
 
     if (daysPassed <= DAYS_LIMIT) {
@@ -230,7 +214,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
-<!-- PAYMENT -->
 <div class="payment">
   <h2>Driver / Rider Registration</h2>
   <p>To be listed on this platform:</p>
