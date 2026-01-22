@@ -2,183 +2,180 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Transport Near You | PandemalawiSounds</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zambian Music | Pandemalawi Sounds</title>
 
 <style>
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f6f6f6;
-  color:#222;
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
 }
 
-/* ===== NAVIGATION ===== */
-nav{
-  background:#222;
-  padding:10px;
-  text-align:center;
-  position:sticky;
-  top:0;
-  z-index:999;
-}
-nav a
-  text-decoration:none;
-  font-weight:bold;
-  font-size:16px;
+/* HEADER */
+.header {
+  background: #111;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
 }
 
-/* ==== HERO ==== */
-.hero{
-  height:260px;
-  background:url("covers/Zambia.png") center/cover no-repeat;
-  position:relative;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-}
-.hero-text{
-  position:absolute;
-  inset:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  color:#fff;
-  text-align:center;
-  z-index:1;
-}
-.hero-text h1{margin:0;font-size:30px;}
-.hero-text p{margin-top:8px;font-size:14px;}
-
-/* ===== CONTAINER ===== */
-.container{
-  max-width:1000px;
-  margin:auto;
-  padding:15px;
+/* HERO / BACKGROUND */
+.hero {
+  background: url("covers/Tpt1.jpg") center/cover no-repeat;
+  padding: 60px 20px;
+  text-align: center;
+  color: #fff;
 }
 
-h2{
-  margin:25px 0 10px;
-  font-size:20px;
+.hero h2 {
+  margin-bottom: 15px;
 }
 
-/* ===== GRID CARDS ===== */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-  gap:12px;
-}
-.card{
-  background:#fff;
-  padding:15px;
-  border-radius:8px;
-  text-align:center;
-  box-shadow:0 2px 6px rgba(0,0,0,0.1);
-  font-weight:bold;
+/* SEARCH */
+.search-box input {
+  width: 90%;
+  max-width: 400px;
+  padding: 12px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
 }
 
-/* ===== SLIDESHOW ===== */
-.slideshow{
-  position:relative;
-  height:200px;
-  overflow:hidden;
-  border-radius:10px;
+/* SECTIONS */
+.section {
+  padding: 20px;
 }
-.slideshow img{
-  width:100%;
-  height:200px;
-  object-fit:cover;
-  position:absolute;
-  opacity:0;
-  transition:opacity 1s;
+
+.section h3 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 5px;
 }
-.slideshow img.active{
-  opacity:1;
+
+/* DRIVER CARD */
+.driver {
+  background: #fff;
+  margin: 10px 0;
+  padding: 15px;
+  border-radius: 5px;
 }
-.caption{
-  margin-top:8px;
-  font-size:14px;
-  color:#555;
-  text-align:center;
+
+.driver span {
+  display: block;
+  margin-top: 5px;
+}
+
+/* ADS */
+.ad {
+  background: #eaeaea;
+  padding: 20px;
+  text-align: center;
+  margin: 15px 0;
+  font-weight: bold;
+}
+
+/* PAYMENT */
+.payment {
+  background: #111;
+  color: #fff;
+  padding: 25px;
+  text-align: center;
+}
+
+.payment strong {
+  color: #00ff88;
 }
 </style>
 </head>
 
 <body>
 
-<!-- ===== NAVIGATION ===== -->
-<nav>
-  <a href="index.html">🏠 Home</a>
-</nav>
+<!-- HEADER -->
+<div class="header">
+  <h1>Transport Near You</h1>
+  <p>Find taxis, kabanzas & cars in your area</p>
+</div>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-text">
-    <h1>🇿🇲 Zambian Music</h1>
-    <p>Music, culture & beautiful places of Zambia</p>
+  <h2>Search Transport in Your Area</h2>
+  <div class="search-box">
+    <input type="text" placeholder="Type your area e.g. Mbayani, Chilomoni">
   </div>
 </div>
 
-<div class="container">
-<!-- ===== GENRES ===== -->
-<h2>Music Genres</h2>
-<div class="grid">
-  <a href="zambian-hiphop.html" class="card">🎤 Hip-Hop</a>
-  <a href="zambian-afro.html" class="card">🎶 Afro / Dancehall</a>
-  <a href="zambian-gospel.html" class="card">🙏 Gospel</a>
-  <a href="zambian-rnb.html" class="card">🎧 R&B</a>
-  <a href="zambian-top.html" class="card">🔥 Top Hits</a>
+<!-- TAXI SECTION -->
+<div class="section">
+  <h3>🚕 Taxi</h3>
+
+  <div class="driver">
+    <strong>Driver:</strong> John Taxi  
+    <span>Area: Mbayani</span>
+    <span>Phone: <span class="number">Not available</span></span>
+  </div>
+
+  <div class="driver">
+    <strong>Driver:</strong> City Taxi  
+    <span>Area: Chilomoni</span>
+    <span>Phone: <span class="number">Not available</span></span>
+  </div>
 </div>
 
-<!-- ===== SECTIONS ===== -->
-<h2>Sections</h2>
-<div class="grid">
-  <a href="zambian-new.html" class="card">🆕 New Releases</a>
-  <a href="zambian-featured.html" class="card">⭐ Featured Artists</a>
-  <a href="zambian-trending.html" class="card">📈 Trending Songs</a>
-  <a href="zambian-classics.html" class="card">🎼 Classics</a>
+<div class="ad">ADVERTISEMENT SPACE</div>
+
+<!-- KABANZA -->
+<div class="section">
+  <h3>🛵 Kabanza</h3>
+
+  <div class="driver">
+    <strong>Rider:</strong> Speed Rider  
+    <span>Area: Ndirande</span>
+    <span>Phone: <span class="number">Not available</span></span>
+  </div>
 </div>
 
-<!-- ===== VISIT ZAMBIA ===== -->
-<h2>Visit Zambia 🇿🇲</h2>
-<div class="slideshow" id="visitZambia">
-  <a href="zambia-place1.html"><img src="covers/zambia1.jpg" class="active"></a>
-  <a href="zambia-place2.html"><img src="covers/zambia2.jpg"></a>
-  <a href="zambia-place3.html"><img src="covers/zambia3.jpg"></a>
-</div>
-<div class="caption">
-  Discover waterfalls, wildlife, cities & nature of Zambia
+<div class="ad">ADVERTISEMENT SPACE</div>
+
+<!-- PICKUPS & PERSONAL CARS -->
+<div class="section">
+  <h3>🚗 Pickups & Personal Cars for Hire</h3>
+
+  <div class="driver">
+    <strong>Owner:</strong> Mike Pickup  
+    <span>Service: Moving goods / kusamuka</span>
+    <span>Area: Blantyre</span>
+    <span>Phone: <span class="number">Not available</span></span>
+  </div>
 </div>
 
-<!-- ===== ZAMBIAN CULTURE (NOT CLICKABLE) ===== -->
-<h2>Zambian Culture 🎭</h2>
-<div class="slideshow" id="zambiaCulture">
-  <img src="covers/culture1.jpg" class="active">
-  <img src="covers/culture2.jpg">
-  <img src="covers/culture3.jpg">
-</div>
-<div class="caption">
-  Traditional dances, ceremonies & cultural pride
-</div>
-<script>
-/* ===== SIMPLE SLIDESHOW FUNCTION ===== */
-function startSlideshow(id){
-  const slides=document.querySelectorAll("#"+id+" img");
-  let index=0;
-  setInterval(()=>{
-    slides[index].classList.remove("active");
-    index=(index+1)%slides.length;
-    slides[index].classList.add("active");
-  },3000);
-}
+<div class="ad">ADVERTISEMENT SPACE</div>
 
-startSlideshow("visitZambia");
-startSlideshow("zambiaCulture");
-</script>
+<!-- OPTIONAL EXTRA -->
+<div class="section">
+  <h3>🚚 Trucks & Lorries</h3>
+  <p>(For tiles, cement, building materials, etc.)</p>
+
+  <div class="driver">
+    <strong>Company:</strong> Fast Movers  
+    <span>Area: Blantyre</span>
+    <span>Phone: <span class="number">Not available</span></span>
+  </div>
+</div>
+
+<!-- PAYMENT -->
+<div class="payment">
+  <h2>Driver / Rider Registration</h2>
+  <p>To be listed on this platform:</p>
+  <h3><strong>K1000</strong> per month</h3>
+
+  <p>Pay via Airtel Money:</p>
+  <h3><strong>YOUR AIRTEL NUMBER HERE</strong></h3>
+
+  <p>
+    ⚠️ Phone numbers remain <strong>hidden</strong> when payment expires  
+    and will display <strong>Not available</strong> until renewed.
+  </p>
+</div>
 
 </body>
 </html>
