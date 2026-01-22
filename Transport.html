@@ -191,20 +191,24 @@ li a {
 </div>
 
 <script>
-const DAYS_LIMIT = 30;
+document.addEventListener("DOMContentLoaded", function () {
 
-document.querySelectorAll('.phone').forEach(el => {
-  const phone = el.dataset.phone;
-  const added = new Date(el.dataset.added);
-  const today = new Date();
+  const DAYS_LIMIT = 30;
 
-  const daysPassed = (today - added) / (1000 * 60 * 60 * 24);
+  document.querySelectorAll('.phone').forEach(el => {
+    const phone = el.dataset.phone;
+    const added = new Date(el.dataset.added);
+    const today = new Date();
 
-  if (daysPassed <= DAYS_LIMIT) {
-    el.innerHTML = `<a href="tel:${phone}">${phone}</a>`;
-  } else {
-    el.textContent = "Not available";
-  }
+    const daysPassed = (today - added) / (1000 * 60 * 60 * 24);
+
+    if (daysPassed <= DAYS_LIMIT) {
+      el.innerHTML = `<a href="tel:${phone}">${phone}</a>`;
+    } else {
+      el.textContent = "Not available";
+    }
+  });
+
 });
 </script>
 
