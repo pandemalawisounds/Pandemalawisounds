@@ -304,6 +304,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.querySelector(".section"); // pick the parent section
+  const details = Array.from(container.querySelectorAll("details"));
+
+  details.sort((a, b) => {
+    const nameA = a.querySelector("summary").textContent.toUpperCase();
+    const nameB = b.querySelector("summary").textContent.toUpperCase();
+    return nameA.localeCompare(nameB);
+  });
+
+  details.forEach(d => container.appendChild(d)); // re-append in order
+});
 </script>
 
 <!-- PAYMENT -->
