@@ -48,37 +48,40 @@ body {
   padding-bottom: 5px;
 }
 
-/* LOCATION DROPDOWN */
-details {
+/* SCROLLABLE LOCATIONS CONTAINER */
+.locations-scroll {
+  max-height: 260px;  /* fixed height for scroll */
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
   background: #fff;
-  margin: 10px 0;
+  padding: 5px;
+}
+
+/* EACH LOCATION ITEM */
+.locations-scroll details {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 5px;
   border-radius: 5px;
 }
 
-summary {
-  font-weight: bold;
+/* LOCATION TITLE */
+.locations-scroll summary {
   cursor: pointer;
-  font-size: 16px;
+  font-weight: 600;
   padding: 10px 15px;
   display: block;
   user-select: none;
 }
 
-/* SCROLLABLE LOCATION BOX */
-.location-box {
-  max-height: 220px;
-  overflow-y: auto;
-  padding: 10px 15px;
-  border-top: 1px solid #eee;
+/* Remove default arrow (optional) */
+.locations-scroll summary::-webkit-details-marker {
+  display: none;
 }
 
-/* Scrollbar style */
-.location-box::-webkit-scrollbar {
-  width: 6px;
-}
-.location-box::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 5px;
+/* LOCATION CONTENT (Taxis/Bikes/Drivers) */
+.location-box {
+  padding: 8px 15px;
 }
 
 /* DRIVER LIST */
@@ -123,11 +126,13 @@ li a {
 
 <body>
 
+<!-- HEADER -->
 <div class="header">
   <h1>Transport Near You</h1>
   <p>Find transport in your area</p>
 </div>
 
+<!-- HERO -->
 <div class="hero">
   <h2>Select Category → Location → Call</h2>
   <div class="search-box">
@@ -138,86 +143,91 @@ li a {
 <!-- TAXI SECTION -->
 <div class="section">
   <h3>🚕 Taxi</h3>
-  <details>
-    <summary>📍 Manja</summary>
-    <div class="location-box">
-      <ul>
-        <li>John Taxi – <span class="phone" data-phone="0999850764" data-added="2026-01-01">Checking...</span></li>
-        <li>City Taxi – <span class="phone" data-phone="0888850764" data-added="2026-01-01">Checking...</span></li>
-      </ul>
-    </div>
-  </details>
-<details>
-  <summary>📍 Zingwangwa</summary>
-  <div class="location-box">
-    <ul>
-      <li>Zing Taxi 1 – <span class="phone" data-phone="0990000001" data-added="2026-01-01">Checking...</span></li>
-    </ul>
-  </div>
-</details>
+  <div class="locations-scroll">
 
-<details>
-  <summary>📍 Chinyonga</summary>
-  <div class="location-box">
-    <ul>
-      <li>Chiny Taxi – <span class="phone" data-phone="0990000002" data-added="2026-01-01">Checking...</span></li>
-    </ul>
-  </div>
-</details>
+    <details>
+      <summary>📍 Manja</summary>
+      <div class="location-box">
+        <ul>
+          <li>John Taxi – <span class="phone" data-phone="0999850764" data-added="2026-01-01">Checking...</span></li>
+          <li>City Taxi – <span class="phone" data-phone="0888850764" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
 
-<details>
-  <summary>📍 Chitawila</summary>
-  <div class="location-box">
-    <ul>
-      <li>Chita Taxi – <span class="phone" data-phone="0990000003" data-added="2026-01-01">Checking...</span></li>
-    </ul>
-  </div>
-</details>
+    <details>
+      <summary>📍 Zingwangwa</summary>
+      <div class="location-box">
+        <ul>
+          <li>Zing Taxi 1 – <span class="phone" data-phone="0990000001" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
 
-<details>
-  <summary>📍 Chiwembe</summary>
-  <div class="location-box">
-    <ul>
-      <li>Chiw Taxi – <span class="phone" data-phone="0990000004" data-added="2026-01-01">Checking...</span></li>
-    </ul>
-  </div>
-</details>
+    <details>
+      <summary>📍 Chinyonga</summary>
+      <div class="location-box">
+        <ul>
+          <li>Chiny Taxi 1 – <span class="phone" data-phone="0990000002" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
 
-<details>
-  <summary>📍 Chichiri</summary>
-  <div class="location-box">
-    <ul>
-      <li>Chichi Taxi – <span class="phone" data-phone="0990000005" data-added="2026-01-01">Checking...</span></li>
-    </ul>
-  </div>
-</details>
+    <details>
+      <summary>📍 Chitawila</summary>
+      <div class="location-box">
+        <ul>
+          <li>Chitawila Taxi – <span class="phone" data-phone="0990000003" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
 
-<details>
-  <summary>📍 Ndirande</summary>
-  <div class="location-box">
-    <ul>
-      <li>Ndir Taxi – <span class="phone" data-phone="0990000006" data-added="2026-01-01">Checking...</span></li>
-    </ul>
-  </div>
-</details>
+    <details>
+      <summary>📍 Chiwembe</summary>
+      <div class="location-box">
+        <ul>
+          <li>Chiwembe Taxi – <span class="phone" data-phone="0990000004" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
 
-<details>
-  <summary>📍 Blantyre City</summary>
-  <div class="location-box">
-    <ul>
-      <li>City Centre Taxi – <span class="phone" data-phone="0990000007" data-added="2026-01-01">Checking...</span></li>
-    </ul>
-  </div>
-</details>
+    <details>
+      <summary>📍 Chichiri</summary>
+      <div class="location-box">
+        <ul>
+          <li>Chichiri Taxi – <span class="phone" data-phone="0990000005" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
 
-<details>
-  <summary>📍 Chilobwe</summary>
-  <div class="location-box">
-    <ul>
-      <li>Chilo Taxi – <span class="phone" data-phone="0990000008" data-added="2026-01-01">Checking...</span></li>
-    </ul>
+    <details>
+      <summary>📍 Ndilande</summary>
+      <div class="location-box">
+        <ul>
+          <li>Ndilande Taxi – <span class="phone" data-phone="0990000006" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>📍 Blantyre City</summary>
+      <div class="location-box">
+        <ul>
+          <li>Blantyre City Taxi – <span class="phone" data-phone="0990000007" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
+
+    <details>
+      <summary>📍 Chilobwe</summary>
+      <div class="location-box">
+        <ul>
+          <li>Chilobwe Taxi – <span class="phone" data-phone="0990000008" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
+
   </div>
-</details>
 </div>
 
 <div class="ad">ADVERTISEMENT SPACE</div>
@@ -225,30 +235,38 @@ li a {
 <!-- KABANZA SECTION -->
 <div class="section">
   <h3>🛵 Kabanza</h3>
-  <details>
-    <summary>📍 Manja</summary>
-    <div class="location-box">
-      <ul>
-        <li>Speed Rider – <span class="phone" data-phone="0885716114" data-added="2026-01-01">Checking...</span></li>
-        <li>Quick Rider – <span class="phone" data-phone="0999213639" data-added="2026-01-01">Checking...</span></li>
-      </ul>
-    </div>
-  </details>
+  <div class="locations-scroll">
+
+    <details>
+      <summary>📍 Manja</summary>
+      <div class="location-box">
+        <ul>
+          <li>Speed Rider – <span class="phone" data-phone="0885716114" data-added="2026-01-01">Checking...</span></li>
+          <li>Quick Rider – <span class="phone" data-phone="0999213639" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
+
+  </div>
 </div>
 
 <div class="ad">ADVERTISEMENT SPACE</div>
 
-<!-- PICKUPS -->
+<!-- PICKUPS & PERSONAL CARS -->
 <div class="section">
-  <h3>🚗 Pickups & Personal Cars</h3>
-  <details>
-    <summary>📍 Manja</summary>
-    <div class="location-box">
-      <ul>
-        <li>Mike Pickup (Kusamuka) – <span class="phone" data-phone="0893499227" data-added="2026-01-01">Checking...</span></li>
-      </ul>
-    </div>
-  </details>
+  <h3>🚗 Pickups & Personal Cars for Hire</h3>
+  <div class="locations-scroll">
+
+    <details>
+      <summary>📍 Manja</summary>
+      <div class="location-box">
+        <ul>
+          <li>Mike Pickup (Kusamuka) – <span class="phone" data-phone="0893499227" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
+
+  </div>
 </div>
 
 <div class="ad">ADVERTISEMENT SPACE</div>
@@ -256,24 +274,27 @@ li a {
 <!-- TRUCKS -->
 <div class="section">
   <h3>🚚 Trucks & Lorries</h3>
-  <details>
-    <summary>📍 Manja</summary>
-    <div class="location-box">
-      <ul>
-        <li>Fast Movers – <span class="phone" data-phone="0884960150" data-added="2026-01-01">Checking...</span></li>
-      </ul>
-    </div>
-  </details>
+  <div class="locations-scroll">
+
+    <details>
+      <summary>📍 Manja</summary>
+      <div class="location-box">
+        <ul>
+          <li>Fast Movers – <span class="phone" data-phone="0884960150" data-added="2026-01-01">Checking...</span></li>
+        </ul>
+      </div>
+    </details>
+
+  </div>
 </div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   const DAYS_LIMIT = 30;
-  const today = new Date();
-
   document.querySelectorAll('.phone').forEach(el => {
     const phone = el.dataset.phone;
     const added = new Date(el.dataset.added);
+    const today = new Date();
     const daysPassed = (today - added) / (1000 * 60 * 60 * 24);
 
     if (daysPassed <= DAYS_LIMIT) {
@@ -285,6 +306,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<!-- PAYMENT -->
 <div class="payment">
   <h2>Driver / Rider Registration</h2>
   <p>To be listed on this platform:</p>
