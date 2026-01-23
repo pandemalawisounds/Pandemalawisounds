@@ -547,6 +547,27 @@ document.querySelectorAll('.location-box').forEach(box => {
   // append back to same ul
   items.forEach(item => ul.appendChild(item));
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const searchInput = document.querySelector(".search-box input");
+  const detailsList = document.querySelectorAll("details");
+
+  searchInput.addEventListener("input", function() {
+    const query = this.value.toLowerCase().trim();
+
+    detailsList.forEach(detail => {
+      const location = detail.querySelector("summary").textContent.toLowerCase();
+      
+      // Show if query matches the location text, hide otherwise
+      if (location.includes(query) || query === "") {
+        detail.style.display = "block";
+      } else {
+        detail.style.display = "none";
+      }
+    });
+  });
+});
 </script>
 
 <!-- PAYMENT -->
