@@ -549,22 +549,34 @@ document.querySelectorAll('.location-box').forEach(box => {
 });
 
 
+
 document.addEventListener("DOMContentLoaded", function() {
   const searchInput = document.querySelector(".search-box input");
-  const detailsList = document.querySelectorAll("details");
+  const sections = document.querySelectorAll(".section");
 
   searchInput.addEventListener("input", function() {
     const query = this.value.toLowerCase().trim();
 
-    detailsList.forEach(detail => {
-      const location = detail.querySelector("summary").textContent.toLowerCase();
-      
-      // Show if query matches the location text, hide otherwise
-      if (location.includes(query) || query === "") {
-        detail.style.display = "block";
-      } else {
-        detail.style.display = "none";
-      }
+    sections.forEach(section => {
+      let sectionMatches = false;
+
+      // Check each details inside this section
+      const detailsList = section.querySelectorAll("details");
+      detailsList.forEach(detail => {
+        const locationName = detail.querySelector("summary").textContent.toLowerCase();
+        const categoryName = section.querySelector("h3").textContent.toLowerCase();
+
+        // Show this details if query matches location OR category
+        if (locationName.includes(query) || categoryName.includes(query) || query === "") {
+          detail.style.display = "block";
+          sectionMatches = true; // mark section as having a match
+        } else {
+          detail.style.display = "none";
+        }
+      });
+
+      // Hide entire section if no matches in its details
+      section.style.display = sectionMatches ? "block" : "none";
     });
   });
 });
