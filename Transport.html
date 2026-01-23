@@ -305,17 +305,17 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const container = document.querySelector(".section"); // pick the parent section
-  const details = Array.from(container.querySelectorAll("details"));
+// Sort drivers inside each scrollable box
+document.querySelectorAll('.location-box').forEach(box => {
+  const ul = box.querySelector('ul'); // get the list
+  if (!ul) return; // safety check
+  const items = Array.from(ul.querySelectorAll('li')); // all drivers
 
-  details.sort((a, b) => {
-    const nameA = a.querySelector("summary").textContent.toUpperCase();
-    const nameB = b.querySelector("summary").textContent.toUpperCase();
-    return nameA.localeCompare(nameB);
-  });
+  // sort alphabetically by text
+  items.sort((a, b) => a.textContent.trim().toUpperCase().localeCompare(b.textContent.trim().toUpperCase()));
 
-  details.forEach(d => container.appendChild(d)); // re-append in order
+  // append back to same ul
+  items.forEach(item => ul.appendChild(item));
 });
 </script>
 
