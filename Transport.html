@@ -556,17 +556,15 @@ document.querySelectorAll('.location-box').forEach(box => {
 });
 
 
-  // Grab the input and button
   const searchInput = document.querySelector('.search-box input');
   const searchBtn = document.querySelector('.search-box button');
 
-  // Function to perform search
   function performSearch() {
     const query = searchInput.value.toLowerCase().trim();
     const allDetails = document.querySelectorAll('.locations-scroll details');
+    let firstMatch = null; // store first match to scroll to
 
     if (!query) {
-      // If input is empty, show all
       allDetails.forEach(detail => detail.style.display = '');
       return;
     }
@@ -576,17 +574,25 @@ document.querySelectorAll('.location-box').forEach(box => {
       const liTexts = Array.from(detail.querySelectorAll('li')).map(li => li.textContent.toLowerCase());
       const dataSearch = (detail.getAttribute('data-search') || '').toLowerCase();
 
-      // Check if query matches summary, any li text, or data-search
       const match = summaryText.includes(query) || liTexts.some(text => text.includes(query)) || dataSearch.includes(query);
 
       detail.style.display = match ? '' : 'none';
+
+      if (match && !firstMatch) {
+        firstMatch = detail;
+      }
     });
+
+    // Scroll to first matching result
+    if (firstMatch) {
+      firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Optional: open the details automatically
+      firstMatch.open = true;
+    }
   }
 
-  // Trigger search when clicking button
   searchBtn.addEventListener('click', performSearch);
 
-  // Optional: Trigger search when pressing Enter
   searchInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') performSearch();
   });
