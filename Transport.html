@@ -161,7 +161,11 @@ li a {
 <!-- HERO -->
 <div class="hero">
   <h2>Select Category → Location → Call</h2>
-  
+
+<div class="search-box">
+  <input type="text" placeholder="Lembani (Transport) ndi (location) e.g Taxi Manja">
+  <button type="button">🔍</button>
+</div>
 </div>
 
 <!-- TAXI SECTION -->
@@ -552,54 +556,40 @@ document.querySelectorAll('.location-box').forEach(box => {
 });
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const searchInput = document.querySelector(".search-box input");
-  const searchButton = document.querySelector(".search-box button");
+  // Grab the input and button
+  const searchInput = document.querySelector('.search-box input');
+  const searchBtn = document.querySelector('.search-box button');
 
-  // Map of all searchable items: key = possible query words, value = target element ID
-  const searchMap = {};
-  document.querySelectorAll("details[data-search]").forEach(detail => {
-    const queries = detail.dataset.search.toLowerCase().split(" ");
-    queries.forEach(q => {
-      searchMap[q] = detail.id;
-    });
-  });
+  // Function to perform search
+  function performSearch() {
+    const query = searchInput.value.toLowerCase().trim();
+    const allDetails = document.querySelectorAll('.locations-scroll details');
 
-  // Optional: autocomplete suggestions
-  searchInput.addEventListener("input", function() {
-    const val = this.value.toLowerCase().trim().replace(/\s+/g, "");
-    const suggestions = Object.keys(searchMap).filter(key => key.replace(/\s+/g,"").includes(val));
-    // For simplicity: console.log suggestions (you can implement a dropdown later)
-    console.log("Suggestions:", suggestions);
-  });
-
-  // Navigate on Enter or button click
-  function navigate() {
-    let val = searchInput.value.toLowerCase().trim().replace(/\s+/g, ""); // remove spaces
-    // Find the first matching detail
-    const targetId = Object.keys(searchMap).find(key => key.replace(/\s+/g,"") === val);
-    if (targetId) {
-      const el = document.getElementById(searchMap[targetId]);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-        // Optionally open the details if collapsed
-        if (!el.hasAttribute("open")) el.setAttribute("open", "");
-      }
-    } else {
-      alert("No match found!");
+    if (!query) {
+      // If input is empty, show all
+      allDetails.forEach(detail => detail.style.display = '');
+      return;
     }
+
+    allDetails.forEach(detail => {
+      const summaryText = detail.querySelector('summary').textContent.toLowerCase();
+      const liTexts = Array.from(detail.querySelectorAll('li')).map(li => li.textContent.toLowerCase());
+      const dataSearch = (detail.getAttribute('data-search') || '').toLowerCase();
+
+      // Check if query matches summary, any li text, or data-search
+      const match = summaryText.includes(query) || liTexts.some(text => text.includes(query)) || dataSearch.includes(query);
+
+      detail.style.display = match ? '' : 'none';
+    });
   }
 
-  // Enter key triggers navigation
-  searchInput.addEventListener("keydown", function(e) {
-    if (e.key === "Enter") navigate();
-  });
+  // Trigger search when clicking button
+  searchBtn.addEventListener('click', performSearch);
 
-  // Optional: button click triggers navigation
-  if (searchButton) searchButton.addEventListener("click", navigate);
-});
+  // Optional: Trigger search when pressing Enter
+  searchInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') performSearch();
   });
-});
 </script>
 
 <!-- PAYMENT -->
