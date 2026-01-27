@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/index.html</loc>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Other pages -->
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/Buy_sell.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/Hot_Denje.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/Jonarp.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/Latestuploads.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/Ric_fabs.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/Transport.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/Trendingsongs.html</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/Beats.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/Competitions.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/goepel-songs.html</loc>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/islamic-songs.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/Pboy_halla.html</loc>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://pandemalawisounds.github.io/Pandemalawisounds/songlist.html</loc>
+    <priority>0.5</priority>
+  </url>
+
+</urlset>
