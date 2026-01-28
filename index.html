@@ -1,775 +1,751 @@
-<!DOCTYPE html>    <html lang="en">      <head>        <!-- Basic Meta -->        <meta charset="UTF-8" />      
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />      
-  <meta name="google-site-verification" content="NROhrYWsrQ4PRzQ5ZRszNydn7lvyIDMyj09JiGITnCw" />    <!-- Title -->    <title>PandemalawiSounds.com</title>    <!-- Meta Description -->    <meta name="description" content="Pandemalawi Sounds is a Malawian music platform promoting local artists with streaming and downloads." />    <!-- Open Graph / Social Media -->    <meta property="og:site_name" content="PandemalawiSounds.com" />      
-  <meta property="og:title" content="PandemalawiSounds.com" />      
-  <meta property="og:description" content="Pandemalawi Sounds is a Malawian music platform promoting local artists with streaming and downloads." />      
-  <meta property="og:type" content="website" />      
-  <meta property="og:url" content="https://pandemalawisounds.github.io/" />    <!-- Structured Data for SEO -->    <script type="application/ld+json">      
-  {      
-    "@context": "https://schema.org",      
-    "@type": "WebSite",      
-    "name": "PandemalawiSounds.com",      
-    "url": "https://pandemalawisounds.github.io/",      
-    "description": "Pandemalawi Sounds is a Malawian music platform promoting local artists with streaming and downloads."      
-  }      
-  </script>    <!-- Your CSS Starts Here -->    <style>      
-    /* Add your CSS below */      
-.top-nav {      
-  display: flex;      
-  flex-wrap: wrap;      
-  justify-content: center;      
-  padding: 2px 6px 6px;   /* small top, slightly bigger bottom */      
-  row-gap: 2px;           /* space between rows */      
-  column-gap: 0;          /* we will use margins on links instead */      
-  background: rgba(0, 0, 0, 0.1);      
-  backdrop-filter: blur(6px);      
-  z-index: 1000;      
-}    .top-nav a {  
-color: #00ff00;  
-text-decoration: none;  
-font-weight: 600;  
-font-size: 12px;  
-padding: 1px 4px;  
-}  
-</style>  </head>    <style>  
-.top-nav {  
-display: flex;  
-flex-wrap: wrap;  
-justify-content: center;  padding: 2px 6px 6px;   /* small top, slightly bigger bottom /
-row-gap: 2px;           / space between rows /
-column-gap: 0;          / we will use margins on links instead */
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+  <meta charset="UTF-8" />  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+  <title>Pandemalawi Sounds</title>  
+  <style>
+.top-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 
-background: rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(6px);
-z-index: 1000;
+  padding: 2px 6px 6px;   /* small top, slightly bigger bottom */
+  row-gap: 2px;           /* space between rows */
+  column-gap: 0;          /* we will use margins on links instead */
+  
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
 }
 
-/* NAV LINKS /
+/* NAV LINKS */
 .top-nav a {
-color: #00ff00;
-text-decoration: none;
-font-weight: 600;
-font-size: 12px;
-padding: 1px 4px;       / tight links */
-line-height: 1.2;
-white-space: nowrap;
-
-/* LEFT & RIGHT SPACING /
-margin: 0 4px;           / THIS WORKS reliably /
-display: inline-block;   / ensures margin works */
+  color: #00ff00;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 12px;
+  padding: 1px 4px;       /* tight links */
+  line-height: 1.2;
+  white-space: nowrap;
+  
+  /* LEFT & RIGHT SPACING */
+  margin: 0 4px;           /* THIS WORKS reliably */
+  display: inline-block;   /* ensures margin works */
 }
 
 /* MOBILE FONT ADJUSTMENT */
 @media (max-width: 480px) {
-.top-nav a {
-font-size: 11px;
+  .top-nav a {
+    font-size: 11px;
+  }
 }
-}
-</style>  <script>
-
+  </style>
+  
+    <script>
 (function () {
-const img = new Image();
-img.src = "covers/Pandemalawisounds (1).webp";
+  const img = new Image();
+  img.src = "covers/Pandemalawisounds (1).webp";
 
-img.onload = function () {
-document.body.style.margin = "0";
-document.body.style.background =
-"url('covers/Pandemalawisounds (1).webp') no-repeat center center fixed";
-document.body.style.backgroundSize = "cover";
-};
+  img.onload = function () {
+    document.body.style.margin = "0";
+    document.body.style.background =
+      "url('covers/Pandemalawisounds (1).webp') no-repeat center center fixed";
+    document.body.style.backgroundSize = "cover";
+  };
 
-img.onerror = function () {
-console.error("Background image not found");
-};
+  img.onerror = function () {
+    console.error("Background image not found");
+  };
 })();
-</script>
+    </script>
+  
+  
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />  
+  <style>  
+    
+    body{color:#fff; 
+    }  
+    body::before {  
+      content: "";  
+      position: fixed;  
+      top: 0;  
+      left: 0;  
+      width: 100%;  
+      height: 100%;  
+      background: rgba(0, 0, 0, 0.35);  
+      z-index: -1;  
+    }  
 
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet" />        
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />        
-  <style>    body{color:#fff;       
-}        
-body::before {        
-  content: "";        
-  position: fixed;        
-  top: 0;        
-  left: 0;        
-  width: 100%;        
-  height: 100%;        
-  background: rgba(0, 0, 0, 0.35);        
-  z-index: -1;        
-}      header {  
-background: rgba(0, 0, 0, 0.35);  
-padding: 1rem 2rem;  
-display: flex;  
-justify-content: space-between;  
-align-items: center;  
-backdrop-filter: blur(5px);  
-flex-wrap: wrap;  
-}  
-header h1 {  
-font-size: 1.8rem;  
-margin: 0;  
-color: #ffffff;  
-}  
-nav a {  
-color: #00ffd5;  
-text-decoration: none;  
-margin-left: 20px;  
-font-weight: 500;  
-}  /* Small container under header for motto + welcome text */
-.hero-top {
-padding: 1rem 2rem 0.5rem 2rem;
-}
-.hero-top h2 {
-margin: 0 0 0.2rem 0;
-font-size: 1.1rem;
-font-weight: 500;
-}
-.hero-top p {
-margin: 0;
-font-size: 0.95rem;
-}
+    header {  
+      background: rgba(0, 0, 0, 0.35);  
+      padding: 1rem 2rem;  
+      display: flex;  
+      justify-content: space-between;  
+      align-items: center;  
+      backdrop-filter: blur(5px);  
+      flex-wrap: wrap;
+    }  
+    header h1 {  
+      font-size: 1.8rem;  
+      margin: 0;  
+      color: #ffffff;  
+    }  
+    nav a {  
+      color: #00ffd5;  
+      text-decoration: none;  
+      margin-left: 20px;  
+      font-weight: 500;  
+    }  
+
+    /* Small container under header for motto + welcome text */
+    .hero-top {
+      padding: 1rem 2rem 0.5rem 2rem;
+    }
+    .hero-top h2 {
+      margin: 0 0 0.2rem 0;
+      font-size: 1.1rem;
+      font-weight: 500;
+    }
+    .hero-top p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
 
 /*SEARCH BAR CONTAINER */
-.search {
-padding: 0 2rem 1rem 2rem;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-position: relative;
+.search {  
+  padding: 0 2rem 1rem 2rem;      
+  display: flex;  
+  flex-direction: column;         
+  justify-content: center;  
+  align-items: center;  
+  position: relative;             
 }
 
 /*  SEARCH INPUT FIELD */
-.search input {
-padding: 0.6rem 1rem;
-border-radius: 999px;
-border: none;
-width: 100%;
-max-width: 450px;
-font-size: 1rem;
-outline: none;
-box-shadow: 0 0 8px rgba(0,0,0,0.2);
+.search input {  
+  padding: 0.6rem 1rem;           
+  border-radius: 999px;           
+  border: none;  
+  width: 100%;  
+  max-width: 450px;               
+  font-size: 1rem;  
+  outline: none;  
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);  
 }
 
 /* DROPDOWN CONTAINER UNDER SEARCH INPUT */
 .dropdown {
-position: absolute;
-top: 100%;
-left: 0;
-right: 0;
-background: #ffffff;
-width: 100%;
-max-width: 450px;
-box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-border-radius: 8px;
-display: none;
-z-index: 100;
-max-height: 300px;
-overflow-y: auto;
+  position: absolute;
+  top: 100%;                      
+  left: 0;
+  right: 0;
+  background: #ffffff;            
+  width: 100%;
+  max-width: 450px;               
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2); 
+  border-radius: 8px;
+  display: none;                  
+  z-index: 100;
+  max-height: 300px;              
+  overflow-y: auto;
 }
 
 /*  EACH ROW/ITEM INSIDE THE DROPDOWN */
 .dropdown-item {
-padding: 0.5rem 1rem;
-cursor: pointer;
-font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.95rem;
 }
 
-/* HOVER EFFECT FOR DROPDOWN ITEMS /
+/* HOVER EFFECT FOR DROPDOWN ITEMS */
 .dropdown-item:hover {
-background: rgba(0,0,0,0.1);
-}
-/ Each item in dropdown */
+  background: rgba(0,0,0,0.1);
+      }
+/* Each item in dropdown */
 .dropdown-item {
-padding: 0.5rem 1rem;
-cursor: pointer;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
 }
 .dropdown-item:hover {
-background: rgba(0,0,0,0.1);
-}
+  background: rgba(0,0,0,0.1);
+      }
 
-/* FLASHING ADS (style kept same) */
-.ad-strip {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-gap: 1rem;
-margin-top: 1rem;
-}
-.ad-box {
-background: rgba(0,0,0,0.45);
-border-radius: 15px;
-padding: 0.8rem 1rem;
-text-align: center;
-border: 1px solid rgba(255,255,255,0.4);
-box-shadow: 0 0 10px rgba(0,255,255,0.3);
-animation: pulseGlow 1.8s infinite alternate;
-}
-.ad-title {
-font-size: 0.8rem;
-text-transform: uppercase;
-letter-spacing: 1px;
-margin-bottom: 0.3rem;
-color: #00ffd5;
-}
-.ad-text {
-font-size: 0.9rem;
-}
-.ad-price {
-margin-top: 0.3rem;
-font-size: 0.85rem;
-font-weight: 700;
-color: #ffeb3b;
-}
-.ad-cta {
-margin-top: 0.4rem;
-display: inline-block;
-padding: 4px 10px;
-border-radius: 999px;
-background: #00ffd5;
-color: #000;
-font-size: 0.8rem;
-font-weight: 600;
-text-decoration: none;
-}
-@keyframes pulseGlow {
-0% {
-box-shadow: 0 0 5px rgba(0,255,255,0.1);
-transform: translateY(0);
-}
-100% {
-box-shadow: 0 0 18px rgba(0,255,255,0.7);
-transform: translateY(-2px);
-}
-}
+    /* FLASHING ADS (style kept same) */  
+    .ad-strip {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));  
+      gap: 1rem;  
+      margin-top: 1rem;  
+    }  
+    .ad-box {  
+      background: rgba(0,0,0,0.45);  
+      border-radius: 15px;  
+      padding: 0.8rem 1rem;  
+      text-align: center;  
+      border: 1px solid rgba(255,255,255,0.4);  
+      box-shadow: 0 0 10px rgba(0,255,255,0.3);  
+      animation: pulseGlow 1.8s infinite alternate;  
+    }  
+    .ad-title {  
+      font-size: 0.8rem;  
+      text-transform: uppercase;  
+      letter-spacing: 1px;  
+      margin-bottom: 0.3rem;  
+      color: #00ffd5;  
+    }  
+    .ad-text {  
+      font-size: 0.9rem;  
+    }  
+    .ad-price {  
+      margin-top: 0.3rem;  
+      font-size: 0.85rem;  
+      font-weight: 700;  
+      color: #ffeb3b;  
+    }  
+    .ad-cta {  
+      margin-top: 0.4rem;  
+      display: inline-block;  
+      padding: 4px 10px;  
+      border-radius: 999px;  
+      background: #00ffd5;  
+      color: #000;  
+      font-size: 0.8rem;  
+      font-weight: 600;  
+      text-decoration: none;  
+    }  
+    @keyframes pulseGlow {  
+      0% {  
+        box-shadow: 0 0 5px rgba(0,255,255,0.1);  
+        transform: translateY(0);  
+      }  
+      100% {  
+        box-shadow: 0 0 18px rgba(0,255,255,0.7);  
+        transform: translateY(-2px);  
+      }  
+    }  
 
-/* ========= SLIDESHOW SECTIONS: TRENDING + LATEST ========== /
-/ Wrapper so images cover entire box (no visible margin) /
-.slideshow-section {
-position: relative;
-width: 100%;
-max-width: 1300px;
-margin: 1.5rem auto;
-border-radius: 20px;
-overflow: hidden; / hides edges so images fill smoothly */
-backdrop-filter: blur(5px);
-background: rgba(0,0,0,0.25);
-}
+    /* ========== SLIDESHOW SECTIONS: TRENDING + LATEST ========== */
+    /* Wrapper so images cover entire box (no visible margin) */
+    .slideshow-section {
+      position: relative;
+      width: 100%;
+      max-width: 1300px;
+      margin: 1.5rem auto;
+      border-radius: 20px;
+      overflow: hidden; /* hides edges so images fill smoothly */
+      backdrop-filter: blur(5px);
+      background: rgba(0,0,0,0.25);
+    }
 
-/* Title on top of images */
-.slideshow-title {
-position: absolute;
-top: 15px;
-left: 15px;
-z-index: 5;
-margin: 0;
-font-size: 1.8rem;
-font-weight: 600;
-text-shadow: 1px 1px 6px #000;
-}
+    /* Title on top of images */
+    .slideshow-title {
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      z-index: 5;
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+      text-shadow: 1px 1px 6px #000;
+    }
 
-.slideshow-container {
-display: flex;
-width: 100%;
-height: 200px; /* same size for Trending & Latest */
-border-radius: 20px;
-overflow: hidden;
-position: relative;
-}
+    .slideshow-container {
+      display: flex;
+      width: 100%;
+      height: 200px; /* same size for Trending & Latest */
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+    }
 
-.slide {
-min-width: 100%;
-transition: transform 0.5s ease;
-position: relative;
-cursor: pointer;
-}
+    .slide {
+      min-width: 100%;
+      transition: transform 0.5s ease;
+      position: relative;
+      cursor: pointer;
+    }
 
-.slide img {
-width: 100%;
-height: 200px;
-object-fit: cover;  /* makes image fully cover */
-display: block;
-}
+    .slide img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;  /* makes image fully cover */
+      display: block;
+    }
 
-/* List that drops down for songs (backend for you to edit) */
+    /* List that drops down for songs (backend for you to edit) */
 
-.slide-song-list {
-display: none; /* hidden by default, shown when tapped */
-padding: 0.8rem 1.2rem 1rem 1.2rem;
-font-size: 0.9rem;
-}
-.slide-song-list ul {
-margin: 0;
-padding-left: 1.1rem;
-}
-.slide-song-list li {
-margin: 3px 0;
-}
+    .slide-song-list {
+      display: none; /* hidden by default, shown when tapped */
+      padding: 0.8rem 1.2rem 1rem 1.2rem;
+      font-size: 0.9rem;
+    }
+    .slide-song-list ul {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+    .slide-song-list li {
+      margin: 3px 0;
+    }
 
-.tap-to-view {
-font-size: 0.85rem;
-padding: 0 1.2rem 0.6rem 1.2rem;
-opacity: 0.9;
+    .tap-to-view {
+      font-size: 0.85rem;
+      padding: 0 1.2rem 0.6rem 1.2rem;
+      opacity: 0.9;
+    }
+  .tap-to-view {
+  cursor: pointer;
+  font-weight: 600;
 }
-
-.tap-to-view {
-cursor: pointer;
-font-weight: 600;
-}
-.slide-caption {
-position: absolute;
-bottom: 10px;          /* bottom-left of the slide /
-left: 10px;
-color: #fff;
-font-weight: 600;
-font-size: 0.95rem;
-text-shadow: 1px 1px 5px #000;
-background: rgba(0,0,0,0.25); / optional semi-transparent bg for readability /
-padding: 2px 6px;
-border-radius: 5px;
-z-index: 5;             / ensure caption is above the image */
-}
+    .slide-caption {
+  position: absolute;
+  bottom: 10px;          /* bottom-left of the slide */
+  left: 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-shadow: 1px 1px 5px #000;
+  background: rgba(0,0,0,0.25); /* optional semi-transparent bg for readability */
+  padding: 2px 6px;
+  border-radius: 5px;
+  z-index: 5;             /* ensure caption is above the image */
+    }
 
 /* Hides elements with the 'hidden' class */
 .hidden {
-display: none;
+  display: none;
 }
 
-/* ========== SONG GRID CONTAINER ========== /
+/* ========== SONG GRID CONTAINER ========== */
 .song-grid {
-display: grid;
-grid-template-columns: repeat(3, 1fr); / 3 columns per row /
-gap: 20px; / space between cards /
-margin-top: 20px;
-justify-items: center; / center cards horizontally */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+  gap: 20px; /* space between cards */
+  margin-top: 20px;
+  justify-items: center; /* center cards horizontally */
 }
 
-/* ========== INDIVIDUAL SONG CARD ========== /
+/* ========== INDIVIDUAL SONG CARD ========== */
 .song-card {
-position: relative; / for play button positioning /
-width: 200px; / fixed width for demo, can adjust /
-height: 200px; / fixed height for demo /
-overflow: hidden;
-border-radius: 15px; / rounded corners /
-box-shadow: 0 4px 10px rgba(0,0,0,0.2); / subtle shadow */
+  position: relative; /* for play button positioning */
+  width: 200px; /* fixed width for demo, can adjust */
+  height: 200px; /* fixed height for demo */
+  overflow: hidden;
+  border-radius: 15px; /* rounded corners */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* subtle shadow */
 }
 
-/* ========== CARD IMAGE ========== /
+/* ========== CARD IMAGE ========== */
 .song-card img {
-width: 100%;
-height: 100%;
-object-fit: cover; / ensures image covers card */
-display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ensures image covers card */
+  display: block;
 }
 
-/* ========== PLAY BUTTON OVERLAY ========== /
+/* ========== PLAY BUTTON OVERLAY ========== */
 .play-button {
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%); / center the button /
-background: rgba(0,0,0,0.5); / semi-transparent dark overlay /
-color: white;
-border: none;
-border-radius: 50%; / round button /
-width: 50px;
-height: 50px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-size: 24px; / play icon size */
-cursor: pointer;
-transition: background 0.3s, transform 0.3s;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* center the button */
+  background: rgba(0,0,0,0.5); /* semi-transparent dark overlay */
+  color: white;
+  border: none;
+  border-radius: 50%; /* round button */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px; /* play icon size */
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
 }
 
 /* ========== PLAY BUTTON HOVER EFFECT ========== */
 .play-button:hover {
-background: rgba(0,0,0,0.7);
-transform: translate(-50%, -50%) scale(1.2);
+  background: rgba(0,0,0,0.7);
+  transform: translate(-50%, -50%) scale(1.2);
 }
 
-/* ========== FEATURED ARTISTS (unchanged from your style) ========== */
-.artist-container {
-display: flex;
-flex-direction: column;
-gap: 1rem;
-}
-.artist-box {
-background: rgba(255, 255, 255, 0.05);
-border: 1px solid rgba(255,255,255,0.15);
-padding: 10px;
-display: flex;
-align-items: center;
-cursor: pointer;
-overflow: hidden;
-transition: all 0.4s ease;
-flex-wrap: wrap;
-}
-.artist-box img {
-width: 80px;
-height: 80px;
-object-fit: cover;
-border-radius: 8px;
-margin-right: 15px;
-transition: all 0.4s ease;
-}
-.artist-info {
-flex: 1;
-}
-.artist-name {
-font-size: 18px;
-font-weight: bold;
-margin: 0;
-}
-.artist-bio {
-font-size: 12px;
-color: rgba(255,255,255,0.85);
-overflow: hidden;
-max-height: 30px;
-transition: all 0.4s ease;
-}
-.songs {
-display: none;
-margin-top: 10px;
-padding-left: 18px;
-}
-.songs li {
-font-size: 14px;
-color: #fff;
-margin: 3px 0;
-}
-.more-link {
-color: #00ffd5;
-font-weight: bold;
-cursor: pointer;
-margin-top: 5px;
-display: inline-block;
-}
-.artist-box:hover {
-background: rgba(255,255,255,0.1);
-box-shadow: 0 0 15px rgba(0,255,255,0.15);
-transform: translateY(-2px);
-}
-.expanded {
-flex-direction: column;
-align-items: center;
-text-align: center;
-}
-.expanded img {
-margin: 0 0 10px 0;
-width: 150px;
-height: 150px;
-}
-.expanded .artist-bio {
-max-height: 500px;
-color: #fff;
-}
-.expanded .songs {
-display: block;
-}
+    /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
+    .artist-container {  
+      display: flex;  
+      flex-direction: column;  
+      gap: 1rem;  
+    }  
+    .artist-box {  
+      background: rgba(255, 255, 255, 0.05);  
+      border: 1px solid rgba(255,255,255,0.15);  
+      padding: 10px;  
+      display: flex;  
+      align-items: center;  
+      cursor: pointer;  
+      overflow: hidden;  
+      transition: all 0.4s ease;  
+      flex-wrap: wrap;  
+    }  
+    .artist-box img {  
+      width: 80px;  
+      height: 80px;  
+      object-fit: cover;  
+      border-radius: 8px;  
+      margin-right: 15px;  
+      transition: all 0.4s ease;  
+    }  
+    .artist-info {  
+      flex: 1;  
+    }  
+    .artist-name {  
+      font-size: 18px;  
+      font-weight: bold;  
+      margin: 0;  
+    }  
+    .artist-bio {  
+      font-size: 12px;  
+      color: rgba(255,255,255,0.85);  
+      overflow: hidden;  
+      max-height: 30px;  
+      transition: all 0.4s ease;  
+    }  
+    .songs {  
+      display: none;  
+      margin-top: 10px;  
+      padding-left: 18px;  
+    }  
+    .songs li {  
+      font-size: 14px;  
+      color: #fff;  
+      margin: 3px 0;  
+    }  
+    .more-link {  
+      color: #00ffd5;  
+      font-weight: bold;  
+      cursor: pointer;  
+      margin-top: 5px;  
+      display: inline-block;  
+    }  
+    .artist-box:hover {  
+      background: rgba(255,255,255,0.1);  
+      box-shadow: 0 0 15px rgba(0,255,255,0.15);  
+      transform: translateY(-2px);  
+    }  
+    .expanded {  
+      flex-direction: column;  
+      align-items: center;  
+      text-align: center;  
+    }  
+    .expanded img {  
+      margin: 0 0 10px 0;  
+      width: 150px;  
+      height: 150px;  
+    }  
+    .expanded .artist-bio {  
+      max-height: 500px;  
+      color: #fff;  
+    }  
+    .expanded .songs {  
+      display: block;  
+    }  
 
 /* ==================== SONGS SECTION STYLES ==================== */
 
-/* Main container for songs sections /
+/* Main container for songs sections */
 #songs-section {
-padding: 1rem 0.5rem;   / reduce padding so cards grow /
-max-width: 1400px;      / allow wider grid */
-margin: 0 auto;
-background: transparent;
+  padding: 1rem 0.5rem;   /* reduce padding so cards grow */
+  max-width: 1400px;      /* allow wider grid */
+  margin: 0 auto;
+  background: transparent;
 }
 
-/* Section header styling /
+/* Section header styling */
 #songs-section .section-header {
-text-align: left;      / align header to top-left /
-font-size: 2rem;       / keep size /
-font-weight: bold;
-margin-bottom: 2rem;
-color: #fff;           / white text /
-padding-left: 10px;    / optional: small space from edge */
+  text-align: left;      /* align header to top-left */
+  font-size: 2rem;       /* keep size */
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: #fff;           /* white text */
+  padding-left: 10px;    /* optional: small space from edge */
 }
 
-/* Grid container for the cards /
+/* Grid container for the cards */
 #songs-section .section-grid {
-display: grid;
-grid-template-columns: repeat(2, 1fr); / force real grid */
-gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* force real grid */
+  gap: 12px;
 }
 
-/* ===== Section Cards ===== /
+/* ===== Section Cards ===== */
 .section-card {
-min-height: 260px;  / forces bigger squares /
+  min-height: 260px;  /* forces bigger squares */
 }
 .section-card {
-display: block;
-width: 100%;
-aspect-ratio: 1/1; / make cards square /
-border-radius: 15px;
-overflow: hidden;
-text-decoration: none;
-color: #fff; / text color on cards */
-box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-position: relative;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1/1; /* make cards square */
+  border-radius: 15px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff; /* text color on cards */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .section-card:hover {
-transform: translateY(-5px);
-box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
 }
 
 /* ===== Card Slideshow ===== */
 .card-slideshow {
-width: 100%;
-height: 100%;
-position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 .card-slideshow img {
-position: absolute;
-width: 100%;
-height: 100%;
-object-fit: cover;
-opacity: 0;
-transition: opacity 0.5s ease;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 .card-slideshow img.active {
-opacity: 1;
+  opacity: 1;
 }
 
-/* ===== Card Title Overlay ===== /
+/* ===== Card Title Overlay ===== */
 .card-title {
-position: absolute;
-bottom: 0;
-width: 100%;
-text-align: center;
-font-size: 1.2rem;
-font-weight: bold;
-padding: 0.6rem 0;
-background: rgba(0,0,0,0.5); / semi-transparent overlay /
-color: #fff;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding: 0.6rem 0;
+  background: rgba(0,0,0,0.5); /* semi-transparent overlay */
+  color: #fff;
 }
-/ ===== Modern Shadow & Hover Enhancements ===== /
+/* ===== Modern Shadow & Hover Enhancements ===== */
 .section-card {
-/ Layered shadow for 3D effect /
-box-shadow: 0 8px 20px rgba(0,0,0,0.15),
-0 4px 10px rgba(0,0,0,0.1);
-transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
-filter: brightness(1); / ensures hover brightness effect works */
+  /* Layered shadow for 3D effect */
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15), 
+              0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+  filter: brightness(1); /* ensures hover brightness effect works */
 }
 
 /* Hover: lift card & brighten image slightly */
 .section-card:hover {
-transform: translateY(-8px) scale(1.02);
-box-shadow: 0 12px 28px rgba(0,0,0,0.25),
-0 6px 14px rgba(0,0,0,0.15);
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25), 
+              0 6px 14px rgba(0,0,0,0.15);
 }
 
 /* Optional: subtle zoom effect on slideshow images */
 .card-slideshow img {
-transition: transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .section-card:hover .card-slideshow img.active {
-transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 /* Rounded corners on slideshow images (matches card radius) */
 .card-slideshow img {
-border-radius: 15px;
+  border-radius: 15px;
 }
 
-/* ========== PAYMENT SECTION (unchanged) ========== */
-.payment-section {
-background: rgba(255,255,255,0.95);
-color: #111;
-border-radius: 16px;
-padding: 0.8rem 1rem;
-max-width: 650px;
-margin: 1rem auto;
-box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-font-size: 0.85rem;
-}
-.payment-section h3 {
-margin-top: 0;
-margin-bottom: 0.3rem;
-font-size: 1.05rem;
-color: #212121;
-}
-.payment-sub {
-font-size: 0.75rem;
-color: #555;
-margin-bottom: 0.6rem;
-}
-.payment-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-gap: 0.5rem;
-margin-bottom: 0.7rem;
-}
-.payment-card {
-border-radius: 10px;
-padding: 0.5rem 0.6rem;
-background: linear-gradient(135deg, #f5f5f5, #ffffff);
-border: 1px solid #ddd;
-}
-.payment-card h4 {
-margin: 0 0 0.2rem 0;
-font-size: 0.85rem;
-color: #1f2933;
-}
-.payment-card p {
-margin: 0;
-font-size: 0.75rem;
-color: #444;
-}
-.payment-highlight {
-font-weight: 700;
-color: #e91e63;
-margin-top: 0.15rem;
-font-size: 0.8rem;
-}
-.pay-methods {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 0.5rem;
-margin-top: 0.3rem;
-}
-.pay-box {
-border-radius: 10px;
-padding: 0.5rem 0.6rem;
-border: 1px solid #ddd;
-display: flex;
-flex-direction: column;
-gap: 0.25rem;
-color: #fff;
-font-size: 0.8rem;
-}
-.pay-box.airtel {
-background: linear-gradient(135deg, #b71c1c, #f44336);
-}
-.pay-box.tnm {
-background: linear-gradient(135deg, #1b5e20, #4caf50);
-}
-.pay-logo {
-font-weight: 700;
-font-size: 0.85rem;
-display: flex;
-align-items: center;
-gap: 0.3rem;
-}
-.pay-logo i {
-font-size: 1rem;
-}
-.pay-detail {
-font-size: 0.8rem;
-}
-
+    /* ========== PAYMENT SECTION (unchanged) ========== */  
+    .payment-section {  
+      background: rgba(255,255,255,0.95);  
+      color: #111;  
+      border-radius: 16px;  
+      padding: 0.8rem 1rem;  
+      max-width: 650px;  
+      margin: 1rem auto;  
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);  
+      font-size: 0.85rem;  
+    }  
+    .payment-section h3 {  
+      margin-top: 0;  
+      margin-bottom: 0.3rem;  
+      font-size: 1.05rem;  
+      color: #212121;  
+    }  
+    .payment-sub {  
+      font-size: 0.75rem;  
+      color: #555;  
+      margin-bottom: 0.6rem;  
+    }  
+    .payment-grid {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));  
+      gap: 0.5rem;  
+      margin-bottom: 0.7rem;  
+    }  
+    .payment-card {  
+      border-radius: 10px;  
+      padding: 0.5rem 0.6rem;  
+      background: linear-gradient(135deg, #f5f5f5, #ffffff);  
+      border: 1px solid #ddd;  
+    }  
+    .payment-card h4 {  
+      margin: 0 0 0.2rem 0;  
+      font-size: 0.85rem;  
+      color: #1f2933;  
+    }  
+    .payment-card p {  
+      margin: 0;  
+      font-size: 0.75rem;  
+      color: #444;  
+    }  
+    .payment-highlight {  
+      font-weight: 700;  
+      color: #e91e63;  
+      margin-top: 0.15rem;  
+      font-size: 0.8rem;  
+    }  
+    .pay-methods {  
+      display: grid;  
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  
+      gap: 0.5rem;  
+      margin-top: 0.3rem;  
+    }  
+    .pay-box {  
+      border-radius: 10px;  
+      padding: 0.5rem 0.6rem;  
+      border: 1px solid #ddd;  
+      display: flex;  
+      flex-direction: column;  
+      gap: 0.25rem;  
+      color: #fff;  
+      font-size: 0.8rem;  
+    }  
+    .pay-box.airtel {  
+      background: linear-gradient(135deg, #b71c1c, #f44336);  
+    }  
+    .pay-box.tnm {  
+      background: linear-gradient(135deg, #1b5e20, #4caf50);  
+    }  
+    .pay-logo {  
+      font-weight: 700;  
+      font-size: 0.85rem;  
+      display: flex;  
+      align-items: center;  
+      gap: 0.3rem;  
+    }  
+    .pay-logo i {  
+      font-size: 1rem;  
+    }  
+    .pay-detail {  
+      font-size: 0.8rem;  
+    }  
 /* ==================== BUY & SELL SECTION STYLES ==================== */
 
-/* Main container /
+/* Main container */
 #buy-sell-section {
-padding: 1rem 0.5rem;       / vertical padding /
-max-width: 1400px;          / same width as other sections /
-margin: 2rem auto;          / spacing above/below /
-background: transparent;    / fully transparent */
+  padding: 1rem 0.5rem;       /* vertical padding */
+  max-width: 1400px;          /* same width as other sections */
+  margin: 2rem auto;          /* spacing above/below */
+  background: transparent;    /* fully transparent */
 }
 
-/* Section header styling /
+/* Section header styling */
 #buy-sell-section .section-header {
-text-align: left;           / top-left /
-font-size: 2rem;
-font-weight: bold;
-margin-bottom: 1.5rem;
-color: #fff;                / visible text */
+  text-align: left;           /* top-left */
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #fff;                /* visible text */
 }
 
-/* Grid container for the card /
+/* Grid container for the card */
 #buy-sell-section .section-grid {
-display: grid;
-grid-template-columns: repeat(1, 1fr); / single full-width card /
-gap: 12px;
-justify-items: center;      / center card horizontally */
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* single full-width card */
+  gap: 12px;
+  justify-items: center;      /* center card horizontally */
 }
 
-/* ===== Card Styles ===== /
+/* ===== Card Styles ===== */
 #buy-sell-section .section-card {
-display: block;
-width: 100%;                / full width of grid /
-aspect-ratio: 1/1;          / square card /
-border-radius: 20px;
-overflow: hidden;
-text-decoration: none;
-color: #fff;                / text color /
-box-shadow: 0 8px 25px rgba(0,0,0,0.2); / subtle shadow for depth /
-position: relative;
-background: transparent;    / card background transparent */
-transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: block;
+  width: 100%;                /* full width of grid */
+  aspect-ratio: 1/1;          /* square card */
+  border-radius: 20px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;                /* text color */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2); /* subtle shadow for depth */
+  position: relative;
+  background: transparent;    /* card background transparent */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 /* Hover effect for realism */
 #buy-sell-section .section-card:hover {
-transform: translateY(-7px) scale(1.02);
-box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+  transform: translateY(-7px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.3);
 }
 
 /* Slideshow container */
 #buy-sell-section .card-slideshow {
-width: 100%;
-height: 100%;
-position: relative;
+  width: 100%;
+  height: 100%;
+  position: relative;
 }
 
 /* Slideshow images */
 #buy-sell-section .card-slideshow img {
-position: absolute;
-width: 100%;
-height: 100%;
-object-fit: cover;
-opacity: 0;
-transition: opacity 0.5s ease;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
 }
 
 /* Active image visible */
 #buy-sell-section .card-slideshow img.active {
-opacity: 1;
+  opacity: 1;
 }
 
-/* Card title overlay /
+/* Card title overlay */
 #buy-sell-section .card-title {
-position: absolute;
-bottom: 0;
-width: 100%;
-text-align: center;
-font-size: 1.5rem;
-font-weight: bold;
-padding: 0.8rem 0;
-background: rgba(0,0,0,0.4); / semi-transparent overlay for readability /
-color: #fff;
-text-shadow: 1px 1px 4px rgba(0,0,0,0.7); / text more readable on images */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 0.8rem 0;
+  background: rgba(0,0,0,0.4); /* semi-transparent overlay for readability */
+  color: #fff;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* text more readable on images */
 }
 
-/* CONTACT LINKS (unchanged) */
-#contact a {
-color: #00ffd5;
-text-decoration: none;
-font-weight: 500;
-}
-#contact a:hover {
-text-decoration: underline;
-}
-body {
-
-margin: 0;
-padding-top: 250px; /* moves entire site down */
-}
-</style>
-
-</head>
-    <body>        
-  <header>      
-<body>
-  <!-- body content starts here -->  
+    /* CONTACT LINKS (unchanged) */  
+    #contact a {  
+      color: #00ffd5;  
+      text-decoration: none;  
+      font-weight: 500;  
+    }  
+    #contact a:hover {  
+      text-decoration: underline;  
+    }  
+    body {
+  margin: 0;
+  padding-top: 250px; /* moves entire site down */
+        }
+  </style>  
+</head>  
+<body>  
   <header>  
     <h1></h1>  
     <nav class="top-nav">
@@ -777,13 +753,11 @@ padding-top: 250px; /* moves entire site down */
   <a href="#Songs">Songs</a>
   <a href="#Trending-songs">Trending-songs</a>
   <a href="#Latest-uploads">Latest-uploads</a>
-  <a href="beats.html">Beats(Meet the producer)</a>
-  <a href="gospel-songs.html">Gospel songs</a>
-  <a href="islamic-songs.html">lslamic songs</a>
- <a href="#Transport">Transport near you</a>
-  <a href="Live-soccer.html">Live-soccer</a>
-<a href="competitions.html">Competitions</a>
-  <a href="#Buy_Sell">Buy_sell</a>
+  <a href="Beats.html">Beats(Meet the producer)</a>
+  <a href="Gospel-songs.html">Gospel songs</a>
+  <a href="Islam-songs.html">lslamic-songs</a>
+  <a href="Competitions.html">Competitions</a>
+  <a href="#Buy&sell">Buy&sell</a>
   <a href="#about">About</a> <!-- scroll to section -->
   <a href="#contact">Contact</a> <!-- scroll to section -->
     </nav>
@@ -851,7 +825,7 @@ padding-top: 250px; /* moves entire site down */
     </div>
   </div>
 <p class="tap-to-view" onclick="toggleSlideList('trendingList')">
-  Tap to view trending songs ▼
+  Tap to view trending songs â–¼
 </p>
   
   <div class="slide-song-list hidden" id="trendingList">
@@ -861,37 +835,37 @@ padding-top: 250px; /* moves entire site down */
   <!-- ========== SONG CARD 1 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Song 1 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
   <!-- ========== SONG CARD 2 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Song 2 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
   <!-- ========== SONG CARD 3 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Song 3 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
   <!-- ========== SONG CARD 4 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Song 4 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
   <!-- ========== SONG CARD 5 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Song 5 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
   <!-- ========== SONG CARD 6 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Song 6 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
 </div>
@@ -930,7 +904,7 @@ padding-top: 250px; /* moves entire site down */
   </div>
 
   <p class="tap-to-view" onclick="toggleSlideList('latestList')">
-  Tap to view latest songs ▼
+  Tap to view latest songs â–¼
 </p>
   <div class="slide-song-list hidden" id="latestList">
   
@@ -940,37 +914,37 @@ padding-top: 250px; /* moves entire site down */
   <!-- ========== SONG CARD 1 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Latest Song 1 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
   <!-- ========== SONG CARD 2 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Latest Song 2 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
   <!-- ========== SONG CARD 3 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Latest Song 3 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
   <!-- ========== SONG CARD 4 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Latest Song 4 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
   <!-- ========== SONG CARD 5 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Latest Song 5 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
   <!-- ========== SONG CARD 6 ========== -->
   <div class="song-card">
     <img src="covers/song1.jpg" alt="Latest Song 6 Cover">
-    <a href="song1.html" class="play-button">▶</a>
+    <a href="song1.html" class="play-button">â–¶</a>
   </div>
 
 </div>
@@ -1057,16 +1031,16 @@ padding-top: 250px; /* moves entire site down */
   <div class="section-grid">
 
     <!-- ===== SONGLIST ===== -->
-    <a href="songlist.html" class="section-card">
+    <a href="Songs.html" class="section-card">
       <div class="card-slideshow">
         <img src="covers/Songs.png" class="slide active">
         <img src="covers/Songlist1.jpg" class="slide">
       </div>
-      <div class="card-title">songlist</div>
+      <div class="card-title">Songlist</div>
     </a>
 
     <!-- ===== GOSPEL SONGS ===== -->
-    <a href="gospel-songs.html" class="section-card">
+    <a href="Gospel-songs.html" class="section-card">
       <div class="card-slideshow">
         <img src="covers/Gospel.png" class="slide active">
         <img src="covers/Gospel1.png" class="slide">
@@ -1075,7 +1049,7 @@ padding-top: 250px; /* moves entire site down */
     </a>
 
     <!-- ===== NASHEED ===== -->
-    <a href="islamic-songs.html" class="section-card">
+    <a href="nasheed.html" class="section-card">
       <div class="card-slideshow">
         <img src="covers/Islam1.png" class="slide active">
         <img src="covers/Islam.png" class="slide">
@@ -1092,18 +1066,14 @@ padding-top: 250px; /* moves entire site down */
       <div class="card-title">Beats (Meet the Producer)</div>
     </a>
 
-<!-- ===== TRANSPORT NEAR YOU ===== -->
-    <section id="Transport" class="section">
-<a href="Transport.html" class="section-card">
-  <div class="card-slideshow">
-    <img src="covers/Tpt1.jpg" class="slide active">
-    <img src="covers/Tpt2.jpg" class="slide">
-    <img src="covers/Tpt3.jpg" class="slide">
-    <img src="covers/Tpt4.jpg" class="slide">
-    <img src="covers/Tpt5.jpg" class="slide">
-  </div>
-  <div class="card-title">Transport near you</div>
-</a>
+    <!-- ===== ZAMBIAN MUSIC ===== -->
+    <a href="zambian.html" class="section-card">
+      <div class="card-slideshow">
+        <img src="covers/Zambia.png" class="slide active">
+        <img src="covers/Zambia1.jpg" class="slide">
+      </div>
+      <div class="card-title">Zambian Music</div>
+    </a>
 
    <!-- ===== COMPETITIONS ===== -->
 <section>
@@ -1139,77 +1109,62 @@ padding-top: 250px; /* moves entire site down */
 
       <div class="ad-box">  
         <div class="ad-title">P&E Techo</div>  
-        <div class="ad-text">P&E Techo Ã¢â‚¬â€œ Quality carpentry, furniture and electrical solutions.</div>  
+        <div class="ad-text">P&E Techo ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ Quality carpentry, furniture and electrical solutions.</div>  
         <span class="ad-cta">View services</span>  
       </div>  
     </div>  
   </div>  
 
-<!-- ===== UPLOAD & PROMOTION PAYMENTS ===== -->
-<div class="payment-section" id="payments">
-  <h3>Upload & Promotion Payments</h3>
-  <p class="payment-sub">
-    Choose a package for your song uploads. After payment, send proof via WhatsApp.
-  </p>
+  <!-- 8ÃƒÂ¯Ã‚Â¸ÃƒÂ¢Ã†â€™Ã‚Â£ PAYMENT SECTION (unchanged) -->  
+  <div class="payment-section" id="payments">  
+    <h3>Upload & Promotion Payments</h3>  
+    <p class="payment-sub">Choose a package for your song uploads. After payment, send proof via WhatsApp.</p>  
+    <div class="payment-grid">  
+      <div class="payment-card">  
+        <h4>Single Song</h4>  
+        <p>Upload 1 song to Pandemalawi Sounds.</p>  
+        <p class="payment-highlight">K3,000 per song</p>  
+      </div>  
+      <div class="payment-card">  
+        <h4>Bundle of 5 Songs</h4>  
+        <p>Save more when you upload 5 tracks at once.</p>  
+        <p class="payment-highlight">K12,000 per 5 songs</p>  
+      </div>  
+      <div class="payment-card">  
+        <h4>Bundle of 10 Songs</h4>  
+        <p>Best for projects, EPs or albums.</p>  
+        <p class="payment-highlight">K25,000 per 10 songs</p>  
+      </div>  
+    </div>  
 
-  <!-- Malawi Packages -->
-  <div class="payment-grid">
-    <div class="payment-card">
-      <h4>Single Song</h4>
-      <p>Upload 1 song to Pandemalawi Sounds.</p>
-      <p class="payment-highlight">K3,000 per song</p>
-    </div>
-    <div class="payment-card">
-      <h4>Bundle of 5 Songs</h4>
-      <p>Save more when you upload 5 tracks at once.</p>
-      <p class="payment-highlight">K12,000 per 5 songs</p>
-    </div>
-    <div class="payment-card">
-      <h4>Bundle of 10 Songs</h4>
-      <p>Best for projects, EPs or albums.</p>
-      <p class="payment-highlight">K25,000 per 10 songs</p>
-    </div>
+    <div class="pay-methods">  
+      <div class="pay-box airtel">  
+        <div class="pay-logo">  
+          <i class="fa-solid fa-sim-card"></i>  
+          <span>Airtel Money</span>  
+        </div>  
+        <div class="pay-detail">Number: <strong>+265996275575</strong></div>  
+      </div>  
+      <div class="pay-box tnm">  
+        <div class="pay-logo">  
+          <i class="fa-solid fa-mobile-screen-button"></i>  
+          <span>TNM Mpamba</span>  
+        </div>  
+        <div class="pay-detail">Withdraw code: <strong>4213104</strong></div>  
+      </div>  
+    </div>  
+  </div>  
+<!-- ===== Buy & Sell Card ===== -->
+<a href="buy-sell.html" class="section-card">
+  <div class="card-slideshow">
+    <img src="covers/Buy_Sell.jpg" class="slide active" alt="Buy & Sell Slide 1">
+    <img src="covers/Buy_Sell.jpg" class="slide" alt="Buy & Sell Slide 2">
+    <img src="covers/Buy_Sell.jpg" class="slide" alt="Buy & Sell Slide 3">
   </div>
-
-  <!-- Malawi Payment Methods -->
-  <div class="pay-methods">
-    <div class="pay-box airtel">
-      <div class="pay-logo">
-        <i class="fa-solid fa-sim-card"></i>
-        <span>Airtel Money</span>
-      </div>
-      <div class="pay-detail">Number: <strong>+265996275575</strong></div>
-    </div>
-    <div class="pay-box tnm">
-      <div class="pay-logo">
-        <i class="fa-solid fa-mobile-screen-button"></i>
-        <span>TNM Mpamba</span>
-      </div>
-      <div class="pay-detail">Withdraw code: <strong>4213104</strong></div>
-    </div>
-  </div>
-
-    
-<!-- ===== Buy & Sell Section ===== -->
-<section id="Buy_Sell" class="section">
-  <h2 class="section-header">Buy & Sell</h2>
-
-  <!-- ===== Buy & Sell Card ===== -->
-  <div class="section-card">
-    <a href="Buy_Sell.html"> <!-- Clicking opens the page -->
-      <div class="card-slideshow">
-        <img src="covers/Buy_Sell.jpg" class="slide active" alt="Buy & Sell Slide 1">
-        <img src="covers/Buy_Sell.jpg" class="slide" alt="Buy & Sell Slide 2">
-        <img src="covers/Buy_Sell.jpg" class="slide" alt="Buy & Sell Slide 3">
-      </div>
-      <div class="card-title">Buy & Sell</div>
-    </a>
-  </div>
-</section>
-
-<!-- ===== Slideshow Script ===== -->
+  <div class="card-title">Buy & Sell</div>
+</a>
 <script>
-document.querySelectorAll('.card-slideshow').forEach(slideshow => {
+document.querySelectorAll('#buy-sell-section .card-slideshow').forEach(slideshow => {
   let slides = slideshow.querySelectorAll('.slide');
   let index = 0;
 
@@ -1228,19 +1183,19 @@ document.querySelectorAll('.card-slideshow').forEach(slideshow => {
   </div>  
 
 
-  <!-- AD AFTER ABOUT -->  
+  <!-- ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ…Â¸ AD AFTER ABOUT -->  
   <div class="section">
     <div class="ad-strip">  
       <div class="ad-box">  
         <div class="ad-title">Business Ad</div>  
-        <div class="ad-text">Special offers, events, or music releases Ã¢â‚¬â€œ get seen on Pandemalawi Sounds.</div>  
+        <div class="ad-text">Special offers, events, or music releases ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ get seen on Pandemalawi Sounds.</div>  
         <div class="ad-price">K800 per day</div>  
         <span class="ad-cta">Reserve slot</span>  
       </div>  
     </div>  
   </div>
 
-  <!-- 1Ã¯Â¸Ã¢Æ’Â£1Ã¯Â¸Ã¢Æ’Â£ CONTACT US (unchanged styles) -->  
+  <!-- 1ÃƒÂ¯Ã‚Â¸ÃƒÂ¢Ã†â€™Ã‚Â£1ÃƒÂ¯Ã‚Â¸ÃƒÂ¢Ã†â€™Ã‚Â£ CONTACT US (unchanged styles) -->  
   <div class="section" id="contact">  
     <h3>Contact Us</h3>  
     <p>Email:  
@@ -1276,7 +1231,7 @@ document.querySelectorAll('.card-slideshow').forEach(slideshow => {
     el.innerText = parseInt(el.innerText) + 1;  
   }  
 
-  // Ã°Å¸â€Â¹ SEARCH FUNCTION FOR PANDEMALAWI SOUNDS
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¹ SEARCH FUNCTION FOR PANDEMALAWI SOUNDS
 // Runs every time user types in the search bar.
 // Shows dropdown with matching artists and songs.
 // Clicking a result opens the artist page.
@@ -1298,7 +1253,7 @@ function searchSongs() {
     return;
   }
 
-  // Ã°Å¸â€Â¹ DATA: ARTISTS + SONGS
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¹ DATA: ARTISTS + SONGS
   // IMPORTANT:
   // - "page" must match your REAL artist page filename.
   // - "songs" is an array of song titles for that artist.
@@ -1306,27 +1261,27 @@ function searchSongs() {
   // - To add a NEW artist: copy the whole object block and paste below.
   const artists = [
     {
-      // Ã¢Å“â€¦ ARTIST 1 (EXAMPLE: Pboy Halla)
+      // ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ ARTIST 1 (EXAMPLE: Pboy Halla)
       name: 'Pboy Halla',                  // Artist display name
       page: 'pboy_halla.html',             // Actual file name of artist page (EDIT if different)
       songs: [
-        'By My Side With Hot Denje'        // Ã°Å¸â€Â¸ Add more songs for Pboy Halla on new lines below
+        'By My Side With Hot Denje'        // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¸ Add more songs for Pboy Halla on new lines below
         // 'Second Song Title',
         // 'Third Song Title'
       ]
     }
 
-    // Ã¢Å“â€¦ HOW TO ADD ANOTHER ARTIST (EXAMPLE)
+    // ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ HOW TO ADD ANOTHER ARTIST (EXAMPLE)
     // ,{
     //   name: 'Denje',                     // Artist 2 name
     //   page: 'denje.html',                // Artist 2 page file
     //   songs: [
-    //     'Ubalikiwe',                     // Ã°Å¸â€Â¸ First song for Denje
-    //     'Another Denje Song'             // Ã°Å¸â€Â¸ Add more songs on new lines
+    //     'Ubalikiwe',                     // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¸ First song for Denje
+    //     'Another Denje Song'             // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¸ Add more songs on new lines
     //   ]
     // }
 
-    // Ã¢Å“â€¦ TO ADD A THIRD ARTIST:
+    // ÃƒÂ¢Ã…â€œÃ¢â‚¬Â¦ TO ADD A THIRD ARTIST:
     // ,{
     //   name: 'Third Artist Name',
     //   page: 'third_artist.html',
@@ -1346,11 +1301,11 @@ function searchSongs() {
   debug.textContent = `You typed: "${input}"`; // just to see it's working
   resultsContainer.appendChild(debug);
 
-  // Ã°Å¸â€Â¹ LOOP THROUGH ALL ARTISTS
+  // ÃƒÂ°Ã…Â¸Ã¢â‚¬ÂÃ‚Â¹ LOOP THROUGH ALL ARTISTS
   artists.forEach(artist => {
     const artistNameLower = artist.name.toLowerCase();
 
-    // 1Ã¯Â¸Ã¢Æ’Â£ ARTIST NAME MATCH
+    // 1ÃƒÂ¯Ã‚Â¸ÃƒÂ¢Ã†â€™Ã‚Â£ ARTIST NAME MATCH
     if (artistNameLower.includes(input)) {
       const div = document.createElement('div');
       div.className = 'dropdown-item';
@@ -1366,7 +1321,7 @@ function searchSongs() {
       hasResults = true;
     }
 
-    // 2Ã¯Â¸Ã¢Æ’Â£ SONG TITLE MATCHES
+    // 2ÃƒÂ¯Ã‚Â¸ÃƒÂ¢Ã†â€™Ã‚Â£ SONG TITLE MATCHES
     artist.songs.forEach(song => {
       const songLower = song.toLowerCase();
 
@@ -1388,7 +1343,7 @@ function searchSongs() {
     });
   });
 
-  // 3Ã¯Â¸Ã¢Æ’Â£ IF NOTHING MATCHES, SHOW "NO RESULTS"
+  // 3ÃƒÂ¯Ã‚Â¸ÃƒÂ¢Ã†â€™Ã‚Â£ IF NOTHING MATCHES, SHOW "NO RESULTS"
   if (!hasResults) {
     const noResult = document.createElement('div');
     noResult.className = 'dropdown-item';
