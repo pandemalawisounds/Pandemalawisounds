@@ -375,6 +375,40 @@
   transform: translate(-50%, -50%) scale(1.2);
 }
 
+/* APK DOWNLOAD BAR */
+.apk-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111;
+  color: #fff;
+  padding: 12px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
+  z-index: 9999;
+}
+
+.apk-info {
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.apk-btn {
+  background: #28a745;
+  color: #fff;
+  padding: 10px 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.apk-btn:hover {
+  background: #218838;
+}
+
     /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
     .artist-container {  
       display: flex;  
@@ -966,6 +1000,22 @@
       </div>  
     </div>  
   </div>
+
+<!-- APK DOWNLOAD BAR -->
+<div class="apk-bar">
+  <div class="apk-info">
+    <strong>Pandemalawi Sounds App</strong><br>
+    <span>Download the latest APK</span>
+  </div>
+
+  <a class="apk-btn"
+     href="https://drive.google.com/uc?export=download&id=1PZMh8-cvh4xDQG__H41cWZ4gl4hgqyC2">
+    Download APK
+  </a>
+<p style="font-size:13px;color:#666;text-align:center;">
+  Android users only • Allow “Install unknown apps” when prompted
+</p>
+</div>
 
   <!-- FEATURED ARTISTS (YOUR ORIGINAL SECTION, KEPT) -->  
   <div class="section" id="artists">  
