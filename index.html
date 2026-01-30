@@ -375,38 +375,49 @@
   transform: translate(-50%, -50%) scale(1.2);
 }
 
-/* APK DOWNLOAD BAR */
-.apk-bar {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #111;
-  color: #fff;
-  padding: 12px 16px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.4);
-  z-index: 9999;
+/* ===== APPS SECTION STYLES ===== */
+
+/* Container for the entire apps section */
+.apps-section {
+  padding: 40px 15px;
+  background: #f7f7f7;
+  text-align: center;
 }
 
-.apk-info {
-  font-size: 14px;
-  line-height: 1.3;
+/* Intro text / description for the apps section */
+.apps-intro {
+  max-width: 600px;
+  margin: 0 auto 25px;
+  font-size: 15px;
+  color: #555;
 }
 
+/* Grid container to hold all app cards */
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+/* Individual app card styling */
+.app-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Download button for APKs inside each app card */
 .apk-btn {
-  background: #28a745;
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 20px;
+  background: #2e7d32;
   color: #fff;
-  padding: 10px 16px;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 6px;
   font-weight: bold;
-}
-
-.apk-btn:hover {
-  background: #218838;
 }
 
     /* ========== FEATURED ARTISTS (unchanged from your style) ========== */  
@@ -1001,21 +1012,46 @@
     </div>  
   </div>
 
-<!-- APK DOWNLOAD BAR -->
-<div class="apk-bar">
-  <div class="apk-info">
-    <strong>Pandemalawi Sounds App</strong><br>
-    <span>Download the latest APK</span>
-  </div>
+<!-- ===== APPS SECTION ===== -->
+<section class="apps-section" id="apps">
+  <!-- Intro / Description -->
+  <p class="apps-intro">
+    Download our latest apps and enjoy on your Android device.
+  </p>
 
-  <a class="apk-btn"
-     href="https://drive.google.com/uc?export=download&id=1PZMh8-cvh4xDQG__H41cWZ4gl4hgqyC2">
-    Download APK
-  </a>
-<p style="font-size:13px;color:#666;text-align:center;">
-  Android users only • Allow “Install unknown apps” when prompted
-</p>
-</div>
+  <!-- Grid of App Cards -->
+  <div class="apps-grid">
+
+    <!-- ===== APP 1: Movie Box ===== -->
+    <div class="app-card">
+      <h3>Movie Box</h3>
+      <p>Watch movies & series on your Android phone.</p>
+      <a href="https://drive.google.com/uc?export=download&id=1PZMh8-cvh4xDQG__H41cWZ4gl4hgqyC2" class="apk-btn" download>
+        Download APK
+      </a>
+    </div>
+
+    <!-- ===== APP 2: Traffic Alerts ===== -->
+    <div class="app-card">
+      <h3>Traffic Alerts</h3>
+      <p>Stay updated with live traffic alerts.</p>
+      <a href="YOUR_GOOGLE_DRIVE_LINK" class="apk-btn" download>
+        Download APK
+      </a>
+    </div>
+
+    <!-- ===== ADD MORE APPS HERE ===== -->
+    <!--
+    <div class="app-card">
+      <h3>App Name</h3>
+      <p>Description here.</p>
+      <a href="GOOGLE_DRIVE_LINK" class="apk-btn" download>Download APK</a>
+    </div>
+    -->
+
+  </div>
+</section>
+<!-- ===== END APPS SECTION ===== -->
 
   <!-- FEATURED ARTISTS (YOUR ORIGINAL SECTION, KEPT) -->  
   <div class="section" id="artists">  
