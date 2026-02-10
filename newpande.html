@@ -28,9 +28,11 @@ body {
 /* ------------------------ */
 .top-image {
   width: 100%;
-  height: 120px;
-  background: url("covers/Header.jpg") center/contain no-repeat;
-  background-color: #000; /* optional, fills empty space */
+  height: 140px;                 /* set the header height you want */
+  background-image: url("covers/Header.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;    /* 👈 stretches to match EXACTLY */
   border-radius: 12px 12px 0 0;
 }
 /* ------------------------ */
