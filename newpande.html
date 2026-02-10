@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Pandemalawi Sounds – PC Layout</title>
+
+<!-- Force PC layout -->
+<meta name="viewport" content="width=1300">
+
+<style>
+/* ------------------------ */
+/* BODY STYLES              */
+/* ------------------------ */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f5f5;
+}
+
+/* ------------------------ */
+/* MAIN WRAPPER             */
+/* ------------------------ */
+.wrapper {
+  max-width: 1200px;
+  margin: auto;
+  padding-bottom: 0; /* make sure no extra padding */
+}
+/* ------------------------ */
+/* TOP IMAGE / BANNER       */
+/* ------------------------ */
+.top-image {
+  width: 180%;
+  height: 120px;
+  background: url("https://images.unsplash.com/photo-1507874457470-272b3c8d8ee2") center/cover no-repeat;
+  border-radius: 12px 12px 0 0; /* round top corners */
+}
+/* ------------------------ */
+/* NAVIGATION BAR           */
+/* ------------------------ */
+.navbar {
+  width: 175%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 15px;
+  margin-bottom: 10px;
+
+  background: #fff;
+  border-radius: 12px;
+}
+
+/* Logo */
+.nav-logo {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.nav-logo span {
+  color: #ff7a00; /* brand orange */
+}
+
+/* Links */
+.nav-links a {
+  margin-left: 15px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-links a:hover {
+  color: #ff7a00;
+}
+/* ------------------------ */
+/* SEARCH BAR               */
+/* ------------------------ */
+/* Center search bar above center box */
+.search-box {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  padding: 15px 0;          /* top & bottom spacing */
+}
+
+.search-box input {
+  width: 400px;             /* search bar width */
+  height: 30px;             /* search bar height */
+  font-size: 16px;          /* text size inside search bar */
+  padding: 5px 12px;        /* inner spacing */
+  border-radius: 20px;      /* rounded corners */
+  border: 1px solid #ccc;   /* light gray border */
+  outline: none;            /* remove default browser focus outline */
+}
+
+/* ------------------------ */
+/* MAIN CONTENT FLEX LAYOUT */
+/* ------------------------ */
+.main-content {
+  display: flex;
+  gap: 15px;
+  padding: 10px 15px;
+  flex-wrap: nowrap;        /* prevent right box from dropping */
+  align-items: stretch;
+}
+
+/* ------------------------ */
+/* LEFT BOX: CATEGORIES     */
+/* ------------------------ */
+.categories {
+  width: 110px;
+  min-height: 400px;
+  background: #eee;
+  padding: 15px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.categories h3 {
+  margin-bottom: 10px;
+}
+
+.categories ul {
+  list-style: none;
+  padding: 0;
+}
+
+.categories li {
+  padding: 8px 5px;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+  
+}
+/* ------------------------ */
+/* APK DOWNLOAD SECTION     */
+/* ------------------------ */
+.apk-section {
+  margin-top: 20px;             /* space from categories */
+  padding-top: 15px;
+  border-top: 1px solid #ccc;   /* visual separation */
+  text-align: center;
+}
+
+.apk-section h4 {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.apk-section p {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* APK download button */
+.apk-btn {
+  display: inline-block;
+  padding: 8px 12px;
+  background: #ff7a00;          /* brand orange */
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 20px;
+  text-decoration: none;
+}
+
+.apk-btn:hover {
+  background: #e86c00;
+}
+/* Reduce space between APK buttons */
+.apk-section .apk-btn {
+  display: block;      /* keep them stacked */
+  margin-bottom: 3px;  /* smaller spacing (default might be bigger) */
+  text-align: center;
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: #ff7a00;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.apk-section .apk-btn:last-child {
+  margin-bottom: 0;    /* remove margin from last button */
+}
+
+/* ------------------------ */
+/* CENTER COLUMN WRAPPER    */
+/* ------------------------ */
+.center-column {
+  display: flex;
+  flex-direction: column;  
+  width: 360px;             
+  flex: 1;           /* prevent shrinking */
+  gap: 10px;
+}
+
+/* ------------------------ */
+/* CENTER BOX: MAIN CONTENT */
+/* ------------------------ */
+.center-box {
+  width: 100%;
+  min-height: 220px;
+  max-height: 420px;
+  background: #fafafa;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
+}
+
+/* PROMO BOX */
+.promo {
+  height: 150px;                  
+  background: orange;             
+  border-radius: 12px;            
+}
+
+/* FEATURED ARTISTS */
+.featured {
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+}
+
+.featured h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Wrapper for sliding row */
+.artist-row-wrapper {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+/* Row that slides left → right */
+.artist-row {
+  display: flex;
+  gap: 15px;
+  width: max-content;
+  animation: slide-left-right 12s linear infinite;
+}
+
+/* Individual artist card */
+.artist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 80px;
+}
+
+/* Artist image */
+.artist img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+/* Artist name */
+.artist span {
+  font-size: 12px;
+  color: #333;
+}
+
+/* Sliding animation */
+@keyframes slide-left-right {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ------------------------ */
+/* SONG LISTS CONTAINER     */
+/* ------------------------ */
+.lists {
+  display: grid;
+  grid-template-columns: repeat(2, max-content);
+  gap: 10px;
+  justify-content: start;
+}
+
+/* ------------------------ */
+/* INDIVIDUAL LIST BOXES    */
+/* ------------------------ */
+.list-box {
+  width: 160px;
+  background: #eee;
+  padding: 10px;
+  height: 130px;
+  overflow-y: auto;
+  border-radius: 8px;
+}
+
+.list-box h4 {
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.list-box li {
+  font-size: 14px;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+/* ------------------------ */
+/* RIGHT BOX: 4 QUICK LINKS  */
+/* ------------------------ */
+.right-box {
+  width: 150px;
+  background: #eee;
+  padding: 10px;
+  border-radius: 12px;
+  display: flex;
+  flex:0 0 auto;
+  flex-direction: column;
+  gap: 15px;
+  height: 60%;         /* make right box full height */
+  justify-content: space-between; /* distribute the 4 quick links evenly */
+}
+
+.quick {
+  text-align: center;
+}
+
+.quick img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 5px;
+}
+
+.quick span {
+  display: block;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* ============================ */
+/* MUSIC PLAYER WRAPPER         */
+/* ============================ */
+.music-player {
+  width: 90%;                       /* full width of center column */
+  height: 40px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(6px);
+  border-radius: 16px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+}
+
+/* -------- PLAYER LEFT (IMAGE + TEXT) -------- */
+.player-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.player-left img {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.player-text {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+.song-name { font-weight: bold; }       
+.artist-name { font-size: 11px; opacity: 0.7; } 
+
+/* -------- CENTER: WAVEFORM BAR -------- */
+.waveform {
+  flex: 1;
+  height: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.wave-progress {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg,#ff7a00,#ff9a3c);
+  border-radius: 20px;
+  animation: fakePlay 8s linear infinite;
+  animation-play-state: paused;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.wave-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  flex: 1;
+  z-index: 2;
+  position: relative;
+  padding: 0 5px;
+}
+
+.wave-bar {
+  width: 4px;
+  height: calc(var(--h,0.5) * 100%);
+  background: linear-gradient(180deg,#ff9a3c,#ff7a00);
+  border-radius: 2px;
+  animation: waveAnim 1s ease-in-out infinite alternate;
+}
+
+/* Slightly offset animation delays for realism */
+.wave-bar:nth-child(1){ animation-delay: 0s; }
+.wave-bar:nth-child(2){ animation-delay: 0.1s; }
+.wave-bar:nth-child(3){ animation-delay: 0.2s; }
+.wave-bar:nth-child(4){ animation-delay: 0.3s; }
+.wave-bar:nth-child(5){ animation-delay: 0.4s; }
+.wave-bar:nth-child(6){ animation-delay: 0.5s; }
+
+/* Bar scale animation */
+@keyframes waveAnim {
+  0%   { transform: scaleY(0.3); }
+  50%  { transform: scaleY(1); }
+  100% { transform: scaleY(0.3); }
+}
+
+/* -------- PLAY / PAUSE BUTTON -------- */
+.player-controls {
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+}
+
+/* -------- FAKE PROGRESS ANIMATION -------- */
+@keyframes fakePlay {
+  0%   { width: 0%; }
+  100% { width: 100%; }
+}
+/* ------------------------ */
+/* ADVERTISING BOX          */
+/* ------------------------ */
+.ad-box {
+  width: 360px;                 /* same width as center column */
+  height: 120px;                /* adjust height if needed */
+  background: #ffd966;          /* bright attention color */
+  border-radius: 12px;          
+  display: flex;                
+  flex-direction: column;       
+  align-items: center;          
+  justify-content: center;      
+  margin-top: 12px;             /* spacing from player */
+  overflow: hidden;             
+}
+
+.ad-box img {
+  width: 100%;
+  height: 80px;                 /* fits nicely inside box */
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 5px;
+}
+
+.ad-box span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+/* ------------------------ */
+/* FOOTER STYLES            */
+/* ------------------------ */
+.footer {
+  width: 175%;                 
+  background: #eee;             
+  border-radius: 12px;          
+  padding: 12px 0;              
+  display: flex;                
+  justify-content: space-around; /* evenly spaced items */
+  font-size: 14px;              
+  font-weight: bold;            
+  margin-top: 20px;             
+}
+
+.footer-item {
+  cursor: pointer;             
+  color: #333;                 
+  transition: color 0.3s;      
+}
+
+.footer-item:hover {
+  color: #ff7a00;             /* highlight on hover */
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- MAIN WRAPPER -->
+<div class="wrapper">
+
+  <!-- TOP IMAGE -->
+  <div class="top-image"></div>
+  <!-- ============================ -->
+<!-- NAVIGATION BAR              -->
+<!-- ============================ -->
+<div class="navbar">
+
+  <!-- Logo / Site name -->
+  <div class="nav-logo">
+    Pandemalawi<span>Sounds</span>
+  </div>
+
+  <!-- Navigation links -->
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Categories</a>
+    <a href="#">Trending</a>
+    <a href="#">Upload</a>
+    <a href="#">Contact</a>
+  </div>
+
+</div>
+
+  <!-- SEARCH BAR -->
+  <div class="search-box">
+    <input type="text" placeholder="🔎Search music...">
+  </div>
+
+  <!-- MAIN FLEX CONTENT: LEFT + CENTER + RIGHT -->
+  <div class="main-content">
+
+    <!-- LEFT BOX: CATEGORIES -->
+    <div class="categories">
+      <h3>Categories</h3>
+      <ul>
+        <li>All Songs</li>
+        <li>Gospel</li>
+        <li>Hip Hop</li>
+        <li>Afro Beats</li>
+        <li>Islamic</li>
+      </ul>
+<!-- ============================ -->
+<!-- APK DOWNLOAD / APPS SHOWCASE -->
+<!-- ============================ -->
+
+<div class="apk-section">
+  <h4>Get the App</h4>
+  <p>Download Pandemalawi Sounds APK for faster access.</p>
+  <a href="#" class="apk-btn">Download APK</a>
+</div>
+
+<div class="apk-section">
+  <h4>Get Another App</h4>
+  <p>Check out this amazing music app.</p>
+  <a href="#" class="apk-btn">Download APK</a>
+</div>
+
+<!-- ============================ -->
+<!-- MORE APPS BUTTON -->
+<!-- ============================ -->
+<div class="apk-section">
+  <a href="more-apks.html" class="apk-btn">More Apps</a>
+</div>
+
+</div>
+
+    <!-- CENTER COLUMN: contains center box AND player -->
+    <div class="center-column">
+
+      <!-- CENTER BOX -->
+      <div class="center-box">
+        <!-- PROMO BOX -->
+        <div class="promo"></div>
+
+        <!-- FEATURED ARTISTS -->
+        <div class="featured">
+          <h3>Featured Artists</h3>
+          <div class="artist-row-wrapper">
+            <div class="artist-row">
+              <div class="artist"><img src="https://randomuser.me/api/portraits/men/1.jpg"><span>Jay</span></div>
+              <div class="artist"><img src="https://randomuser.me/api/portraits/women/2.jpg"><span>Mimi</span></div>
+              <div class="artist"><img src="https://randomuser.me/api/portraits/men/3.jpg"><span>Sharp</span></div>
+              <div class="artist"><img src="https://randomuser.me/api/portraits/men/4.jpg"><span>Kenny</span></div>
+              <div class="artist"><img src="https://randomuser.me/api/portraits/women/5.jpg"><span>Zara</span></div>
+              <div class="artist"><img src="https://randomuser.me/api/portraits/men/6.jpg"><span>Dre</span></div>
+              <!-- Duplicate for animation -->
+              <div class="artist"><img src="https://randomuser.me/api/portraits/men/1.jpg"><span>Jay</span></div>
+              <div class="artist"><img src="https://randomuser.me/api/portraits/women/2.jpg"><span>Mimi</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SONG LISTS -->
+        <div class="lists">
+          <!-- TRENDING SONGS -->
+          <div class="list-box">
+            <h4>Trending Songs</h4>
+            <ul>
+              <li>Song – Artist</li>
+              <li>Song – Artist</li>
+              <li>Song – Artist</li>
+            </ul>
+          </div>
+
+          <!-- LATEST UPLOADS -->
+          <div class="list-box">
+            <h4>Latest Uploads</h4>
+            <ul>
+              <li>Song – Artist</li>
+              <li>Song – Artist</li>
+              <li>Song – Artist</li>
+            </ul>
+          </div>
+        </div>
+
+      </div> <!-- END CENTER BOX -->
+
+      <!-- ============================ -->
+      <!-- DECORATIVE GLOBAL MUSIC PLAYER -->
+      <!-- ============================ -->
+      <div class="music-player">
+
+        <!-- LEFT SIDE: COVER IMAGE + SONG INFO -->
+        <div class="player-left">
+          <!-- Album / cover image -->
+          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d" alt="cover">
+
+          <!-- Song name + artist -->
+          <div class="player-text">
+            <span class="song-name">Snowfall</span>    <!-- Name of the song -->
+            <span class="artist-name">Oneheart</span>  <!-- Artist -->
+          </div>
+        </div>
+
+        <!-- CENTER: DECORATIVE WAVEFORM / PROGRESS BAR -->
+        <div class="waveform">
+          <!-- Orange progress bar (shows how much of song has played) -->
+          <div class="wave-progress"></div>
+
+          <!-- Mini animated bars to simulate audio waveform -->
+          <div class="wave-bars">
+            <div class="wave-bar" style="--h:0.5"></div>
+            <div class="wave-bar" style="--h:0.8"></div>
+            <div class="wave-bar" style="--h:0.3"></div>
+            <div class="wave-bar" style="--h:0.7"></div>
+            <div class="wave-bar" style="--h:0.6"></div>
+            <div class="wave-bar" style="--h:0.9"></div>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE: PLAY / PAUSE BUTTON -->
+        <div class="player-controls" id="playPauseBtn">
+          ▶ <!-- Click to play or pause -->
+        </div>
+
+      </div>
+      <!-- ============================ -->
+<!-- ADVERTISING BOX BELOW PLAYER -->
+<!-- ============================ -->
+<div class="ad-box">
+  <img src="https://images.unsplash.com/photo-1602524207301-d1e2e6a2d2a7" alt="Ad" />
+  <span>Sponsored Ad</span>
+</div>
+
+    </div>
+    
+
+    <!-- RIGHT BOX: 4 QUICK LINKS -->
+    <div class="right-box">
+      <div class="quick"><img src="https://images.unsplash.com/photo-1502877338535-766e1452684a"><span>Transport</span></div>
+      <div class="quick"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"><span>Buy & Sell</span></div>
+      <div class="quick"><img src="https://images.unsplash.com/photo-1517649763962-0c623066013b"><span>Competition</span></div>
+      <div class="quick"><img src="https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d"><span>Live Soccer</span></div>
+    </div>
+
+  </div> <!-- END MAIN CONTENT -->
+  <!-- ============================ -->
+
+</div> <!-- END WRAPPER -->
+<!-- ============================ -->
+<!-- FOOTER -->
+<!-- ============================ -->
+<div class="footer">
+  <div class="footer-item">Payment</div>
+  <div class="footer-item">Contact Us</div>
+  <div class="footer-item">About</div>
+</div>
+<style>
+body, html {
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+}
+</style>
+<script>
+/* ---------------------------- */
+/* PLAY / PAUSE LOGIC           */
+/* ---------------------------- */
+const playPauseBtn = document.getElementById("playPauseBtn");
+const progressBar = document.querySelector(".wave-progress");
+let isPlaying = false;
+
+playPauseBtn.addEventListener("click", () => {
+  if (!isPlaying) {
+    // PLAY
+    progressBar.style.animationPlayState = "running";
+    playPauseBtn.textContent = "⏸";
+    isPlaying = true;
+  } else {
+    // PAUSE
+    progressBar.style.animationPlayState = "paused";
+    playPauseBtn.textContent = "▶";
+    isPlaying = false;
+  }
+});
+
+</script>
+
+</body>
+  </html>
