@@ -26,20 +26,18 @@ body {
 /* ------------------------ */
 /* TOP IMAGE / BANNER       */
 /* ------------------------ */
-/* Remove default spacing */
-body {
-  margin: 0;
-  padding: 0;
+/* Top banner */
+.top-image-double {
+  display: flex;          /* side by side */
+  width: 100%;
+  height: 140px;          /* fixed header height */
+  overflow: hidden;       /* hide any extra edges */
 }
 
-/* Top banner */
-.top-image {
-  width: 100%;
-  height: 140px; /* Perfect balance for mobile */
-  background-image: url("covers/topimage.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;  /* 🔥 Prevents stretch */
+.top-image-double img {
+  width: 50%;             /* left = 50%, right = 50% */
+  height: 100%;
+  object-fit: cover;      /* keeps image proportions */
 }
 /* ------------------------ */
 /* NAVIGATION BAR           */
@@ -520,7 +518,10 @@ body {
 <div class="wrapper">
 
   <!-- TOP IMAGE -->
-  <div class="top-image"></div>
+  <div class="top-image-double">
+  <img src="covers/topimage.jpg" alt="Banner">
+  <img src="covers/topimage.jpg" alt="Banner">
+  </div>
   <!-- ============================ -->
 <!-- NAVIGATION BAR              -->
 <!-- ============================ -->
