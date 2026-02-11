@@ -315,47 +315,52 @@ body {
 /* ------------------------ */
 /* RIGHT BOX: 4 QUICK LINKS  */
 /* ------------------------ */
+/* ===== Right Box Container ===== */
 .right-box {
-  width: 150px;
+  width: 150px;             /* keep fixed width */
   background: #eee;
   padding: 10px;
   border-radius: 12px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  height: 60%;
-  justify-content: space-between;
+  height: auto;             /* allow container to grow with content */
+  justify-content: flex-start;  /* top align quick links */
 }
 
-/* Make each quick link clickable */
+/* ===== Quick Link Cards ===== */
 .quick {
   text-align: center;
   cursor: pointer;
-  display: block;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  flex: 1;                   /* allows all quick cards to expand evenly */
 }
 
-/* Slideshow container */
+/* ===== Slideshow Container ===== */
 .quick .card-slideshow {
   width: 100%;
-  height: 120px;
+  height: 120px;             /* fixed slideshow height */
   position: relative;
   border-radius: 12px;
   overflow: hidden;
+  flex-shrink: 0;            /* prevents shrinking inside flex container */
 }
 
-/* Images inside slideshow */
+/* ===== Slideshow Images ===== */
 .quick .card-slideshow img {
   position: absolute;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover;         /* keeps proportions */
   opacity: 0;
   transition: opacity 0.5s ease, transform 0.5s ease;
   border-radius: 12px;
 }
 
-/* Active image visible */
+/* Show active image */
 .quick .card-slideshow img.active {
   opacity: 1;
 }
@@ -365,15 +370,14 @@ body {
   transform: scale(1.05);
 }
 
-/* Title / span overlay */
+/* ===== Title under slideshow ===== */
 .quick span {
   display: block;
   font-size: 14px;
   font-weight: bold;
   margin-top: 5px;
   color: #000;
-}
-
+  }
 /* ============================ */
 /* MUSIC PLAYER WRAPPER         */
 /* ============================ */
