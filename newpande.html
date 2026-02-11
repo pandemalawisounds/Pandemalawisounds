@@ -26,14 +26,20 @@ body {
 /* ------------------------ */
 /* TOP IMAGE / BANNER       */
 /* ------------------------ */
+/* Remove default spacing */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Top banner */
 .top-image {
   width: 100%;
-  height: 140px;                 /* set the header height you want */
-  background-image: url("covers/Header.jpg");
-  background-repeat: no-repeat;
+  height: 140px; /* Perfect balance for mobile */
+  background-image: url("covers/topimage.jpg");
   background-position: center;
-  background-size: 100% 100%;    /* 👈 stretches to match EXACTLY */
-  border-radius: 12px 12px 0 0;
+  background-repeat: no-repeat;
+  background-size: cover;  /* 🔥 Prevents stretch */
 }
 /* ------------------------ */
 /* NAVIGATION BAR           */
