@@ -313,71 +313,81 @@ body {
 }
 
 /* ------------------------ */
-/* RIGHT BOX: 4 QUICK LINKS  */
 /* ------------------------ */
+/* RIGHT BOX: 4 QUICK LINKS */
+/* ------------------------ */
+/* RIGHT BOX: 4 QUICK LINKS */
+/* ------------------------ */
+
 /* ===== Right Box Container ===== */
 .right-box {
-  width: 450px;             /* keep fixed width */
-  background: #eee;
-  padding: 10px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  height: auto;             /* allow container to grow with content */
-  justify-content: flex-start;  /* top align quick links */
+  width: 450px;                 /* Fixed width of right section */
+  background: #eee;             /* Light background color */
+  padding: 10px;                /* Space inside the box */
+  border-radius: 12px;          /* Rounded corners */
+  display: flex;                /* Use flexbox layout */
+  flex-direction: column;       /* Stack quick cards vertically */
+  gap: 15px;                    /* Space between quick cards */
+  height: auto;                 /* Grow based on content */
+  justify-content: flex-start;  /* Align items from top */
 }
 
-/* ===== Quick Link Cards ===== */
+
+/* ===== Quick Link Card ===== */
 .quick {
-  text-align: center;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  flex: 1;                   /* allows all quick cards to expand evenly */
+  text-align: center;           /* Center text inside card */
+  cursor: pointer;              /* Show pointer on hover */
+  display: flex;                
+  flex-direction: column;       /* Image on top, title below */
+  align-items: center;          /* Center horizontally */
+  justify-content: flex-start;  /* Align content to top */
+  flex: 1;                      /* Allow equal height distribution */
 }
+
 
 /* ===== Slideshow Container ===== */
 .quick .card-slideshow {
-  width: 250%;
-  height: 120px;             /* fixed slideshow height */
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  flex-shrink: 0;            /* prevents shrinking inside flex container */
+  width: 100%;                  /* Take full width of quick card */
+  height: 120px;                /* Fixed height for slideshow */
+  position: relative;           /* Needed for absolute images inside */
+  border-radius: 12px;          /* Rounded edges */
+  overflow: hidden;             /* Hide image overflow */
+  flex-shrink: 0;               /* Prevent shrinking in flex */
 }
+
 
 /* ===== Slideshow Images ===== */
 .quick .card-slideshow img {
-  position: absolute;
-  width: 250%;
-  height: 100%;
-  object-fit: cover;         /* keeps proportions */
-  opacity: 0;
-  transition: opacity 0.5s ease, transform 0.5s ease;
-  border-radius: 12px;
+  position: absolute;           /* Stack images on top of each other */
+  width: 100%;                  /* Match container width */
+  height: 100%;                 /* Match container height */
+  object-fit: cover;            /* Fill box without distortion */
+  opacity: 0;                   /* Hide images by default */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade & zoom */
+  border-radius: 12px;          /* Keep same rounded edges */
 }
 
-/* Show active image */
+
+/* ===== Active Image (Visible One) ===== */
 .quick .card-slideshow img.active {
-  opacity: 1;
+  opacity: 1;                   /* Only active image is visible */
 }
 
-/* Optional: slight zoom on hover */
+
+/* ===== Hover Effect ===== */
 .quick:hover .card-slideshow img.active {
-  transform: scale(1.05);
+  transform: scale(1.05);       /* Slight zoom on hover */
 }
 
-/* ===== Title under slideshow ===== */
+
+/* ===== Title Under Slideshow ===== */
 .quick span {
-  display: block;
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 5px;
-  color: #000;
-  }
+  display: block;               /* Make it behave like block element */
+  font-size: 14px;              /* Text size */
+  font-weight: bold;            /* Bold title */
+  margin-top: 5px;              /* Space between image and title */
+  color: #000;                  /* Black text color */
+}
 /* ============================ */
 /* MUSIC PLAYER WRAPPER         */
 /* ============================ */
