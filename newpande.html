@@ -19,7 +19,7 @@ body {
 /* MAIN WRAPPER             */
 /* ------------------------ */
 .wrapper {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: auto;
   padding-bottom: 0; /* make sure no extra padding */
 }
@@ -97,28 +97,24 @@ body {
   outline: none;            /* remove default browser focus outline */
 }
 
-/* ------------------------ */
-/* MAIN CONTENT FLEX LAYOUT */
-/* ------------------------ */
+/* ============================== */
+/* MAIN 3-COLUMN FLEX CONTAINER  */
+/* ============================== */
 .main-content {
-  display: flex;
-  gap: 15px;
-  padding: 10px 15px;
-  flex-wrap: nowrap;        /* prevent right box from dropping */
-  align-items: stretch;
+  display: flex;          /* Places children side by side */
+  gap: 10px;              /* Space between columns */
 }
 
 /* ------------------------ */
-/* LEFT BOX: CATEGORIES     */
-/* ------------------------ */
+
+/* ============================== */
+/* LEFT COLUMN (CATEGORIES)      */
+/* ============================== */
 .categories {
-  width: 110px;
-  min-height: 400px;
-  background: #eee;
-  padding: 15px;
-  border-radius: 12px;
-  flex-shrink: 0;
+  width: 110px;           /* Fixed width */
+  flex-shrink: 0;         /* Prevent shrinking in flex layout */
 }
+
 
 .categories h3 {
   margin-bottom: 10px;
@@ -188,16 +184,16 @@ body {
   margin-bottom: 0;    /* remove margin from last button */
 }
 
-/* ------------------------ */
-/* CENTER COLUMN WRAPPER    */
-/* ------------------------ */
+/* ============================== */
+/* CENTER COLUMN                 */
+/* ============================== */
 .center-column {
   display: flex;
-  flex-direction: column;
-  width: 360px;      /* Fixed width */
-  flex-shrink: 0;    /* Prevent shrinking in flex layout */
-  gap: 10px;
-  }
+  flex-direction: column; /* Stack items vertically */
+  width: 360px;           /* Fixed width */
+  flex-shrink: 0;         /* Prevent shrinking */
+  gap: 10px;              /* Space between stacked items */
+}
 
 /* ------------------------ */
 /* CENTER BOX: MAIN CONTENT */
@@ -311,20 +307,18 @@ body {
   margin-bottom: 6px;
   line-height: 1.2;
 }
-/* ------------------------ */
-/* RIGHT BOX: QUICK LINKS  */
-/* ------------------------ */
-
-/* ===== Right Box Container ===== */
+/* ============================== */
+/* RIGHT COLUMN (YOUR BOX)       */
+/* ============================== */
 .right-box {
-  width: 450px;                /* Fixed width of the right column */
-  background: #eee;            /* Light background */
-  padding: 10px;               /* Inner spacing */
-  border-radius: 12px;         /* Rounded corners */
-  display: flex;               /* Flex layout */
-  flex-direction: column;      /* Stack items vertically */
-  gap: 15px;                   /* Space between quick cards */
-  justify-content: flex-start; /* Align content from top */
+  width: 600px;           /* Make this bigger than image */
+  background: #eee;       /* Light background for visibility */
+  padding: 15px;          /* Inner spacing */
+  border-radius: 12px;    /* Rounded corners */
+  display: flex;
+  flex-direction: column; /* Stack quick links */
+  gap: 15px;              /* Space between quick cards */
+  flex-shrink: 0;         /* Prevent shrinking */
 }
 
 
