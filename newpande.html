@@ -307,49 +307,52 @@ body {
   margin-bottom: 6px;
   line-height: 1.2;
 }
-/* ============================== */
+
+  /* ============================== */
 /* RIGHT COLUMN (YOUR BOX)       */
 /* ============================== */
 .right-box {
-  width: 150px;           /* Make this bigger than image */
+  width: 150px;           /* Fixed width of the right column */
   background: #eee;       /* Light background for visibility */
   padding: 15px;          /* Inner spacing */
   border-radius: 12px;    /* Rounded corners */
   display: flex;
-  flex-direction: column; /* Stack quick links */
+  flex-direction: column; /* Stack quick links vertically */
   gap: 15px;              /* Space between quick cards */
-  flex-shrink: 0;         /* Prevent shrinking */
+  flex-shrink: 0;         /* Prevent shrinking inside flex layout */
 }
 
 
 /* ===== Individual Quick Card ===== */
 .quick {
-  text-align: center;          /* Center text */
-  cursor: pointer;             /* Pointer on hover */
+  text-align: center;          /* Center text under image */
+  cursor: pointer;             /* Pointer cursor on hover */
   display: flex;
-  flex-direction: column;      /* Image on top, text below */
+  flex-direction: column;      /* Stack image on top of text */
   align-items: center;         /* Center horizontally */
-  justify-content: flex-start;
+  justify-content: flex-start; /* Align items to top of card */
 }
 
 
-/* ===== Slideshow Container (BOX IS BIGGER THAN IMAGE) ===== */
+/* ===== Slideshow Container ===== */
 .quick .card-slideshow {
-  width: 200%;                 /* BIGGER than image (image is 250%) */
-  height: 120px;               /* Fixed visible height */
+  width: 100%;                 /* Full width of the right box */
+  height: 120px;               /* Fixed height for slideshow */
   position: relative;          /* Anchor for absolute images */
-  border-radius: 12px;         /* Rounded edges */
-  overflow: hidden;            /* Hide overflow cleanly */
+  border-radius: 12px;         /* Rounded corners */
+  overflow: hidden;            /* Hide anything outside the box */
   flex-shrink: 0;              /* Prevent shrinking */
+  display: flex;               /* Flex container to help centering */
+  justify-content: center;     /* Center image horizontally */
 }
 
 
-/* ===== Slideshow Images (UNCHANGED SIZE) ===== */
+/* ===== Slideshow Images ===== */
 .quick .card-slideshow img {
-  position: absolute;          
-  width: 250%;                 /* SAME SIZE AS YOUR ORIGINAL CODE */
+  position: relative;          /* Change from absolute to relative */
+  width: 100%;                 /* Image fits exactly inside container */
   height: 100%;                /* Match container height */
-  object-fit: cover;           /* Keep proportions */
+  object-fit: cover;           /* Keep image proportions, cover full box */
   opacity: 0;                  /* Hidden by default */
   transition: opacity 0.5s ease, transform 0.5s ease;
   border-radius: 12px;
@@ -370,12 +373,13 @@ body {
 
 /* ===== Title Under Slideshow ===== */
 .quick span {
-  display: block;              /* Block element */
+  display: block;              /* Block element for spacing */
   font-size: 14px;             /* Text size */
   font-weight: bold;           /* Bold text */
   margin-top: 5px;             /* Space from image */
   color: #000;                 /* Black text */
-}
+  }
+
 /* ============================ */
 /* MUSIC PLAYER WRAPPER         */
 /* ============================ */
