@@ -193,11 +193,11 @@ body {
 /* ------------------------ */
 .center-column {
   display: flex;
-  flex-direction: column;  
-  width: 360px;             
-  flex: 1;           /* prevent shrinking */
+  flex-direction: column;
+  width: 360px;      /* Fixed width */
+  flex-shrink: 0;    /* Prevent shrinking in flex layout */
   gap: 10px;
-}
+  }
 
 /* ------------------------ */
 /* CENTER BOX: MAIN CONTENT */
