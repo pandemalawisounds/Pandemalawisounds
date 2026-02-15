@@ -311,82 +311,76 @@ body {
   margin-bottom: 6px;
   line-height: 1.2;
 }
-
 /* ------------------------ */
-/* ------------------------ */
-/* RIGHT BOX: 4 QUICK LINKS */
-/* ------------------------ */
-/* RIGHT BOX: 4 QUICK LINKS */
+/* RIGHT BOX: QUICK LINKS  */
 /* ------------------------ */
 
 /* ===== Right Box Container ===== */
 .right-box {
-  width: 450px;                 /* Fixed width of right section */
-  background: #eee;             /* Light background color */
-  padding: 10px;                /* Space inside the box */
-  border-radius: 12px;          /* Rounded corners */
-  display: flex;                /* Use flexbox layout */
-  flex-direction: column;       /* Stack quick cards vertically */
-  gap: 15px;                    /* Space between quick cards */
-  height: auto;                 /* Grow based on content */
-  justify-content: flex-start;  /* Align items from top */
+  width: 450px;                /* Fixed width of the right column */
+  background: #eee;            /* Light background */
+  padding: 10px;               /* Inner spacing */
+  border-radius: 12px;         /* Rounded corners */
+  display: flex;               /* Flex layout */
+  flex-direction: column;      /* Stack items vertically */
+  gap: 15px;                   /* Space between quick cards */
+  justify-content: flex-start; /* Align content from top */
 }
 
 
-/* ===== Quick Link Card ===== */
+/* ===== Individual Quick Card ===== */
 .quick {
-  text-align: center;           /* Center text inside card */
-  cursor: pointer;              /* Show pointer on hover */
-  display: flex;                
-  flex-direction: column;       /* Image on top, title below */
-  align-items: center;          /* Center horizontally */
-  justify-content: flex-start;  /* Align content to top */
-  flex: 1;                      /* Allow equal height distribution */
+  text-align: center;          /* Center text */
+  cursor: pointer;             /* Pointer on hover */
+  display: flex;
+  flex-direction: column;      /* Image on top, text below */
+  align-items: center;         /* Center horizontally */
+  justify-content: flex-start;
 }
 
 
-/* ===== Slideshow Container ===== */
+/* ===== Slideshow Container (BOX IS BIGGER THAN IMAGE) ===== */
 .quick .card-slideshow {
-  width: 100%;                  /* Take full width of quick card */
-  height: 120px;                /* Fixed height for slideshow */
-  position: relative;           /* Needed for absolute images inside */
-  border-radius: 12px;          /* Rounded edges */
-  overflow: hidden;             /* Hide image overflow */
-  flex-shrink: 0;               /* Prevent shrinking in flex */
+  width: 320%;                 /* BIGGER than image (image is 250%) */
+  height: 120px;               /* Fixed visible height */
+  position: relative;          /* Anchor for absolute images */
+  border-radius: 12px;         /* Rounded edges */
+  overflow: hidden;            /* Hide overflow cleanly */
+  flex-shrink: 0;              /* Prevent shrinking */
 }
 
 
-/* ===== Slideshow Images ===== */
+/* ===== Slideshow Images (UNCHANGED SIZE) ===== */
 .quick .card-slideshow img {
-  position: absolute;           /* Stack images on top of each other */
-  width: 100%;                  /* Match container width */
-  height: 100%;                 /* Match container height */
-  object-fit: cover;            /* Fill box without distortion */
-  opacity: 0;                   /* Hide images by default */
-  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth fade & zoom */
-  border-radius: 12px;          /* Keep same rounded edges */
+  position: absolute;          
+  width: 250%;                 /* SAME SIZE AS YOUR ORIGINAL CODE */
+  height: 100%;                /* Match container height */
+  object-fit: cover;           /* Keep proportions */
+  opacity: 0;                  /* Hidden by default */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  border-radius: 12px;
 }
 
 
-/* ===== Active Image (Visible One) ===== */
+/* ===== Show Active Image ===== */
 .quick .card-slideshow img.active {
-  opacity: 1;                   /* Only active image is visible */
+  opacity: 1;                  /* Only active image visible */
 }
 
 
 /* ===== Hover Effect ===== */
 .quick:hover .card-slideshow img.active {
-  transform: scale(1.05);       /* Slight zoom on hover */
+  transform: scale(1.05);      /* Slight zoom on hover */
 }
 
 
 /* ===== Title Under Slideshow ===== */
 .quick span {
-  display: block;               /* Make it behave like block element */
-  font-size: 14px;              /* Text size */
-  font-weight: bold;            /* Bold title */
-  margin-top: 5px;              /* Space between image and title */
-  color: #000;                  /* Black text color */
+  display: block;              /* Block element */
+  font-size: 14px;             /* Text size */
+  font-weight: bold;           /* Bold text */
+  margin-top: 5px;             /* Space from image */
+  color: #000;                 /* Black text */
 }
 /* ============================ */
 /* MUSIC PLAYER WRAPPER         */
