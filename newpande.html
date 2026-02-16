@@ -218,62 +218,94 @@ body {
   border-radius: 12px;            
 }
 
-/* FEATURED ARTISTS */
+/* ============================== */
+/* FEATURED ARTISTS SECTION       */
+/* ============================== */
+
 .featured {
-  padding: 10px 0;
-  text-align: center;
+  padding: 10px 0;          /* Space above & below section */
+  text-align: center;       /* Center heading */
   width: 100%;
 }
 
 .featured h3 {
-  margin-bottom: 10px;
+  margin-bottom: 10px;      /* Space below title */
   font-size: 16px;
   font-weight: bold;
 }
 
-/* Wrapper for sliding row */
+
+/* ============================== */
+/* SLIDER WRAPPER                 */
+/* ============================== */
 .artist-row-wrapper {
-  width: 100%;
-  overflow: hidden;
+  width: 100%;              /* Full width of parent */
+  overflow: hidden;         /* Hide sliding overflow */
   margin: 0 auto;
 }
 
-/* Row that slides left → right */
+
+/* ============================== */
+/* SLIDING ROW                    */
+/* ============================== */
 .artist-row {
-  display: flex;
-  gap: 15px;
-  width: max-content;
+  display: flex;            /* Horizontal layout */
+  gap: 15px;                /* Space between artists */
+  width: max-content;       /* Fit content width */
   animation: slide-left-right 12s linear infinite;
 }
 
-/* Individual artist card */
+
+/* ============================== */
+/* INDIVIDUAL ARTIST (CLICKABLE) */
+/* ============================== */
 .artist {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;   /* Image on top, name below */
   align-items: center;
   width: 80px;
+  text-decoration: none;    /* Remove link underline */
+  cursor: pointer;          /* Show clickable hand */
 }
 
-/* Artist image */
+
+/* ============================== */
+/* ARTIST IMAGE                   */
+/* ============================== */
 .artist img {
-  width: 50px;
+  width: 50px;              /* Small image = fast loading */
   height: 50px;
-  object-fit: cover;
-  border-radius: 50%;
+  object-fit: cover;        /* No distortion */
+  border-radius: 50%;       /* Round images */
   margin-bottom: 5px;
+  transition: transform 0.3s ease; /* Smooth hover */
 }
 
-/* Artist name */
+
+/* ============================== */
+/* ARTIST NAME                    */
+/* ============================== */
 .artist span {
   font-size: 12px;
   color: #333;
 }
 
-/* Sliding animation */
+
+/* ============================== */
+/* HOVER EFFECT (OPTIONAL)        */
+/* ============================== */
+.artist:hover img {
+  transform: scale(1.05);   /* Slight zoom on hover */
+}
+
+
+/* ============================== */
+/* SLIDING ANIMATION              */
+/* ============================== */
 @keyframes slide-left-right {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
-}
+  }
 
 /* ------------------------ */
 /* SONG LISTS CONTAINER     */
@@ -632,15 +664,80 @@ body {
           <h3>Featured Artists</h3>
           <div class="artist-row-wrapper">
             <div class="artist-row">
-              <div class="artist"><img src="https://randomuser.me/api/portraits/men/1.jpg"><span>pboy halla</span></div>
-              <div class="artist"><img src="https://randomuser.me/api/portraits/women/2.jpg"><span>jonarp</span></div>
-              <div class="artist"><img src="https://randomuser.me/api/portraits/men/3.jpg"><span>Hot Denje</span></div>
-              <div class="artist"><img src="https://randomuser.me/api/portraits/men/4.jpg"><span>ric fabs</span></div>
-              <div class="artist"><img src="https://randomuser.me/api/portraits/women/5.jpg"><span>namadingo</span></div>
-              <div class="artist"><img src="https://randomuser.me/api/portraits/men/6.jpg"><span>saint realist</span></div>
-              <!-- Duplicate for animation -->
-              <div class="artist"><img src="https://randomuser.me/api/portraits/men/1.jpg"><span>pboy halla</span></div>
-              <div class="artist"><img src="https://randomuser.me/api/portraits/women/2.jpg"><span>jonarp</span></div>
+              <!-- ============================== -->
+<!-- FEATURED ARTISTS SECTION      -->
+<!-- ============================== -->
+<div class="featured">
+
+  <!-- Section Title -->
+  <h3>Featured Artists</h3>
+
+  <!-- Wrapper that hides overflow for sliding -->
+  <div class="artist-row-wrapper">
+
+    <!-- Sliding row -->
+    <div class="artist-row">
+
+      <!-- ============================== -->
+      <!-- PBOY HALLA                    -->
+      <!-- ============================== -->
+      <a href="pboy_halla.html" class="artist">
+        <img src="covers/Pboy1.jpg" alt="Pboy Halla">
+        <span>Pboy Halla</span>
+      </a>
+
+      <!-- ============================== -->
+      <!-- HOT DENJE                      -->
+      <!-- ============================== -->
+      <a href="Hot_Denje.html" class="artist">
+        <img src="covers/hot-denje.jpg" alt="Hot Denje">
+        <span>Hot Denje</span>
+      </a>
+
+      <!-- ============================== -->
+      <!-- RIC FABS                       -->
+      <!-- ============================== -->
+      <a href="Ric_fabs.html" class="artist">
+        <img src="covers/Rickfabs.jpg" alt="Ric Fabs">
+        <span>Ric Fabs</span>
+      </a>
+
+      <!-- ============================== -->
+      <!-- ONESMUS                        -->
+      <!-- ============================== -->
+      <a href="onesmus.html" class="artist">
+        <img src="covers/onesmus.jpg" alt="Onesmus">
+        <span>Onesmus</span>
+      </a>
+
+      <!-- ============================== -->
+      <!-- ZEZE KINGSTON                  -->
+      <!-- ============================== -->
+      <a href="zeze_kingston.html" class="artist">
+        <img src="covers/zeze-kingston.jpg" alt="Zeze Kingston">
+        <span>Zeze Kingston</span>
+      </a>
+
+      <!-- ============================== -->
+      <!-- JOE ICON                       -->
+      <!-- ============================== -->
+      <a href="joe_icon.html" class="artist">
+        <img src="covers/joe-icon.jpg" alt="Joe Icon">
+        <span>Joe Icon</span>
+      </a>
+
+      <!-- ============================== -->
+      <!-- NAMADINGO                      -->
+      <!-- ============================== -->
+      <a href="namadingo.html" class="artist">
+        <img src="covers/namadingo.jpg" alt="Namadingo">
+        <span>Namadingo</span>
+      </a>
+
+    </div>
+
+  </div>
+</div>
             </div>
           </div>
         </div>
