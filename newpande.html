@@ -1,902 +1,1645 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Pandemalawi Sounds – PC Layout</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PandeMalawiSounds — Development Layout</title>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-/* ------------------------ */
-/* BODY STYLES              */
-/* ------------------------ */
+
+/* ===================================== */
+/* 1. ROOT VARIABLES AND GENERAL STYLES   */
+/* ===================================== */
+
+:root {
+  --orange: #f28c00;
+  --orange-dark: #dc7900;
+  --ink: #252525;
+  --muted: #777;
+  --line: #e7e7e7;
+  --soft: #fff8ee;
+  --white: #fff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #f4f4f4;
+}
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #f5f5f5;
-}
-
-/* ------------------------ */
-/* MAIN WRAPPER             */
-/* ------------------------ */
-.wrapper {
-  max-width: 1400px;
-  margin: auto;
-  padding-bottom: 0; /* make sure no extra padding */
-}
-/* ------------------------ */
-/* TOP IMAGE / BANNER       */
-/* ------------------------ */
-/* Top banner */
-.top-image-double {
-  display: flex;          /* side by side */
-  width: 190%;
-  height: 140px;          /* fixed header height */
-  overflow: hidden;       /* hide any extra edges */
-}
-
-.top-image-double img {
-  width: 190%;             /* left = 50%, right = 50% */
-  height: 100%;
-  object-fit: cover;      /* keeps image proportions */
-}
-/* ------------------------ */
-/* NAVIGATION BAR           */
-/* ------------------------ */
-.navbar {
-  width: 180%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 12px 15px;
-  margin-bottom: 10px;
-
-  background: #fff;
-  border-radius: 12px;
-}
-
-/* Logo */
-.nav-logo {
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.nav-logo span {
-  color: #ff7a00; /* brand orange */
-}
-
-/* Links */
-.nav-links a {
-  margin-left: 15px;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: bold;
-  color: #333;
-}
-
-.nav-links a:hover {
-  color: #ff7a00;
-}
-/* ------------------------ */
-/* SEARCH BAR               */
-/* ------------------------ */
-/* Center search bar above center box */
-.search-box {
-  display: flex;
-  justify-content: center;  /* center horizontally */
-  padding: 15px 0;          /* top & bottom spacing */
-}
-
-.search-box input {
-  width: 400px;             /* search bar width */
-  height: 30px;             /* search bar height */
-  font-size: 16px;          /* text size inside search bar */
-  padding: 5px 12px;        /* inner spacing */
-  border-radius: 20px;      /* rounded corners */
-  border: 1px solid #ccc;   /* light gray border */
-  outline: none;            /* remove default browser focus outline */
-}
-
-/* ============================== */
-/* MAIN 3-COLUMN FLEX CONTAINER  */
-/* ============================== */
-.main-content {
-  display: flex;          /* Places children side by side */
-  gap: 10px;              /* Space between columns */
-}
-
-/* ------------------------ */
-
-/* ============================== */
-/* LEFT COLUMN (CATEGORIES)      */
-/* ============================== */
-.categories {
-  width: 110px;           /* Fixed width */
-  flex-shrink: 0;         /* Prevent shrinking in flex layout */
-}
-
-
-.categories h3 {
-  margin-bottom: 10px;
-}
-
-.categories ul {
-  list-style: none;
-  padding: 0;
-}
-
-.categories li {
-  padding: 8px 5px;
-  border-bottom: 1px solid #ccc;
-  cursor: pointer;
-  
-}
-/* ------------------------ */
-/* APK DOWNLOAD SECTION     */
-/* ------------------------ */
-.apk-section {
-  margin-top: 20px;             /* space from categories */
-  padding-top: 15px;
-  border-top: 1px solid #ccc;   /* visual separation */
-  text-align: center;
-}
-
-.apk-section h4 {
-  font-size: 14px;
-  margin-bottom: 6px;
-}
-
-.apk-section p {
-  font-size: 12px;
-  color: #555;
-  margin-bottom: 10px;
-}
-
-/* APK download button */
-.apk-btn {
-  display: inline-block;
-  padding: 8px 12px;
-  background: #ff7a00;          /* brand orange */
-  color: #fff;
-  font-size: 13px;
-  font-weight: bold;
-  border-radius: 20px;
-  text-decoration: none;
-}
-
-.apk-btn:hover {
-  background: #e86c00;
-}
-/* Reduce space between APK buttons */
-.apk-section .apk-btn {
-  display: block;      /* keep them stacked */
-  margin-bottom: 3px;  /* smaller spacing (default might be bigger) */
-  text-align: center;
-  padding: 6px 10px;
-  border-radius: 8px;
-  background: #ff7a00;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.apk-section .apk-btn:last-child {
-  margin-bottom: 0;    /* remove margin from last button */
-}
-
-/* ============================== */
-/* CENTER COLUMN                 */
-/* ============================== */
-.center-column {
-  display: flex;
-  flex-direction: column; /* Stack items vertically */
-  width: 360px;           /* Fixed width */
-  flex-shrink: 0;         /* Prevent shrinking */
-  gap: 10px;              /* Space between stacked items */
-}
-
-/* ------------------------ */
-/* CENTER BOX: MAIN CONTENT */
-/* ------------------------ */
-.center-box {
-  width: 100%;
-  min-height: 220px;
-  max-height: 420px;
-  background: #fafafa;
-  padding: 15px;
-  border-radius: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  overflow-y: auto;
-}
-
-/* PROMO BOX */
-.promo {
-  height: 150px;                  
-  background: orange;             
-  border-radius: 12px;            
-}
-/* ============================== */
-/* FEATURED ARTISTS              */
-/* ============================== */
-
-.featured {
-  width: 100%;
-  padding: 10px 0;
-  text-align: center;
-}
-
-.featured h3 {
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-/* Scroll container */
-.artist-row-wrapper {
-  width: 100%;
+  color: var(--ink);
+  background: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
   overflow-x: auto;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
 }
 
-/* Hide scrollbar (optional) */
-.artist-row-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-/* Artist row */
-.artist-row {
-  display: flex;
-  gap: 15px;
-}
-
-/* Individual artist */
-.artist {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+a {
+  color: inherit;
   text-decoration: none;
-  min-width: 80px;
-  flex-shrink: 0;
 }
 
-/* Artist image */
-.artist img {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  object-fit: cover;
+
+/* ===================================== */
+/* 2. MAIN WEBSITE WRAPPER               */
+/* ===================================== */
+
+/* Deliberately desktop-sized for this first phone-based preview. */
+
+.site {
+  width: 1180px;
+  min-width: 1180px;
+  margin: 0 auto;
+  background: #fff;
 }
 
-/* Artist name */
-.artist span {
-  font-size: 12px;
-  color: #333;
-  margin-top: 5px;
-  }
 
-  /* ============================== */
-/* RIGHT COLUMN (YOUR BOX)       */
-/* ============================== */
-.right-box {
-  width: 150px;           /* Fixed width of right column */
-  background: #eee;       /* Light background for visibility */
-  padding: 15px;          /* Inner spacing */
-  border-radius: 12px;    /* Rounded corners */
+/* ===================================== */
+/* 3. WEBSITE HEADER                     */
+/* ===================================== */
+
+.topbar {
+  min-height: 76px;
   display: flex;
-  flex-direction: column; /* Stack quick links vertically */
-  gap: 15px;              /* Space between quick cards */
-  flex-shrink: 0;         /* Prevent shrinking */
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px 20px;
+  border-bottom: 3px solid var(--orange);
 }
 
-/* ===== Individual Quick Card ===== */
-.quick {
-  text-align: center;          /* Center text under image */
-  cursor: pointer;             /* Pointer on hover */
-  display: flex;
-  flex-direction: column;      /* Stack image on top of text */
-  align-items: center;         /* Center horizontally */
-  justify-content: flex-start; /* Align to top */
-}
+/* Logo and website name */
 
-/* ===== Slideshow Container ===== */
-.quick .card-slideshow {
-  width: 100%;                 /* Full width of the card */
-  height: 120px;               /* Fixed height for slideshow */
-  position: relative;          /* Anchor for images */
-  border-radius: 12px;         /* Rounded corners */
-  overflow: hidden;            /* Hide anything outside box */
-}
-
-/* ===== Slideshow Images ===== */
-.quick .card-slideshow img {
-  position: absolute;          /* Stack images on top of each other */
-  top: 0;
-  left: 0;
-  width: 100%;                 /* Full width of container */
-  height: 100%;                /* Match container height */
-  object-fit: cover;           /* Keep image proportions */
-  opacity: 0;                  /* Hide by default */
-  transition: opacity 0.5s ease; /* Smooth fade */
-  border-radius: 12px;
-}
-
-/* ===== Show Active Image ===== */
-.quick .card-slideshow img.active {
-  opacity: 1;                  /* Only active image visible */
-}
-
-/* ===== Hover Zoom (optional) ===== */
-.quick:hover .card-slideshow img.active {
-  transform: scale(1.05);      /* Slight zoom on hover */
-  transition: transform 0.5s ease;
-}
-
-/* ===== Title Under Slideshow ===== */
-.quick span {
-  display: block;              /* Block element for spacing */
-  font-size: 14px;             /* Text size */
-  font-weight: bold;           /* Bold text */
-  margin-top: 5px;             /* Space from image */
-  color: #000;                 /* Black text */
-}
-/* ============================ */
-/* MUSIC PLAYER WRAPPER         */
-/* ============================ */
-.music-player {
-  width: 90%;                       /* full width of center column */
-  height: 40px;
-  background: rgba(0,0,0,0.6);
-  backdrop-filter: blur(6px);
-  border-radius: 16px;
-  padding: 8px 12px;
+.brand {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: #fff;
+  min-width: 290px;
 }
 
-/* -------- PLAYER LEFT (IMAGE + TEXT) -------- */
-.player-left {
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--orange);
+  color: #fff;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+.brand h1 {
+  font-size: 25px;
+  margin: 0 0 4px;
+  letter-spacing: -.5px;
+}
+
+.brand p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+
+/* ===================================== */
+/* 4. TOP NAVIGATION LINKS               */
+/* ===================================== */
+
+.top-links {
+  display: flex;
+  align-items: center;
+  gap: 17px;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.top-links a:hover,
+.footer a:hover {
+  color: var(--orange-dark);
+}
+
+
+/* ===================================== */
+/* 5. SEARCH BAR                         */
+/* ===================================== */
+
+.search-row {
+  padding: 13px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.search {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ddd;
+  border-radius: 7px;
+  padding: 0 12px;
+  color: #888;
+}
+
+.search input {
+  border: 0;
+  outline: 0;
+  width: 100%;
+  font-size: 14px;
+  background: transparent;
+  color: var(--ink);
+}
+
+/* Search result message */
+
+.search-status {
+  display: none;
+  padding: 0 20px 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.search-status.show {
+  display: block;
+}
+
+
+/* ===================================== */
+/* 6. MAIN THREE-COLUMN LAYOUT           */
+/* ===================================== */
+
+.columns {
+  display: grid;
+  grid-template-columns: 220px 1fr 220px;
+  gap: 14px;
+  padding: 15px;
+  align-items: start;
+}
+
+/* Shared column styles */
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  min-width: 0;
+}
+
+
+/* ===================================== */
+/* 7. GENERAL PANELS AND SECTION TITLES  */
+/* ===================================== */
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.panel-title {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--line);
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.player-left img {
-  width: 44px;
-  height: 44px;
-  border-radius: 10px;
-  object-fit: cover;
+.title-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange);
 }
 
-.player-text {
+.panel-body {
+  padding: 11px;
+}
+
+
+/* ===================================== */
+/* 8. LEFT COLUMN - CATEGORIES MENU      */
+/* ===================================== */
+
+.menu-list {
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  gap: 3px;
 }
 
-.song-name { font-weight: bold; }       
-.artist-name { font-size: 11px; opacity: 0.7; } 
-
-/* -------- CENTER: WAVEFORM BAR -------- */
-.waveform {
-  flex: 1;
-  height: 20px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 20px;
-  position: relative;
+.menu-list a {
   display: flex;
   align-items: center;
-  overflow: hidden;
+  gap: 9px;
+  padding: 9px 8px;
+  border-radius: 6px;
+  font-size: 13px;
 }
 
-.wave-progress {
-  height: 100%;
-  width: 0%;
-  background: linear-gradient(90deg,#ff7a00,#ff9a3c);
-  border-radius: 20px;
-  animation: fakePlay 8s linear infinite;
-  animation-play-state: paused;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+.menu-list a:hover {
+  background: var(--soft);
 }
 
-.wave-bars {
-  display: flex;
-  align-items: flex-end;
-  gap: 2px;
-  flex: 1;
-  z-index: 2;
-  position: relative;
-  padding: 0 5px;
+.menu-icon {
+  width: 20px;
+  text-align: center;
+  color: var(--orange-dark);
 }
 
-.wave-bar {
-  width: 4px;
-  height: calc(var(--h,0.5) * 100%);
-  background: linear-gradient(180deg,#ff9a3c,#ff7a00);
-  border-radius: 2px;
-  animation: waveAnim 1s ease-in-out infinite alternate;
+
+/* ===================================== */
+/* 9. LEFT COLUMN - APP PROMOTIONS       */
+/* ===================================== */
+
+.app-card {
+  text-align: center;
+  padding: 15px 10px;
+  background: var(--soft);
 }
 
-/* Slightly offset animation delays for realism */
-.wave-bar:nth-child(1){ animation-delay: 0s; }
-.wave-bar:nth-child(2){ animation-delay: 0.1s; }
-.wave-bar:nth-child(3){ animation-delay: 0.2s; }
-.wave-bar:nth-child(4){ animation-delay: 0.3s; }
-.wave-bar:nth-child(5){ animation-delay: 0.4s; }
-.wave-bar:nth-child(6){ animation-delay: 0.5s; }
-
-/* Bar scale animation */
-@keyframes waveAnim {
-  0%   { transform: scaleY(0.3); }
-  50%  { transform: scaleY(1); }
-  100% { transform: scaleY(0.3); }
+.app-symbol {
+  font-size: 29px;
+  margin-bottom: 7px;
 }
 
-/* -------- PLAY / PAUSE BUTTON -------- */
-.player-controls {
-  font-size: 18px;
-  cursor: pointer;
-  user-select: none;
-}
-
-/* -------- FAKE PROGRESS ANIMATION -------- */
-@keyframes fakePlay {
-  0%   { width: 0%; }
-  100% { width: 100%; }
-}
-/* ------------------------ */
-/* ADVERTISING BOX          */
-/* ------------------------ */
-.ad-box {
-  width: 360px;                 /* same width as center column */
-  height: 120px;                /* adjust height if needed */
-  background: #ffd966;          /* bright attention color */
-  border-radius: 12px;          
-  display: flex;                
-  flex-direction: column;       
-  align-items: center;          
-  justify-content: center;      
-  margin-top: 12px;             /* spacing from player */
-  overflow: hidden;             
-}
-
-.ad-box img {
-  width: 100%;
-  height: 80px;                 /* fits nicely inside box */
-  object-fit: cover;
-  border-radius: 12px;
+.app-card strong {
+  display: block;
+  font-size: 13px;
   margin-bottom: 5px;
 }
 
-.ad-box span {
-  font-size: 14px;
-  font-weight: bold;
+.app-card p {
+  margin: 0;
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+/* Orange buttons */
+
+.orange-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-radius: 5px;
+  background: var(--orange);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+
+/* ===================================== */
+/* 10. LEFT COLUMN - MORE APPS           */
+/* ===================================== */
+
+.app-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 7px;
+}
+
+.app-mini {
+  text-align: center;
+  padding: 12px 5px;
+  background: #fffaf3;
+  border: 1px solid #f4e6d3;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.app-mini span {
+  display: block;
+  font-size: 19px;
+  margin-bottom: 5px;
+}
+
+
+/* ===================================== */
+/* 11. CENTRE COLUMN - HERO SLIDESHOW    */
+/* ===================================== */
+
+.hero {
+  border: 0;
+  background: var(--orange);
+  padding: 10px;
+  border-radius: 9px;
+}
+
+.hero-inner {
+  height: 178px;
+  background: #fff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Banner text */
+
+.hero-copy {
+  max-width: 62%;
+  z-index: 1;
+}
+
+.eyebrow {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  color: var(--orange-dark);
+  font-weight: 700;
+}
+
+.hero h2 {
+  font-size: 25px;
+  line-height: 1.15;
+  margin: 9px 0;
+}
+
+.hero p {
+  color: #666;
+  font-size: 13px;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Banner illustration */
+
+.hero-art {
+  width: 155px;
+  height: 130px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background: linear-gradient(135deg,#ffe0a8,#fff4de);
+  font-size: 54px;
+}
+
+/* Slideshow arrows and dots */
+
+.hero-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-top: 8px;
+}
+
+.slide-arrow {
+  border: 0;
+  background: #fff;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  cursor: pointer;
   color: #333;
 }
-/* ------------------------ */
-/* FOOTER STYLES            */
-/* ------------------------ */
+
+.dots {
+  display: flex;
+  gap: 5px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border: 0;
+  padding: 0;
+  border-radius: 50%;
+  background: #ffd18a;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #fff;
+  width: 18px;
+  border-radius: 5px;
+}
+
+
+/* ===================================== */
+/* 12. CENTRE COLUMN - FEATURED ARTISTS  */
+/* ===================================== */
+
+.artists {
+  padding: 13px 12px 12px;
+}
+
+/* Hide overflow while artists scroll */
+
+.artist-track-wrap {
+  overflow: hidden;
+}
+
+.artist-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  animation: artist-scroll 26s linear infinite;
+}
+
+.artist-track:hover {
+  animation-play-state: paused;
+}
+
+.artist {
+  width: 94px;
+  text-align: center;
+  flex: 0 0 94px;
+}
+
+.artist img {
+  display: block;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 7px;
+  border: 2px solid #ffe0b0;
+}
+
+.artist strong {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Continuous artist scrolling animation */
+
+@keyframes artist-scroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* ===================================== */
+/* 13. CENTRE COLUMN - MUSIC PLAYER      */
+/* ===================================== */
+
+.player {
+  padding: 14px;
+  background: #292d32;
+  color: #fff;
+}
+
+.player-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Track cover */
+
+.cover {
+  width: 58px;
+  height: 58px;
+  border-radius: 7px;
+  display: grid;
+  place-items: center;
+  background: #42464c;
+  color: var(--orange);
+  font-size: 27px;
+  flex-shrink: 0;
+}
+
+/* Track title and artist */
+
+.track-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.track-info strong {
+  display: block;
+  font-size: 13px;
+}
+
+.track-info span {
+  display: block;
+  color: #c4c4c4;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* Player buttons */
+
+.player-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 13px;
+}
+
+.player-controls button {
+  color: #fff;
+  background: transparent;
+  border: 0;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+.player-controls .play {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+}
+
+/* Player status message */
+
+.player-note {
+  font-size: 10px;
+  color: #c7c7c7;
+  text-align: center;
+  margin: 9px 0 0;
+}
+
+
+/* ===================================== */
+/* 14. CENTRE COLUMN - ADVERTISEMENT     */
+/* ===================================== */
+
+.ad-box {
+  min-height: 76px;
+  display: grid;
+  place-items: center;
+  background: #ffcf68;
+  border: 1px dashed #e3a93e;
+  border-radius: 8px;
+  color: #62410b;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 13px;
+}
+
+
+/* ===================================== */
+/* 15. CENTRE COLUMN - SONG LISTS        */
+/* ===================================== */
+
+/* Latest Uploads and Trending Songs side by side */
+
+.two-boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+/* Song list layout */
+
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Song cover icon */
+
+.song-cover {
+  width: 38px;
+  height: 38px;
+  border-radius: 5px;
+  display: grid;
+  place-items: center;
+  background: #fff0d9;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+/* Song title and artist */
+
+.song-meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.song-meta strong {
+  display: block;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.song-meta span {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+/* Trending song ranking */
+
+.rank {
+  color: var(--orange-dark);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* ===================================== */
+/* 16. RIGHT COLUMN - FEATURE CARDS      */
+/* ===================================== */
+
+.feature-card {
+  padding: 14px 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 76px;
+}
+
+/* Feature icon */
+
+.feature-icon {
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--soft);
+  color: var(--orange-dark);
+  font-size: 21px;
+}
+
+/* Feature title and description */
+
+.feature-card strong {
+  display: block;
+  font-size: 12px;
+}
+
+.feature-card span {
+  display: block;
+  color: var(--muted);
+  font-size: 10px;
+  margin-top: 4px;
+}
+
+
+/* ===================================== */
+/* 17. RIGHT COLUMN - P&E TECHCO         */
+/* ===================================== */
+
+.pe-promo-art {
+  min-height: 150px;
+  margin: 10px;
+  border-radius: 7px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #242a32 0%, #424b56 58%, #f28c00 58%, #ffb13b 100%);
+}
+
+/* P&E logo */
+
+.pe-promo-mark {
+  width: 68px;
+  height: 68px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -2px;
+  background: rgba(20, 24, 30, .45);
+}
+
+.pe-promo-art strong {
+  font-size: 16px;
+  letter-spacing: .4px;
+}
+
+.pe-promo-art span {
+  font-size: 10px;
+  color: #fff;
+}
+
+
+/* ===================================== */
+/* 18. EXPLORE MALAWI - TOURISM CARDS    */
+/* ===================================== */
+
+.explore-section {
+  margin: 0 15px 15px;
+}
+
+.tourism-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.tourism-card {
+  display: block;
+  min-width: 0;
+  border: 1px solid #f0e4d4;
+  border-radius: 7px;
+  overflow: hidden;
+  background: #fffaf3;
+}
+
+.tourism-card img {
+  display: block;
+  width: 100%;
+  height: 86px;
+  object-fit: cover;
+  background: #fff0d9;
+}
+
+.tourism-card strong {
+  display: block;
+  padding: 9px 7px;
+  font-size: 11px;
+  text-align: center;
+}
+
+.tourism-card:hover {
+  border-color: var(--orange);
+}
+
+
+/* ===================================== */
+/* 19. WEBSITE FOOTER                    */
+/* ===================================== */
+
 .footer {
-  width: 180%;                 
-  background: #eee;             
-  border-radius: 12px;          
-  padding: 12px 0;              
-  display: flex;                
-  justify-content: space-around; /* evenly spaced items */
-  font-size: 14px;              
-  font-weight: bold;            
-  margin-top: 20px;             
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+  background: #fffaf3;
+  font-size: 12px;
 }
 
-.footer-item {
-  cursor: pointer;             
-  color: #333;                 
-  transition: color 0.3s;      
+/* Footer navigation links */
+
+.footer-links {
+  display: flex;
+  gap: 22px;
 }
 
-.footer-item:hover {
-  color: #ff7a00;             /* highlight on hover */
+.footer a {
+  display: flex;
+  gap: 6px;
+  align-items: center;
 }
+
 </style>
-
 </head>
 
 <body>
 
-<!-- MAIN WRAPPER -->
-<div class="wrapper">
+<!-- =================================== -->
+<!-- 20. MAIN WEBSITE CONTAINER          -->
+<!-- =================================== -->
 
-  <!-- TOP IMAGE -->
-  <div class="top-image-double">
-  <img src="covers/topimage.jpg" alt="Banner">
-  <img src="covers/topimage.jpg" alt="Banner">
-  </div>
-  <!-- ============================ -->
-<!-- NAVIGATION BAR              -->
-<!-- ============================ -->
-<div class="navbar">
-
-  <!-- Logo / Site name -->
-  <div class="nav-logo">
-    Pandemalawi<span>Sounds</span>
-  </div>
-
-  <!-- Navigation links -->
-  <div class="nav-links">
-    <a href="#">Home</a>
-    <a href="#">Categories</a>
-    <a href="Trending-songs">Trending songs</a>
-    <a href="Latest-upload">Latest Upload</a>
-    <a href="#">Contact</a>
-    <a href="About">About</a>
-    <a href="payment">payment</a>
-    <a href="#">Live soccer</a>
-    <a href="Buy-sell">Buy &sell</a>
-    <a href="Competition">Competition</a>
-    <a href="Transport">Transport</a>
-  </div>
-
-</div>
-
-  <!-- SEARCH BAR -->
-  <div class="search-box">
-    <input type="text" placeholder="🔎Search music...">
-  </div>
-
-  <!-- MAIN FLEX CONTENT: LEFT + CENTER + RIGHT -->
-  <div class="main-content">
-
-    <!-- LEFT BOX: CATEGORIES -->
-    <div class="categories">
-      <h3>Categories</h3>
-      <ul>
-        <li>All Songs</li>
-        <li>Gospel</li>
-        <li>Hip Hop</li>
-        <li>Afro Beats</li>
-        <li>Islamic</li>
-      </ul>
-<!-- ============================ -->
-<!-- APK DOWNLOAD / APPS SHOWCASE -->
-<!-- ============================ -->
-
-<div class="apk-section">
-  <h4>Get the App</h4>
-  <p>Download Pandemalawi Sounds APK for faster access.</p>
-  <a href="#" class="apk-btn">Download APK</a>
-</div>
-
-<div class="apk-section">
-  <h4>Get Another App</h4>
-  <p>Check out this amazing music app.</p>
-  <a href="#" class="apk-btn">Download APK</a>
-</div>
-
-<!-- ============================ -->
-<!-- MORE APPS BUTTON -->
-<!-- ============================ -->
-<div class="apk-section">
-  <a href="more-apks.html" class="apk-btn">More Apps</a>
-</div>
-
-</div>
-
-    <!-- CENTER COLUMN: contains center box AND player -->
-    <div class="center-column">
-
-      <!-- CENTER BOX -->
-      <div class="center-box">
-        <!-- PROMO BOX -->
-        <div class="promo"></div>
-
-        <!-- FEATURED ARTISTS -->
-        <div class="featured">
-          <h3>Featured Artists</h3>
-          <div class="artist-row-wrapper">
-            <div class="artist-row">
+<div class="site">
 
 
-  <!-- Wrapper that hides overflow for sliding -->
-  <d<div class="artist-row-wrapper">
-    <div class="artist-row" id="artistRow">
+  <!-- ================================= -->
+  <!-- 21. WEBSITE HEADER AND NAVIGATION -->
+  <!-- ================================= -->
 
-      <!-- Artist 1 -->
-      <a href="pboy_halla.html" class="artist">
-        <img src="covers/Pboy1.jpg" alt="Pboy Halla">
-        <span>Pboy Halla</span>
-      </a>
+  <header class="topbar" id="home">
 
-      <!-- Artist 2 -->
-      <a href="Hot_Denje.html" class="artist">
-        <img src="covers/Hot denje.jpg" alt="Hot Denje">
-        <span>Hot Denje</span>
-      </a>
+    <!-- Website logo and name -->
 
-      <!-- Artist 3 -->
-      <a href="Ric_fabs.html" class="artist">
-        <img src="covers/Rickfabs.jpg" alt="Ric Fabs">
-        <span>Ric Fabs</span>
-      </a>
+    <div class="brand">
+      <div class="brand-mark">P</div>
 
-      <!-- Artist 4 -->
-      <a href="Jonarp.html" class="artist">
-        <img src="covers/Jonarp.jpg" alt="Jonarp">
-        <span>Jonarp</span>
-      </a>
-
-      <!-- Artist 5 -->
-      <a href="onesmus.html" class="artist">
-        <img src="covers/Onesmus.jpg" alt="Onesmus">
-        <span>Onesmus</span>
-      </a>
-
-      <!-- Artist 6 -->
-      <a href="zeze_kingston.html" class="artist">
-        <img src="covers/ZezeKingston.jpg" alt="Zeze Kingston">
-        <span>Zeze Kingston</span>
-      </a>
-
-      <!-- Artist 7 -->
-      <a href="joe_icon.html" class="artist">
-        <img src="covers/JoeIcon.jpg" alt="Joe Icon">
-        <span>Joe Icon</span>
-      </a>
-
-      <!-- Artist 8 -->
-      <a href="namading.html" class="artist">
-        <img src="covers/Namading.jpg" alt="Namading">
-        <span>Namading</span>
-      </a>
-
+      <div>
+        <h1>PandeMalawiSounds</h1>
+        <p>Upload · Download · Stream · Share</p>
+      </div>
     </div>
+
+    <!-- Main navigation links -->
+
+    <nav class="top-links" aria-label="Main navigation">
+      <a href="#home">Home</a>
+      <a href="#categories">Categories</a>
+      <a href="#latest">Latest Uploads</a>
+      <a href="#artists">Featured Artists</a>
+    </nav>
+
+  </header>
+
+
+  <!-- ================================= -->
+  <!-- 22. WEBSITE SEARCH BAR            -->
+  <!-- ================================= -->
+
+  <div class="search-row">
+
+    <label class="search">
+      <span aria-hidden="true">⌕</span>
+
+      <input
+        id="siteSearch"
+        type="search"
+        placeholder="Search music, artists..."
+        aria-label="Search music and artists"
+      >
+
+      <span aria-hidden="true">🔍</span>
+    </label>
+
   </div>
-</div>
+
+  <!-- Search results status message -->
+
+  <div class="search-status" id="searchStatus" aria-live="polite"></div>
+
+
+  <!-- ================================= -->
+  <!-- 23. MAIN THREE-COLUMN CONTENT     -->
+  <!-- ================================= -->
+
+  <main class="columns">
+
+
+    <!-- ================================= -->
+    <!-- 24. LEFT COLUMN                   -->
+    <!-- ================================= -->
+
+    <aside class="column">
+
+
+      <!-- CATEGORIES MENU -->
+
+      <section class="panel" id="categories">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> Categories
+        </h2>
+
+        <div class="panel-body menu-list">
+          <a href="#latest"><span class="menu-icon">♫</span> All Songs</a>
+          <a href="#latest"><span class="menu-icon">✦</span> Gospel</a>
+          <a href="#latest"><span class="menu-icon">♪</span> Hip Hop</a>
+          <a href="#latest"><span class="menu-icon">◖</span> Afro Beats</a>
+          <a href="#latest"><span class="menu-icon">▤</span> Amapiano</a>
+          <a href="#latest"><span class="menu-icon">◎</span> Local Music</a>
+        </div>
+
+      </section>
+
+
+      <!-- PANDEMALAWISOUNDS APP -->
+
+      <section class="panel">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> Get the App
+        </h2>
+
+        <div class="panel-body app-card">
+          <div class="app-symbol">📱</div>
+          <strong>PandeMalawiSounds App</strong>
+          <p>Music and updates in one place.</p>
+          <a class="orange-button" href="#home">Get the App</a>
+        </div>
+
+      </section>
+
+
+      <!-- DISCOVER MORE APPS -->
+
+      <section class="panel">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> Get Another App
+        </h2>
+
+        <div class="panel-body app-card">
+          <div class="app-symbol">🧩</div>
+          <strong>Discover More</strong>
+          <p>More services from PandeMalawiSounds.</p>
+        </div>
+
+      </section>
+
+
+      <!-- OTHER AVAILABLE APPS -->
+
+      <section class="panel">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> More Apps
+        </h2>
+
+        <div class="panel-body app-mini-grid">
+          <div class="app-mini"><span>🎵</span>Music</div>
+          <div class="app-mini"><span>🛍️</span>Market</div>
+          <div class="app-mini"><span>🚐</span>Transport</div>
+          <div class="app-mini"><span>🏆</span>Competition</div>
+        </div>
+
+      </section>
+
+
+    </aside>
+
+
+    <!-- ================================= -->
+    <!-- 25. CENTRE COLUMN                 -->
+    <!-- ================================= -->
+
+    <section class="column" aria-label="Main content">
+
+
+      <!-- MAIN BANNER SLIDESHOW -->
+
+      <section class="hero" aria-label="Main banner slideshow">
+
+        <div class="hero-inner">
+
+          <!-- Banner heading and description -->
+
+          <div class="hero-copy">
+            <span class="eyebrow" id="heroEyebrow">Discover</span>
+            <h2 id="heroTitle">Latest Uploads</h2>
+            <p id="heroText">Find the newest music added to PandeMalawiSounds.</p>
+          </div>
+
+          <!-- Banner illustration -->
+
+          <div class="hero-art" id="heroArt" aria-hidden="true">🎧</div>
+
+        </div>
+
+        <!-- Slideshow controls -->
+
+        <div class="hero-controls">
+          <button class="slide-arrow" id="prevSlide" aria-label="Previous banner">‹</button>
+          <div class="dots" id="slideDots" aria-label="Choose banner"></div>
+          <button class="slide-arrow" id="nextSlide" aria-label="Next banner">›</button>
+        </div>
+
+      </section>
+
+
+      <!-- FEATURED ARTISTS -->
+
+      <section class="panel" id="artists">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> Featured Artists
+        </h2>
+
+        <div class="artists">
+
+          <!-- Artist scrolling container -->
+
+          <div class="artist-track-wrap">
+            <div class="artist-track" id="artistTrack">
+
+              <!-- First set of artists -->
+
+              <div class="artist">
+                <img alt="Artist placeholder" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80">
+                <strong>Artist One</strong>
+              </div>
+
+              <div class="artist">
+                <img alt="Artist placeholder" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80">
+                <strong>Artist Two</strong>
+              </div>
+
+              <div class="artist">
+                <img alt="Artist placeholder" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80">
+                <strong>Artist Three</strong>
+              </div>
+
+              <div class="artist">
+                <img alt="Artist placeholder" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80">
+                <strong>Artist Four</strong>
+              </div>
+
+              <div class="artist">
+                <img alt="Artist placeholder" src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=120&q=80">
+                <strong>Artist Five</strong>
+              </div>
+
+
+              <!-- Second set of artists for continuous scrolling -->
+
+              <div class="artist">
+                <img alt="Artist placeholder" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80">
+                <strong>Artist One</strong>
+              </div>
+
+              <div class="artist">
+                <img alt="Artist placeholder" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80">
+                <strong>Artist Two</strong>
+              </div>
+
+              <div class="artist">
+                <img alt="Artist placeholder" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80">
+                <strong>Artist Three</strong>
+              </div>
+
+              <div class="artist">
+                <img alt="Artist placeholder" src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80">
+                <strong>Artist Four</strong>
+              </div>
+
+              <div class="artist">
+                <img alt="Artist placeholder" src="https://images.unsplash.com/photo-1504593811423-6dd665756598?auto=format&fit=crop&w=120&q=80">
+                <strong>Artist Five</strong>
+              </div>
+
             </div>
           </div>
+
         </div>
-    <script>
-// ===== Auto Scroll + Swipe Control =====
 
-const wrapper = document.querySelector('.artist-row-wrapper');
-const row = document.querySelector('#artistRow');
+      </section>
 
-let isDown = false;
-let startX;
-let scrollLeft;
 
-// Mouse drag
-wrapper.addEventListener('mousedown', (e) => {
-  isDown = true;
-  startX = e.pageX - wrapper.offsetLeft;
-  scrollLeft = wrapper.scrollLeft;
-});
+      <!-- MUSIC PLAYER -->
 
-wrapper.addEventListener('mouseleave', () => isDown = false);
-wrapper.addEventListener('mouseup', () => isDown = false);
+      <section class="panel" aria-label="Music player">
 
-wrapper.addEventListener('mousemove', (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.pageX - wrapper.offsetLeft;
-  const walk = (x - startX) * 2;
-  wrapper.scrollLeft = scrollLeft - walk;
-});
+        <h2 class="panel-title">
+          <span class="title-dot"></span> Music Player
+        </h2>
 
-// Touch support
-wrapper.addEventListener('touchstart', (e) => {
-  startX = e.touches[0].pageX - wrapper.offsetLeft;
-  scrollLeft = wrapper.scrollLeft;
-});
+        <div class="player">
 
-wrapper.addEventListener('touchmove', (e) => {
-  const x = e.touches[0].pageX - wrapper.offsetLeft;
-  const walk = (x - startX) * 2;
-  wrapper.scrollLeft = scrollLeft - walk;
-});
+          <!-- Current track information -->
 
-// Auto scroll (slow and smooth)
-let speed = 0.5; // Lower = slower
+          <div class="player-top">
+            <div class="cover">♫</div>
 
-function autoScroll() {
-  if (!isDown) {
-    wrapper.scrollLeft += speed;
-
-    if (wrapper.scrollLeft >= row.scrollWidth - wrapper.clientWidth) {
-      wrapper.scrollLeft = 0;
-    }
-  }
-  requestAnimationFrame(autoScroll);
-}
-
-autoScroll();
-    </script>
-
-        <!-- SONG LISTS -->
-        <div class="lists">
-          <!-- TRENDING SONGS -->
-          <div class="list-box">
-            <h4>Trending Songs</h4>
-            <ul>
-              <li>Song – Artist</li>
-              <li>Song – Artist</li>
-              <li>Song – Artist</li>
-            </ul>
+            <div class="track-info">
+              <strong id="playerTitle">Sample Track</strong>
+              <span id="playerArtist">Demo Artist</span>
+            </div>
           </div>
 
-          <!-- LATEST UPLOADS -->
-          <div class="list-box">
-            <h4>Latest Uploads</h4>
-            <ul>
-              <li>Song – Artist</li>
-              <li>Song – Artist</li>
-              <li>Song – Artist</li>
-            </ul>
+          <!-- Player buttons -->
+
+          <div class="player-controls">
+            <button id="previousTrack" aria-label="Previous track">⏮</button>
+            <button class="play" id="playButton" aria-label="Play sample audio">▶</button>
+            <button id="nextTrack" aria-label="Next track">⏭</button>
           </div>
+
+          <!-- Player status -->
+
+          <p class="player-note" id="playerNote">Demo player interface — real songs can be connected later.</p>
+
+          <!-- Audio element -->
+
+          <audio id="demoAudio" preload="none"></audio>
+
         </div>
 
-      </div> <!-- END CENTER BOX -->
+      </section>
 
-      <!-- ============================ -->
-      <!-- DECORATIVE GLOBAL MUSIC PLAYER -->
-      <!-- ============================ -->
-      <div class="music-player">
 
-        <!-- LEFT SIDE: COVER IMAGE + SONG INFO -->
-        <div class="player-left">
-          <!-- Album / cover image -->
-          <img src="https://images.unsplash.com/photo-1511379938547-c1f69419868d" alt="cover">
+      <!-- SPONSORED ADVERTISEMENT -->
 
-          <!-- Song name + artist -->
-          <div class="player-text">
-            <span class="song-name">Snowfall</span>    <!-- Name of the song -->
-            <span class="artist-name">Oneheart</span>  <!-- Artist -->
+      <div class="ad-box" id="advert">SPONSORED AD</div>
+
+
+      <!-- LATEST UPLOADS AND TRENDING SONGS -->
+
+      <div class="two-boxes">
+
+
+        <!-- LATEST UPLOADS -->
+
+        <section class="panel" id="latest">
+
+          <h2 class="panel-title">
+            <span class="title-dot"></span> Latest Uploads
+          </h2>
+
+          <div class="panel-body song-list searchable">
+
+            <!-- Song one -->
+
+            <div class="song" data-search="sample song one demo artist gospel">
+              <div class="song-cover">🎵</div>
+              <div class="song-meta">
+                <strong>Sample Song One</strong>
+                <span>Demo Artist · Gospel</span>
+              </div>
+            </div>
+
+            <!-- Song two -->
+
+            <div class="song" data-search="sample song two artist two afro beats">
+              <div class="song-cover">🎶</div>
+              <div class="song-meta">
+                <strong>Sample Song Two</strong>
+                <span>Artist Two · Afro Beats</span>
+              </div>
+            </div>
+
+            <!-- Song three -->
+
+            <div class="song" data-search="sample song three artist three hip hop">
+              <div class="song-cover">🎧</div>
+              <div class="song-meta">
+                <strong>Sample Song Three</strong>
+                <span>Artist Three · Hip Hop</span>
+              </div>
+            </div>
+
           </div>
-        </div>
 
-        <!-- CENTER: DECORATIVE WAVEFORM / PROGRESS BAR -->
-        <div class="waveform">
-          <!-- Orange progress bar (shows how much of song has played) -->
-          <div class="wave-progress"></div>
+        </section>
 
-          <!-- Mini animated bars to simulate audio waveform -->
-          <div class="wave-bars">
-            <div class="wave-bar" style="--h:0.5"></div>
-            <div class="wave-bar" style="--h:0.8"></div>
-            <div class="wave-bar" style="--h:0.3"></div>
-            <div class="wave-bar" style="--h:0.7"></div>
-            <div class="wave-bar" style="--h:0.6"></div>
-            <div class="wave-bar" style="--h:0.9"></div>
+
+        <!-- TRENDING SONGS -->
+
+        <section class="panel" id="trending">
+
+          <h2 class="panel-title">
+            <span class="title-dot"></span> Trending Songs
+          </h2>
+
+          <div class="panel-body song-list searchable">
+
+            <!-- Trending song one -->
+
+            <div class="song" data-search="trending song one demo artist">
+              <span class="rank">01</span>
+              <div class="song-cover">🔥</div>
+              <div class="song-meta">
+                <strong>Trending Song One</strong>
+                <span>Demo Artist</span>
+              </div>
+            </div>
+
+            <!-- Trending song two -->
+
+            <div class="song" data-search="trending song two artist two">
+              <span class="rank">02</span>
+              <div class="song-cover">🔥</div>
+              <div class="song-meta">
+                <strong>Trending Song Two</strong>
+                <span>Artist Two</span>
+              </div>
+            </div>
+
+            <!-- Trending song three -->
+
+            <div class="song" data-search="trending song three artist three">
+              <span class="rank">03</span>
+              <div class="song-cover">🔥</div>
+              <div class="song-meta">
+                <strong>Trending Song Three</strong>
+                <span>Artist Three</span>
+              </div>
+            </div>
+
           </div>
-        </div>
 
-        <!-- RIGHT SIDE: PLAY / PAUSE BUTTON -->
-        <div class="player-controls" id="playPauseBtn">
-          ▶ <!-- Click to play or pause -->
-        </div>
+        </section>
+
 
       </div>
-      <!-- ============================ -->
-<!-- ADVERTISING BOX BELOW PLAYER -->
-<!-- ============================ -->
-<div class="ad-box">
-  <img src="https://images.unsplash.com/photo-1602524207301-d1e2e6a2d2a7" alt="Ad" />
-  <span>Sponsored Ad</span>
+
+    </section>
+
+
+    <!-- ================================= -->
+    <!-- 26. RIGHT COLUMN                  -->
+    <!-- ================================= -->
+
+    <aside class="column">
+
+
+      <!-- TRANSPORT -->
+
+      <section class="panel">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> Transport
+        </h2>
+
+        <div class="feature-card">
+          <div class="feature-icon">🚐</div>
+          <div>
+            <strong>Transport</strong>
+            <span>Transport services</span>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- BUY AND SELL -->
+
+      <section class="panel">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> Buy &amp; Sell
+        </h2>
+
+        <div class="feature-card">
+          <div class="feature-icon">🛍️</div>
+          <div>
+            <strong>Buy &amp; Sell</strong>
+            <span>Marketplace</span>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- COMPETITION -->
+
+      <section class="panel">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> Competition
+        </h2>
+
+        <div class="feature-card">
+          <div class="feature-icon">🏆</div>
+          <div>
+            <strong>Competition</strong>
+            <span>Join competitions</span>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- LIVE SOCCER -->
+
+      <section class="panel">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> Live Soccer
+        </h2>
+
+        <div class="feature-card">
+          <div class="feature-icon">⚽</div>
+          <div>
+            <strong>Live Soccer</strong>
+            <span>Scores and updates</span>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- P&E TECHCO PROMOTION -->
+
+      <section class="panel" id="pe-techco">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> P&amp;E TechCo
+        </h2>
+
+        <div class="pe-promo-art" role="img" aria-label="P and E TechCo branded graphic">
+          <div class="pe-promo-mark">P&amp;E</div>
+          <strong>P&amp;E TechCo</strong>
+          <span>Technology &amp; Solutions</span>
+        </div>
+
+      </section>
+
+
+      <!-- SECOND P&E TECHCO PROMOTION -->
+
+      <section class="panel" id="pe-techco-2">
+
+        <h2 class="panel-title">
+          <span class="title-dot"></span> P&amp;E TechCo
+        </h2>
+
+        <div class="pe-promo-art" role="img" aria-label="P and E TechCo branded graphic">
+          <div class="pe-promo-mark">P&amp;E</div>
+          <strong>P&amp;E TechCo</strong>
+          <span>Technology &amp; Solutions</span>
+        </div>
+
+      </section>
+
+
+    </aside>
+
+
+  </main>
+
+
+  <!-- ================================= -->
+  <!-- 27. EXPLORE MALAWI                -->
+  <!-- ================================= -->
+
+  <section class="panel explore-section" id="explore-malawi">
+
+    <h2 class="panel-title">
+      <span class="title-dot"></span> Explore Malawi
+    </h2>
+
+    <div class="panel-body">
+
+      <div class="tourism-grid">
+
+        <!-- Hotels and lodges -->
+
+        <a class="tourism-card" href="#explore-malawi">
+          <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=480&q=80" alt="Hotel and lodge accommodation">
+          <strong>Hotels &amp; Lodges</strong>
+        </a>
+
+        <!-- Holiday resorts -->
+
+        <a class="tourism-card" href="#explore-malawi">
+          <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=480&q=80" alt="Beach and lake holiday">
+          <strong>Holiday Resorts</strong>
+        </a>
+
+        <!-- Tourist attractions -->
+
+        <a class="tourism-card" href="#explore-malawi">
+          <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=480&q=80" alt="Wildlife and safari">
+          <strong>Tourist Attractions</strong>
+        </a>
+
+        <!-- Places to explore -->
+
+        <a class="tourism-card" href="#explore-malawi">
+          <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=480&q=80" alt="Scenic landscapes">
+          <strong>Places to Explore</strong>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================================= -->
+  <!-- 28. WEBSITE FOOTER                -->
+  <!-- ================================= -->
+
+  <footer class="footer">
+
+    <span>© PandeMalawiSounds</span>
+
+    <!-- Footer navigation links -->
+
+    <nav class="footer-links" aria-label="Footer navigation">
+      <a href="#payment" id="payment"><span>💳</span>Payment</a>
+      <a href="#contact" id="contact"><span>✉️</span>Contact Us</a>
+      <a href="#about" id="about"><span>ⓘ</span>About</a>
+    </nav>
+
+  </footer>
+
+
 </div>
 
-    </div>
-    
 
-    <!-- RIGHT BOX: 4 QUICK LINKS -->
-    <div class="right-box">
-  <!-- Transport -->
-  <a href="Transport.html" class="quick">
-    <div class="card-slideshow">
-      <img src="covers/Tpt1.jpg" class="slide active" alt="Transport 1">
-      <img src="covers/Tpt2.jpg" class="slide" alt="Transport 2">
-      <img src="covers/Tpt3.jpg" class="slide" alt="Transport 3">
-    </div>
-    <span>Transport</span>
-  </a>
+<!-- =================================== -->
+<!-- 29. JAVASCRIPT                      -->
+<!-- =================================== -->
 
-  <!-- Buy & Sell -->
-  <a href="buy-sell.html" class="quick">
-    <div class="card-slideshow">
-      <img src="covers/Buy_Sell.jpg" class="slide active" alt="Buy & Sell 1">
-      <img src="covers/Buy_Sell.jpg" class="slide" alt="Buy & Sell 2">
-      <img src="covers/Buy_Sell.jpg" class="slide" alt="Buy & Sell 3">
-    </div>
-    <span>Buy & Sell</span>
-  </a>
-
-  <!-- Competition -->
-  <a href="competitions.html" class="quick">
-    <div class="card-slideshow">
-      <img src="covers/Compete.jpg" class="slide active" alt="Competition 1">
-      <img src="covers/Competition1.jpg" class="slide" alt="Competition 2">
-      <img src="covers/Competitions.png" class="slide" alt="Competition 3">
-    </div>
-    <span>Competition</span>
-  </a>
-
-  <!-- Live Soccer -->
-  <a href="live-soccer.html" class="quick">
-    <div class="card-slideshow">
-      <img src="covers/Soccer1.jpg" class="slide active" alt="Live Soccer 1">
-      <img src="covers/Soccer2.jpg" class="slide" alt="Live Soccer 2">
-      <img src="covers/Soccer3.jpeg" class="slide" alt="Live Soccer 3">
-    </div>
-    <span>Live Soccer</span>
-  </a>
-   </div>
-
-    <script>
-document.querySelectorAll('.right-box .card-slideshow').forEach(slideshow => {
-  let slides = slideshow.querySelectorAll('img');
-  let index = 0;
-  
-  setInterval(() => {
-    slides[index].classList.remove('active');
-    index = (index + 1) % slides.length;
-    slides[index].classList.add('active');
-  }, 2500); // change slide every 2.5s
-});
-    </script>
-  </div> <!-- END MAIN CONTENT -->
-  <!-- ============================ -->
-
-</div> <!-- END WRAPPER -->
-<!-- ============================ -->
-<!-- FOOTER -->
-<!-- ============================ -->
-<div class="footer">
-  <div class="footer-item">Payment</div>
-  <div class="footer-item">Contact Us</div>
-  <div class="footer-item">About</div>
-</div>
-<style>
-body, html {
-  height: 100%;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.main-content {
-  flex: 1;
-}
-</style>
 <script>
-/* ---------------------------- */
-/* PLAY / PAUSE LOGIC           */
-/* ---------------------------- */
-const playPauseBtn = document.getElementById("playPauseBtn");
-const progressBar = document.querySelector(".wave-progress");
-let isPlaying = false;
 
-playPauseBtn.addEventListener("click", () => {
-  if (!isPlaying) {
-    // PLAY
-    progressBar.style.animationPlayState = "running";
-    playPauseBtn.textContent = "⏸";
-    isPlaying = true;
-  } else {
-    // PAUSE
-    progressBar.style.animationPlayState = "paused";
-    playPauseBtn.textContent = "▶";
-    isPlaying = false;
+/* ===================================== */
+/* 30. BANNER SLIDESHOW DATA             */
+/* ===================================== */
+
+const bannerSlides = [
+  {
+    eyebrow: "Discover",
+    title: "Latest Uploads",
+    text: "Find the newest music added to PandeMalawiSounds.",
+    art: "🎧"
+  },
+  {
+    eyebrow: "Promote",
+    title: "Advertisements",
+    text: "A dedicated space for sponsored adverts.",
+    art: "📢"
+  },
+  {
+    eyebrow: "Popular now",
+    title: "Trending Songs",
+    text: "Explore the songs listeners are enjoying.",
+    art: "🔥"
   }
+];
+
+
+/* ===================================== */
+/* 31. SLIDESHOW VARIABLES               */
+/* ===================================== */
+
+let activeSlide = 0;
+
+const heroEyebrow = document.getElementById("heroEyebrow");
+const heroTitle = document.getElementById("heroTitle");
+const heroText = document.getElementById("heroText");
+const heroArt = document.getElementById("heroArt");
+const slideDots = document.getElementById("slideDots");
+
+
+/* ===================================== */
+/* 32. DISPLAY SELECTED BANNER           */
+/* ===================================== */
+
+function showSlide(index) {
+
+  activeSlide = (index + bannerSlides.length) % bannerSlides.length;
+
+  const slide = bannerSlides[activeSlide];
+
+  heroEyebrow.textContent = slide.eyebrow;
+  heroTitle.textContent = slide.title;
+  heroText.textContent = slide.text;
+  heroArt.textContent = slide.art;
+
+  [...slideDots.children].forEach((dot, i) =>
+    dot.classList.toggle("active", i === activeSlide)
+  );
+
+}
+
+
+/* ===================================== */
+/* 33. CREATE SLIDESHOW DOTS             */
+/* ===================================== */
+
+bannerSlides.forEach((slide, index) => {
+
+  const dot = document.createElement("button");
+
+  dot.className = "dot";
+  dot.setAttribute("aria-label", "Show " + slide.title);
+
+  dot.addEventListener("click", () => showSlide(index));
+
+  slideDots.appendChild(dot);
+
 });
+
+
+/* ===================================== */
+/* 34. SLIDESHOW PREVIOUS/NEXT BUTTONS   */
+/* ===================================== */
+
+document.getElementById("prevSlide").addEventListener("click", () =>
+  showSlide(activeSlide - 1)
+);
+
+document.getElementById("nextSlide").addEventListener("click", () =>
+  showSlide(activeSlide + 1)
+);
+
+
+/* ===================================== */
+/* 35. START AUTOMATIC SLIDESHOW         */
+/* ===================================== */
+
+showSlide(0);
+
+setInterval(() => showSlide(activeSlide + 1), 5000);
+
+
+/* ===================================== */
+/* 36. SEARCH FUNCTIONALITY              */
+/* ===================================== */
+
+const searchInput = document.getElementById("siteSearch");
+const searchStatus = document.getElementById("searchStatus");
+
+
+/* Filter songs and artists as the user types */
+
+searchInput.addEventListener("input", () => {
+
+  const query = searchInput.value.trim().toLowerCase();
+
+  let matches = 0;
+
+
+  /* Search song names, artists and keywords */
+
+  document.querySelectorAll(".song[data-search]").forEach(song => {
+
+    const matched = !query || song.dataset.search.includes(query);
+
+    song.style.display = matched ? "flex" : "none";
+
+    if (matched) matches++;
+
+  });
+
+
+  /* Search featured artists */
+
+  document.querySelectorAll(".artist").forEach(artist => {
+
+    const matched = !query || artist.textContent.toLowerCase().includes(query);
+
+    artist.style.display = matched ? "" : "none";
+
+  });
+
+
+  /* Display the search result message */
+
+  searchStatus.textContent = query
+    ? `${matches} matching sample song item(s).`
+    : "";
+
+  searchStatus.classList.toggle("show", Boolean(query));
+
+});
+
+
+/* ===================================== */
+/* 37. MUSIC PLAYER                      */
+/* ===================================== */
+
+/* A demo player shell; no real track is bundled in this structure-only step. */
+
+const demoAudio = document.getElementById("demoAudio");
+const playButton = document.getElementById("playButton");
+
+
+/* Play or pause the audio when the button is clicked */
+
+playButton.addEventListener("click", () => {
+
+  if (!demoAudio.src) {
+
+    document.getElementById("playerNote").textContent =
+      "Demo interface only. Add a real audio URL to enable playback.";
+
+    return;
+
+  }
+
+  if (demoAudio.paused) {
+
+    demoAudio.play()
+      .then(() => playButton.textContent = "Ⅱ")
+      .catch(() => {});
+
+  } else {
+
+    demoAudio.pause();
+    playButton.textContent = "▶";
+
+  }
+
+});
+
+
+/* Reset the play button when audio finishes */
+
+demoAudio.addEventListener("ended", () =>
+  playButton.textContent = "▶"
+);
 
 </script>
 
 </body>
-  </html>
+</html>
