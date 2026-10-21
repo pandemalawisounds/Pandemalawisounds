@@ -61,49 +61,19 @@ a {
 /* 3. WEBSITE HEADER                     */
 /* ===================================== */
 
+./* HEADER IMAGE */
 .topbar {
-  min-height: 76px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 14px 20px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   border-bottom: 3px solid var(--orange);
 }
 
-/* Logo and website name */
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  min-width: 290px;
+.topbar img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
-
-.brand-mark {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--orange);
-  color: #fff;
-  font-size: 23px;
-  font-weight: 800;
-}
-
-.brand h1 {
-  font-size: 25px;
-  margin: 0 0 4px;
-  letter-spacing: -.5px;
-}
-
-.brand p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 11px;
-}
-
 
 /* ===================================== */
 /* 4. TOP NAVIGATION LINKS               */
@@ -831,32 +801,31 @@ a {
 
 
   <!-- ================================= -->
-  <!-- 21. WEBSITE HEADER AND NAVIGATION -->
-  <!-- ================================= -->
 
-  <header class="topbar" id="home">
+<!-- 21. WEBSITE HEADER AND NAVIGATION -->
+<!-- ================================= -->
 
-    <!-- Website logo and name -->
+<header class="topbar" id="home">
 
-    <div class="brand">
-      <div class="brand-mark">P</div>
+  <!-- Header picture -->
+  <img
+    class="header-image"
+    src="images/pandemalawisounds-header.webp"
+    alt="PandeMalawiSounds — Upload, Download, Stream and Share"
+    fetchpriority="high"
+    decoding="async"
+  >
 
-      <div>
-        <h1>PandeMalawiSounds</h1>
-        <p>Upload · Download · Stream · Share</p>
-      </div>
-    </div>
+  <!-- Main navigation links -->
+  <nav class="top-links" aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#latest">Latest Uploads</a>
+    <a href="#artists">Featured Artists</a>
+  </nav>
 
-    <!-- Main navigation links -->
+</header>
 
-    <nav class="top-links" aria-label="Main navigation">
-      <a href="#home">Home</a>
-      <a href="#categories">Categories</a>
-      <a href="#latest">Latest Uploads</a>
-      <a href="#artists">Featured Artists</a>
-    </nav>
-
-  </header>
 
 
   <!-- ================================= -->
