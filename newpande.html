@@ -765,30 +765,111 @@ a {
 
 
 /* ===================================== */
-/* 19. WEBSITE FOOTER                    */
+/* 20. FOOTER POPUP WINDOWS              */
 /* ===================================== */
 
-.footer {
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 16px 20px;
-  border-top: 1px solid var(--line);
-  background: #fffaf3;
-  font-size: 12px;
+  justify-content: center;
+
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  overflow-y: auto;
 }
 
-/* Footer navigation links */
-
-.footer-links {
-  display: flex;
-  gap: 22px;
+.popup-overlay[aria-hidden="true"] {
+  display: none;
 }
 
-.footer a {
-  display: flex;
-  gap: 6px;
-  align-items: center;
+.footer-popup[hidden] {
+  display: none;
+}
+
+.footer-popup {
+  position: relative;
+
+  width: 100%;
+  max-width: 550px;
+  max-height: 85vh;
+
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  padding: 28px;
+  background: #ffffff;
+  color: #333333;
+
+  border-radius: 12px;
+  border-top: 5px solid #f28c28;
+
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.footer-popup h2 {
+  margin: 0 35px 20px 0;
+  color: #e87916;
+  font-size: 22px;
+}
+
+.footer-popup h3 {
+  margin-top: 20px;
+  font-size: 16px;
+}
+
+.footer-popup p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 34px;
+  height: 34px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: #fff0df;
+  color: #b85d08;
+
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-close:hover {
+  background: #f28c28;
+  color: #ffffff;
+}
+
+/* Mobile layout */
+
+@media (max-width: 600px) {
+  .footer {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 15px;
+  }
+
+  .footer-popup {
+    padding: 22px;
+  }
 }
 
 </style>
@@ -1401,6 +1482,7 @@ a {
 
 
 
+  
   <!-- ================================= -->
   <!-- 28. WEBSITE FOOTER                -->
   <!-- ================================= -->
@@ -1409,15 +1491,178 @@ a {
 
     <span>© PandeMalawiSounds</span>
 
-    <!-- Footer navigation links -->
-
     <nav class="footer-links" aria-label="Footer navigation">
-      <a href="#payment" id="payment"><span>💳</span>Payment</a>
-      <a href="#contact" id="contact"><span>✉️</span>Contact Us</a>
-      <a href="#about" id="about"><span>ⓘ</span>About</a>
+
+      <a href="#payment" data-popup="payment">
+        <span>💳</span> Payment
+      </a>
+
+      <a href="#contact" data-popup="contact">
+        <span>✉️</span> Contact Us
+      </a>
+
+      <a href="#about" data-popup="about">
+        <span>ⓘ</span> About
+      </a>
+
+      <a href="#policy" data-popup="policy">
+        <span>📄</span> Policy
+      </a>
+
     </nav>
 
   </footer>
+
+
+  <!-- ================================= -->
+  <!-- 29. FOOTER POPUP WINDOWS          -->
+  <!-- ================================= -->
+
+  <div class="popup-overlay" id="popup-overlay" aria-hidden="true">
+
+    <!-- PAYMENT POPUP -->
+
+    <section class="footer-popup"
+      id="popup-payment"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="title-payment"
+      hidden>
+
+      <button class="popup-close" type="button"
+        aria-label="Close popup">✕</button>
+
+      <h2 id="title-payment">💳 Payment</h2>
+
+      <p>
+        Welcome to PandeMalawiSounds.
+      </p>
+
+      <p>
+        Payment information and available payment methods
+        will be provided here.
+      </p>
+
+      <p>
+        Please confirm payment details with us before sending money.
+      </p>
+
+    </section>
+
+
+    <!-- CONTACT US POPUP -->
+
+    <section class="footer-popup"
+      id="popup-contact"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="title-contact"
+      hidden>
+
+      <button class="popup-close" type="button"
+        aria-label="Close popup">✕</button>
+
+      <h2 id="title-contact">✉️ Contact Us</h2>
+
+      <p>
+        Have a question, suggestion, or business enquiry?
+      </p>
+
+      <p>
+        Contact PandeMalawiSounds for assistance.
+      </p>
+
+      <p>
+        Phone: Add your phone number here.
+      </p>
+
+      <p>
+        Email: Add your email address here.
+      </p>
+
+    </section>
+
+
+    <!-- ABOUT POPUP -->
+
+    <section class="footer-popup"
+      id="popup-about"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="title-about"
+      hidden>
+
+      <button class="popup-close" type="button"
+        aria-label="Close popup">✕</button>
+
+      <h2 id="title-about">ⓘ About Us</h2>
+
+      <p>
+        Welcome to PandeMalawiSounds!
+      </p>
+
+      <p>
+        Our platform aims to connect people with music,
+        entertainment, services, and useful opportunities
+        in Malawi.
+      </p>
+
+      <p>
+        More information about our platform will be added here.
+      </p>
+
+    </section>
+
+
+    <!-- POLICY POPUP -->
+
+    <section class="footer-popup"
+      id="popup-policy"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="title-policy"
+      hidden>
+
+      <button class="popup-close" type="button"
+        aria-label="Close popup">✕</button>
+
+      <h2 id="title-policy">📄 Website Policy</h2>
+
+      <h3>1. General Use</h3>
+      <p>
+        Visitors should use this website responsibly and
+        provide accurate information when using its services.
+      </p>
+
+      <h3>2. Music and Content</h3>
+      <p>
+        Content is provided for its intended purpose.
+        Copyright owners retain their applicable rights.
+      </p>
+
+      <h3>3. Payments</h3>
+      <p>
+        Confirm the recipient and payment details before
+        making any transaction.
+      </p>
+
+      <h3>4. Third-Party Services</h3>
+      <p>
+        Links to external websites and services may be
+        governed by their own terms and privacy policies.
+      </p>
+
+      <h3>5. Updates</h3>
+      <p>
+        This policy may be updated as the website develops.
+        The final policy should reflect the actual services
+        and practices of PandeMalawiSounds.
+      </p>
+
+    </section>
+
+  </div>
+
 
 
 </div>
@@ -1626,6 +1871,87 @@ playButton.addEventListener("click", () => {
 demoAudio.addEventListener("ended", () =>
   playButton.textContent = "▶"
 );
+
+
+/* ===================================== */
+/* 1. FOOTER POPUP CONTROLS              */
+/* ===================================== */
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const overlay = document.getElementById("popup-overlay");
+  const footerLinks = document.querySelectorAll("[data-popup]");
+  const popups = document.querySelectorAll(".footer-popup");
+  const closeButtons = document.querySelectorAll(".popup-close");
+
+  if (!overlay) return;
+
+  let previousFocus = null;
+
+  function openPopup(name) {
+    const popup = document.getElementById("popup-" + name);
+
+    if (!popup) return;
+
+    previousFocus = document.activeElement;
+
+    popups.forEach(function (item) {
+      item.hidden = true;
+    });
+
+    popup.hidden = false;
+    overlay.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+
+    const closeButton = popup.querySelector(".popup-close");
+
+    if (closeButton) {
+      closeButton.focus();
+    }
+  }
+
+  function closePopup() {
+    overlay.setAttribute("aria-hidden", "true");
+
+    popups.forEach(function (popup) {
+      popup.hidden = true;
+    });
+
+    document.body.style.overflow = "";
+
+    if (previousFocus) {
+      previousFocus.focus();
+    }
+  }
+
+  footerLinks.forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const name = link.getAttribute("data-popup");
+      openPopup(name);
+    });
+  });
+
+  closeButtons.forEach(function (button) {
+    button.addEventListener("click", closePopup);
+  });
+
+  overlay.addEventListener("click", function (event) {
+    if (event.target === overlay) {
+      closePopup();
+    }
+  });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" &&
+        overlay.getAttribute("aria-hidden") === "false") {
+      closePopup();
+    }
+  });
+
+});
+
 
 </script>
 
