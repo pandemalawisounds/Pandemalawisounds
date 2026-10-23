@@ -1484,232 +1484,211 @@ a {
 
   
   
-  <!-- ================================= -->
-  <!-- 29. FOOTER POPUP WINDOWS          -->
-  <!-- ================================= -->
+<!-- LATEST UPLOADS AND TRENDING SONGS -->
+<div class="two-boxes">
 
-  <div class="popup-overlay" id="popup-overlay" aria-hidden="true">
+  <!-- LATEST UPLOADS PREVIEW -->
+  <section class="panel" id="latest">
+    <h2 class="panel-title" data-popup="latest">
+      <span class="title-dot"></span> Latest Uploads
+    </h2>
 
-    <!-- PAYMENT POPUP -->
-    <section class="footer-popup"
-      id="popup-payment"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="title-payment"
-      hidden>
-
-      <button class="popup-close" type="button"
-        aria-label="Close popup">✕</button>
-
-      <h2 id="title-payment">💳 Payment</h2>
-      <p>Welcome to PandeMalawiSounds.</p>
-      <p>Payment information and available payment methods will be provided here.</p>
-      <p>Please confirm payment details with us before sending money.</p>
-
-    </section>
-
-
-    <!-- CONTACT US POPUP -->
-    <section class="footer-popup"
-      id="popup-contact"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="title-contact"
-      hidden>
-
-      <button class="popup-close" type="button"
-        aria-label="Close popup">✕</button>
-
-      <h2 id="title-contact">✉️ Contact Us</h2>
-      <p>Have a question, suggestion, or business enquiry?</p>
-      <p>Contact PandeMalawiSounds for assistance.</p>
-      <p>Phone: Add your phone number here.</p>
-      <p>Email: Add your email address here.</p>
-
-    </section>
-
-
-    <!-- ABOUT POPUP -->
-    <section class="footer-popup"
-      id="popup-about"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="title-about"
-      hidden>
-
-      <button class="popup-close" type="button"
-        aria-label="Close popup">✕</button>
-
-      <h2 id="title-about">ⓘ About Us</h2>
-      <p>Welcome to PandeMalawiSounds!</p>
-      <p>Our platform aims to connect people with music, entertainment, services, and useful opportunities in Malawi.</p>
-      <p>More information about our platform will be added here.</p>
-
-    </section>
-
-
-    <!-- POLICY POPUP -->
-    <section class="footer-popup"
-      id="popup-policy"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="title-policy"
-      hidden>
-
-      <button class="popup-close" type="button"
-        aria-label="Close popup">✕</button>
-
-      <h2 id="title-policy">📄 Website Policy</h2>
-
-      <h3>1. General Use</h3>
-      <p>Visitors should use this website responsibly and provide accurate information when using its services.</p>
-
-      <h3>2. Music and Content</h3>
-      <p>Content is provided for its intended purpose. Copyright owners retain their applicable rights.</p>
-
-      <h3>3. Payments</h3>
-      <p>Confirm the recipient and payment details before making any transaction.</p>
-
-      <h3>4. Third-Party Services</h3>
-      <p>Links to external websites and services may be governed by their own terms and privacy policies.</p>
-
-      <h3>5. Updates</h3>
-      <p>This policy may be updated as the website develops. The final policy should reflect the actual services and practices of PandeMalawiSounds.</p>
-
-    </section>
-
-
-    <!-- ================================= -->
-    <!-- LATEST UPLOADS POPUP              -->
-    <!-- ================================= -->
-
-    <section class="footer-popup"
-      id="popup-latest"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="title-latest"
-      hidden>
-
-      <button class="popup-close" type="button"
-        aria-label="Close popup">✕</button>
-
-      <h2 id="title-latest">🎵 Latest Uploads</h2>
-      <p>Discover the latest music on PandeMalawiSounds.</p>
-
-      <div class="popup-song-list">
-
-        <div class="song" data-search="sample song one demo artist gospel">
-          <div class="song-cover">🎵</div>
-          <div class="song-meta">
-            <strong>Sample Song One</strong>
-            <span>Demo Artist · Gospel</span>
-          </div>
+    <div class="panel-body song-list searchable">
+      <div class="song" data-search="sample song one demo artist gospel">
+        <div class="song-cover">🎵</div>
+        <div class="song-meta">
+          <strong>Sample Song One</strong>
+          <span>Demo Artist · Gospel</span>
         </div>
-
-        <div class="song" data-search="sample song two artist two afro beats">
-          <div class="song-cover">🎶</div>
-          <div class="song-meta">
-            <strong>Sample Song Two</strong>
-            <span>Artist Two · Afro Beats</span>
-          </div>
-        </div>
-
-        <div class="song" data-search="sample song three artist three hip hop">
-          <div class="song-cover">🎧</div>
-          <div class="song-meta">
-            <strong>Sample Song Three</strong>
-            <span>Artist Three · Hip Hop</span>
-          </div>
-        </div>
-
-        <div class="song" data-search="sample song four artist four reggae">
-          <div class="song-cover">🎼</div>
-          <div class="song-meta">
-            <strong>Sample Song Four</strong>
-            <span>Artist Four · Reggae</span>
-          </div>
-        </div>
-
-        <div class="song" data-search="sample song five artist five afro pop">
-          <div class="song-cover">🎤</div>
-          <div class="song-meta">
-            <strong>Sample Song Five</strong>
-            <span>Artist Five · Afro Pop</span>
-          </div>
-        </div>
-
       </div>
-    </section>
 
-
-    <!-- ================================= -->
-    <!-- TRENDING SONGS POPUP              -->
-    <!-- ================================= -->
-
-    <section class="footer-popup"
-      id="popup-trending"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="title-trending"
-      hidden>
-
-      <button class="popup-close" type="button"
-        aria-label="Close popup">✕</button>
-
-      <h2 id="title-trending">🔥 Trending Songs</h2>
-      <p>Explore the songs gaining attention.</p>
-
-      <div class="popup-song-list">
-
-        <div class="song" data-search="trending song one demo artist">
-          <span class="rank">01</span>
-          <div class="song-cover">🔥</div>
-          <div class="song-meta">
-            <strong>Trending Song One</strong>
-            <span>Demo Artist</span>
-          </div>
+      <div class="song" data-search="sample song two artist two afro beats">
+        <div class="song-cover">🎶</div>
+        <div class="song-meta">
+          <strong>Sample Song Two</strong>
+          <span>Artist Two · Afro Beats</span>
         </div>
-
-        <div class="song" data-search="trending song two artist two">
-          <span class="rank">02</span>
-          <div class="song-cover">🔥</div>
-          <div class="song-meta">
-            <strong>Trending Song Two</strong>
-            <span>Artist Two</span>
-          </div>
-        </div>
-
-        <div class="song" data-search="trending song three artist three">
-          <span class="rank">03</span>
-          <div class="song-cover">🔥</div>
-          <div class="song-meta">
-            <strong>Trending Song Three</strong>
-            <span>Artist Three</span>
-          </div>
-        </div>
-
-        <div class="song" data-search="trending song four artist four">
-          <span class="rank">04</span>
-          <div class="song-cover">🔥</div>
-          <div class="song-meta">
-            <strong>Trending Song Four</strong>
-            <span>Artist Four</span>
-          </div>
-        </div>
-
-        <div class="song" data-search="trending song five artist five">
-          <span class="rank">05</span>
-          <div class="song-cover">🔥</div>
-          <div class="song-meta">
-            <strong>Trending Song Five</strong>
-            <span>Artist Five</span>
-          </div>
-        </div>
-
       </div>
-    </section>
 
-  </div>
+      <div class="song" data-search="sample song three artist three hip hop">
+        <div class="song-cover">🎧</div>
+        <div class="song-meta">
+          <strong>Sample Song Three</strong>
+          <span>Artist Three · Hip Hop</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING SONGS PREVIEW -->
+  <section class="panel" id="trending">
+    <h2 class="panel-title" data-popup="trending">
+      <span class="title-dot"></span> Trending Songs
+    </h2>
+
+    <div class="panel-body song-list searchable">
+      <div class="song" data-search="trending song one demo artist">
+        <span class="rank">01</span>
+        <div class="song-cover">🔥</div>
+        <div class="song-meta">
+          <strong>Trending Song One</strong>
+          <span>Demo Artist</span>
+        </div>
+      </div>
+
+      <div class="song" data-search="trending song two artist two">
+        <span class="rank">02</span>
+        <div class="song-cover">🔥</div>
+        <div class="song-meta">
+          <strong>Trending Song Two</strong>
+          <span>Artist Two</span>
+        </div>
+      </div>
+
+      <div class="song" data-search="trending song three artist three">
+        <span class="rank">03</span>
+        <div class="song-cover">🔥</div>
+        <div class="song-meta">
+          <strong>Trending Song Three</strong>
+          <span>Artist Three</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- WEBSITE FOOTER -->
+<footer class="footer">
+  <span>© PandeMalawiSounds</span>
+
+  <nav class="footer-links" aria-label="Footer navigation">
+    <a href="#payment" data-popup="payment">💳 Payment</a>
+    <a href="#contact" data-popup="contact">✉️ Contact Us</a>
+    <a href="#about" data-popup="about">ⓘ About</a>
+    <a href="#policy" data-popup="policy">📄 Policy</a>
+  </nav>
+</footer>
+
+<!-- POPUP OVERLAY -->
+<div class="popup-overlay" id="popup-overlay" aria-hidden="true">
+
+  <!-- PAYMENT -->
+  <section class="footer-popup" id="popup-payment"
+    role="dialog" aria-modal="true" aria-labelledby="title-payment" hidden>
+    <button class="popup-close" type="button" aria-label="Close popup">✕</button>
+    <h2 id="title-payment">💳 Payment</h2>
+    <p>Welcome to PandeMalawiSounds.</p>
+    <p>Payment information and available payment methods will be provided here.</p>
+    <p>Please confirm payment details with us before sending money.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="footer-popup" id="popup-contact"
+    role="dialog" aria-modal="true" aria-labelledby="title-contact" hidden>
+    <button class="popup-close" type="button" aria-label="Close popup">✕</button>
+    <h2 id="title-contact">✉️ Contact Us</h2>
+    <p>Have a question, suggestion, or business enquiry?</p>
+    <p>Contact PandeMalawiSounds for assistance.</p>
+    <p>Phone: Add your phone number here.</p>
+    <p>Email: Add your email address here.</p>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="footer-popup" id="popup-about"
+    role="dialog" aria-modal="true" aria-labelledby="title-about" hidden>
+    <button class="popup-close" type="button" aria-label="Close popup">✕</button>
+    <h2 id="title-about">ⓘ About Us</h2>
+    <p>Welcome to PandeMalawiSounds!</p>
+    <p>Our platform aims to connect people with music, entertainment, services, and useful opportunities in Malawi.</p>
+    <p>More information about our platform will be added here.</p>
+  </section>
+
+  <!-- POLICY -->
+  <section class="footer-popup" id="popup-policy"
+    role="dialog" aria-modal="true" aria-labelledby="title-policy" hidden>
+    <button class="popup-close" type="button" aria-label="Close popup">✕</button>
+    <h2 id="title-policy">📄 Website Policy</h2>
+    <h3>1. General Use</h3>
+    <p>Visitors should use this website responsibly and provide accurate information when using its services.</p>
+    <h3>2. Music and Content</h3>
+    <p>Content is provided for its intended purpose. Copyright owners retain their applicable rights.</p>
+    <h3>3. Payments</h3>
+    <p>Confirm the recipient and payment details before making any transaction.</p>
+    <h3>4. Third-Party Services</h3>
+    <p>Links to external websites and services may be governed by their own terms and privacy policies.</p>
+    <h3>5. Updates</h3>
+    <p>This policy may be updated as the website develops. The final policy should reflect the actual services and practices of PandeMalawiSounds.</p>
+  </section>
+
+  <!-- LATEST UPLOADS POPUP -->
+  <section class="footer-popup" id="popup-latest"
+    role="dialog" aria-modal="true" aria-labelledby="title-latest" hidden>
+    <button class="popup-close" type="button" aria-label="Close popup">✕</button>
+    <h2 id="title-latest">🎵 Latest Uploads</h2>
+    <p>Discover the latest music on PandeMalawiSounds.</p>
+
+    <div class="popup-song-list">
+      <div class="song">
+        <div class="song-cover">🎵</div>
+        <div class="song-meta"><strong>Sample Song One</strong><span>Demo Artist · Gospel</span></div>
+      </div>
+      <div class="song">
+        <div class="song-cover">🎶</div>
+        <div class="song-meta"><strong>Sample Song Two</strong><span>Artist Two · Afro Beats</span></div>
+      </div>
+      <div class="song">
+        <div class="song-cover">🎧</div>
+        <div class="song-meta"><strong>Sample Song Three</strong><span>Artist Three · Hip Hop</span></div>
+      </div>
+      <div class="song">
+        <div class="song-cover">🎼</div>
+        <div class="song-meta"><strong>Sample Song Four</strong><span>Artist Four · Reggae</span></div>
+      </div>
+      <div class="song">
+        <div class="song-cover">🎤</div>
+        <div class="song-meta"><strong>Sample Song Five</strong><span>Artist Five · Afro Pop</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDING SONGS POPUP -->
+  <section class="footer-popup" id="popup-trending"
+    role="dialog" aria-modal="true" aria-labelledby="title-trending" hidden>
+    <button class="popup-close" type="button" aria-label="Close popup">✕</button>
+    <h2 id="title-trending">🔥 Trending Songs</h2>
+    <p>Explore the songs gaining attention.</p>
+
+    <div class="popup-song-list">
+      <div class="song">
+        <span class="rank">01</span>
+        <div class="song-cover">🔥</div>
+        <div class="song-meta"><strong>Trending Song One</strong><span>Demo Artist</span></div>
+      </div>
+      <div class="song">
+        <span class="rank">02</span>
+        <div class="song-cover">🔥</div>
+        <div class="song-meta"><strong>Trending Song Two</strong><span>Artist Two</span></div>
+      </div>
+      <div class="song">
+        <span class="rank">03</span>
+        <div class="song-cover">🔥</div>
+        <div class="song-meta"><strong>Trending Song Three</strong><span>Artist Three</span></div>
+      </div>
+      <div class="song">
+        <span class="rank">04</span>
+        <div class="song-cover">🔥</div>
+        <div class="song-meta"><strong>Trending Song Four</strong><span>Artist Four</span></div>
+      </div>
+      <div class="song">
+        <span class="rank">05</span>
+        <div class="song-cover">🔥</div>
+        <div class="song-meta"><strong>Trending Song Five</strong><span>Artist Five</span></div>
+      </div>
+    </div>
+  </section>
+
+</div>
 
 
 
